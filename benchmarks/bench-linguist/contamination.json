@@ -1,0 +1,7 @@
+{
+  "_about": "Entries whose identifier was trained on (part of) this benchmark's files — their score is partly accuracy on training data. Keys are entry-name prefixes; counts are of this benchmark's 3,404 files, by git blob id.",
+  "Synid": "its classifier is Hyperpolyglot's, trained on a 2023 copy of Linguist's samples: 2,271 of the files (tag `seen-in-training`)",
+  "Hyperpolyglot": "classifier trained on a 2023 copy of Linguist's samples: 2,271 of the files (tag `seen-in-training`)",
+  "GitHub Linguist 9.7.0": "heuristics and classifier built from its own samples: every file but the 16 added after 9.7.0",
+  "go-enry 2.9.6": "generated from Linguist v9.5.0: 3,250 of the files (all but the 154 added since)"
+}

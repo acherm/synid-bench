@@ -1,0 +1,8 @@
+[package]
+name = "hyply-identify"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+hyperpolyglot = { git = "https://github.com/monkslc/hyperpolyglot", rev = "a55a3b58eaed09b4314ef93d78e50a80cfec36f4" }
+serde_json = "1"

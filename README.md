@@ -61,6 +61,9 @@ Python 3.10+, no dependencies; runs locally.
 | `tools/history.py <bench>` | every stored baseline side by side → `<bench>/HISTORY.md` |
 | `tools/leaderboard.py` | every run of every benchmark (`baselines/` and `entries/`), ranked → `LEADERBOARD.md` and `<bench>/LEADERBOARD.md` |
 | `tools/jev_linguist.py <bench>` | asks Jev (a lightweight decision model, OpenRouter) the language of each case among all of GitHub Linguist's languages → a leaderboard entry (needs an OpenRouter key; ~$0.06 for bench-m) |
+| `tools/external.py <bench> --tool T` | runs another identifier (Linguist, go-enry, Hyperpolyglot, cloc, Pygments, Magika, Guesslang) in its pinned Docker image → a leaderboard entry (`--content-only`: without the file name; `--labels`: the tool's label set) |
+| `tools/ollama_llm.py <bench> --model M` | asks a local language model (Ollama; e.g. StarCoder2-3B) the language from the first 2,000 characters → an entry |
+| `tools/coverage.py <bench>` | which of the benchmark's languages each entry can name, and its accuracy on those → `COVERAGE.md` |
 | `tools/failures.py <bench>` | every case the latest Synid gets wrong, with the program, the answers of every configuration, and the root cause (from the benchmark's `root_causes.py`) → `<bench>/FAILURES.md` |
 
 A new Synid version that is accepted gets its run copied into

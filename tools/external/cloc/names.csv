@@ -1,0 +1,37 @@
+# cloc label → Linguist name(s) of the same language. Rule (all tools alike): synonyms only; a label covering several
+# Linguist languages maps to all of them (the answer then counts as undecided); a dialect or a broader/narrower
+# kind (JSX vs JavaScript, MSBuild vs XML, Arduino vs C++) is NOT mapped — it stays a different answer.
+label,linguist
+C/C++ Header,C;C++;Objective-C
+Verilog-SystemVerilog,Verilog;SystemVerilog
+Bourne Again Shell,Shell
+Bourne Shell,Shell
+Fish Shell,fish
+ReasonML,Reason
+Fortran 77,Fortran
+AnsProlog,Answer Set Programming
+Apex Class,Apex
+Apex Trigger,Apex
+Freemarker Template,FreeMarker
+Godot Shaders,GDShader
+Godot Scene,Godot Resource
+Prisma Schema,Prisma
+Grails,Groovy Server Pages
+Properties,Java Properties
+Rego,Open Policy Agent
+Glimmer TypeScript,Glimmer TS
+Glimmer JavaScript,Glimmer JS
+Windows Message File,Win32 Message File
+Jinja Template,Jinja
+Oracle PL/SQL,PLSQL
+Qt Project,QMake
+TLA+,TLA
+Tcl/Tk,Tcl
+Vuejs Component,Vue
+Embedded Crystal,HTML+ECR
+HTML EEx,HTML+EEX
+Ruby HTML,HTML+ERB
+Maven,Maven POM
+Unity-Prefab,Unity3D Asset
+ColdFusion CFScript,ColdFusion CFC
+xBase Header,xBase

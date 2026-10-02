@@ -15,6 +15,7 @@ the benchmarks' accuracies; only benchmarks the entry was run on count.
 
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
@@ -100,12 +101,19 @@ def bench_board(bench: Path) -> tuple[str, dict[str, dict], list[dict]]:
                                  "kind": meta.get("kind", "synid")}
         infos.append(info)
     rows.sort(key=lambda r: (-(r["m"]["accuracy"] or 0), -(r["m"]["precision"] or 0), r["name"]))
+    cont_p = bench / "contamination.json"
+    cont = {k: v for k, v in json.loads(cont_p.read_text(encoding="utf-8")).items() if not k.startswith("_")} \
+        if cont_p.exists() else {}
+
+    def contaminated(name: str) -> str | None:
+        return next((v for k, v in cont.items() if name.startswith(k)), None)
     refs.sort(key=lambda r: (r["meta"].get("kind") != "ground-truth", r["name"]))
 
     def line(rank, r):
         m, o = r["m"], r["m"]["outcomes"]
         w = f" | {pct(m['weighted']['accuracy'])}" if has_weights else ""
-        return (f"| {rank} | {r['name']}{' (baseline)' if r['baseline'] else ''} | {r['info']['kind']} | "
+        dag = " †" if contaminated(r["name"]) else ""
+        return (f"| {rank} | {r['name']}{' (baseline)' if r['baseline'] else ''}{dag} | {r['info']['kind']} | "
                 f"**{m['right']}/{m['n']}** ({pct(m['accuracy'])}) [{pct(m['ci'][0])}, {pct(m['ci'][1])}]{w} | "
                 f"{pct(m['precision'])} | {o.get('text', 0)} | {o.get('undecided', 0) + o.get('none', 0)} | "
                 f"{o.get('wrong', 0)} | " + " | ".join(f"{r['tags'][t]}/{len(tags[t])}" for t in tag_names) + " |")
@@ -121,6 +129,10 @@ def bench_board(bench: Path) -> tuple[str, dict[str, dict], list[dict]]:
            + ("; *weighted to the population* re-weights the stratified draw to all files of the extension in "
               "Software Heritage" if has_weights else "") + ".", "", *HOW_TO_READ, "", head, sep]
     out += [line(i, r) for i, r in enumerate(rows, 1)]
+    marked = sorted({k: v for r in rows for k, v in cont.items() if r["name"].startswith(k)}.items())
+    if marked:
+        out += ["", "† Trained on part of this benchmark — the score is partly accuracy on training data "
+                "(read the tag columns): " + "; ".join(f"*{k}*: {v}" for k, v in marked) + "."]
     if refs:
         out += ["", "## References (not ranked)", "",
                 "The ground truth, and the LLM judges whose agreement with it backs the benchmark's labels — "
