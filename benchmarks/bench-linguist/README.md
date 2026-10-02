@@ -81,12 +81,16 @@ for what each can name at all.
 | Pygments 2.21.0 | 32.3 % | 10.2 % from the content only (`guess_lexer`) |
 | StarCoder2-3B (local, completion prompt) | 30.1 % | answers C, Python, C++ or JavaScript on 1,322 files; trained on The Stack v2 (from Software Heritage) — whether these files were in it is not checked |
 | Magika 1.0.3 | 25.3 % | content types, not languages: names 96 of the 768; right on 78.7 % of those |
+| Guesslang 2.2.1 | 21.8 % | 54 languages; reads the text only (on TensorFlow 2.10: 2.5 has no ARM build) |
+| Jev 1.13, the `.m` study's 63 labels | 14.2 % | 54/54 on bench-m; here right on 94.9 % of the 509 files whose language has a label of its own — the label set, not the model, limits it |
+| Kev-4B (local, llama.cpp), Linguist's languages | in progress | 47/54 on bench-m; on the first 132 files of its random-order run, 60.6 % (Jev on the same files: 84.8 %) |
 
 Reading across: with the file name, the Linguist family wins on the files it was built from; without
 it, every other tool collapses (2.8 – 10.2 %) while a decision model keeps 82 %. On files a tool was not
 trained on, the decision model does better: 76.1 % vs 54.8 % for Synid on `unseen`; 79.0 % vs 22.6 %
-for go-enry on the files added to Linguist after its snapshot (Jev's own training data is not known). Kev-4B, an open decision model run locally (llama.cpp), gets 47 / 54 on bench-m; its run
-here is in progress.
+for go-enry on the files added to Linguist after its snapshot (Jev's own training data is not known).
+And the label set matters as much as the model: the same Jev, asked with the 63 labels of the `.m`
+study, is perfect on bench-m and right on 14.2 % here.
 
 See the [leaderboard](LEADERBOARD.md) and the [history of Synid versions](HISTORY.md).
 

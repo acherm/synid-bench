@@ -12,7 +12,9 @@ python3 $B/build_cases.py                                    # cases.csv + files
 # Synid (the version SYNID points to)
 python3 tools/run.py $B --synid "$SYNID" --label head-default
 python3 tools/run.py $B --synid "$SYNID" --label head-content-only --content-only
-python3 tools/run.py $B --synid "$SYNID" --label head-no-pygmentsheuristics --disable pygmentsheuristics
+for s in pygmentsheuristics comment hyplyclassifier hyplyheuristics; do
+  python3 tools/run.py $B --synid "$SYNID" --label head-no-$s --disable $s
+done
 
 # other identifiers, each in its pinned Docker image (tools/external/<tool>/)
 for t in linguist enry hyperpolyglot cloc pygments magika guesslang; do
@@ -26,6 +28,8 @@ python3 tools/external.py $B --tool enry --content-only
 if [ -n "${OPENROUTER_API_KEY:-}" ] || [ -f ~/.openrouter_env ]; then
   python3 tools/jev_linguist.py $B --workers 8
   python3 tools/jev_linguist.py $B --workers 8 --with-filename
+  python3 tools/jev_linguist.py $B --workers 8 --label-set study63                   # ~$0.39
+  python3 tools/jev_linguist.py $B --workers 8 --label-set study63 --with-filename
 fi
 # an open decision model, locally: llama.cpp with the /v1/systemone API (commit a4cb4c6 or later)
 if [ -n "${LLAMA_SERVER:-}" ] && [ -n "${KEV_GGUF:-}" ]; then   # Kev-4B-Q8_0.gguf from huggingface.co/ggml-org/Kev-4B-GGUF
@@ -36,7 +40,7 @@ if [ -n "${LLAMA_SERVER:-}" ] && [ -n "${KEV_GGUF:-}" ]; then   # Kev-4B-Q8_0.gg
   kill $srv
 fi
 if curl -s localhost:11434/api/version >/dev/null; then
-  ollama pull starcoder2:3b && python3 tools/ollama_llm.py $B --model starcoder2:3b
+  ollama pull starcoder2:3b && python3 tools/ollama_llm.py $B --model starcoder2:3b --name StarCoder2-3B
 fi
 
 python3 tools/coverage.py $B --synid "$SYNID"

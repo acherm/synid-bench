@@ -1,4 +1,4 @@
-{"meta": {"label": "pygments", "name": "Pygments guess_lexer_for_filename", "kind": "other-identifier", "version": "Pygments 2.19.2", "about": "the lexer Pygments picks among the four that claim *.m (Matlab, Octave, Objective-C, Mason); always answers", "url": "https://pygments.org/docs/api/#pygments.lexers.guess_lexer_for_filename", "benchmark": "bench-m/1", "source": "PL-ultimate-llm .m study (stored labels)"}}
+{"meta": {"label": "pygments", "name": "Pygments guess_lexer_for_filename", "kind": "other-identifier", "version": "Pygments 2.19.2", "about": "the lexer Pygments picks among the four that claim *.m (Matlab, Octave, Objective-C, Mason); always answers", "url": "https://pygments.org/docs/api/#pygments.lexers.guess_lexer_for_filename", "benchmark": "bench-m/1", "source": "PL-ultimate-llm .m study (stored labels)", "scope": "the study's own run (Pygments 2.19.2) — Pygments 2.21.0 runs on every benchmark"}}
 {"case_id": "m:146faacad4fb", "answer": ["MATLAB"]}
 {"case_id": "m:1f3bba4d2cd6", "answer": ["Objective-C"]}
 {"case_id": "m:1fa4cb2b6c7b", "answer": ["MATLAB"]}

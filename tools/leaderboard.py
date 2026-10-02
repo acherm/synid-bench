@@ -80,7 +80,8 @@ def load_runs(bench: Path) -> list[tuple[dict, dict, str]]:
     return runs
 
 
-def bench_board(bench: Path) -> tuple[str, dict[str, dict], list[dict]]:
+def bench_board(bench: Path, elsewhere: dict[str, dict] | None = None) -> tuple[str, dict[str, dict], list[dict]]:
+    """elsewhere: entries run on other benchmarks (name → meta), listed when not run on this one."""
     cases = read_cases(bench)
     ids = list(cases)
     tags: dict[str, list[str]] = {}
@@ -138,6 +139,15 @@ def bench_board(bench: Path) -> tuple[str, dict[str, dict], list[dict]]:
                 "The ground truth, and the LLM judges whose agreement with it backs the benchmark's labels — "
                 "neither is independent of the ground truth.", "", head, sep]
         out += [line("–", r) for r in refs]
+    missing = {n: m for n, m in (elsewhere or {}).items() if n not in by_name}
+    if missing:
+        prog_p = bench / "in_progress.json"
+        prog = json.loads(prog_p.read_text(encoding="utf-8")) if prog_p.exists() else {}
+        out += ["", "## Not run on this benchmark", "",
+                "Entries of other benchmarks, and why they are not here.", "", "| entry | kind | why |", "|---|---|---|"]
+        for n, m in sorted(missing.items(), key=lambda kv: (KIND.get(kv[1].get("kind", "synid"), ""), kv[0])):
+            why = m.get("scope") or prog.get(n) or "not run yet"
+            out.append(f"| {n} | {KIND.get(m.get('kind', 'synid'), m.get('kind'))} | {why} |")
     out += ["", "## Entries", ""] + info_table([r["info"] for r in rows + refs])
     return "\n".join(out) + "\n", by_name, [r["info"] for r in rows + refs]
 
@@ -146,8 +156,10 @@ def main() -> int:
     benches = sorted(p for p in (ROOT / "benchmarks").iterdir() if (p / "cases.csv").exists())
     per_bench: dict[str, dict[str, dict]] = {}
     all_infos: dict[str, dict] = {}
+    metas = {b.name: {entry_name(m): m for m, _, _ in load_runs(b)} for b in benches}
     for b in benches:
-        text, by_name, infos = bench_board(b)
+        elsewhere = {n: m for o, d in metas.items() if o != b.name for n, m in d.items()}
+        text, by_name, infos = bench_board(b, elsewhere)
         (b / "LEADERBOARD.md").write_text(text, encoding="utf-8")
         per_bench[b.name] = by_name
         for i in infos:
@@ -168,9 +180,19 @@ def main() -> int:
             + " | ".join(f"[{b}](benchmarks/{b}/LEADERBOARD.md)" for b in bnames) + " |")
     sep = "|---:|---|---|---:|---:|---:|" + "---:|" * len(bnames)
 
+    cont = {}
+    for b in benches:
+        cp = b / "contamination.json"
+        if cp.exists():
+            cont[b.name] = {k: v for k, v in json.loads(cp.read_text(encoding="utf-8")).items() if not k.startswith("_")}
+
+    def trained_on(name: str) -> list[str]:
+        return [b for b, d in cont.items() if any(name.startswith(k) for k in d)]
+
     def line(rank, r):
         n, kind, got, right, total, macro = r
-        cells = [f"{got[b]['right']}/{got[b]['n']}" if b in got else "—" for b in bnames]
+        cells = [f"{got[b]['right']}/{got[b]['n']}" + (" †" if b in trained_on(n) else "") if b in got else "—"
+                 for b in bnames]
         return (f"| {rank} | {n} | {KIND.get(kind, kind)} | {len(got)}/{len(bnames)} | **{right}/{total}** "
                 f"({pct(right / total)}) | {pct(macro)} | " + " | ".join(cells) + " |")
 
@@ -180,6 +202,9 @@ def main() -> int:
            "configuration; entries run on more benchmarks rank first, then by *micro* accuracy, which pools the "
            "cases of every benchmark the entry was run on (*macro* averages its accuracies over those benchmarks).", "", *HOW_TO_READ, "", head, sep]
     out += [line(i, r) for i, r in enumerate(ranked, 1)]
+    if cont:
+        out += ["", "† Trained on part of that benchmark's files — the score is partly accuracy on training data; "
+                "see " + ", ".join(f"[{b}](benchmarks/{b}/LEADERBOARD.md)" for b in cont) + "."]
     if refs:
         out += ["", "## References (not ranked)", "", head, sep] + [line("–", r) for r in refs]
     out += ["", "## Entries", ""] + info_table([all_infos[r[0]] for r in ranked + refs])

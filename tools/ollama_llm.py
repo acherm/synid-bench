@@ -62,6 +62,7 @@ def main() -> int:
     ap.add_argument("bench", type=Path)
     ap.add_argument("--model", default="starcoder2:3b")
     ap.add_argument("--workers", type=int, default=2)
+    ap.add_argument("--name", help="display name (default: the model tag)")
     ap.add_argument("--limit", type=int)
     a = ap.parse_args()
     bench = a.bench.resolve()
@@ -104,7 +105,7 @@ def main() -> int:
         return 0
     meta = {"label": label, "kind": "llm-light", "benchmark": (bench / "cases.csv").read_text(encoding="utf-8")
             .splitlines()[0].lstrip("# ").split(" —")[0],
-            "name": f"{a.model} (local, completion prompt), content only",
+            "name": f"{a.name or a.model} (local, completion prompt), content only",
             "version": f"ollama {a.model} @ {digest[:12]}, {PROMPT_VERSION}",
             "about": (f"a local language model continuing the first {CHARS} characters of the file followed by "
                       "\"Question: Which programming language is the code above written in? Answer: The code above "

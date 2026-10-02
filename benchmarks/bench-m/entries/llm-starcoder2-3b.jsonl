@@ -1,6 +1,6 @@
-{"meta": {"label": "ours_v1", "name": "Hand-written .m rules v1 (prospective)", "kind": "specialised", "version": "m-reclass/1, PL-ultimate-llm commit eb988475", "about": "the rule cascade written for the .m study before any judge label existed: unambiguous markers first (Mercury `:-`, Objective-C `@` directives, Wolfram package cells, MUMPS routines, Magma/Maple terminators), then the MATLAB family; Octave only on Octave-only syntax. Specific to .m \u2014 it knows .m-only languages Synid has no candidate for", "url": "https://github.com/acherm/PL-ultimate-llm/blob/swh-evidence-v1/tools/m/reclassify_v1.py", "benchmark": "bench-m/1", "source": "PL-ultimate-llm .m study (stored labels)", "scope": "written for `.m` files only \u2014 bench-m's problem"}}
+{"meta": {"label": "llm-starcoder2-3b", "kind": "llm-light", "benchmark": "bench-m/1", "name": "StarCoder2-3B (local, completion prompt), content only", "version": "ollama starcoder2:3b @ 9f4ae0aff61e, llm-prompt/1", "about": "a local language model continuing the first 2000 characters of the file followed by \"Question: Which programming language is the code above written in? Answer: The code above is written in\" (greedy, 12 tokens; tools/ollama_llm.py); the answer is matched to a Linguist language by name or alias", "date": "2026-10-02"}}
 {"case_id": "m:146faacad4fb", "answer": ["MATLAB"]}
-{"case_id": "m:1f3bba4d2cd6", "answer": ["M"]}
+{"case_id": "m:1f3bba4d2cd6", "answer": ["COBOL"]}
 {"case_id": "m:1fa4cb2b6c7b", "answer": ["MATLAB"]}
 {"case_id": "m:20a3c558d3e9", "answer": ["MATLAB"]}
 {"case_id": "m:2aa25faa0429", "answer": ["Wolfram Language"]}
@@ -8,17 +8,17 @@
 {"case_id": "m:2d7c44c46679", "answer": ["MATLAB"]}
 {"case_id": "m:3951787602d8", "answer": ["MATLAB"]}
 {"case_id": "m:3e9d07c3b66c", "answer": ["MATLAB"]}
-{"case_id": "m:43ff83b70b86", "answer": ["MATLAB"]}
+{"case_id": "m:43ff83b70b86", "answer": ["Python"]}
 {"case_id": "m:44b416ccaddc", "answer": ["MATLAB"]}
 {"case_id": "m:461a890cf580", "answer": ["Objective-C"]}
 {"case_id": "m:4b700d2e4564", "answer": ["Objective-C"]}
 {"case_id": "m:4c3c61887205", "answer": ["MATLAB"]}
 {"case_id": "m:4f03314fe657", "answer": ["Wolfram Language"]}
 {"case_id": "m:4f45185a0be3", "answer": ["MATLAB"]}
-{"case_id": "m:501d6f85d78b", "answer": ["M"]}
+{"case_id": "m:501d6f85d78b", "answer": ["C"]}
 {"case_id": "m:5465b7f4caa5", "answer": ["MATLAB"]}
 {"case_id": "m:5c03006fc1cd", "answer": ["MATLAB"]}
-{"case_id": "m:625aad06c311", "answer": null}
+{"case_id": "m:625aad06c311", "answer": ["C"]}
 {"case_id": "m:64a0686502d5", "answer": ["Objective-C"]}
 {"case_id": "m:659c4479c797", "answer": ["Objective-C"]}
 {"case_id": "m:6865e1cfc864", "answer": ["MATLAB"]}
@@ -27,9 +27,9 @@
 {"case_id": "m:6ca1a94ab387", "answer": ["Mercury"]}
 {"case_id": "m:7e0992b80305", "answer": ["Wolfram Language"]}
 {"case_id": "m:8152648f7580", "answer": ["MATLAB"]}
-{"case_id": "m:8c09f9cf9acd", "answer": ["MATLAB"]}
+{"case_id": "m:8c09f9cf9acd", "answer": ["C"]}
 {"case_id": "m:9a9db3b48faf", "answer": ["MATLAB"]}
-{"case_id": "m:a1ae221c9341", "answer": ["Magma"]}
+{"case_id": "m:a1ae221c9341", "answer": ["Wolfram Language"]}
 {"case_id": "m:a9e039af425c", "answer": ["Wolfram Language"]}
 {"case_id": "m:aeee5e6874e1", "answer": ["MATLAB"]}
 {"case_id": "m:b05373f67b00", "answer": ["MATLAB"]}
@@ -37,19 +37,19 @@
 {"case_id": "m:b536843878e0", "answer": ["Objective-C"]}
 {"case_id": "m:b688de3330c3", "answer": ["MATLAB"]}
 {"case_id": "m:b7f369bcbf63", "answer": ["MATLAB"]}
-{"case_id": "m:bd36626611a8", "answer": ["MATLAB"]}
+{"case_id": "m:bd36626611a8", "answer": ["C"]}
 {"case_id": "m:bf8f93db910a", "answer": ["MATLAB"]}
-{"case_id": "m:c6676eeab063", "answer": ["Text"]}
+{"case_id": "m:c6676eeab063", "answer": ["C"]}
 {"case_id": "m:c7f8219ab2c9", "answer": ["MATLAB"]}
 {"case_id": "m:cc59ae3ecefd", "answer": ["MATLAB"]}
 {"case_id": "m:d0576414217c", "answer": ["Objective-C"]}
-{"case_id": "m:d7647ff036e8", "answer": ["MATLAB"]}
-{"case_id": "m:d8237cb4dbbc", "answer": ["Magma"]}
-{"case_id": "m:ddf374993dcc", "answer": ["Objective-C"]}
+{"case_id": "m:d7647ff036e8", "answer": ["C"]}
+{"case_id": "m:d8237cb4dbbc", "answer": ["Wolfram Language"]}
+{"case_id": "m:ddf374993dcc", "answer": ["C"]}
 {"case_id": "m:dfc7a03b83b4", "answer": ["MATLAB"]}
 {"case_id": "m:e3e2f7f69a45", "answer": ["MATLAB"]}
 {"case_id": "m:e4183b2f54a8", "answer": ["MATLAB"]}
-{"case_id": "m:f0da3d99487d", "answer": null}
+{"case_id": "m:f0da3d99487d", "answer": ["MATLAB"]}
 {"case_id": "m:f2bff377f27b", "answer": ["MATLAB"]}
 {"case_id": "m:f48c89191177", "answer": ["MATLAB"]}
-{"case_id": "m:f801588fbe7c", "answer": ["Magma"]}
+{"case_id": "m:f801588fbe7c", "answer": ["Wolfram Language"]}

@@ -1,4 +1,4 @@
-{"meta": {"label": "human", "name": "Human reviewer (blind) \u2014 the ground truth", "kind": "ground-truth", "benchmark": "bench-m/1", "version": "blind audit of the .m study, October 2026", "about": "the labels every entry is scored against: a reviewer read each file and its provenance, with no machine label shown; right on every case by definition. The two LLM judges agree with it on all 54", "url": "https://github.com/acherm/PL-ultimate-llm/blob/swh-evidence-v1/docs/m_swh_study.md"}}
+{"meta": {"label": "human", "name": "Human reviewer (blind) \u2014 the ground truth", "kind": "ground-truth", "benchmark": "bench-m/1", "version": "blind audit of the .m study, October 2026", "about": "the labels every entry is scored against: a reviewer read each file and its provenance, with no machine label shown; right on every case by definition. The two LLM judges agree with it on all 54", "url": "https://github.com/acherm/PL-ultimate-llm/blob/swh-evidence-v1/docs/m_swh_study.md", "scope": "bench-m's ground truth"}}
 {"case_id": "m:146faacad4fb", "answer": ["MATLAB"]}
 {"case_id": "m:1f3bba4d2cd6", "answer": ["M"]}
 {"case_id": "m:1fa4cb2b6c7b", "answer": ["MATLAB"]}

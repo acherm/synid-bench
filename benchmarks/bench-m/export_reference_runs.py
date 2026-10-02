@@ -32,34 +32,34 @@ NAME = {"objective-c": "Objective-C", "matlab": "MATLAB", "octave": "MATLAB", "m
         "c-or-cpp": "C", "not-code": "Text", "other-programming-language": "Other"}
 PLB = "https://github.com/acherm/PL-ultimate-llm/blob/swh-evidence-v1"
 ENTRIES = {
-    "ours_v1": {"name": "Hand-written .m rules v1 (prospective)", "kind": "specialised",
+    "ours_v1": {"scope": "written for `.m` files only — bench-m's problem", "name": "Hand-written .m rules v1 (prospective)", "kind": "specialised",
                 "version": "m-reclass/1, PL-ultimate-llm commit eb988475",
                 "about": "the rule cascade written for the .m study before any judge label existed: unambiguous "
                          "markers first (Mercury `:-`, Objective-C `@` directives, Wolfram package cells, MUMPS "
                          "routines, Magma/Maple terminators), then the MATLAB family; Octave only on Octave-only "
                          "syntax. Specific to .m — it knows .m-only languages Synid has no candidate for",
                 "url": f"{PLB}/tools/m/reclassify_v1.py"},
-    "ours": {"name": "Hand-written .m rules v2 (partly tuned on these files)", "kind": "specialised",
+    "ours": {"scope": "written for `.m` files only — bench-m's problem", "name": "Hand-written .m rules v2 (partly tuned on these files)", "kind": "specialised",
              "version": "m-reclass/2",
              "about": "v1 revised after reading 7 disagreements with the LLM judges on the study's first 300 "
                       "uniformly sampled files (Wolfram expressions; a fallback for marker-less MATLAB scripts); "
                       "12 of the 54 cases were among those 300",
              "url": f"{PLB}/tools/m/reclassify.py"},
-    "linguist": {"name": "Linguist .m heuristics (rules only)", "kind": "other-identifier",
+    "linguist": {"scope": "Linguist's `.m` rules only, so `.m` files only — GitHub Linguist 9.7.0 itself runs on every benchmark", "name": "Linguist .m heuristics (rules only)", "kind": "other-identifier",
                  "version": "heuristics.yml `.m` block, as vendored by Hyperpolyglot / Synid",
                  "about": "a Python port of GitHub Linguist's seven `.m` disambiguation rules — first match wins; "
                           "no match = abstain (Linguist itself would then fall back to its Bayesian classifier)",
                  "url": f"{PLB}/tools/m/labellers.py"},
-    "pygments": {"name": "Pygments guess_lexer_for_filename", "kind": "other-identifier",
+    "pygments": {"scope": "the study's own run (Pygments 2.19.2) — Pygments 2.21.0 runs on every benchmark", "name": "Pygments guess_lexer_for_filename", "kind": "other-identifier",
                  "version": "Pygments 2.19.2",
                  "about": "the lexer Pygments picks among the four that claim *.m (Matlab, Octave, Objective-C, "
                           "Mason); always answers",
                  "url": "https://pygments.org/docs/api/#pygments.lexers.guess_lexer_for_filename"},
-    "judge": {"name": "LLM judge: Claude Sonnet 4.6", "kind": "llm-judge",
+    "judge": {"scope": "a reference that built bench-m's labels", "name": "LLM judge: Claude Sonnet 4.6", "kind": "llm-judge",
               "version": "anthropic/claude-sonnet-4.6 via OpenRouter, temperature 0, schema m-judge/1",
               "about": "blind: sees the bytes, file name, path and repository, no other label",
               "url": f"{PLB}/tools/m/judge.py"},
-    "judge2": {"name": "LLM judge: Gemini 3.8 Flash", "kind": "llm-judge",
+    "judge2": {"scope": "a reference that built bench-m's labels", "name": "LLM judge: Gemini 3.8 Flash", "kind": "llm-judge",
                "version": "google/gemini-3.8-flash via OpenRouter, temperature 0, schema m-judge/1",
                "about": "blind: sees the bytes, file name, path and repository, no other label",
                "url": f"{PLB}/tools/m/judge.py"},
@@ -117,7 +117,8 @@ def main() -> int:
     export_jev(cases, bench, out_dir)
     # the ground truth itself, as a reference row: the human reviewer's label
     with (out_dir / "human.jsonl").open("w", encoding="utf-8") as f:
-        f.write(json.dumps({"meta": {"label": "human", "name": "Human reviewer (blind) — the ground truth",
+        f.write(json.dumps({"meta": {"label": "human", "scope": "bench-m's ground truth",
+                                     "name": "Human reviewer (blind) — the ground truth",
                                      "kind": "ground-truth", "benchmark": bench,
                                      "version": "blind audit of the .m study, October 2026",
                                      "about": "the labels every entry is scored against: a reviewer read each file "

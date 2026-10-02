@@ -59,9 +59,9 @@ TOOLS = {
                "about": "Google's deep-learning content-type detector; reads the bytes only (~200 content types)",
                "url": "https://github.com/google/magika", "content_native": True},
     "guesslang": {"version": "2.2.1", "name": "Guesslang 2.2.1",
-                  "about": "deep-learning language guesser used by VS Code; reads the text only (54 languages)",
-                  "url": "https://github.com/yoeo/guesslang", "content_native": True,
-                  "platform": "linux/amd64"},
+                  "about": "deep-learning language guesser used by VS Code; reads the text only (54 languages); "
+                           "run on TensorFlow 2.10.1 (2.5, which it asks for, has no ARM build)",
+                  "url": "https://github.com/yoeo/guesslang", "content_native": True},
 }
 
 

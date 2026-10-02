@@ -1,4 +1,4 @@
-{"meta": {"label": "judge2", "name": "LLM judge: Gemini 3.8 Flash", "kind": "llm-judge", "version": "google/gemini-3.8-flash via OpenRouter, temperature 0, schema m-judge/1", "about": "blind: sees the bytes, file name, path and repository, no other label", "url": "https://github.com/acherm/PL-ultimate-llm/blob/swh-evidence-v1/tools/m/judge.py", "benchmark": "bench-m/1", "source": "PL-ultimate-llm .m study (stored labels)"}}
+{"meta": {"label": "judge2", "name": "LLM judge: Gemini 3.8 Flash", "kind": "llm-judge", "version": "google/gemini-3.8-flash via OpenRouter, temperature 0, schema m-judge/1", "about": "blind: sees the bytes, file name, path and repository, no other label", "url": "https://github.com/acherm/PL-ultimate-llm/blob/swh-evidence-v1/tools/m/judge.py", "benchmark": "bench-m/1", "source": "PL-ultimate-llm .m study (stored labels)", "scope": "a reference that built bench-m's labels"}}
 {"case_id": "m:146faacad4fb", "answer": ["MATLAB"]}
 {"case_id": "m:1f3bba4d2cd6", "answer": ["M"]}
 {"case_id": "m:1fa4cb2b6c7b", "answer": ["MATLAB"]}

@@ -15,13 +15,18 @@ CodeCommons team's GitLab space, is access-restricted).
 
 ## Leaderboard
 
-**[LEADERBOARD.md](LEADERBOARD.md)** ranks every entry — Synid versions,
-Synid configurations (a strategy turned off), other identifiers as reference
-points (GitHub Linguist, Pygments, …), specialised rules, and lightweight LLMs
-(Jev) — over all benchmarks, with one
-leaderboard per benchmark (accuracy with intervals, precision of language
-answers, failure triggers). LLM judges whose agreement backs a benchmark's
-ground truth are shown apart, not ranked.
+**[LEADERBOARD.md](LEADERBOARD.md)** ranks every entry over all benchmarks:
+Synid versions and configurations (a strategy turned off, or without the file
+name); the other identifiers — GitHub Linguist, go-enry, Hyperpolyglot, cloc,
+Pygments, Magika, Guesslang — each run on every benchmark from a pinned Docker
+image (`tools/external/`); lightweight models — Jev (OpenRouter), Kev-4B
+(local, llama.cpp), StarCoder2-3B (local, Ollama); and rules written for one
+benchmark only. Each benchmark has its own leaderboard (accuracy with
+intervals, precision of language answers, tags), a coverage report (which of
+its languages each entry can name at all) and a list of the entries not run
+on it, with the reason. † marks an entry trained on part of a benchmark's
+files. LLM judges whose agreement backs a benchmark's ground truth are shown
+apart, not ranked.
 
 ## Benchmarks
 

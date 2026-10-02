@@ -46,6 +46,9 @@ def label_set(meta: dict, synid: str | None) -> set[str] | str | None:
     if label.startswith(("jev-linguist", "kev-linguist")):
         langs = json.loads((HERE / "data" / "linguist_languages.json").read_text(encoding="utf-8"))["languages"]
         return {name_key(n) for lang in langs for n in [lang["name"], *lang["aliases"]]}
+    if label.startswith("jev-study63"):  # the languages that have a label of their own
+        st = json.loads((HERE / "data" / "jev_study_labels.json").read_text(encoding="utf-8"))
+        return {name_key(v[0]) for v in st["to_linguist"].values() if len(v) == 1}
     if label.startswith("llm-"):
         return OPEN
     tool = label.removeprefix("ext-").removesuffix("-content-only")

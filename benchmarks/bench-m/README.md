@@ -119,8 +119,13 @@ In short:
   50/54 when choosing among all 804 of GitHub Linguist's languages: its only misses are
   the four Magma files — Magma is not in Linguist's list (it answers GAP, a close
   computer-algebra system). The hand-written `.m` rules get 51/54.
-- GitHub Linguist never names a wrong language but abstains on 16 files (38/54);
+- Linguist's `.m` rules alone never name a wrong language but abstain on 16 files (38/54);
   Pygments always answers and is wrong on 35 (19/54).
+- The other identifiers, run from pinned Docker images (`tools/external.py`): GitHub Linguist
+  9.7.0 in full (rules + classifier) and go-enry 47/54, Hyperpolyglot 41/54 — as Synid without
+  its Pygments step —, cloc 41/54, Magika 38/54, Guesslang 36/54, Pygments 2.21.0 19/54;
+  local models: Kev-4B (an open decision model, llama.cpp) 47/54, StarCoder2-3B 43/54. Without
+  the file name, the rule-based tools fall to 0–4/54 (Synid 4/54).
 
 ## Limits, and growing it
 

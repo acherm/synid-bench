@@ -107,6 +107,8 @@ def main() -> int:
     ap.add_argument("--name", default="Jev 1.13", help="entry name prefix")
     ap.add_argument("--label", default="jev-linguist", help="entry label prefix")
     ap.add_argument("--shuffle", action="store_true", help="ask the cases in a fixed random order")
+    ap.add_argument("--label-set", choices=["linguist", "study63"], default="linguist",
+                    help="study63: the extension studies' 63 labels (tools/data/jev_study_labels.json), one question")
     a = ap.parse_args()
     bench = a.bench.resolve()
     with (bench / "cases.csv").open(encoding="utf-8") as f:
@@ -122,6 +124,8 @@ def main() -> int:
     groups = [names[i::GROUPS] for i in range(GROUPS)]
     assert all(len(g) + 1 <= MAX_CHOICES for g in groups)
 
+    study = json.loads((HERE / "data" / "jev_study_labels.json").read_text(encoding="utf-8")) \
+        if a.label_set == "study63" else None
     remote = a.endpoint.startswith("https://openrouter.ai")
     key = api_key() if remote else None
 
@@ -154,6 +158,8 @@ def main() -> int:
         return winners, 0.0, out.get("model") or a.model
 
     label = a.label + ("-filename" if a.with_filename else "")
+    if study and a.label == "jev-linguist":
+        label = "jev-study63" + ("-filename" if a.with_filename else "")
     todo = cases[: a.limit] if a.limit else cases
     cache = bench / ".work" / "jev" / f"{label}.jsonl"
     done: dict[str, dict] = {}
@@ -170,6 +176,19 @@ def main() -> int:
         body = (f"File content{' [truncated to the first %d characters]' % MAX_CHARS if trunc else ''}:\n"
                 f"```\n{raw[:MAX_CHARS]}\n```")
         state = (f"Filename: {c['filename']}\n\n" + body) if a.with_filename else body
+        if study:  # one question over the study's labels, as the study asked it
+            out = decide(state, {"language": {"type": "choice", "instructions": study["instructions"],
+                                              "criteria": study["labels"]}}, key, a.endpoint, a.model)
+            ans = (out.get("answers") or {}).get("language") or {}
+            ch = ans.get("choice")
+            r = {"case_id": c["case_id"], "choice": ch, "linguist": study["to_linguist"].get(ch, []),
+                 "top5": sorted((ans.get("probabilities") or {}).items(), key=lambda kv: -kv[1])[:5],
+                 "cost": float((out.get("usage") or {}).get("cost") or 0), "model": out.get("model") or a.model,
+                 "truncated": trunc}
+            if not a.limit:
+                with lock, cache.open("a", encoding="utf-8") as f:
+                    f.write(json.dumps(r, ensure_ascii=False) + "\n")
+            return r
         winners, c_cost, model = ask_groups(state)
         probs = {}
         if len(winners) > 1:
@@ -206,6 +225,23 @@ def main() -> int:
     with (bench / "entries" / "raw" / f"{label}.jsonl").open("w", encoding="utf-8") as f:
         for r in rows:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
+    if study:
+        meta = {"label": label, "kind": "llm-light", "benchmark": version,
+                "name": f"{a.name}, study's 63 labels" + (", with file name" if a.with_filename else ", content only"),
+                "version": f"{rows[0]['model'] if rows else a.model}, OpenRouter Decisions API, probe jev-probe/1 langid",
+                "about": ("the extension studies' language question: 63 labels designed for the .m, COBOL, RPG and FSL "
+                          "studies (tools/data/jev_study_labels.json), mapped to Linguist names; a family label (e.g. "
+                          f"lisp-family) counts as undecided. {len(rows)} files, ${cost:.4f}"),
+                "date": time.strftime("%Y-%m-%d")}
+        with (bench / "entries" / f"{label}.jsonl").open("w", encoding="utf-8") as f:
+            f.write(json.dumps({"meta": meta}) + "\n")
+            for r in rows:
+                f.write(json.dumps({"case_id": r["case_id"], "answer": r["linguist"] or None}) + "\n")
+        with (bench / "entries" / "raw" / f"{label}.jsonl").open("w", encoding="utf-8") as f:
+            for r in rows:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        print(f"→ {bench / 'entries' / (label + '.jsonl')}")
+        return 0
     meta = {"label": label, "kind": "llm-light", "benchmark": version,
             "name": f"{a.name}, Linguist's 804 languages" + (", with file name" if a.with_filename else ", content only"),
             "version": (f"{rows[0]['model'] if rows else a.model}, "

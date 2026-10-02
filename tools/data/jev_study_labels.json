@@ -1,0 +1,272 @@
+{
+ "source": "the langid probe of the PL-ultimate-llm extension studies (tools/jev/probes.py, jev-probe/1): 63 labels designed for the .m, COBOL, RPG and FSL studies",
+ "instructions": "Which programming language, notation or kind of content is this file written in? Judge from the content itself.",
+ "labels": {
+  "cobol": "COBOL (any dialect: IBM, GnuCOBOL, Micro Focus…; programs, copybooks or fragments)",
+  "rpg": "RPG / ILE RPG IV for IBM i (fixed-, hybrid- or free-form), including /copy members",
+  "ibm-cl": "IBM i CL (Control Language) command program",
+  "jcl": "IBM JCL job control language",
+  "pli": "PL/I",
+  "fortran": "Fortran",
+  "ada": "Ada",
+  "pascal": "Pascal / Delphi / Object Pascal",
+  "basic": "BASIC / Visual Basic / VBA",
+  "abap": "SAP ABAP",
+  "natural": "Software AG Natural",
+  "mumps": "MUMPS / M (GT.M, YottaDB, VistA routines, Caché ObjectScript)",
+  "c": "C",
+  "cpp": "C++",
+  "csharp": "C#",
+  "java": "Java",
+  "objective-c": "Objective-C or Objective-C++",
+  "swift": "Swift",
+  "kotlin": "Kotlin",
+  "go": "Go",
+  "rust": "Rust",
+  "assembly": "Assembly language",
+  "matlab": "MATLAB or GNU Octave m-code",
+  "scilab": "Scilab",
+  "wolfram": "Wolfram Language / Mathematica",
+  "maple": "Maple",
+  "magma": "Magma computer-algebra language",
+  "r": "R",
+  "julia": "Julia",
+  "python": "Python",
+  "mercury": "Mercury (logic/functional language)",
+  "prolog": "Prolog",
+  "haskell": "Haskell",
+  "ml-family": "OCaml / Standard ML / F#",
+  "lisp-family": "Lisp / Scheme / Clojure / Emacs Lisp",
+  "erlang-elixir": "Erlang or Elixir",
+  "scala": "Scala",
+  "tcl": "Tcl",
+  "shell": "Unix shell script (sh, bash, zsh, csh)",
+  "windows-script": "Windows batch or PowerShell",
+  "perl": "Perl",
+  "ruby": "Ruby",
+  "php": "PHP",
+  "javascript": "JavaScript or TypeScript",
+  "lua": "Lua",
+  "dart": "Dart",
+  "smalltalk": "Smalltalk",
+  "forth": "Forth or MUF",
+  "limbo": "Limbo (Inferno OS)",
+  "glsl": "GLSL / HLSL / shader language",
+  "sql": "SQL",
+  "hdl": "VHDL or Verilog",
+  "build-script": "Makefile / CMake / other build script",
+  "tex": "TeX / LaTeX",
+  "other-programming-language": "Some other programming language not listed here",
+  "xml-html": "XML / HTML / SGML markup",
+  "json-yaml": "JSON / YAML / TOML data",
+  "key-value-config": "INI / key=value / properties-style configuration",
+  "tabular-data": "tabular or numeric data, CSV, number dumps, lists of records",
+  "prose": "prose, documentation, README, licence text, Markdown",
+  "placeholder-text": "a trivial placeholder or stub: one sentence, a UUID, a bare path or pointer",
+  "binary-or-garbled": "binary, encoded or garbled bytes",
+  "empty": "empty or whitespace-only"
+ },
+ "to_linguist": {
+  "cobol": [
+   "COBOL"
+  ],
+  "rpg": [
+   "RPGLE"
+  ],
+  "ibm-cl": [],
+  "jcl": [
+   "JCL"
+  ],
+  "pli": [],
+  "fortran": [
+   "Fortran",
+   "Fortran Free Form"
+  ],
+  "ada": [
+   "Ada"
+  ],
+  "pascal": [
+   "Pascal"
+  ],
+  "basic": [
+   "BASIC",
+   "VBA",
+   "VBScript",
+   "Visual Basic .NET",
+   "Visual Basic 6.0"
+  ],
+  "abap": [
+   "ABAP"
+  ],
+  "natural": [],
+  "mumps": [
+   "M"
+  ],
+  "c": [
+   "C"
+  ],
+  "cpp": [
+   "C++"
+  ],
+  "csharp": [
+   "C#"
+  ],
+  "java": [
+   "Java"
+  ],
+  "objective-c": [
+   "Objective-C",
+   "Objective-C++"
+  ],
+  "swift": [
+   "Swift"
+  ],
+  "kotlin": [
+   "Kotlin"
+  ],
+  "go": [
+   "Go"
+  ],
+  "rust": [
+   "Rust"
+  ],
+  "assembly": [
+   "Assembly",
+   "Unix Assembly",
+   "Motorola 68K Assembly"
+  ],
+  "matlab": [
+   "MATLAB"
+  ],
+  "scilab": [
+   "Scilab"
+  ],
+  "wolfram": [
+   "Wolfram Language"
+  ],
+  "maple": [],
+  "magma": [],
+  "r": [
+   "R"
+  ],
+  "julia": [
+   "Julia"
+  ],
+  "python": [
+   "Python"
+  ],
+  "mercury": [
+   "Mercury"
+  ],
+  "prolog": [
+   "Prolog"
+  ],
+  "haskell": [
+   "Haskell"
+  ],
+  "ml-family": [
+   "OCaml",
+   "Standard ML",
+   "F#"
+  ],
+  "lisp-family": [
+   "Common Lisp",
+   "Scheme",
+   "Clojure",
+   "Emacs Lisp",
+   "Racket"
+  ],
+  "erlang-elixir": [
+   "Erlang",
+   "Elixir"
+  ],
+  "scala": [
+   "Scala"
+  ],
+  "tcl": [
+   "Tcl"
+  ],
+  "shell": [
+   "Shell",
+   "Tcsh"
+  ],
+  "windows-script": [
+   "Batchfile",
+   "PowerShell"
+  ],
+  "perl": [
+   "Perl"
+  ],
+  "ruby": [
+   "Ruby"
+  ],
+  "php": [
+   "PHP"
+  ],
+  "javascript": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "lua": [
+   "Lua"
+  ],
+  "dart": [
+   "Dart"
+  ],
+  "smalltalk": [
+   "Smalltalk"
+  ],
+  "forth": [
+   "Forth",
+   "MUF"
+  ],
+  "limbo": [
+   "Limbo"
+  ],
+  "glsl": [
+   "GLSL",
+   "HLSL"
+  ],
+  "sql": [
+   "SQL"
+  ],
+  "hdl": [
+   "VHDL",
+   "Verilog",
+   "SystemVerilog"
+  ],
+  "build-script": [
+   "Makefile",
+   "CMake"
+  ],
+  "tex": [
+   "TeX"
+  ],
+  "other-programming-language": [],
+  "xml-html": [
+   "XML",
+   "HTML"
+  ],
+  "json-yaml": [
+   "JSON",
+   "YAML",
+   "TOML"
+  ],
+  "key-value-config": [
+   "INI",
+   "Java Properties"
+  ],
+  "tabular-data": [
+   "CSV",
+   "TSV"
+  ],
+  "prose": [
+   "Text",
+   "Markdown"
+  ],
+  "placeholder-text": [],
+  "binary-or-garbled": [],
+  "empty": []
+ },
+ "_mapping_rule": "a label → the Linguist language(s) it names; a family label → all of them (the answer counts as undecided); a label naming no Linguist language → no answer"
+}
