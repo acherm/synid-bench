@@ -55,6 +55,7 @@ more. The cases come from the `.m` extension study of
 | `baselines/` | runs of known Synid versions |
 | `entries/` | other leaderboard entries: Synid configurations, other identifiers, LLM judges |
 | `LEADERBOARD.md` | every run ranked (`tools/leaderboard.py`) |
+| `FAILURES.md` | every failure of the latest Synid: the program, every configuration's answer, the root cause (`tools/failures.py`, `root_causes.py`) |
 | `HISTORY.md` | every baseline side by side (`tools/history.py`) |
 | `build_cases.py` | builds the cases from the study (needs a PL-ultimate-llm checkout); only to release a new version |
 | `export_reference_runs.py` | exports the study's other identifiers (Linguist, Pygments, study rules, LLM judges) as entries (needs PL-ultimate-llm) |
@@ -96,11 +97,16 @@ is accepted, copy its run into `baselines/` and run `tools/history.py`.
 
 ## Results so far
 
-See **[LEADERBOARD.md](LEADERBOARD.md)** (all entries, with intervals and failure triggers),
+See **[FAILURES.md](FAILURES.md)** (every failure, its program and its root cause),
+**[LEADERBOARD.md](LEADERBOARD.md)** (all entries, with intervals and failure triggers),
 [HISTORY.md](HISTORY.md) (Synid versions over time) and the assessment of Synid `9bc1c32`,
 **[assessment/m-9bc1c32.md](assessment/m-9bc1c32.md)** (the mechanism behind every failure).
 In short:
 
+- Synid `48c3c45` fails on 21 files, from four root causes: `Text` by default on
+  comment-free MATLAB/Octave (10), languages outside its `.m` candidates — Magma, C (5) —,
+  a Wolfram rule that never fires because of a name mismatch (4: "Mathematica" vs
+  "Wolfram Language"; renaming it fixes all four), and non-UTF-8 content (2).
 - When Synid names a language, it is right; its failures are non-answers — `Text`,
   the default of the Pygments-heuristics strategy, which pre-empts the classifier
   (Synid `48c3c45` without that strategy: 41/54 instead of 33/54) — and *undecided*
