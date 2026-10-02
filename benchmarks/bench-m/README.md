@@ -1,9 +1,9 @@
 # bench-m — `.m` files with human-checked languages
 
 Part of [synid-bench](../../README.md). **54 archived `.m` files with
-human-checked languages**, to assess
-[Software Heritage](https://www.softwareheritage.org)'s syntax identifier, Synid,
-version after version: *is this version better or worse than the last one, on
+human-checked languages**, archived by
+[Software Heritage](https://www.softwareheritage.org), to assess Synid — a
+syntax-identification tool from the CodeCommons project — version after version: *is this version better or worse than the last one, on
 which files, and on which known failure triggers?*
 
 Three properties guide it:
@@ -69,7 +69,7 @@ qualified SWHID). They can also be fetched from Software Heritage by sha1_git:
 ## Use
 
 ```bash
-# build Synid — its repository (SWH GitLab, teams/codecommons/swh-syntax-identification) is access-restricted
+# build Synid — its repository (teams/codecommons/swh-syntax-identification) is access-restricted
 (cd path/to/swh-syntax-identification && cargo build --release --bin synid)
 
 # from the root of synid-bench

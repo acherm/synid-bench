@@ -1,7 +1,8 @@
-# synid-bench — benchmarks for Software Heritage's syntax identifier
+# synid-bench — benchmarks for Synid, a syntax-identification tool
 
-A collection of benchmarks to assess **SWH Synid**, the tool that identifies the
-programming language (syntax) of files archived by
+A collection of benchmarks to assess **Synid**, a tool that identifies the
+programming language (syntax) of source files, developed in the CodeCommons
+project — here on real files archived by
 [Software Heritage](https://www.softwareheritage.org), version after version:
 *is this Synid version better or worse than the last one, on which files, and
 on which known failure triggers?*
@@ -9,8 +10,8 @@ on which known failure triggers?*
 Each benchmark is a frozen set of real archived files, with the language each
 file is written in and the provenance of that label. The repository holds the
 benchmarks, their documentation and the tools to run them — not Synid itself
-(its repository, `teams/codecommons/swh-syntax-identification` on Software
-Heritage's GitLab, is access-restricted).
+(its repository, `teams/codecommons/swh-syntax-identification` on the
+CodeCommons team's GitLab space, is access-restricted).
 
 ## Leaderboard
 

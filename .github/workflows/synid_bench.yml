@@ -1,6 +1,6 @@
 name: Synid benchmark
 
-# Optional. Builds SWH Synid (default: its `main`) and scores it on every
+# Optional. Builds Synid (default: its `main`) and scores it on every
 # benchmark against that benchmark's latest stored baseline (README.md).
 # Weekly and on demand. A regression fails the run and opens an issue.
 
@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Synid's repository is access-restricted (SWH GitLab): reading it needs a token
+      # Synid's repository (teams/codecommons) is access-restricted: reading it needs a token
       # with read_repository, stored as the secret SYNID_GITLAB_TOKEN. Without it the
       # run is skipped (not failed).
       - name: Fetch Synid

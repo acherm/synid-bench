@@ -31,7 +31,7 @@ HOW_TO_READ = [
     "answer is exactly one language and an accepted one; *no answer / undecided* means the entry abstained or "
     "returned several candidates; `Text` means it called a source file plain text. The ground truth is a blind "
     "human review of every file (shown under *References*, right by definition), cross-checked by two LLM judges "
-    "that agree with it on every case. **Kinds:** *Synid* — a version of Software Heritage's identifier, in its "
+    "that agree with it on every case. **Kinds:** *Synid* — a version of Synid, the CodeCommons syntax-identification tool, in its "
     "default configuration or with one strategy turned off (a setting of Synid's configuration file); "
     "*other identifier* — another tool, as a reference point; *specialised rules* — rules written for one "
     "benchmark's problem only, a ceiling for what targeted rules achieve rather than a general identifier.",
@@ -53,7 +53,7 @@ def entry_info(meta: dict) -> dict:
                    f"{meta.get('commit_subject', '')}".rstrip(", "))
         return {"name": entry_name(meta), "kind": KIND["synid"], "version": version,
                 "config": meta.get("config", "default strategies"),
-                "about": "Software Heritage's syntax identifier (`synid file`)",
+                "about": "Synid, the CodeCommons syntax-identification tool (`synid file`)",
                 "url": SYNID_REPO, "where": "Synid repository (access-restricted)"}
     return {"name": entry_name(meta), "kind": KIND.get(kind, kind), "version": meta.get("version", ""),
             "config": "—", "about": meta.get("about") or meta.get("note", ""),
