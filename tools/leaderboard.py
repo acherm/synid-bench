@@ -2,15 +2,15 @@
 """Leaderboards: one per benchmark (benchmarks/<name>/LEADERBOARD.md) and an
 overall one (LEADERBOARD.md), from every recorded run — Synid versions
 (baselines/) and other entries (entries/: Synid configurations, other
-identifiers, LLM judges).
+identifiers, specialised rules, LLM judges, the ground truth itself).
 
     python3 tools/leaderboard.py
 
 Ranking: accuracy (exactly one syntax, and an accepted one), then precision of
-language answers. LLM judges that were used to cross-check a benchmark's ground
-truth are listed apart, not ranked. Overall: an entry is the same system and
-configuration across benchmarks; micro = all cases pooled, macro = mean of the
-benchmarks' accuracies; only benchmarks the entry was run on count.
+language answers. The ground truth and the LLM judges whose agreement backs it
+are listed apart as references, not ranked. Overall: an entry is the same system
+and configuration across benchmarks; micro = all cases pooled, macro = mean of
+the benchmarks' accuracies; only benchmarks the entry was run on count.
 """
 
 from __future__ import annotations
@@ -22,15 +22,50 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from score import metrics, pct, read_cases, read_run  # noqa: E402
 
-DEFAULT_STRATEGIES_NOTE = "default"
+SYNID_REPO = "https://gitlab.softwareheritage.org/teams/codecommons/swh-syntax-identification"
+KIND = {"synid": "Synid", "specialised": "specialised rules", "other-identifier": "other identifier",
+        "llm-judge": "LLM judge", "ground-truth": "ground truth"}
+REFERENCE_KINDS = ("ground-truth", "llm-judge")
+HOW_TO_READ = [
+    "**How to read.** Every entry answers, for each file, the language it is written in. A case is right when the "
+    "answer is exactly one language and an accepted one; *no answer / undecided* means the entry abstained or "
+    "returned several candidates; `Text` means it called a source file plain text. The ground truth is a blind "
+    "human review of every file (shown under *References*, right by definition), cross-checked by two LLM judges "
+    "that agree with it on every case. **Kinds:** *Synid* — a version of Software Heritage's identifier, in its "
+    "default configuration or with one strategy turned off (a setting of Synid's configuration file); "
+    "*other identifier* — another tool, as a reference point; *specialised rules* — rules written for one "
+    "benchmark's problem only, a ceiling for what targeted rules achieve rather than a general identifier.",
+]
 
 
 def entry_name(meta: dict) -> str:
     if meta.get("name"):
         return meta["name"]
-    commit = meta.get("commit") or "?"
     dis = meta.get("disabled") or []
-    return f"Synid {commit}" + (f" without {', '.join(dis)}" if dis else "")
+    return f"Synid {meta.get('commit') or '?'}" + (f", {' + '.join(dis)} off" if dis else "")
+
+
+def entry_info(meta: dict) -> dict:
+    """Name, kind, version, configuration, what it is, where to find it."""
+    kind = meta.get("kind", "synid")
+    if kind == "synid":
+        version = (f"`{meta.get('commit')}` — {meta.get('date', '?')}, "
+                   f"{meta.get('commit_subject', '')}".rstrip(", "))
+        return {"name": entry_name(meta), "kind": KIND["synid"], "version": version,
+                "config": meta.get("config", "default strategies"),
+                "about": "Software Heritage's syntax identifier (`synid file`)",
+                "url": SYNID_REPO, "where": "Synid repository (access-restricted)"}
+    return {"name": entry_name(meta), "kind": KIND.get(kind, kind), "version": meta.get("version", ""),
+            "config": "—", "about": meta.get("about") or meta.get("note", ""),
+            "url": meta.get("url", ""), "where": "source" if meta.get("url") else ""}
+
+
+def info_table(infos: list[dict]) -> list[str]:
+    out = ["| entry | kind | version | configuration | what it is | where |", "|---|---|---|---|---|---|"]
+    for i in infos:
+        where = f"[{i['where']}]({i['url']})" if i["url"] else "—"
+        out.append(f"| {i['name']} | {i['kind']} | {i['version']} | {i['config']} | {i['about']} | {where} |")
+    return out
 
 
 def load_runs(bench: Path) -> list[tuple[dict, dict, str]]:
@@ -42,7 +77,7 @@ def load_runs(bench: Path) -> list[tuple[dict, dict, str]]:
     return runs
 
 
-def bench_board(bench: Path) -> tuple[str, dict[str, dict]]:
+def bench_board(bench: Path) -> tuple[str, dict[str, dict], list[dict]]:
     cases = read_cases(bench)
     ids = list(cases)
     tags: dict[str, list[str]] = {}
@@ -52,23 +87,23 @@ def bench_board(bench: Path) -> tuple[str, dict[str, dict]]:
     tag_names = sorted(tags, key=lambda t: -len(tags[t]))
     has_weights = any(c.get("weight") for c in cases.values())
     version = (bench / "cases.csv").read_text(encoding="utf-8").splitlines()[0].lstrip("# ").split(" —")[0]
-    rows, judges, by_name = [], [], {}
+    rows, refs, by_name, infos = [], [], {}, []
     for meta, ans, sub in load_runs(bench):
         m = metrics(cases, ans, ids, weighted=has_weights)
-        name = entry_name(meta)
-        rec = {"name": name, "meta": meta, "m": m, "baseline": sub == "baselines",
+        info = entry_info(meta)
+        rec = {"name": info["name"], "meta": meta, "m": m, "baseline": sub == "baselines", "info": info,
                "tags": {t: metrics(cases, ans, tags[t])["right"] for t in tag_names}}
-        (judges if meta.get("kind") == "llm-judge" else rows).append(rec)
-        by_name[name] = {"right": m["right"], "n": m["n"], "accuracy": m["accuracy"],
-                         "kind": meta.get("kind", "synid")}
+        (refs if meta.get("kind") in REFERENCE_KINDS else rows).append(rec)
+        by_name[info["name"]] = {"right": m["right"], "n": m["n"], "accuracy": m["accuracy"],
+                                 "kind": meta.get("kind", "synid")}
+        infos.append(info)
     rows.sort(key=lambda r: (-(r["m"]["accuracy"] or 0), -(r["m"]["precision"] or 0), r["name"]))
+    refs.sort(key=lambda r: (r["meta"].get("kind") != "ground-truth", r["name"]))
 
     def line(rank, r):
         m, o = r["m"], r["m"]["outcomes"]
-        kind = {"synid": "Synid", "other-identifier": "other identifier", "llm-judge": "LLM judge"}.get(
-            r["meta"].get("kind", "synid"), r["meta"].get("kind", ""))
         w = f" | {pct(m['weighted']['accuracy'])}" if has_weights else ""
-        return (f"| {rank} | {r['name']}{' (baseline)' if r['baseline'] else ''} | {kind} | "
+        return (f"| {rank} | {r['name']}{' (baseline)' if r['baseline'] else ''} | {r['info']['kind']} | "
                 f"**{m['right']}/{m['n']}** ({pct(m['accuracy'])}) [{pct(m['ci'][0])}, {pct(m['ci'][1])}]{w} | "
                 f"{pct(m['precision'])} | {o.get('text', 0)} | {o.get('undecided', 0) + o.get('none', 0)} | "
                 f"{o.get('wrong', 0)} | " + " | ".join(f"{r['tags'][t]}/{len(tags[t])}" for t in tag_names) + " |")
@@ -79,60 +114,61 @@ def bench_board(bench: Path) -> tuple[str, dict[str, dict]]:
     sep = "|---:|---|---|---:|" + ("---:|" if has_weights else "") + "---:|---:|---:|---:|" + "---:|" * len(tag_names)
     out = [f"# Leaderboard — {bench.name}", "",
            f"Generated by `python3 tools/leaderboard.py` · benchmark `{version}`, {len(ids)} cases "
-           f"([README](README.md), [history of Synid versions](HISTORY.md)). A case is right when the entry gives "
-           "exactly one language and it is accepted; ranked by accuracy, then precision of language answers. "
-           "Trigger columns: right / cases with that failure trigger.", "", head, sep]
+           f"([README](README.md) · [history of Synid versions](HISTORY.md)). Ranked by accuracy, then precision of "
+           "language answers. Trigger columns: right / cases carrying that failure trigger (see the README)"
+           + ("; *weighted to the population* re-weights the stratified draw to all files of the extension in "
+              "Software Heritage" if has_weights else "") + ".", "", *HOW_TO_READ, "", head, sep]
     out += [line(i, r) for i, r in enumerate(rows, 1)]
-    if judges:
-        out += ["", "**Reference, not ranked** — LLM judges whose agreement with the human labels is part of "
-                    "the evidence for this benchmark's ground truth, so they are not independent of it:", "",
-                head, sep]
-        out += [line("–", r) for r in judges]
-    notes = [f"- **{r['name']}** — {r['meta']['note']}" for r in rows + judges if r["meta"].get("note")]
-    if notes:
-        out += ["", "Notes:", ""] + notes
-    return "\n".join(out) + "\n", by_name
+    if refs:
+        out += ["", "## References (not ranked)", "",
+                "The ground truth, and the LLM judges whose agreement with it backs the benchmark's labels — "
+                "neither is independent of the ground truth.", "", head, sep]
+        out += [line("–", r) for r in refs]
+    out += ["", "## Entries", ""] + info_table([r["info"] for r in rows + refs])
+    return "\n".join(out) + "\n", by_name, [r["info"] for r in rows + refs]
 
 
 def main() -> int:
     benches = sorted(p for p in (ROOT / "benchmarks").iterdir() if (p / "cases.csv").exists())
     per_bench: dict[str, dict[str, dict]] = {}
+    all_infos: dict[str, dict] = {}
     for b in benches:
-        text, by_name = bench_board(b)
+        text, by_name, infos = bench_board(b)
         (b / "LEADERBOARD.md").write_text(text, encoding="utf-8")
         per_bench[b.name] = by_name
+        for i in infos:
+            all_infos.setdefault(i["name"], i)
         print(f"{b.name}: {len(by_name)} entries → {(b / 'LEADERBOARD.md').relative_to(ROOT)}")
-    names = sorted({n for d in per_bench.values() for n in d})
     rows = []
-    for n in names:
+    for n in sorted({n for d in per_bench.values() for n in d}):
         got = {b: d[n] for b, d in per_bench.items() if n in d}
         right, total = sum(g["right"] for g in got.values()), sum(g["n"] for g in got.values())
         macro = sum(g["accuracy"] for g in got.values()) / len(got)
-        kind = next(iter(got.values()))["kind"]
-        rows.append((n, kind, got, right, total, macro))
-    ranked = sorted((r for r in rows if r[1] != "llm-judge"), key=lambda r: (-r[3] / r[4], -r[5], r[0]))
-    judges = [r for r in rows if r[1] == "llm-judge"]
+        rows.append((n, next(iter(got.values()))["kind"], got, right, total, macro))
+    ranked = sorted((r for r in rows if r[1] not in REFERENCE_KINDS), key=lambda r: (-r[3] / r[4], -r[5], r[0]))
+    refs = sorted((r for r in rows if r[1] in REFERENCE_KINDS), key=lambda r: (r[1] != "ground-truth", r[0]))
     bnames = [b.name for b in benches]
-    head = ("| # | entry | benchmarks | right, all cases (micro) | mean accuracy (macro) | "
+    head = ("| # | entry | kind | benchmarks | right, all cases (micro) | mean accuracy (macro) | "
             + " | ".join(f"[{b}](benchmarks/{b}/LEADERBOARD.md)" for b in bnames) + " |")
-    sep = "|---:|---|---:|---:|---:|" + "---:|" * len(bnames)
+    sep = "|---:|---|---|---:|---:|---:|" + "---:|" * len(bnames)
 
     def line(rank, r):
         n, kind, got, right, total, macro = r
         cells = [f"{got[b]['right']}/{got[b]['n']}" if b in got else "—" for b in bnames]
-        return (f"| {rank} | {n} | {len(got)}/{len(bnames)} | **{right}/{total}** ({pct(right / total)}) | "
-                f"{pct(macro)} | " + " | ".join(cells) + " |")
+        return (f"| {rank} | {n} | {KIND.get(kind, kind)} | {len(got)}/{len(bnames)} | **{right}/{total}** "
+                f"({pct(right / total)}) | {pct(macro)} | " + " | ".join(cells) + " |")
 
     out = ["# Leaderboard — all benchmarks", "",
-           "Generated by `python3 tools/leaderboard.py`. Per-benchmark leaderboards (with failure triggers, "
-           "intervals and population weights) are linked in the header. An entry is one system and configuration; "
-           "micro pools all cases of the benchmarks it was run on, macro averages their accuracies.", "",
-           head, sep] + [line(i, r) for i, r in enumerate(ranked, 1)]
-    if judges:
-        out += ["", "Reference, not ranked (LLM judges whose agreement backs the ground truth):", "", head, sep]
-        out += [line("–", r) for r in judges]
+           "Generated by `python3 tools/leaderboard.py`. Each benchmark has its own leaderboard (linked in the "
+           "header) with intervals, population weights and failure triggers. An entry is one system and "
+           "configuration; *micro* pools the cases of every benchmark it was run on, *macro* averages its "
+           "accuracies over those benchmarks.", "", *HOW_TO_READ, "", head, sep]
+    out += [line(i, r) for i, r in enumerate(ranked, 1)]
+    if refs:
+        out += ["", "## References (not ranked)", "", head, sep] + [line("–", r) for r in refs]
+    out += ["", "## Entries", ""] + info_table([all_infos[r[0]] for r in ranked + refs])
     (ROOT / "LEADERBOARD.md").write_text("\n".join(out) + "\n", encoding="utf-8")
-    print(f"overall: {len(ranked)} ranked entries → LEADERBOARD.md")
+    print(f"overall: {len(ranked)} ranked entries, {len(refs)} references → LEADERBOARD.md")
     return 0
 
 

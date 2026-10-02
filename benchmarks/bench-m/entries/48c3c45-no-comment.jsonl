@@ -1,4 +1,4 @@
-{"meta": {"label": "48c3c45-no-comment", "kind": "synid", "version": "synid 0.1.0", "commit": "48c3c45", "strategies": ["filename", "extension", "shebang", "modeline", "hyplyheuristics", "hyplyclassifier", "pygmentsheuristics"], "disabled": ["comment"], "benchmark": "bench-m/1"}}
+{"meta": {"label": "48c3c45-no-comment", "kind": "synid", "version": "synid 0.1.0", "commit": "48c3c45", "strategies": ["filename", "extension", "shebang", "modeline", "hyplyheuristics", "hyplyclassifier", "pygmentsheuristics"], "disabled": ["comment"], "benchmark": "bench-m/1", "date": "2026-10-02", "commit_subject": "Merge branch 'change-order-of-strategies' into 'main'", "config": "[strategies] disable = [\"comment\"] (networked linguist-api off)"}}
 {"case_id": "m:146faacad4fb", "answer": ["MATLAB"]}
 {"case_id": "m:1f3bba4d2cd6", "answer": ["M"]}
 {"case_id": "m:1fa4cb2b6c7b", "answer": ["MATLAB"]}

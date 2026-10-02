@@ -1,4 +1,4 @@
-{"meta": {"label": "ours", "name": "PL-ultimate-llm .m study rules (v2)", "kind": "other-identifier", "note": "v1 tuned on the judges' labels of the study's first 300 uniformly sampled files \u2014 12 of the 54 cases are among them, so this entry is partly in-sample", "benchmark": "bench-m/1", "source": "PL-ultimate-llm .m study (stored labels)"}}
+{"meta": {"label": "ours", "name": "Hand-written .m rules v2 (partly tuned on these files)", "kind": "specialised", "version": "m-reclass/2", "about": "v1 revised after reading 7 disagreements with the LLM judges on the study's first 300 uniformly sampled files (Wolfram expressions; a fallback for marker-less MATLAB scripts); 12 of the 54 cases were among those 300", "url": "https://github.com/acherm/PL-ultimate-llm/blob/swh-evidence-v1/tools/m/reclassify.py", "benchmark": "bench-m/1", "source": "PL-ultimate-llm .m study (stored labels)"}}
 {"case_id": "m:146faacad4fb", "answer": ["MATLAB"]}
 {"case_id": "m:1f3bba4d2cd6", "answer": ["M"]}
 {"case_id": "m:1fa4cb2b6c7b", "answer": ["MATLAB"]}

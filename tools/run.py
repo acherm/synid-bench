@@ -97,7 +97,9 @@ def synid_version(synid: str) -> dict:
         if (d / ".git").exists():
             commit = subprocess.run(["git", "-C", str(d), "rev-parse", "--short", "HEAD"],
                                     capture_output=True, text=True).stdout.strip()
-            break
+            date, subject = (subprocess.run(["git", "-C", str(d), "log", "-1", "--format=%cs%x09%s"],
+                                            capture_output=True, text=True).stdout.strip().split("\t") + [""])[:2]
+            return {"version": v, "commit": commit, "date": date, "commit_subject": subject}
     return {"version": v, "commit": commit}
 
 
@@ -129,6 +131,9 @@ def main() -> int:
             raise SystemExit(f"could not parse synid output — saved to results/{a.label}.stdout.txt")
     meta = {"label": a.label, "kind": "synid", **synid_version(a.synid), "strategies": strategies,
             "disabled": sorted(a.disable),
+            "config": ("default strategies" if not a.disable else
+                       "[strategies] disable = [" + ", ".join(f'"{x}"' for x in sorted(a.disable)) + "]")
+                      + " (networked linguist-api off)",
             "benchmark": ((bench / "cases.csv").read_text(encoding="utf-8").splitlines()[0]
                           .lstrip("# ").split(" —")[0])}
     out = results / f"{a.label}.jsonl"

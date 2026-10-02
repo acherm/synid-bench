@@ -1,4 +1,4 @@
-{"meta": {"label": "ours_v1", "name": "PL-ultimate-llm .m study rules (v1)", "kind": "other-identifier", "note": "rules written for the study before any judge label was seen (prospective)", "benchmark": "bench-m/1", "source": "PL-ultimate-llm .m study (stored labels)"}}
+{"meta": {"label": "ours_v1", "name": "Hand-written .m rules v1 (prospective)", "kind": "specialised", "version": "m-reclass/1, PL-ultimate-llm commit eb988475", "about": "the rule cascade written for the .m study before any judge label existed: unambiguous markers first (Mercury `:-`, Objective-C `@` directives, Wolfram package cells, MUMPS routines, Magma/Maple terminators), then the MATLAB family; Octave only on Octave-only syntax. Specific to .m \u2014 it knows .m-only languages Synid has no candidate for", "url": "https://github.com/acherm/PL-ultimate-llm/blob/swh-evidence-v1/tools/m/reclassify_v1.py", "benchmark": "bench-m/1", "source": "PL-ultimate-llm .m study (stored labels)"}}
 {"case_id": "m:146faacad4fb", "answer": ["MATLAB"]}
 {"case_id": "m:1f3bba4d2cd6", "answer": ["M"]}
 {"case_id": "m:1fa4cb2b6c7b", "answer": ["MATLAB"]}

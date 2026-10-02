@@ -1,4 +1,4 @@
-{"meta": {"label": "linguist", "name": "GitHub Linguist (heuristics for .m)", "kind": "other-identifier", "note": "Linguist's content heuristics for `.m`; abstains when no rule fires", "benchmark": "bench-m/1", "source": "PL-ultimate-llm .m study (stored labels)"}}
+{"meta": {"label": "linguist", "name": "Linguist .m heuristics (rules only)", "kind": "other-identifier", "version": "heuristics.yml `.m` block, as vendored by Hyperpolyglot / Synid", "about": "a Python port of GitHub Linguist's seven `.m` disambiguation rules \u2014 first match wins; no match = abstain (Linguist itself would then fall back to its Bayesian classifier)", "url": "https://github.com/acherm/PL-ultimate-llm/blob/swh-evidence-v1/tools/m/labellers.py", "benchmark": "bench-m/1", "source": "PL-ultimate-llm .m study (stored labels)"}}
 {"case_id": "m:146faacad4fb", "answer": ["MATLAB"]}
 {"case_id": "m:1f3bba4d2cd6", "answer": ["M"]}
 {"case_id": "m:1fa4cb2b6c7b", "answer": ["MATLAB"]}

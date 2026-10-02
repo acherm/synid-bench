@@ -30,20 +30,39 @@ NAME = {"objective-c": "Objective-C", "matlab": "MATLAB", "octave": "MATLAB", "m
         "mathematica-wolfram": "Wolfram Language", "mercury": "Mercury", "mumps-m": "M", "magma": "Magma",
         "limbo": "Limbo", "muf": "MUF", "mason": "Mason", "maple": "Maple", "scilab": "Scilab",
         "c-or-cpp": "C", "not-code": "Text", "other-programming-language": "Other"}
+PLB = "https://github.com/acherm/PL-ultimate-llm/blob/swh-evidence-v1"
 ENTRIES = {
-    "linguist": {"name": "GitHub Linguist (heuristics for .m)", "kind": "other-identifier",
-                 "note": "Linguist's content heuristics for `.m`; abstains when no rule fires"},
-    "pygments": {"name": "Pygments (guess_lexer_for_filename)", "kind": "other-identifier",
-                 "note": "always answers among the lexers registered for `.m`"},
-    "ours_v1": {"name": "PL-ultimate-llm .m study rules (v1)", "kind": "other-identifier",
-                "note": "rules written for the study before any judge label was seen (prospective)"},
-    "ours": {"name": "PL-ultimate-llm .m study rules (v2)", "kind": "other-identifier",
-             "note": "v1 tuned on the judges' labels of the study's first 300 uniformly sampled files — "
-                     "12 of the 54 cases are among them, so this entry is partly in-sample"},
+    "ours_v1": {"name": "Hand-written .m rules v1 (prospective)", "kind": "specialised",
+                "version": "m-reclass/1, PL-ultimate-llm commit eb988475",
+                "about": "the rule cascade written for the .m study before any judge label existed: unambiguous "
+                         "markers first (Mercury `:-`, Objective-C `@` directives, Wolfram package cells, MUMPS "
+                         "routines, Magma/Maple terminators), then the MATLAB family; Octave only on Octave-only "
+                         "syntax. Specific to .m — it knows .m-only languages Synid has no candidate for",
+                "url": f"{PLB}/tools/m/reclassify_v1.py"},
+    "ours": {"name": "Hand-written .m rules v2 (partly tuned on these files)", "kind": "specialised",
+             "version": "m-reclass/2",
+             "about": "v1 revised after reading 7 disagreements with the LLM judges on the study's first 300 "
+                      "uniformly sampled files (Wolfram expressions; a fallback for marker-less MATLAB scripts); "
+                      "12 of the 54 cases were among those 300",
+             "url": f"{PLB}/tools/m/reclassify.py"},
+    "linguist": {"name": "Linguist .m heuristics (rules only)", "kind": "other-identifier",
+                 "version": "heuristics.yml `.m` block, as vendored by Hyperpolyglot / Synid",
+                 "about": "a Python port of GitHub Linguist's seven `.m` disambiguation rules — first match wins; "
+                          "no match = abstain (Linguist itself would then fall back to its Bayesian classifier)",
+                 "url": f"{PLB}/tools/m/labellers.py"},
+    "pygments": {"name": "Pygments guess_lexer_for_filename", "kind": "other-identifier",
+                 "version": "Pygments 2.19.2",
+                 "about": "the lexer Pygments picks among the four that claim *.m (Matlab, Octave, Objective-C, "
+                          "Mason); always answers",
+                 "url": "https://pygments.org/docs/api/#pygments.lexers.guess_lexer_for_filename"},
     "judge": {"name": "LLM judge: Claude Sonnet 4.6", "kind": "llm-judge",
-              "note": "blind (bytes, file name, path, repository); used to cross-check the ground truth"},
+              "version": "anthropic/claude-sonnet-4.6 via OpenRouter, temperature 0, schema m-judge/1",
+              "about": "blind: sees the bytes, file name, path and repository, no other label",
+              "url": f"{PLB}/tools/m/judge.py"},
     "judge2": {"name": "LLM judge: Gemini 3.8 Flash", "kind": "llm-judge",
-               "note": "blind (bytes, file name, path, repository); used to cross-check the ground truth"},
+               "version": "google/gemini-3.8-flash via OpenRouter, temperature 0, schema m-judge/1",
+               "about": "blind: sees the bytes, file name, path and repository, no other label",
+               "url": f"{PLB}/tools/m/judge.py"},
 }
 
 
@@ -54,6 +73,17 @@ def main() -> int:
     recs = load()
     out_dir = HERE / "entries"
     out_dir.mkdir(exist_ok=True)
+    # the ground truth itself, as a reference row: the human reviewer's label
+    with (out_dir / "human.jsonl").open("w", encoding="utf-8") as f:
+        f.write(json.dumps({"meta": {"label": "human", "name": "Human reviewer (blind) — the ground truth",
+                                     "kind": "ground-truth", "benchmark": bench,
+                                     "version": "blind audit of the .m study, October 2026",
+                                     "about": "the labels every entry is scored against: a reviewer read each file "
+                                              "and its provenance, with no machine label shown; right on every case "
+                                              "by definition. The two LLM judges agree with it on all 54",
+                                     "url": f"{PLB}/docs/m_swh_study.md"}}) + "\n")
+        for c in cases:
+            f.write(json.dumps({"case_id": c["case_id"], "answer": [c["accept"].split(";")[0]]}) + "\n")
     for layer, meta in ENTRIES.items():
         path = out_dir / f"{layer}.jsonl"
         with path.open("w", encoding="utf-8") as f:

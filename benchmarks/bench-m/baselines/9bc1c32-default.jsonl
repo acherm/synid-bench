@@ -1,4 +1,4 @@
-{"meta": {"label": "9bc1c32-default", "version": "synid 0.1.0", "commit": "9bc1c32", "strategies": ["filename", "extension", "shebang", "comment", "hyplyheuristics", "hyplyclassifier", "pygmentsheuristics"], "benchmark": "bench-m/1", "date": "2026-06-15"}}
+{"meta": {"label": "9bc1c32-default", "version": "synid 0.1.0", "commit": "9bc1c32", "strategies": ["filename", "extension", "shebang", "comment", "hyplyheuristics", "hyplyclassifier", "pygmentsheuristics"], "benchmark": "bench-m/1", "date": "2026-06-15", "commit_subject": "Merge branch 'fix-comment-strategy-refine' into 'main'", "kind": "synid", "config": "default strategies (networked linguist-api off)"}}
 {"case_id": "m:146faacad4fb", "answer": ["MATLAB"]}
 {"case_id": "m:1f3bba4d2cd6", "answer": ["M"]}
 {"case_id": "m:1fa4cb2b6c7b", "answer": ["MATLAB"]}
