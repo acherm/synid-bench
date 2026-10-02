@@ -58,7 +58,7 @@ more. The cases come from the `.m` extension study of
 | `FAILURES.md` | every failure of the latest Synid: the program, every configuration's answer, the root cause (`tools/failures.py`, `root_causes.py`) |
 | `HISTORY.md` | every baseline side by side (`tools/history.py`) |
 | `build_cases.py` | builds the cases from the study (needs a PL-ultimate-llm checkout); only to release a new version |
-| `export_reference_runs.py` | exports the study's other identifiers (Linguist, Pygments, study rules, LLM judges) as entries (needs PL-ultimate-llm) |
+| `export_reference_runs.py` | exports the study's other identifiers (Linguist, Pygments, hand-written rules, Jev, LLM judges) as entries (needs PL-ultimate-llm and its local study data) |
 | `assessment/` | the assessment of Synid `9bc1c32` on these files, with the mechanism behind each failure |
 
 The files are copies of publicly archived source files, kept for
@@ -114,6 +114,8 @@ In short:
 - `48c3c45` fixed the comment-free Objective-C case (33/54, from 32/54) and broke
   nothing; comment-free MATLAB, non-UTF-8 files and languages outside the `.m`
   candidates (Magma, C) remain at 0.
+- Jev 1.13, a lightweight decision model, gets all 54 from the content alone — its label
+  set includes the rare `.m` languages; the hand-written `.m` rules get 51/54.
 - GitHub Linguist never names a wrong language but abstains on 16 files (38/54);
   Pygments always answers and is wrong on 35 (19/54).
 

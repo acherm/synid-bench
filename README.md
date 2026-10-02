@@ -16,8 +16,9 @@ CodeCommons team's GitLab space, is access-restricted).
 ## Leaderboard
 
 **[LEADERBOARD.md](LEADERBOARD.md)** ranks every entry — Synid versions,
-Synid configurations (a strategy turned off), and other identifiers as reference
-points (GitHub Linguist, Pygments, …) — over all benchmarks, with one
+Synid configurations (a strategy turned off), other identifiers as reference
+points (GitHub Linguist, Pygments, …), specialised rules, and lightweight LLMs
+(Jev) — over all benchmarks, with one
 leaderboard per benchmark (accuracy with intervals, precision of language
 answers, failure triggers). LLM judges whose agreement backs a benchmark's
 ground truth are shown apart, not ranked.

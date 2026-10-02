@@ -66,6 +66,47 @@ ENTRIES = {
 }
 
 
+# Jev (TypeSafe's lightweight decision model, via OpenRouter's Decisions API), run by the
+# study on every .m file: data/derived/jev/m/<probe>.jsonl in PL-ultimate-llm.
+JEV_NAME = {"matlab": "MATLAB", "objective-c": "Objective-C", "wolfram": "Wolfram Language", "magma": "Magma",
+            "mercury": "Mercury", "mumps": "M", "limbo": "Limbo", "c": "C", "cpp": "C++", "maple": "Maple",
+            "scilab": "Scilab"}
+JEV_NOT_CODE = {"binary-or-garbled", "empty", "json-yaml", "key-value-config", "natural", "placeholder-text",
+                "prose", "tabular-data", "xml-html"}
+JEV_ENTRIES = {
+    "langid": {"name": "Jev 1.13, content only", "probe": "langid",
+               "about": "TypeSafe's lightweight decision model (OpenRouter's Decisions API), asked which of "
+                        "63 labels the file is written in, "
+                        "from its content only (no file name); ~0.3 s and ~$0.15 per 1,000 files. Its label set "
+                        "was designed for the extension studies, so it includes the rare `.m` languages"},
+    "langid_ext": {"name": "Jev 1.13, with file name", "probe": "langid_ext",
+                   "about": "the same question, the file name shown as well"},
+}
+
+
+def export_jev(cases: list[dict], bench: str, out_dir: Path) -> None:
+    for label, e in JEV_ENTRIES.items():
+        last = {}
+        src = PL / "data" / "derived" / "jev" / "m" / f"{e['probe']}.jsonl"
+        for line in src.open(encoding="utf-8"):
+            d = json.loads(line)
+            if d.get("ok"):
+                last[d["sha1_git"]] = d
+        model = next(iter(last.values())).get("model", "typesafe/jev-1.13")
+        with (out_dir / f"jev-{label}.jsonl").open("w", encoding="utf-8") as f:
+            f.write(json.dumps({"meta": {"label": f"jev-{label}", "name": e["name"], "kind": "llm-light",
+                                         "benchmark": bench, "version": f"{model}, probe jev-probe/1 `{e['probe']}`",
+                                         "about": e["about"],
+                                         "source": "stored decisions of the .m study (PL-ultimate-llm, "
+                                                   "data/derived/jev/m, not in its public repository)"}}) + "\n")
+            for c in cases:
+                d = last.get(c["sha1_git"])
+                ch = d["answers"]["language"]["choice"] if d else None
+                ans = None if ch is None else ["Text"] if ch in JEV_NOT_CODE else [JEV_NAME.get(ch, "Other")]
+                f.write(json.dumps({"case_id": c["case_id"], "answer": ans}) + "\n")
+        print(f"jev-{label}: → {out_dir / f'jev-{label}.jsonl'}")
+
+
 def main() -> int:
     with (HERE / "cases.csv").open(encoding="utf-8") as f:
         cases = list(csv.DictReader(line for line in f if not line.startswith("#")))
@@ -73,6 +114,7 @@ def main() -> int:
     recs = load()
     out_dir = HERE / "entries"
     out_dir.mkdir(exist_ok=True)
+    export_jev(cases, bench, out_dir)
     # the ground truth itself, as a reference row: the human reviewer's label
     with (out_dir / "human.jsonl").open("w", encoding="utf-8") as f:
         f.write(json.dumps({"meta": {"label": "human", "name": "Human reviewer (blind) — the ground truth",

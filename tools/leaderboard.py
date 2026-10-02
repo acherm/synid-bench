@@ -24,7 +24,7 @@ from score import metrics, pct, read_cases, read_run  # noqa: E402
 
 SYNID_REPO = "https://gitlab.softwareheritage.org/teams/codecommons/swh-syntax-identification"
 KIND = {"synid": "Synid", "specialised": "specialised rules", "other-identifier": "other identifier",
-        "llm-judge": "LLM judge", "ground-truth": "ground truth"}
+        "llm-light": "lightweight LLM", "llm-judge": "LLM judge", "ground-truth": "ground truth"}
 REFERENCE_KINDS = ("ground-truth", "llm-judge")
 HOW_TO_READ = [
     "**How to read.** Every entry answers, for each file, the language it is written in. A case is right when the "
@@ -34,7 +34,8 @@ HOW_TO_READ = [
     "that agree with it on every case. **Kinds:** *Synid* — a version of Synid, the CodeCommons syntax-identification tool, in its "
     "default configuration or with one strategy turned off (a setting of Synid's configuration file); "
     "*other identifier* — another tool, as a reference point; *specialised rules* — rules written for one "
-    "benchmark's problem only, a ceiling for what targeted rules achieve rather than a general identifier.",
+    "benchmark's problem only, a ceiling for what targeted rules achieve rather than a general identifier; "
+    "*lightweight LLM* — a small, cheap model asked the language (not used to build the ground truth).",
 ]
 
 
