@@ -1,0 +1,12 @@
+
+
+n = 300;
+
+h264_psnr = zeros(n + 1);
+
+for i=1:n
+    I1=imread(['.\data\fountain\176x144\' num2str((i-1),'%03d') '.bmp']);
+    I2=imread(['.\data\fountain\h264\' num2str((i-1),'%03d') '.bmp']);
+    h264_psnr(i)=psnr(I1,I2);
+end
+h264_psnr(n+1)=mean(h264_psnr(1:n));

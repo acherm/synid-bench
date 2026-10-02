@@ -1,0 +1,390 @@
+@implementation GEOSPRMetroAvailabilityFetcher
+
+- (uint64_t)init
+{
+  return objc_msgSend(a1, "initWithTileLoader:auditToken:", 0LL, 0LL);
+}
+
+- (uint64_t)initWithTileLoader:(uint64_t)a3 auditToken:(uint64_t)a4 
+{
+  return objc_msgSend(a1, "initWithTileLoader:auditToken:forceDisableMetros:", a3, a4, 0LL);
+}
+
+- (uint64_t)initWithTileLoader:(uint64_t)a3 auditToken:(void *)a4 forceDisableMetros:(char)a5 
+{
+  uint64_t v8;
+  uint64_t v9;
+  uint64_t v10;
+  uint64_t v11;
+  uint64_t v12;
+  uint64_t v13;
+  uint64_t v14;
+  uint64_t v15;
+  _QWORD v17[2];
+
+  v8 = MEMORY[0x19278B1F0]();
+  MEMORY[0x19278B230]();
+  v17[0] = a1;
+  v17[1] = off_1EFF64550;
+  v9 = MEMORY[0x19278AFE0](v17, 0x182997FD5uLL);
+  v10 = v9;
+  v11 = v9;
+  if(v9)
+  {
+    if(v8)
+      v12 = MEMORY[0x19278B1E0]();
+    else
+      v12 = MEMORY[0x19278AF20](objc_msgSend(off_1EFF5BB58, "modernLoader"));
+    *(_QWORD *)(v11 + 16) = v12;
+    MEMORY[0x19278B130]();
+    objc_storeStrong((id *)(v10 + 8), a4);
+    *(_QWORD *)(v11 + 32) = MEMORY[0x19278A9F0]("GEOSPRMetroAvailabilityFetcher.isolation");
+    v13 = MEMORY[0x19278B130]();
+    *(_BYTE *)(v11 + 24) = a5;
+    v9 = MEMORY[0x19278B200](v13);
+  }
+  v14 = MEMORY[0x19278B0A0](v9);
+  v15 = MEMORY[0x19278B070](v14);
+  MEMORY[0x19278B090](v15);
+  return v11;
+}
+
+- (uint64_t)determineAvailabilityForCoordinate:(uint64_t)a1 callbackQueue:(double)a2 completionHandler:(double)a3 
+{
+  NSObject *v6;
+  int v7;
+  uint64_t v8;
+  uint64_t v9;
+  uint64_t v10;
+  void *v11;
+  uint64_t v12;
+  uint64_t v13;
+  double v14;
+  double v15;
+  double v16;
+  char v17;
+  char v18;
+  unsigned __int16 v19;
+  unsigned int v20;
+  double v21;
+  unint64_t v22;
+  uint64_t v23;
+  unint64_t v24;
+  uint64_t v25;
+  __int128 v26;
+  unint64_t v27;
+  uint64_t v28;
+  uint64_t v29;
+  uint64_t v30;
+  uint64_t v31;
+  uint64_t v33;
+  uint64_t v34;
+  void *v35;
+  uint64_t v36;
+  uint64_t v37;
+  _QWORD v38[8];
+  _QWORD v39[5];
+  _QWORD v40[5];
+  _QWORD block[9];
+  __int128 v42;
+  _QWORD v43[6];
+  __int128 v44;
+  __int128 v45;
+  uint64_t v46;
+  uint64_t (*v47)(uint64_t, uint64_t);
+  void (*v48)();
+  uint64_t v49;
+  __int128 v50;
+
+  v6 = (NSObject *)MEMORY[0x19278B1F0]();
+  MEMORY[0x19278B200]();
+  if(!(unsigned int)objc_msgSend((id)MEMORY[0x19278AF20](objc_msgSend(off_1EFF5BA18, "sharedPlatform")), "supportsAdvancedMap"))
+  {
+    v8 = MEMORY[0x19278B0A0]();
+    goto LABEL_11;
+  }
+  v7 = *(unsigned __int8 *)(a1 + 24);
+  v8 = MEMORY[0x19278B0A0]();
+  if(v7)
+  {
+LABEL_11:
+    v40[0] = _NSConcreteStackBlock;
+    v40[1] = 3221225472LL;
+    v40[2] = __101__GEOSPRMetroAvailabilityFetcher_determineAvailabilityForCoordinate_callbackQueue_completionHandler___block_invoke;
+    v40[3] = &unk_1EFDEF640;
+    v40[4] = MEMORY[0x19278B200](v8);
+    dispatch_async(v6, v40);
+    goto LABEL_12;
+  }
+  v9 = objc_msgSend((id)MEMORY[0x19278AF20](objc_msgSend(off_1EFF5BB88, "modernManager")), "activeTileGroup");
+  v10 = objc_msgSend((id)MEMORY[0x19278AF20](v9), "activeTileSetForStyle:size:scale:", 61LL, 2LL, 0LL);
+  v11 = (void *)MEMORY[0x19278AF20](v10);
+  v12 = MEMORY[0x19278B0D0]();
+  v13 = MEMORY[0x19278B0C0](v12);
+  if(v11 && (v13 = objc_msgSend(v11, "availableTilesCount")) != 0)
+  {
+    v14 = GEOTilePointForCoordinate(a2, a3, 20.0);
+    v16 = v15;
+    v17 = objc_msgSend(v11, "maximumZoomLevelForMapPoint:");
+    v18 = objc_msgSend(v11, "size");
+    v19 = objc_msgSend(v11, "scale");
+    v20 = objc_msgSend(v11, "style");
+    v21 = (double)(1 << v17) * 0.0000000037252903;
+    v22 = vcvtmd_u64_f64(v14 * v21) | 0x3E30000000000000LL;
+    LODWORD(v23) = vcvtmd_u64_f64(v16 * v21);
+    v24 = v22 << 46;
+    *((_QWORD *)&v26 + 1) = ((v23 << 8) | (unsigned __int8)(v22 >> 18)) & 0x3FFFFFFFFLL | ((unint64_t)(v20 & 0x3FFF) << 34) & 0xFFFFFFFFFFFFLL | ((unint64_t)(v18 & 0xF) << 48) & 0xFFFFFFFFFFFFFLL | ((unint64_t)v19 << 52);
+    *(_QWORD *)&v26 = v22 << 46;
+    v25 = v26 >> 56;
+    *(_QWORD *)((char *)&v45 + 1) = v24 & 0xFFFFC0FFFFFFFFFFLL | ((unint64_t)(v17 & 0x3F) << 40);
+    LOBYTE(v45) = 2;
+    if(v20 <= 0x19 && ((1 << v20) & 0x200101C) != 0)
+      v27 = 128LL;
+    else
+      v27 = (unint64_t)(v20 == 26) << 7;
+    *(_QWORD *)&v50 = v27 | v45 & 0xFFFFFFFFFFFFFF7FLL;
+    *((_QWORD *)&v50 + 1) = v25;
+    *(_QWORD *)&v45 = 0LL;
+    *((_QWORD *)&v45 + 1) = &v45;
+    v46 = 0x3032000000LL;
+    v47 = __Block_byref_object_copy__61;
+    v48 = __Block_byref_object_dispose__61;
+    v49 = 0LL;
+    v28 = *(_QWORD *)(a1 + 32);
+    v43[0] = _NSConcreteStackBlock;
+    v43[1] = 3221225472LL;
+    v43[2] = __101__GEOSPRMetroAvailabilityFetcher_determineAvailabilityForCoordinate_callbackQueue_completionHandler___block_invoke_4;
+    v43[3] = &unk_1EFDEF4B0;
+    v44 = v50;
+    v43[4] = a1;
+    v43[5] = &v45;
+    v29 = MEMORY[0x19278A9E0](v28, v43);
+    if(*(_QWORD *)(*((_QWORD *)&v45 + 1) + 40LL))
+    {
+      block[0] = _NSConcreteStackBlock;
+      block[1] = 3221225472LL;
+      block[2] = __101__GEOSPRMetroAvailabilityFetcher_determineAvailabilityForCoordinate_callbackQueue_completionHandler___block_invoke_2_5;
+      block[3] = &unk_1EFDF8BF8;
+      *(double *)&block[7] = a2;
+      *(double *)&block[8] = a3;
+      block[4] = a1;
+      block[6] = &v45;
+      v42 = v50;
+      block[5] = MEMORY[0x19278B200](v29);
+      dispatch_async(v6, block);
+      MEMORY[0x19278B130]();
+    }
+    else
+    {
+      MEMORY[0x19278AF20](objc_msgSend(off_1EFF5BC08, "UUID"));
+      GEOTileLoaderClientIdentifier();
+      v33 = MEMORY[0x19278AF20]();
+      v34 = MEMORY[0x19278B0D0]();
+      v36 = *(_QWORD *)(a1 + 8);
+      v35 = *(void **)(a1 + 16);
+      v38[0] = _NSConcreteStackBlock;
+      v38[1] = 3221225472LL;
+      v38[2] = __101__GEOSPRMetroAvailabilityFetcher_determineAvailabilityForCoordinate_callbackQueue_completionHandler___block_invoke_3;
+      v38[3] = &unk_1EFDF8C48;
+      v38[4] = a1;
+      v38[5] = MEMORY[0x19278B200](v34);
+      *(double *)&v38[6] = a2;
+      *(double *)&v38[7] = a3;
+      v37 = MEMORY[0x19278B130](objc_msgSend(v35, "loadKey:priority:forClient:options:reason:auditToken:callbackQ:beginNetwork:callback:", &v50, 2147483646LL, v33, 3LL, 4LL, v36, v6, 0LL, v38));
+      MEMORY[0x19278B0C0](v37);
+    }
+    MEMORY[0x192789AE0](&v45, 8LL);
+  }
+  else
+  {
+    v39[0] = _NSConcreteStackBlock;
+    v39[1] = 3221225472LL;
+    v39[2] = __101__GEOSPRMetroAvailabilityFetcher_determineAvailabilityForCoordinate_callbackQueue_completionHandler___block_invoke_2;
+    v39[3] = &unk_1EFDEF640;
+    v39[4] = MEMORY[0x19278B200](v13);
+    dispatch_async(v6, v39);
+  }
+  MEMORY[0x19278B130]();
+LABEL_12:
+  v30 = MEMORY[0x19278B0A0]();
+  v31 = MEMORY[0x19278B090](v30);
+  return MEMORY[0x19278B070](v31);
+}
+
+uint64_t __101__GEOSPRMetroAvailabilityFetcher_determineAvailabilityForCoordinate_callbackQueue_completionHandler___block_invoke(uint64_t a1)
+{
+  return (*(uint64_t (**)(void))(*(_QWORD *)(a1 + 32) + 16LL))();
+}
+
+uint64_t __101__GEOSPRMetroAvailabilityFetcher_determineAvailabilityForCoordinate_callbackQueue_completionHandler___block_invoke_2(uint64_t a1)
+{
+  return (*(uint64_t (**)(void))(*(_QWORD *)(a1 + 32) + 16LL))();
+}
+
+void __101__GEOSPRMetroAvailabilityFetcher_determineAvailabilityForCoordinate_callbackQueue_completionHandler___block_invoke_4(uint64_t a1)
+{
+  uint64_t v1;
+  void *v2;
+
+  v1 = *(_QWORD *)(a1 + 32);
+  v2 = *(void **)(v1 + 56);
+  if(v2)
+  {
+    if(*(_OWORD *)(v1 + 40) == *(_OWORD *)(a1 + 48))
+      objc_storeStrong((id *)(*(_QWORD *)(*(_QWORD *)(a1 + 40) + 8LL) + 40LL), v2);
+  }
+}
+
+{
+  *(_OWORD *)(*(_QWORD *)(a1 + 32) + 40LL) = *(_OWORD *)*(_QWORD *)(a1 + 48);
+  objc_storeStrong((id *)(*(_QWORD *)(a1 + 32) + 56LL), *(id *)(a1 + 40));
+}
+
+uint64_t __101__GEOSPRMetroAvailabilityFetcher_determineAvailabilityForCoordinate_callbackQueue_completionHandler___block_invoke_2_5(uint64_t a1)
+{
+  uint64_t (*v2)(void);
+  uint64_t vars8;
+
+  -[GEOSPRMetroAvailabilityFetcher _determineAvailabilityForCoordinate:fromMetadataTile:metadataTileKey:](*(_QWORD *)(a1 + 32), *(double *)(a1 + 56), *(double *)(a1 + 64), *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 48) + 8LL) + 40LL), a1 + 72);
+  v2 = *(uint64_t (**)(void))(*(_QWORD *)(a1 + 40) + 16LL);
+  if(((vars8 ^ (2 * vars8)) & 0x4000000000000000LL) != 0)
+    __break(0xC471u);
+  return v2();
+}
+
+- (uint64_t)_determineAvailabilityForCoordinate:(double)a3 fromMetadataTile:(uint64_t)a4 metadataTileKey:(uint64_t)a5 
+{
+  void *v9;
+  uint64_t v10;
+  uint64_t v11;
+  double v12;
+  double v13;
+  double v14;
+  double v15;
+  double v16;
+  double v17;
+  double v18;
+  uint64_t v19;
+  unint64_t v20;
+  _WORD v22[8];
+
+  v9 = (void *)MEMORY[0x19278B1A0]();
+  if(!a1)
+    goto LABEL_15;
+  v10 = objc_msgSend(v9, "daVinciMetaData");
+  v11 = v10;
+  if(!v10 || !*(_WORD *)(v10 + 8))
+    goto LABEL_15;
+  v12 = GEOTilePointForCoordinate(a2, a3, 20.0);
+  v14 = v13;
+  v15 = GEOMapRectForGEOTileKey(a5);
+  v19 = 0LL;
+  if(fabs(v15) != INFINITY && fabs(v16) != INFINITY && v12 >= v15 && v12 < v15 + v17 && v14 >= v16 && v14 < v16 + v18)
+  {
+    v20 = vcvtmd_u64_f64((v12 - v15) / v17 * (double)*(unsigned __int16 *)(v11 + 8))
+        + vcvtmd_u64_f64((v14 - v16) / v18 * (double)*(unsigned __int16 *)(v11 + 8)) * *(unsigned __int16 *)(v11 + 8);
+    if(v20 < *(unsigned __int16 *)(v11 + 8) * (unint64_t)*(unsigned __int16 *)(v11 + 8))
+    {
+      v19 = (*(unsigned __int8 *)(*(_QWORD *)(v11 + 24) + v20) >> 1) & 1;
+      goto LABEL_12;
+    }
+    if((unsigned int)MEMORY[0x19278B3F0](&_os_log_default, 17LL))
+    {
+      v22[0] = 0;
+      MEMORY[0x19278A2B0](&dword_18E596000, &_os_log_default, 17LL, "Assertion failed: cellIndex < metadata->size * metadata->size", v22, 2LL);
+    }
+LABEL_15:
+    v19 = 0LL;
+  }
+LABEL_12:
+  MEMORY[0x19278B070]();
+  return v19;
+}
+
+uint64_t __101__GEOSPRMetroAvailabilityFetcher_determineAvailabilityForCoordinate_callbackQueue_completionHandler___block_invoke_3(uint64_t a1, uint64_t a2)
+{
+  void *v4;
+  uint64_t v5;
+  uint64_t v6;
+  uint64_t v7;
+  uint64_t v8;
+  uint64_t v9;
+  uint64_t v10;
+  uint64_t v11;
+  uint64_t v12;
+  uint64_t v13;
+  uint64_t v14;
+  uint64_t v15;
+  uint64_t v16;
+  uint64_t v18;
+  uint64_t v19;
+  uint64_t v20;
+  uint64_t v21;
+  uint64_t v22;
+  _QWORD v23[7];
+  uint64_t v24;
+
+  v4 = (void *)MEMORY[0x19278B1F0]();
+  if(!MEMORY[0x19278B200]())
+  {
+    v6 = MEMORY[0x19278AF20](objc_msgSend(v4, "decodedRepresentation"));
+    if(v6)
+      goto LABEL_4;
+    v24 = 0LL;
+    v18 = MEMORY[0x19278AF20](objc_msgSend(v4, "readDataWithError:", &v24));
+    MEMORY[0x19278B2E0]();
+    if(!v18)
+    {
+      v15 = (*(uint64_t (**)(void))(*(_QWORD *)(a1 + 40) + 16LL))();
+      goto LABEL_5;
+    }
+    v19 = objc_msgSend((id)MEMORY[0x19278AEB0](off_1EFF5D498), "initWithVMP4:localizationData:tileKey:", v18, 0LL, a2);
+    v20 = MEMORY[0x19278B0D0]();
+    v6 = MEMORY[0x19278B0A0](v20);
+    if(v19)
+    {
+LABEL_4:
+      v11 = *(_QWORD *)(a1 + 32);
+      v12 = *(_QWORD *)(v11 + 32);
+      v23[0] = _NSConcreteStackBlock;
+      v23[1] = 3221225472LL;
+      v23[2] = __101__GEOSPRMetroAvailabilityFetcher_determineAvailabilityForCoordinate_callbackQueue_completionHandler___block_invoke_4;
+      v23[3] = &unk_1EFDF8C20;
+      v23[4] = v11;
+      v23[6] = a2;
+      v13 = MEMORY[0x19278B250](v6, v7, v8, v9, v10);
+      v23[5] = v13;
+      MEMORY[0x19278A9E0](v12, v23);
+      -[GEOSPRMetroAvailabilityFetcher _determineAvailabilityForCoordinate:fromMetadataTile:metadataTileKey:](*(_QWORD *)(a1 + 32), *(double *)(a1 + 48), *(double *)(a1 + 56), v13, a2);
+      v14 = (*(uint64_t (**)(void))(*(_QWORD *)(a1 + 40) + 16LL))();
+      v15 = MEMORY[0x19278B130](v14);
+    }
+    else
+    {
+      v21 = *(_QWORD *)(a1 + 40);
+      v22 = MEMORY[0x19278AF20](objc_msgSend(off_1EFF5BA60, "GEOErrorWithCode:reason:", -13LL, &stru_1F002BD28));
+      v15 = (*(uint64_t (**)(uint64_t, _QWORD, uint64_t))(v21 + 16))(v21, 0LL, v22);
+    }
+LABEL_5:
+    v5 = MEMORY[0x19278B0A0](v15);
+    goto LABEL_6;
+  }
+  v5 = (*(uint64_t (**)(void))(*(_QWORD *)(a1 + 40) + 16LL))();
+LABEL_6:
+  v16 = MEMORY[0x19278B090](v5);
+  return MEMORY[0x19278B070](v16);
+}
+
+- (void).cxx_destruct
+{
+  uint64_t vars8;
+
+  objc_storeStrong(a1 + 7, 0LL);
+  objc_storeStrong(a1 + 4, 0LL);
+  objc_storeStrong(a1 + 2, 0LL);
+  if(((vars8 ^ (2 * vars8)) & 0x4000000000000000LL) != 0)
+    __break(0xC471u);
+  objc_storeStrong(a1 + 1, 0LL);
+}
+
+@end

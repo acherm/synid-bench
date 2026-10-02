@@ -1,0 +1,101 @@
+name: Synid benchmark
+
+# Optional. Builds SWH Synid (default: its `main`) and scores it on every
+# benchmark against that benchmark's latest stored baseline (README.md).
+# Weekly and on demand. A regression fails the run and opens an issue.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"          # Mondays 06:00 UTC
+  workflow_dispatch:
+    inputs:
+      synid_ref:
+        description: "Synid branch, tag or commit"
+        default: "main"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Synid's repository is access-restricted (SWH GitLab): reading it needs a token
+      # with read_repository, stored as the secret SYNID_GITLAB_TOKEN. Without it the
+      # run is skipped (not failed).
+      - name: Fetch Synid
+        id: fetch
+        env:
+          TOKEN: ${{ secrets.SYNID_GITLAB_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "Skipped: Synid's repository needs credentials — add a GitLab token with read_repository as the repository secret SYNID_GITLAB_TOKEN." | tee -a "$GITHUB_STEP_SUMMARY"
+            echo "skip=1" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git clone --filter=blob:none "https://oauth2:${TOKEN}@gitlab.softwareheritage.org/teams/codecommons/swh-syntax-identification" synid
+          git -C synid checkout -q "${{ github.event.inputs.synid_ref || 'main' }}"
+          echo "SYNID_COMMIT=$(git -C synid rev-parse --short HEAD)" >> "$GITHUB_ENV"
+          git -C synid log -1 --format='Synid %h %ad %s' --date=short
+
+      - uses: dtolnay/rust-toolchain@stable
+        if: steps.fetch.outputs.skip != '1'
+
+      - uses: actions/cache@v4
+        if: steps.fetch.outputs.skip != '1'
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            synid/target
+          key: synid-${{ runner.os }}-${{ hashFiles('synid/Cargo.lock') }}
+          restore-keys: synid-${{ runner.os }}-
+
+      - name: Build Synid
+        if: steps.fetch.outputs.skip != '1'
+        run: cargo build --release --bin synid --manifest-path synid/Cargo.toml
+
+      - name: Run and score every benchmark
+        if: steps.fetch.outputs.skip != '1'
+        id: score
+        run: |
+          status=0
+          for bench in benchmarks/*/; do
+            bench=${bench%/}
+            [ -d "$bench/baselines" ] || continue
+            python3 tools/run.py "$bench" --synid synid/target/release/synid --label "ci-${SYNID_COMMIT}"
+            base=$(python3 -c "
+          import json, pathlib, sys
+          runs = [(json.loads(p.read_text().splitlines()[0])['meta'].get('date', ''), p)
+                  for p in pathlib.Path(sys.argv[1], 'baselines').glob('*.jsonl')]
+          print(max(runs)[1])" "$bench")
+            python3 tools/score.py "$bench/results/ci-${SYNID_COMMIT}.jsonl" --baseline "$base" \
+              --report "$bench/results/ci-${SYNID_COMMIT}.md" || status=1
+            cat "$bench/results/ci-${SYNID_COMMIT}.md" >> "$GITHUB_STEP_SUMMARY"
+            cat "$bench/results/ci-${SYNID_COMMIT}.md" >> report.md
+          done
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-artifact@v4
+        if: steps.fetch.outputs.skip != '1'
+        with:
+          name: synid-bench-${{ env.SYNID_COMMIT }}
+          path: |
+            benchmarks/*/results/
+            report.md
+
+      - name: Report a regression
+        if: steps.fetch.outputs.skip != '1' && steps.score.outputs.status != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create --repo "${{ github.repository }}" \
+            --title "Synid benchmark: regression at Synid ${SYNID_COMMIT}" \
+            --body-file report.md
+
+      - name: Fail on regression
+        if: steps.fetch.outputs.skip != '1' && steps.score.outputs.status != '0'
+        run: exit 1

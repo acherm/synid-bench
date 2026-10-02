@@ -1,0 +1,2902 @@
+{
+ "synid_commit": "9bc1c32",
+ "n_reviewed": 56,
+ "n_with_reference": 54,
+ "strata": {
+  "disagree": {
+   "N": 77,
+   "n_reviewed_with_ref": 35,
+   "weight": 2.2
+  },
+  "agree": {
+   "N": 919,
+   "n_reviewed_with_ref": 19,
+   "weight": 48.368
+  }
+ },
+ "default_reproduces_stored": "56/56",
+ "configs": {
+  "default": {
+   "n": 54,
+   "correct": 32,
+   "accuracy_raw": 0.5926,
+   "accuracy_weighted": 0.8123,
+   "ci": [
+    0.6096,
+    0.9231
+   ],
+   "n_eff": 22.2,
+   "answered": 32,
+   "correct_when_answering": 1.0
+  },
+  "no comment": {
+   "n": 54,
+   "correct": 33,
+   "accuracy_raw": 0.6111,
+   "accuracy_weighted": 0.8609,
+   "ci": [
+    0.6647,
+    0.9508
+   ],
+   "n_eff": 22.2,
+   "answered": 33,
+   "correct_when_answering": 1.0
+  },
+  "no hyply heuristics": {
+   "n": 54,
+   "correct": 28,
+   "accuracy_raw": 0.5185,
+   "accuracy_weighted": 0.8035,
+   "ci": [
+    0.5999,
+    0.9177
+   ],
+   "n_eff": 22.2,
+   "answered": 31,
+   "correct_when_answering": 0.9032
+  },
+  "no pygments heuristics": {
+   "n": 54,
+   "correct": 40,
+   "accuracy_raw": 0.7407,
+   "accuracy_weighted": 0.83,
+   "ci": [
+    0.6292,
+    0.9335
+   ],
+   "n_eff": 22.2,
+   "answered": 52,
+   "correct_when_answering": 0.7692
+  },
+  "no hyply classifier": {
+   "n": 54,
+   "correct": 32,
+   "accuracy_raw": 0.5926,
+   "accuracy_weighted": 0.8123,
+   "ci": [
+    0.6096,
+    0.9231
+   ],
+   "n_eff": 22.2,
+   "answered": 32,
+   "correct_when_answering": 1.0
+  },
+  "extension only": {
+   "n": 54,
+   "correct": 0,
+   "accuracy_raw": 0.0,
+   "accuracy_weighted": 0.0,
+   "ci": [
+    0.0,
+    0.1473
+   ],
+   "n_eff": 22.2,
+   "answered": 0,
+   "correct_when_answering": null
+  }
+ },
+ "labellers": {
+  "judge": {
+   "n": 54,
+   "correct": 54,
+   "accuracy_raw": 1.0,
+   "accuracy_weighted": 1.0,
+   "ci": [
+    0.8527,
+    1.0
+   ],
+   "n_eff": 22.2,
+   "answered": 54,
+   "correct_when_answering": 1.0
+  },
+  "judge2": {
+   "n": 54,
+   "correct": 54,
+   "accuracy_raw": 1.0,
+   "accuracy_weighted": 1.0,
+   "ci": [
+    0.8527,
+    1.0
+   ],
+   "n_eff": 22.2,
+   "answered": 54,
+   "correct_when_answering": 1.0
+  },
+  "linguist": {
+   "n": 54,
+   "correct": 38,
+   "accuracy_raw": 0.7037,
+   "accuracy_weighted": 0.9647,
+   "ci": [
+    0.7977,
+    0.9947
+   ],
+   "n_eff": 22.2,
+   "answered": 38,
+   "correct_when_answering": 1.0
+  },
+  "pygments": {
+   "n": 54,
+   "correct": 19,
+   "accuracy_raw": 0.3519,
+   "accuracy_weighted": 0.9227,
+   "ci": [
+    0.7405,
+    0.9804
+   ],
+   "n_eff": 22.2,
+   "answered": 54,
+   "correct_when_answering": 0.3519
+  },
+  "ours": {
+   "n": 54,
+   "correct": 51,
+   "accuracy_raw": 0.9444,
+   "accuracy_weighted": 0.9934,
+   "ci": [
+    0.8416,
+    0.9998
+   ],
+   "n_eff": 22.2,
+   "answered": 52,
+   "correct_when_answering": 0.9808
+  }
+ },
+ "confusion_default": {
+  "matlab-family": {
+   "matlab-family": 20,
+   "Text": 10,
+   "undecided": 2
+  },
+  "mathematica-wolfram": {
+   "Text": 4
+  },
+  "objective-c": {
+   "objective-c": 7,
+   "Text": 1
+  },
+  "mercury": {
+   "mercury": 2
+  },
+  "mumps-m": {
+   "mumps-m": 2
+  },
+  "magma": {
+   "Text": 4
+  },
+  "c-or-cpp": {
+   "Text": 1
+  },
+  "not-code": {
+   "Text": 1
+  }
+ },
+ "failures_default": {
+  "text": 20,
+  "undecided": 2
+ },
+ "rows": [
+  {
+   "sha1_git": "b462101dba6df91b186956e01337c58ec5962df7",
+   "filename": "cosd.m",
+   "origin": "https://github.com/mtmiller/octave",
+   "path": "scripts/elfun/cosd.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "octave",
+   "judge": "octave",
+   "judge2": "octave",
+   "linguist": "matlab",
+   "pygments": "objective-c",
+   "ours": "octave",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 53,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "6bb32ed06e76d8cb34ddfaf03c5f5decd0d4a8f6",
+   "filename": "Dampeningeffect_2_a.m",
+   "origin": "https://github.com/santoshsahini19/Delta_Training_Rule",
+   "path": "MATLAB Code/Dampeningeffect_2_a.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 32,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers MATLAB (right)"
+  },
+  {
+   "sha1_git": "44b416ccaddc23b687965dc8e43dbc9de9e2b794",
+   "filename": "Utils.m",
+   "origin": "https://github.com/mbs0221/Data-Mining",
+   "path": "Classifiy/Utils.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "matlab",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ],
+    "no comment": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ],
+    "no hyply heuristics": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ],
+    "no pygments heuristics": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ],
+    "no hyply classifier": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "undecided",
+   "synid_correct": false,
+   "utf8": false,
+   "lines": 85,
+   "matlab_heuristic_evidence": true,
+   "mechanism": "content not valid UTF-8: `synid file` cannot read it, every content strategy is skipped and the extension's candidates are returned"
+  },
+  {
+   "sha1_git": "9a9db3b48faf23363642c16a98b0bc9bd90d616b",
+   "filename": "print_smv_phase_transition_noiseless.m",
+   "origin": "https://github.com/indigits/sparse-plex",
+   "path": "experiments/cosamp_mmv/print_smv_phase_transition_noiseless.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 14,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers MATLAB (right)"
+  },
+  {
+   "sha1_git": "1fa4cb2b6c7b76359583c0a3458b3180107e9418",
+   "filename": "comparator.m",
+   "origin": "https://github.com/GijsGroote/BEP",
+   "path": "matlab/Performance/comparator.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "matlab",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 55,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "b688de3330c3656bea159db58a42ac0ef84687ac",
+   "filename": "Compute_Derivatives.m",
+   "origin": "https://github.com/One-star11/PathPlanning-Control_TruckTrailerSystem",
+   "path": "Final_Submission/ClosedLoopVariant/Compute_Derivatives.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "matlab",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 44,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "7e0992b8030593deb2497a0b7dcabb4d06ba8f32",
+   "filename": "Transfer_08-09-20_NC_Prot_opt_da0_G_a-1040_P6.m",
+   "origin": "https://github.com/walee-1/TransportFunction",
+   "path": "MergerTransport/MergerTransport/NC_Prot_opt_da0/a-1040/Transfer_08-09-20_NC_Prot_opt_da0_G_a-1040_P6.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "mathematica-wolfram",
+   "judge": "mathematica-wolfram",
+   "judge2": "mathematica-wolfram",
+   "linguist": "mathematica-wolfram",
+   "pygments": "objective-c",
+   "ours": "mathematica-wolfram",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "Limbo"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 81,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers Limbo (still wrong)"
+  },
+  {
+   "sha1_git": "b536843878e0920b9f7df80c49974db3df7c7993",
+   "filename": "PublishViewController.m",
+   "origin": "https://github.com/beikexmj/jujiahe3.1",
+   "path": "jujiahe/首页/话题/发布/PublishViewController.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "objective-c",
+   "judge": "objective-c",
+   "judge2": "objective-c",
+   "linguist": "objective-c",
+   "pygments": "objective-c",
+   "ours": "objective-c",
+   "synid": {
+    "default": [
+     "Objective-C"
+    ],
+    "no comment": [
+     "Objective-C"
+    ],
+    "no hyply heuristics": [
+     "Objective-C"
+    ],
+    "no pygments heuristics": [
+     "Objective-C"
+    ],
+    "no hyply classifier": [
+     "Objective-C"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 775,
+   "matlab_heuristic_evidence": false,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "20a3c558d3e9a078b936a5100e7ac40254be7d19",
+   "filename": "plot_WBmod_strokeMINcoeff_TorqueAxis1UP.m",
+   "origin": "https://github.com/FlyRanch/flycity",
+   "path": "postproc/SACCADE/D_WBkin/plot_WBmod_strokeMINcoeff_TorqueAxis1UP.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 149,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "146faacad4fb470a095fcb1a6429901e4ee816e9",
+   "filename": "Hiuristic_staff.m",
+   "origin": "https://github.com/ilantc/Magneton",
+   "path": "/Hiuristic_staff.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "matlab",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 122,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "f48c8919117774c898d236dc8a61632bc3da3e7d",
+   "filename": "chainimages.m",
+   "origin": "https://github.com/jverbraeken/Computer-Vision",
+   "path": "Assignment6/chainimages.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 78,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "a9e039af425c8cac9a9087d0c0290a880e386b52",
+   "filename": "symb01ValsRec.m",
+   "origin": "https://github.com/es335mathwiz/ProjectionMethodTools",
+   "path": "ProjectionMethodToolsJava/code/symb01ValsRec.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "mathematica-wolfram",
+   "judge": "mathematica-wolfram",
+   "judge2": "mathematica-wolfram",
+   "linguist": "mathematica-wolfram",
+   "pygments": "objective-c",
+   "ours": "mathematica-wolfram",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "Objective-C"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 55,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers Objective-C (still wrong)"
+  },
+  {
+   "sha1_git": "d0576414217cf3babadca996f6ad53e40e514b74",
+   "filename": "TreeViewController.m",
+   "origin": "https://github.com/yanjun-ios/QTMC",
+   "path": "MYT/Model/View/TreeViewController.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "objective-c",
+   "judge": "objective-c",
+   "judge2": "objective-c",
+   "linguist": "objective-c",
+   "pygments": "objective-c",
+   "ours": "objective-c",
+   "synid": {
+    "default": [
+     "Objective-C"
+    ],
+    "no comment": [
+     "Objective-C"
+    ],
+    "no hyply heuristics": [
+     "Objective-C"
+    ],
+    "no pygments heuristics": [
+     "Objective-C"
+    ],
+    "no hyply classifier": [
+     "Objective-C"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 789,
+   "matlab_heuristic_evidence": false,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "4f45185a0be32efd533f146529e2fcbc36a97fb7",
+   "filename": "Tone.m",
+   "origin": "https://github.com/PaschalisB/Tunica",
+   "path": "@Tone/Tone.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 24,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers MATLAB (right)"
+  },
+  {
+   "sha1_git": "461a890cf58094a804747f56e7288659685768b4",
+   "filename": "GTKBin.m",
+   "origin": "https://github.com/KyleCardoza/GTKKit",
+   "path": "src/GTKBin.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "objective-c",
+   "judge": "objective-c",
+   "judge2": "objective-c",
+   "linguist": "objective-c",
+   "pygments": "objective-c",
+   "ours": "objective-c",
+   "synid": {
+    "default": [
+     "Objective-C"
+    ],
+    "no comment": [
+     "Objective-C"
+    ],
+    "no hyply heuristics": [
+     "Objective-C"
+    ],
+    "no pygments heuristics": [
+     "Objective-C"
+    ],
+    "no hyply classifier": [
+     "Objective-C"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 16,
+   "matlab_heuristic_evidence": false,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "6ca1a94ab387c8a86e7efb8aeaef674a50ddc2e1",
+   "filename": "simplify_goal_switch.m",
+   "origin": "https://github.com/Mercury-Language/mercury.git",
+   "path": "compiler/simplify_goal_switch.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "mercury",
+   "judge": "mercury",
+   "judge2": "mercury",
+   "linguist": "mercury",
+   "pygments": "matlab",
+   "ours": "mercury",
+   "synid": {
+    "default": [
+     "Mercury"
+    ],
+    "no comment": [
+     "Mercury"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "Mercury"
+    ],
+    "no hyply classifier": [
+     "Mercury"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 312,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "1f3bba4d2cd6267437ec093b677e71e57c13ef3c",
+   "filename": "ENEQNX2.m",
+   "origin": "https://code.launchpad.net/~ov+server/openvista-server/mainline",
+   "path": "routines/foia/ENEQNX2.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "mumps-m",
+   "judge": "mumps-m",
+   "judge2": "mumps-m",
+   "linguist": "mumps-m",
+   "pygments": "objective-c",
+   "ours": "mumps-m",
+   "synid": {
+    "default": [
+     "M"
+    ],
+    "no comment": [
+     "M"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "M"
+    ],
+    "no hyply classifier": [
+     "M"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 44,
+   "matlab_heuristic_evidence": false,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "4b700d2e4564e793ec685f9bc5004a860d46020d",
+   "filename": "SWEyeDropperTool.m",
+   "origin": "https://github.com/cntrump/Paintbrush",
+   "path": "/SWEyeDropperTool.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "objective-c",
+   "judge": "objective-c",
+   "judge2": "objective-c",
+   "linguist": "objective-c",
+   "pygments": "objective-c",
+   "ours": "objective-c",
+   "synid": {
+    "default": [
+     "Objective-C"
+    ],
+    "no comment": [
+     "Objective-C"
+    ],
+    "no hyply heuristics": [
+     "Objective-C"
+    ],
+    "no pygments heuristics": [
+     "Objective-C"
+    ],
+    "no hyply classifier": [
+     "Objective-C"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 62,
+   "matlab_heuristic_evidence": false,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "dfc7a03b83b4b0c7ef5bb8cfea0f7aa730852a55",
+   "filename": "radae_plots.m",
+   "origin": "https://github.com/drowe67/radae",
+   "path": "/radae_plots.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "octave",
+   "judge2": "octave",
+   "linguist": "matlab",
+   "pygments": "objective-c",
+   "ours": "octave",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 541,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "f801588fbe7ccdb0cf4549c4097fe5bc8e135a24",
+   "filename": "64S14-4,8,8-g17-path7-notcomputed.m",
+   "origin": "https://github.com/michaelmusty/SolvableDessins",
+   "path": "SolvableDB/64/64S14-4,8,8-g17-path7-notcomputed.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "magma",
+   "judge": "magma",
+   "judge2": "magma",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "magma",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "Mercury"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 117,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers Mercury (still wrong); and the language is not among Synid's candidates for `.m`"
+  },
+  {
+   "sha1_git": "8152648f7580ccf6d5b4996ca023b1758b17489c",
+   "filename": "main_QP_test.m",
+   "origin": "https://github.com/guansanghai/CVX-Jigsaw",
+   "path": "/main_QP_test.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 65,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers MATLAB (right)"
+  },
+  {
+   "sha1_git": "6a9f899df8665c1253be9f8a2f7d02b10ca3df92",
+   "filename": "post_term_analysis.m",
+   "origin": "https://github.com/sebgod/mercury",
+   "path": "compiler/post_term_analysis.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "mercury",
+   "judge": "mercury",
+   "judge2": "mercury",
+   "linguist": "mercury",
+   "pygments": "matlab",
+   "ours": "mercury",
+   "synid": {
+    "default": [
+     "Mercury"
+    ],
+    "no comment": [
+     "Mercury"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "Mercury"
+    ],
+    "no hyply classifier": [
+     "Mercury"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 299,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "8c09f9cf9acd12d619c8869ff784d7e940833e6d",
+   "filename": "generate_forces_pro_ws_solver.m",
+   "origin": "https://github.com/MohammedEltoum/dataMPC_parking",
+   "path": "online_MPC_barc/controllers/generate_forces_pro_ws_solver.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "matlab",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 104,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "bd36626611a8c98053f8c38bd231392b696158eb",
+   "filename": "zu-fuss.m",
+   "origin": "https://github.com/ColWalterEKurtz/Mathematik",
+   "path": "LineareGleichungen/zu-fuss.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "octave",
+   "judge": "octave",
+   "judge2": "octave",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "octave",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 21,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers MATLAB (right)"
+  },
+  {
+   "sha1_git": "d7647ff036e8dbbea6171d64e7a005434b7d17d7",
+   "filename": "main.m",
+   "origin": "https://github.com/pasoev/praxis",
+   "path": "game/pongosx/main.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "c-or-cpp",
+   "judge": "c-or-cpp",
+   "judge2": "c-or-cpp",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "octave",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "Objective-C"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 236,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers Objective-C (still wrong); and the language is not among Synid's candidates for `.m`"
+  },
+  {
+   "sha1_git": "501d6f85d78b3eacf794f7535a35f67ee00bbd7b",
+   "filename": "PSOREJP1.m",
+   "origin": "https://github.com/WorldVistA/VistA-M",
+   "path": "Packages/Outpatient Pharmacy/Routines/PSOREJP1.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "mumps-m",
+   "judge": "mumps-m",
+   "judge2": "mumps-m",
+   "linguist": "mumps-m",
+   "pygments": "objective-c",
+   "ours": "mumps-m",
+   "synid": {
+    "default": [
+     "M"
+    ],
+    "no comment": [
+     "M"
+    ],
+    "no hyply heuristics": [
+     "Objective-C"
+    ],
+    "no pygments heuristics": [
+     "M"
+    ],
+    "no hyply classifier": [
+     "M"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 384,
+   "matlab_heuristic_evidence": false,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "a1ae221c9341b106732dd98e1e2fd0c9534c9c50",
+   "filename": "128S124-8,8,8-g41-path194.m",
+   "origin": "https://github.com/michaelmusty/SolvableDessins",
+   "path": "SolvableDB/128/128S124-8,8,8-g41-path194.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "magma",
+   "judge": "magma",
+   "judge2": "magma",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "magma",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "Mercury"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 233,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers Mercury (still wrong); and the language is not among Synid's candidates for `.m`"
+  },
+  {
+   "sha1_git": "f11636116bda9cc71df9eedd0cb596120fc8cc73",
+   "filename": "moxunit_fieldtrip_util_parse_walltime.m",
+   "origin": "https://git.mpib-berlin.mpg.de/LNDG/stateswitchage/stsw-stsw_eeg_task-0_preproc.git",
+   "path": "tools/eeglab14_1_1b/plugins/Fieldtrip-lite20190618/contrib/MOxUnit_fieldtrip/moxunit_fieldtrip_util_parse_walltime.m",
+   "stratum": "disagree",
+   "weight": null,
+   "human": "unknown",
+   "judge": "matlab",
+   "judge2": "not-code",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 1,
+   "matlab_heuristic_evidence": false,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "f0da3d99487d8bc9d85f3ab86bb10192f587d678",
+   "filename": "eigenvalue.m",
+   "origin": "https://github.com/jingma-git/numeric",
+   "path": "matlab/chp4/eigenvalue.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "unknown",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 3,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers MATLAB (right)"
+  },
+  {
+   "sha1_git": "6865e1cfc864b7d1d463011967e055480505539d",
+   "filename": "deciles2.m",
+   "origin": "https://inequalitygrowth.googlecode.com",
+   "path": "Tables/deciles2.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 212,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "ddf374993dccb95f9c334ef305acbf0100cc6fd3",
+   "filename": "ViewUtils.m",
+   "origin": "https://github.com/jay16/YongHui-IOS",
+   "path": "YH-IOS/Utils/ViewUtils/ViewUtils.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "objective-c",
+   "judge": "objective-c",
+   "judge2": "objective-c",
+   "linguist": "objective-c",
+   "pygments": "objective-c",
+   "ours": "objective-c",
+   "synid": {
+    "default": [
+     "Objective-C"
+    ],
+    "no comment": [
+     "Objective-C"
+    ],
+    "no hyply heuristics": [
+     "Objective-C"
+    ],
+    "no pygments heuristics": [
+     "Objective-C"
+    ],
+    "no hyply classifier": [
+     "Objective-C"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 141,
+   "matlab_heuristic_evidence": false,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "64a0686502d5564e8d2a8a395a44c6850e850302",
+   "filename": "main.m",
+   "origin": "https://github.com/dscandrett/SORelativeDateTransformer",
+   "path": "Example/main.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "objective-c",
+   "judge": "objective-c",
+   "judge2": "objective-c",
+   "linguist": "objective-c",
+   "pygments": "objective-c",
+   "ours": "objective-c",
+   "synid": {
+    "default": [
+     "Objective-C"
+    ],
+    "no comment": [
+     "Objective-C"
+    ],
+    "no hyply heuristics": [
+     "Objective-C"
+    ],
+    "no pygments heuristics": [
+     "Objective-C"
+    ],
+    "no hyply classifier": [
+     "Objective-C"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 19,
+   "matlab_heuristic_evidence": false,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "659c4479c79716e99a9167d782cf8b74109b2d4d",
+   "filename": "GEOSPRMetroAvailabilityFetcher.m",
+   "origin": "https://github.com/CrackerCat/iPhone15-3_17.6.1_21G101_Restore",
+   "path": "System/Library/PrivateFrameworks/GeoServices.framework/GEOSPRMetroAvailabilityFetcher.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "objective-c",
+   "judge": "objective-c",
+   "judge2": "objective-c",
+   "linguist": "objective-c",
+   "pygments": "objective-c",
+   "ours": "objective-c",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Objective-C"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "M"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 391,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers M (still wrong); without the comment strategy: Objective-C"
+  },
+  {
+   "sha1_git": "5465b7f4caa519a56aefc2eb481a841c1fde8111",
+   "filename": "calciumVwidthBBBanalysis.m",
+   "origin": "https://github.com/sindafekir/imAnalysis",
+   "path": "/calciumVwidthBBBanalysis.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 10431,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "b05373f67b00c1f6091ad9378f0bb27be7fcf64c",
+   "filename": "odefun3.m",
+   "origin": "https://github.com/pkasela/Assignment-Calcolo-Scientifico",
+   "path": "Project 1/Project 1 MATLAB Codes/odefun3.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "matlab",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 8,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "aeee5e6874e115a8ede6c4fb53a9eb96500df9b6",
+   "filename": "bbtest_constructors.m",
+   "origin": "https://code.launchpad.net/~ubuntu-branches/ubuntu/lucid/freemat/lucid",
+   "path": "toolbox/test/bbtest_constructors.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "matlab",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 5,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "2d7c44c466792911b7d85eec5913917965475d23",
+   "filename": "stk_options_set.m",
+   "origin": "https://github.com/stk-kriging/stk",
+   "path": "misc/options/stk_options_set.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "matlab",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 75,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "4f03314fe6578a77c385ddb07ed170d6a0d7c116",
+   "filename": "Transfer_08-09-20_SC_Prot_opt_dG2_C_a-1045_P1.m",
+   "origin": "https://github.com/walee-1/TransportFunction",
+   "path": "MergerTransport/MergerTransport/SC_Prot_opt_dG2/a-1045/Transfer_08-09-20_SC_Prot_opt_dG2_C_a-1045_P1.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "mathematica-wolfram",
+   "judge": "mathematica-wolfram",
+   "judge2": "mathematica-wolfram",
+   "linguist": "mathematica-wolfram",
+   "pygments": "objective-c",
+   "ours": "mathematica-wolfram",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "M"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 78,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers M (still wrong)"
+  },
+  {
+   "sha1_git": "43ff83b70b86871bc54569ccd353989d2d91523c",
+   "filename": "quad_plots_etan_std.m",
+   "origin": "https://github.com/Swierczek4/ocean_plotting_and_analysis_accessories",
+   "path": "/quad_plots_etan_std.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 709,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "f2bff377f27bf00af0830d3a2b5a1c11463f1b0f",
+   "filename": "L9p3.m",
+   "origin": "https://github.com/Oprea00/Numerical-Calculus",
+   "path": "lab9/L9p3.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "M"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 16,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers M (still wrong)"
+  },
+  {
+   "sha1_git": "3e9d07c3b66c64281a7399d1152e14084fe74c62",
+   "filename": "CREATE_BLOOM.m",
+   "origin": "https://github.com/mswest46/MinimaxProjectCode",
+   "path": "VaziraniAlgorithm/CREATE_BLOOM.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "matlab",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 59,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "2b0a23329e4cc8db7ec5bfbecfb0e2a32cf92434",
+   "filename": "OrderHelper.m",
+   "origin": "https://github.com/Tjatse/TaurusAir",
+   "path": "Data/Helper/OrderHelper.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "objective-c",
+   "judge": "objective-c",
+   "judge2": "objective-c",
+   "linguist": "objective-c",
+   "pygments": "objective-c",
+   "ours": "objective-c",
+   "synid": {
+    "default": [
+     "Objective-C"
+    ],
+    "no comment": [
+     "Objective-C"
+    ],
+    "no hyply heuristics": [
+     "Objective-C"
+    ],
+    "no pygments heuristics": [
+     "Objective-C"
+    ],
+    "no hyply classifier": [
+     "Objective-C"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 357,
+   "matlab_heuristic_evidence": false,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "e3e2f7f69a451688467e5ed3e01373bd0c1d7a92",
+   "filename": "workspace.m",
+   "origin": "https://github.com/brockkopp/miGAplanning",
+   "path": "configSpace/workspace.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 59,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "f2dcfe77af91ba277f29971d47de5d243e2914f4",
+   "filename": "special_symbols.m",
+   "origin": "https://github.com/maxima-project-on-github/mixima",
+   "path": "translator/our_mma_tests/special_symbols.m",
+   "stratum": "disagree",
+   "weight": null,
+   "human": "unsure",
+   "judge": "mathematica-wolfram",
+   "judge2": "mathematica-wolfram",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "unknown",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "M"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 4,
+   "matlab_heuristic_evidence": false,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "bf8f93db910a97a6abf18a635043849fb0df9947",
+   "filename": "intersect.m",
+   "origin": "https://github.com/oheim/octave-interval",
+   "path": "inst/@infsup/intersect.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "octave",
+   "judge": "octave",
+   "judge2": "octave",
+   "linguist": "matlab",
+   "pygments": "objective-c",
+   "ours": "octave",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 88,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "4c3c618872051e8114d3aa3d37f68ed0f71268b2",
+   "filename": "full_wavefield_exp_dataset_L3_S1_B.m",
+   "origin": "https://github.com/IFFM-PAS-MISD/aidd",
+   "path": "src/data_processing/full_wavefield_exp_dataset_L3_S1_B.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 90,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "cc59ae3ecefd62763e7a58c5666a0356c9e32e7d",
+   "filename": "main_12_复现Yan_在导函数上加噪声_good.m",
+   "origin": "https://github.com/RyL20200506/FuXian001",
+   "path": "CodeFromMe/main_12_复现Yan_在导函数上加噪声_good.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "matlab",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ],
+    "no comment": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ],
+    "no hyply heuristics": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ],
+    "no pygments heuristics": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ],
+    "no hyply classifier": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "undecided",
+   "synid_correct": false,
+   "utf8": false,
+   "lines": 85,
+   "matlab_heuristic_evidence": true,
+   "mechanism": "content not valid UTF-8: `synid file` cannot read it, every content strategy is skipped and the extension's candidates are returned"
+  },
+  {
+   "sha1_git": "b7f369bcbf63d5a13f0663c42b0facb9bd36ddb4",
+   "filename": "convert.m",
+   "origin": "https://github.com/clayandgen/Comp-Vision",
+   "path": "/convert.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 137,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "2aa25faa042945a4cdca9b8365ef885c25aa51b4",
+   "filename": "SimpleTensor.m",
+   "origin": "https://github.com/gharib85/SpinorsExtras",
+   "path": "SpinorsExtras/SimpleTensor.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "mathematica-wolfram",
+   "judge": "mathematica-wolfram",
+   "judge2": "mathematica-wolfram",
+   "linguist": "mathematica-wolfram",
+   "pygments": "objective-c",
+   "ours": "mathematica-wolfram",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "M"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 131,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers M (still wrong)"
+  },
+  {
+   "sha1_git": "3951787602d80c1ccd30bbf4a568635ee1cd3a34",
+   "filename": "mergeInnerOuter.m",
+   "origin": "https://github.com/Jehaumont/ECOFERTIII",
+   "path": "Matlab/mergeInnerOuter.m",
+   "stratum": "agree",
+   "weight": 48.36842105263158,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "matlab",
+   "pygments": "matlab",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "MATLAB"
+    ],
+    "no comment": [
+     "MATLAB"
+    ],
+    "no hyply heuristics": [
+     "MATLAB"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "MATLAB"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "language",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 153,
+   "matlab_heuristic_evidence": true,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "625aad06c3115bed5484238b4726b36368f946b2",
+   "filename": "64S12-8,8,2-g9.m",
+   "origin": "https://github.com/michaelmusty/SolvableDessins",
+   "path": "SolvablePassportDB/64/64S12-8,8,2-g9.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "magma",
+   "judge": "magma",
+   "judge2": "magma",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "unknown",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "Mercury"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 31,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers Mercury (still wrong); and the language is not among Synid's candidates for `.m`"
+  },
+  {
+   "sha1_git": "e4183b2f54a8191e17b45f22a3ee3bbc971f9a94",
+   "filename": "h264_psnrs.m",
+   "origin": "http://tensor.googlecode.com/svn/",
+   "path": "trunk/tensor_video/h264_psnrs.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 13,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers MATLAB (right)"
+  },
+  {
+   "sha1_git": "d8237cb4dbbcfc48a203f0035d9b68631e3ecadb",
+   "filename": "64S20-4,4,8-g13-path35.m",
+   "origin": "https://github.com/michaelmusty/SolvableDessins",
+   "path": "SolvableDB/64/64S20-4,4,8-g13-path35.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "magma",
+   "judge": "magma",
+   "judge2": "magma",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "magma",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "Mercury"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 133,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers Mercury (still wrong); and the language is not among Synid's candidates for `.m`"
+  },
+  {
+   "sha1_git": "c6676eeab063d600534f4b7cd91c7a8500ddfa2f",
+   "filename": "ml_053.00.m",
+   "origin": "https://github.com/ufal/PDT-C",
+   "path": "WorkData/PDTSC/data/ml_053.00.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "not-code",
+   "judge": "not-code",
+   "judge2": "not-code",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "not-code",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "M"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": true,
+   "utf8": true,
+   "lines": 4635,
+   "matlab_heuristic_evidence": false,
+   "mechanism": ""
+  },
+  {
+   "sha1_git": "5c03006fc1cd7271a0596ecf8d4a82dd42646223",
+   "filename": "PhaseTransition.m",
+   "origin": "https://github.com/sgunasekar/rmc_code",
+   "path": "/PhaseTransition.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 33,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers MATLAB (right)"
+  },
+  {
+   "sha1_git": "c7f8219ab2c9c469bb736213778c66d8b75ca5e6",
+   "filename": "anblowup.m",
+   "origin": "https://github.com/NOAA-CHAMP/coral_heat_budget",
+   "path": "/anblowup.m",
+   "stratum": "disagree",
+   "weight": 2.2,
+   "human": "matlab",
+   "judge": "matlab",
+   "judge2": "matlab",
+   "linguist": "unknown",
+   "pygments": "objective-c",
+   "ours": "matlab",
+   "synid": {
+    "default": [
+     "Text"
+    ],
+    "no comment": [
+     "Text"
+    ],
+    "no hyply heuristics": [
+     "Text"
+    ],
+    "no pygments heuristics": [
+     "MATLAB"
+    ],
+    "no hyply classifier": [
+     "Text"
+    ],
+    "extension only": [
+     "Limbo",
+     "M",
+     "MATLAB",
+     "MUF",
+     "Mason",
+     "Mercury",
+     "Objective-C",
+     "Wolfram Language"
+    ]
+   },
+   "synid_kind": "text",
+   "synid_correct": false,
+   "utf8": true,
+   "lines": 21,
+   "matlab_heuristic_evidence": false,
+   "mechanism": "Pygments heuristics: no heuristic of the remaining candidates matched, so the strategy's default \"Text\" became the answer, before the Bayesian classifier could run; without that strategy the classifier answers MATLAB (right)"
+  }
+ ]
+}
