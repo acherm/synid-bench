@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -41,14 +42,20 @@ def read_run(path: Path) -> tuple[dict, dict[str, list[str] | None]]:
     return meta, ans
 
 
+def name_key(name: str) -> str:
+    """Names compare without case, spaces or punctuation (`Robot Framework` = `RobotFramework`,
+    `fish` = `Fish`), keeping the characters that tell languages apart (C, C++, C#, F*)."""
+    return re.sub(r"[^a-z0-9+#*]", "", name.lower())
+
+
 def outcome(case: dict, answer: list[str] | None) -> str:
     """right | wrong | text | undecided | none"""
     if not answer:
         return "none"
     if len(answer) > 1:
         return "undecided"
-    accept = {a for a in case["accept"].split(";") if a}
-    if answer[0] in accept:
+    accept = {name_key(a) for a in case["accept"].split(";") if a}
+    if name_key(answer[0]) in accept:
         return "right"
     return "text" if answer[0] == "Text" else "wrong"
 
@@ -123,7 +130,7 @@ def main() -> int:
                    f"{o.get('undecided', 0)} | {o.get('wrong', 0)} |")
     if "weighted" in summary.get("gold", {}):
         w = summary["gold"]["weighted"]
-        out += ["", f"Gold, weighted to the `.m` population (post-stratified audit weights): "
+        out += ["", f"Gold, weighted to the population (post-stratified weights): "
                     f"**{pct(w['accuracy'])}** [{pct(w['ci'][0])}, {pct(w['ci'][1])}], n_eff {w['n_eff']:.1f}."]
 
     # by expected language and by tag (all tiers)

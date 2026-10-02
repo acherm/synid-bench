@@ -28,6 +28,7 @@ ground truth are shown apart, not ranked.
 | benchmark | what | cases | ground truth | |
 |---|---|---:|---|---|
 | [`bench-m`](benchmarks/bench-m/README.md) | `.m` files: Objective-C, MATLAB/Octave, Wolfram, Mercury, MUMPS, Magma… | 54 | blind human review; two LLM judges agree on all | [leaderboard](benchmarks/bench-m/LEADERBOARD.md) · [failures](benchmarks/bench-m/FAILURES.md) · [history](benchmarks/bench-m/HISTORY.md) · [assessment of Synid](benchmarks/bench-m/assessment/m-9bc1c32.md) |
+| [`bench-linguist`](benchmarks/bench-linguist/README.md) | GitHub Linguist's sample files, 768 languages — broad coverage; tagged seen / unseen by Synid's classifier | 3,404 | Linguist's maintainers (the sample's directory); files fetched at a pinned revision, not stored | [leaderboard](benchmarks/bench-linguist/LEADERBOARD.md) · [history](benchmarks/bench-linguist/HISTORY.md) |
 
 More will complement it: benchmarks **in the large** (many extensions, sampled
 from the archive) and **specific** ones (one failure trigger, one family of
