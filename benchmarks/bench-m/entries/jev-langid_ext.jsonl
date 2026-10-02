@@ -1,4 +1,4 @@
-{"meta": {"label": "jev-langid_ext", "name": "Jev 1.13, with file name", "kind": "llm-light", "benchmark": "bench-m/1", "version": "typesafe/jev-1.13-20260917, probe jev-probe/1 `langid_ext`", "about": "the same question, the file name shown as well", "source": "stored decisions of the .m study (PL-ultimate-llm, data/derived/jev/m, not in its public repository)"}}
+{"meta": {"label": "jev-langid_ext", "name": "Jev 1.13, study's 63 labels, with file name", "kind": "llm-light", "benchmark": "bench-m/1", "version": "typesafe/jev-1.13-20260917, probe jev-probe/1 `langid_ext`", "about": "the same question, the file name shown as well", "source": "stored decisions of the .m study (PL-ultimate-llm, data/derived/jev/m, not in its public repository)"}}
 {"case_id": "m:146faacad4fb", "answer": ["MATLAB"]}
 {"case_id": "m:1f3bba4d2cd6", "answer": ["M"]}
 {"case_id": "m:1fa4cb2b6c7b", "answer": ["MATLAB"]}

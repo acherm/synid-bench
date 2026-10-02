@@ -74,12 +74,12 @@ JEV_NAME = {"matlab": "MATLAB", "objective-c": "Objective-C", "wolfram": "Wolfra
 JEV_NOT_CODE = {"binary-or-garbled", "empty", "json-yaml", "key-value-config", "natural", "placeholder-text",
                 "prose", "tabular-data", "xml-html"}
 JEV_ENTRIES = {
-    "langid": {"name": "Jev 1.13, content only", "probe": "langid",
+    "langid": {"name": "Jev 1.13, study's 63 labels, content only", "probe": "langid",
                "about": "TypeSafe's lightweight decision model (OpenRouter's Decisions API), asked which of "
                         "63 labels the file is written in, "
                         "from its content only (no file name); ~0.3 s and ~$0.15 per 1,000 files. Its label set "
                         "was designed for the extension studies, so it includes the rare `.m` languages"},
-    "langid_ext": {"name": "Jev 1.13, with file name", "probe": "langid_ext",
+    "langid_ext": {"name": "Jev 1.13, study's 63 labels, with file name", "probe": "langid_ext",
                    "about": "the same question, the file name shown as well"},
 }
 

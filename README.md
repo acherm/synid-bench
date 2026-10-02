@@ -59,6 +59,7 @@ Python 3.10+, no dependencies; runs locally.
 | `tools/score.py <run> [--baseline <run>] [--report <md>]` | accuracy overall, per expected language and per failure trigger; with a baseline, the cases fixed / regressed / changed; exit 1 when a case the baseline got right regresses |
 | `tools/history.py <bench>` | every stored baseline side by side → `<bench>/HISTORY.md` |
 | `tools/leaderboard.py` | every run of every benchmark (`baselines/` and `entries/`), ranked → `LEADERBOARD.md` and `<bench>/LEADERBOARD.md` |
+| `tools/jev_linguist.py <bench>` | asks Jev (a lightweight decision model, OpenRouter) the language of each case among all of GitHub Linguist's languages → a leaderboard entry (needs an OpenRouter key; ~$0.06 for bench-m) |
 | `tools/failures.py <bench>` | every case the latest Synid gets wrong, with the program, the answers of every configuration, and the root cause (from the benchmark's `root_causes.py`) → `<bench>/FAILURES.md` |
 
 A new Synid version that is accepted gets its run copied into

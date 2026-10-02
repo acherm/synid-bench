@@ -114,8 +114,11 @@ In short:
 - `48c3c45` fixed the comment-free Objective-C case (33/54, from 32/54) and broke
   nothing; comment-free MATLAB, non-UTF-8 files and languages outside the `.m`
   candidates (Magma, C) remain at 0.
-- Jev 1.13, a lightweight decision model, gets all 54 from the content alone — its label
-  set includes the rare `.m` languages; the hand-written `.m` rules get 51/54.
+- Jev 1.13, a lightweight decision model, gets all 54 from the content alone when choosing
+  among 63 labels designed for the study (which include the rare `.m` languages), and
+  50/54 when choosing among all 804 of GitHub Linguist's languages: its only misses are
+  the four Magma files — Magma is not in Linguist's list (it answers GAP, a close
+  computer-algebra system). The hand-written `.m` rules get 51/54.
 - GitHub Linguist never names a wrong language but abstains on 16 files (38/54);
   Pygments always answers and is wrong on 35 (19/54).
 

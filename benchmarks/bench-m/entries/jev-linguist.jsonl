@@ -1,4 +1,4 @@
-{"meta": {"label": "jev-langid", "name": "Jev 1.13, study's 63 labels, content only", "kind": "llm-light", "benchmark": "bench-m/1", "version": "typesafe/jev-1.13-20260917, probe jev-probe/1 `langid`", "about": "TypeSafe's lightweight decision model (OpenRouter's Decisions API), asked which of 63 labels the file is written in, from its content only (no file name); ~0.3 s and ~$0.15 per 1,000 files. Its label set was designed for the extension studies, so it includes the rare `.m` languages", "source": "stored decisions of the .m study (PL-ultimate-llm, data/derived/jev/m, not in its public repository)"}}
+{"meta": {"label": "jev-linguist", "kind": "llm-light", "benchmark": "bench-m/1", "name": "Jev 1.13, Linguist's 804 languages, content only", "version": "typesafe/jev-1.13-20260917, OpenRouter Decisions API", "about": "TypeSafe's lightweight decision model asked which of GitHub Linguist's 804 languages the file is written in \u2014 a generic list, not one tailored to this benchmark (knockout: 4 groups of ~200 with \"none of these\", then a final, as the API allows 255 choices); data / markup / prose answers count as not code. 54 files, $0.0618", "date": "2026-10-02"}}
 {"case_id": "m:146faacad4fb", "answer": ["MATLAB"]}
 {"case_id": "m:1f3bba4d2cd6", "answer": ["M"]}
 {"case_id": "m:1fa4cb2b6c7b", "answer": ["MATLAB"]}
@@ -18,7 +18,7 @@
 {"case_id": "m:501d6f85d78b", "answer": ["M"]}
 {"case_id": "m:5465b7f4caa5", "answer": ["MATLAB"]}
 {"case_id": "m:5c03006fc1cd", "answer": ["MATLAB"]}
-{"case_id": "m:625aad06c311", "answer": ["Magma"]}
+{"case_id": "m:625aad06c311", "answer": ["GAP"]}
 {"case_id": "m:64a0686502d5", "answer": ["Objective-C"]}
 {"case_id": "m:659c4479c797", "answer": ["Objective-C"]}
 {"case_id": "m:6865e1cfc864", "answer": ["MATLAB"]}
@@ -29,7 +29,7 @@
 {"case_id": "m:8152648f7580", "answer": ["MATLAB"]}
 {"case_id": "m:8c09f9cf9acd", "answer": ["MATLAB"]}
 {"case_id": "m:9a9db3b48faf", "answer": ["MATLAB"]}
-{"case_id": "m:a1ae221c9341", "answer": ["Magma"]}
+{"case_id": "m:a1ae221c9341", "answer": ["Mathematical Programming System"]}
 {"case_id": "m:a9e039af425c", "answer": ["Wolfram Language"]}
 {"case_id": "m:aeee5e6874e1", "answer": ["MATLAB"]}
 {"case_id": "m:b05373f67b00", "answer": ["MATLAB"]}
@@ -44,7 +44,7 @@
 {"case_id": "m:cc59ae3ecefd", "answer": ["MATLAB"]}
 {"case_id": "m:d0576414217c", "answer": ["Objective-C"]}
 {"case_id": "m:d7647ff036e8", "answer": ["C"]}
-{"case_id": "m:d8237cb4dbbc", "answer": ["Magma"]}
+{"case_id": "m:d8237cb4dbbc", "answer": ["Mathematical Programming System"]}
 {"case_id": "m:ddf374993dcc", "answer": ["Objective-C"]}
 {"case_id": "m:dfc7a03b83b4", "answer": ["MATLAB"]}
 {"case_id": "m:e3e2f7f69a45", "answer": ["MATLAB"]}
@@ -52,4 +52,4 @@
 {"case_id": "m:f0da3d99487d", "answer": ["MATLAB"]}
 {"case_id": "m:f2bff377f27b", "answer": ["MATLAB"]}
 {"case_id": "m:f48c89191177", "answer": ["MATLAB"]}
-{"case_id": "m:f801588fbe7c", "answer": ["Magma"]}
+{"case_id": "m:f801588fbe7c", "answer": ["Mathematical Programming System"]}
