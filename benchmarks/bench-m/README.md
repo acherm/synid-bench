@@ -53,8 +53,11 @@ more. The cases come from the `.m` extension study of
 | `cases.csv` | one row per file: sha1_git, file name, qualified SWHID (origin + path), expected language, the Synid answers that count as right (`accept`), provenance, population weight, tags |
 | `files/<sha1_git>` | the files themselves |
 | `baselines/` | runs of known Synid versions |
+| `entries/` | other leaderboard entries: Synid configurations, other identifiers, LLM judges |
+| `LEADERBOARD.md` | every run ranked (`tools/leaderboard.py`) |
 | `HISTORY.md` | every baseline side by side (`tools/history.py`) |
 | `build_cases.py` | builds the cases from the study (needs a PL-ultimate-llm checkout); only to release a new version |
+| `export_reference_runs.py` | exports the study's other identifiers (Linguist, Pygments, study rules, LLM judges) as entries (needs PL-ultimate-llm) |
 | `assessment/` | the assessment of Synid `9bc1c32` on these files, with the mechanism behind each failure |
 
 The files are copies of publicly archived source files, kept for
@@ -93,15 +96,20 @@ is accepted, copy its run into `baselines/` and run `tools/history.py`.
 
 ## Results so far
 
-| Synid | right | weighted | comment-free MATLAB | comment-free Objective-C | non-UTF-8 | out of candidates |
-|---|---:|---:|---:|---:|---:|---:|
-| `9bc1c32` (2026-06-15) | 32/54 | 81.2 % | 0/10 | 1/2 | 0/2 | 0/5 |
-| `48c3c45` (2026-10-02) | 33/54 | 86.1 % | 0/10 | 2/2 | 0/2 | 0/5 |
+See **[LEADERBOARD.md](LEADERBOARD.md)** (all entries, with intervals and failure triggers),
+[HISTORY.md](HISTORY.md) (Synid versions over time) and the assessment of Synid `9bc1c32`,
+**[assessment/m-9bc1c32.md](assessment/m-9bc1c32.md)** (the mechanism behind every failure).
+In short:
 
-When Synid names a language, it is right; its failures are non-answers —
-`Text`, the default of the Pygments-heuristics strategy, which pre-empts the
-classifier, and *undecided* on non-UTF-8 content. Details:
-`assessment/m-9bc1c32.md` and `HISTORY.md`.
+- When Synid names a language, it is right; its failures are non-answers — `Text`,
+  the default of the Pygments-heuristics strategy, which pre-empts the classifier
+  (Synid `48c3c45` without that strategy: 41/54 instead of 33/54) — and *undecided*
+  on non-UTF-8 content.
+- `48c3c45` fixed the comment-free Objective-C case (33/54, from 32/54) and broke
+  nothing; comment-free MATLAB, non-UTF-8 files and languages outside the `.m`
+  candidates (Magma, C) remain at 0.
+- GitHub Linguist never names a wrong language but abstains on 16 files (38/54);
+  Pygments always answers and is wrong on 35 (19/54).
 
 ## Limits, and growing it
 

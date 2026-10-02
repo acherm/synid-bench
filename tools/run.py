@@ -127,7 +127,8 @@ def main() -> int:
         if not answers:
             (results / f"{a.label}.stdout.txt").write_text(p.stdout[:200000], encoding="utf-8")
             raise SystemExit(f"could not parse synid output — saved to results/{a.label}.stdout.txt")
-    meta = {"label": a.label, **synid_version(a.synid), "strategies": strategies,
+    meta = {"label": a.label, "kind": "synid", **synid_version(a.synid), "strategies": strategies,
+            "disabled": sorted(a.disable),
             "benchmark": ((bench / "cases.csv").read_text(encoding="utf-8").splitlines()[0]
                           .lstrip("# ").split(" —")[0])}
     out = results / f"{a.label}.jsonl"
