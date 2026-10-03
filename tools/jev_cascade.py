@@ -55,12 +55,14 @@ def main() -> int:
     ap.add_argument("--model", default=MODEL)
     ap.add_argument("--name", default="Jev 1.13")
     ap.add_argument("--label", default="jev-cascade")
+    ap.add_argument("--candidates", type=Path, default=HERE / "data" / "pl_candidates.json",
+                    help="the candidate mapping (tools/export_pl_candidates.py)")
     a = ap.parse_args()
     bench = a.bench.resolve()
     with (bench / "cases.csv").open(encoding="utf-8") as f:
         cases = list(csv.DictReader(line for line in f if not line.startswith("#")))
     version = (bench / "cases.csv").read_text(encoding="utf-8").splitlines()[0].lstrip("# ").split(" —")[0]
-    data = json.loads((HERE / "data" / "pl_candidates.json").read_text(encoding="utf-8"))
+    data = json.loads(a.candidates.read_text(encoding="utf-8"))
     langs = data["languages"]
     remote = a.endpoint.startswith("https://openrouter.ai")
     key = api_key() if remote else None

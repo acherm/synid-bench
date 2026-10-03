@@ -100,7 +100,7 @@ def main() -> int:
            "by_filename": {f: sorted(v) for f, v in sorted(by_filename.items())},
            "fallback": sorted(keep),
            "merged": dict(sorted(same.items()))}
-    dest = HERE / "data" / "pl_candidates.json"
+    dest = Path(os.environ.get("PL_CANDIDATES_OUT", HERE / "data" / "pl_candidates.json"))
     dest.write_text(json.dumps(out, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
     print(f"{len(langs)} languages ({len(same)} qualifier duplicates merged), {len(by_ext)} extensions, "
           f"{len(by_filename)} file names; "
