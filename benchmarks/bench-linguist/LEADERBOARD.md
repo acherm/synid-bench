@@ -41,7 +41,7 @@ Entries of other benchmarks, and why they are not here.
 | LLM judge: Claude Sonnet 4.6 | LLM judge | a reference that built bench-m's labels |
 | LLM judge: Gemini 3.8 Flash | LLM judge | a reference that built bench-m's labels |
 | Human reviewer (blind) — the ground truth | ground truth | bench-m's ground truth |
-| Kev-4B Q8_0 (local, llama.cpp), Linguist's 804 languages, content only | lightweight LLM | run in progress on a local GPU (~30 s per file, random order); bench-m done |
+| Kev-4B Q8_0 (local, llama.cpp), Linguist's 804 languages, content only | lightweight LLM | run in progress on a local GPU (~21 s per file, random order): 1,683 of 3,404 files answered, 61.9 % right on them (Jev 82.1 % on the same files) — see partial/; bench-m done |
 | Linguist .m heuristics (rules only) | other identifier | Linguist's `.m` rules only, so `.m` files only — GitHub Linguist 9.7.0 itself runs on every benchmark |
 | Pygments guess_lexer_for_filename | other identifier | the study's own run (Pygments 2.19.2) — Pygments 2.21.0 runs on every benchmark |
 | Hand-written .m rules v1 (prospective) | specialised rules | written for `.m` files only — bench-m's problem |
