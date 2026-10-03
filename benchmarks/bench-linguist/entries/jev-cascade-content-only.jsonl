@@ -1,4 +1,4 @@
-{"meta": {"label": "jev-cascade-content-only", "kind": "cascade", "benchmark": "bench-linguist/1", "name": "Jev 1.13, PL-ultimate-llm candidates then fallback, content only", "version": "typesafe/jev-1.13, OpenRouter Decisions API; candidates: PL-ultimate-llm da4ed69e6 2026-10-02, data/derived/pl_taxonomy (ext_claim minus deprecated/disputed, ext_evidence) and Linguist's file names", "about": "two stages: the languages PL-ultimate-llm associates with the file's extension (claims by Linguist, Pygments, Wikidata, Wikipedia, plus the languages the extension studies observed), among which Jev chooses — or `Text`, or none; then, if none, a knockout over the 1,289 languages with a known extension (tools/jev_cascade.py). The file name is not shown to Jev. 3404 files: 3120 decided among candidates, 284 by the fallback; $0.7437", "date": "2026-10-03"}}
+{"meta": {"label": "jev-cascade-content-only", "kind": "cascade", "benchmark": "bench-linguist/1", "name": "Jev 1.13, PL-ultimate-llm candidates then fallback, content only", "version": "typesafe/jev-1.13, OpenRouter Decisions API; candidates: PL-ultimate-llm 274fa4cc8 2026-10-03, data/derived/pl_taxonomy (ext_claim minus deprecated/disputed, ext_evidence) and Linguist's file names", "about": "two stages: the languages PL-ultimate-llm associates with the file's extension (claims by Linguist, Pygments, Wikidata, Wikipedia, plus the languages the extension studies observed), among which Jev chooses \u2014 or `Text`, or none; then, if none, a knockout over the 1,289 languages with a known extension (tools/jev_cascade.py). The file name is not shown to Jev. 3404 files: 3229 decided among candidates, 175 by the fallback; $0.5547", "date": "2026-10-03"}}
 {"case_id": "ling:a980425b282c", "answer": ["1C Enterprise"]}
 {"case_id": "ling:331cac4f575d", "answer": ["1C Enterprise"]}
 {"case_id": "ling:1a34ecb6263f", "answer": ["1C Enterprise"]}
@@ -67,9 +67,9 @@
 {"case_id": "ling:0b7a6a410973", "answer": ["Aiken"]}
 {"case_id": "ling:831f36bf8bf6", "answer": ["Aiken"]}
 {"case_id": "ling:d8226497fe39", "answer": ["Aiken"]}
-{"case_id": "ling:78f49ca1a3e8", "answer": ["ale"]}
-{"case_id": "ling:a4ee078b3b03", "answer": ["ale"]}
-{"case_id": "ling:6a71e75974f0", "answer": ["ale"]}
+{"case_id": "ling:78f49ca1a3e8", "answer": ["Aleo"]}
+{"case_id": "ling:a4ee078b3b03", "answer": ["Aleo"]}
+{"case_id": "ling:6a71e75974f0", "answer": ["Aleo"]}
 {"case_id": "ling:4204ed208996", "answer": ["Alloy"]}
 {"case_id": "ling:25e398684223", "answer": ["Alloy"]}
 {"case_id": "ling:27794d365c15", "answer": ["Alloy"]}
@@ -114,9 +114,9 @@
 {"case_id": "ling:153ad96171cd", "answer": ["AppleScript"]}
 {"case_id": "ling:c9a3255ea755", "answer": ["AppleScript"]}
 {"case_id": "ling:5c3b3eceec80", "answer": ["AppleScript"]}
-{"case_id": "ling:e7d0ad158c42", "answer": ["TypeScript"]}
-{"case_id": "ling:79ef801e17e7", "answer": ["TypeScript"]}
-{"case_id": "ling:2047aadbdd41", "answer": ["Glimmer TS"]}
+{"case_id": "ling:e7d0ad158c42", "answer": ["ArkTS"]}
+{"case_id": "ling:79ef801e17e7", "answer": ["ArkTS"]}
+{"case_id": "ling:2047aadbdd41", "answer": ["ArkTS"]}
 {"case_id": "ling:775481409a97", "answer": ["AsciiDoc"]}
 {"case_id": "ling:7f3546c42fed", "answer": ["AsciiDoc"]}
 {"case_id": "ling:f213c1e8f889", "answer": ["AsciiDoc"]}
@@ -143,21 +143,21 @@
 {"case_id": "ling:b5e8be9a069c", "answer": ["Awk"]}
 {"case_id": "ling:a1e1ffa5def4", "answer": ["B (Formal Method)"]}
 {"case_id": "ling:0d46b66e62bc", "answer": ["B (Formal Method)"]}
-{"case_id": "ling:eced02cd0bc7", "answer": ["b"]}
-{"case_id": "ling:d9796032588f", "answer": ["b"]}
-{"case_id": "ling:b6606129b4c3", "answer": ["b"]}
+{"case_id": "ling:eced02cd0bc7", "answer": ["B"]}
+{"case_id": "ling:d9796032588f", "answer": ["B"]}
+{"case_id": "ling:b6606129b4c3", "answer": ["B"]}
 {"case_id": "ling:fe907a697ddf", "answer": ["B4X"]}
 {"case_id": "ling:21fdbd9413c3", "answer": ["B4X"]}
 {"case_id": "ling:96241ecfc3be", "answer": ["B4X"]}
-{"case_id": "ling:8d9787da9f06", "answer": null}
-{"case_id": "ling:c168338bae0f", "answer": ["Talon"]}
-{"case_id": "ling:eb7f20c3326d", "answer": null}
+{"case_id": "ling:8d9787da9f06", "answer": ["BAML"]}
+{"case_id": "ling:c168338bae0f", "answer": ["BAML"]}
+{"case_id": "ling:eb7f20c3326d", "answer": ["BAML"]}
 {"case_id": "ling:6c735107b370", "answer": ["BASIC"]}
 {"case_id": "ling:570efc9e250d", "answer": ["BASIC"]}
 {"case_id": "ling:87883d37311c", "answer": ["BASIC"]}
 {"case_id": "ling:20cae5ad3c6c", "answer": ["QuickBASIC"]}
-{"case_id": "ling:86b8be928731", "answer": ["Wikitext"]}
-{"case_id": "ling:4d230ea1e796", "answer": null}
+{"case_id": "ling:86b8be928731", "answer": ["BBCode"]}
+{"case_id": "ling:4d230ea1e796", "answer": ["BIRD2"]}
 {"case_id": "ling:b5b5bf392017", "answer": ["BQN"]}
 {"case_id": "ling:9e6f31c19bb7", "answer": ["BQN"]}
 {"case_id": "ling:c0d3f9f2c0d2", "answer": ["Ballerina"]}
@@ -175,9 +175,9 @@
 {"case_id": "ling:39cd46aa8970", "answer": ["Befunge"]}
 {"case_id": "ling:9e7f251376c2", "answer": ["Befunge"]}
 {"case_id": "ling:298f04e9fb6c", "answer": ["Befunge"]}
-{"case_id": "ling:2f082335a181", "answer": ["hoon"]}
-{"case_id": "ling:3c0d116b24c4", "answer": null}
-{"case_id": "ling:b396372cece5", "answer": ["Roc"]}
+{"case_id": "ling:2f082335a181", "answer": ["Bend"]}
+{"case_id": "ling:3c0d116b24c4", "answer": ["Bend"]}
+{"case_id": "ling:b396372cece5", "answer": ["Bend"]}
 {"case_id": "ling:a5765e556526", "answer": ["Berry"]}
 {"case_id": "ling:1cb9a1e7ba2b", "answer": ["Berry"]}
 {"case_id": "ling:aa7ddb0ae6af", "answer": ["BibTeX Style"]}
@@ -200,12 +200,12 @@
 {"case_id": "ling:c1476bfb550c", "answer": ["BlitzBasic"]}
 {"case_id": "ling:67dff4dc1a18", "answer": ["BlitzBasic"]}
 {"case_id": "ling:daa9a012efa8", "answer": ["BlitzMax"]}
-{"case_id": "ling:05b5170a1785", "answer": ["Slint"]}
-{"case_id": "ling:d26ff23444e7", "answer": ["Slint"]}
+{"case_id": "ling:05b5170a1785", "answer": ["Blueprint"]}
+{"case_id": "ling:d26ff23444e7", "answer": ["Blueprint"]}
 {"case_id": "ling:00ba05bd7dc3", "answer": ["Bluespec BH"]}
 {"case_id": "ling:e96b92cb27d1", "answer": ["Bluespec BH"]}
 {"case_id": "ling:eaa61c79646f", "answer": ["Bluespec BH"]}
-{"case_id": "ling:4e7a0890f084", "answer": ["TL-Verilog"]}
+{"case_id": "ling:4e7a0890f084", "answer": ["Bluespec BH"]}
 {"case_id": "ling:c61992247974", "answer": ["Bluespec"]}
 {"case_id": "ling:610bff7bb359", "answer": ["Bluespec"]}
 {"case_id": "ling:d4b211d313b7", "answer": ["Boogie"]}
@@ -247,7 +247,7 @@
 {"case_id": "ling:96263d6e8eab", "answer": ["C++"]}
 {"case_id": "ling:4e2ff2c1b138", "answer": ["C++"]}
 {"case_id": "ling:e6d7eb86d3cb", "answer": ["C++"]}
-{"case_id": "ling:a82dd8ccaa1a", "answer": ["C++"]}
+{"case_id": "ling:a82dd8ccaa1a", "answer": ["C"]}
 {"case_id": "ling:54016ec8490e", "answer": ["C++"]}
 {"case_id": "ling:35a556d70136", "answer": ["C++"]}
 {"case_id": "ling:04b7c43c2459", "answer": ["C++"]}
@@ -280,7 +280,7 @@
 {"case_id": "ling:e9b1b67b218f", "answer": ["C++"]}
 {"case_id": "ling:36a54aa0f278", "answer": ["C++"]}
 {"case_id": "ling:c7d094c19f05", "answer": ["C++"]}
-{"case_id": "ling:bebe23236cd5", "answer": ["C"]}
+{"case_id": "ling:bebe23236cd5", "answer": ["C++"]}
 {"case_id": "ling:bd1cefa89837", "answer": ["C++"]}
 {"case_id": "ling:8b9e0a70f6cc", "answer": ["C++"]}
 {"case_id": "ling:e7156aaca776", "answer": ["C++"]}
@@ -412,12 +412,12 @@
 {"case_id": "ling:7e485c18ad98", "answer": ["CameLIGO"]}
 {"case_id": "ling:a4678b59794f", "answer": ["Cangjie"]}
 {"case_id": "ling:c309edd406a6", "answer": ["Cangjie"]}
-{"case_id": "ling:1cba451b7dcf", "answer": ["Mint"]}
+{"case_id": "ling:1cba451b7dcf", "answer": null}
 {"case_id": "ling:1faa3d2b9194", "answer": ["Carbon"]}
 {"case_id": "ling:6b1f0cb61388", "answer": ["CartoCSS"]}
 {"case_id": "ling:ca8ce9fd432b", "answer": ["Ceylon"]}
 {"case_id": "ling:1f75665ac0a7", "answer": ["Chapel"]}
-{"case_id": "ling:0206fc72c711", "answer": ["Chapel"]}
+{"case_id": "ling:0206fc72c711", "answer": ["Nim"]}
 {"case_id": "ling:7bf1329e7d5e", "answer": ["Chapel"]}
 {"case_id": "ling:5963bb69de42", "answer": ["Chapel"]}
 {"case_id": "ling:04fd13cbe869", "answer": ["Chapel"]}
@@ -592,8 +592,8 @@
 {"case_id": "ling:8a79344b2856", "answer": ["Dart"]}
 {"case_id": "ling:969bbf258a0c", "answer": ["Dart"]}
 {"case_id": "ling:e54dcea0dc75", "answer": ["Daslang"]}
-{"case_id": "ling:23769e4d749c", "answer": ["Mint"]}
-{"case_id": "ling:a2df746bbfcb", "answer": ["Haskell"]}
+{"case_id": "ling:23769e4d749c", "answer": null}
+{"case_id": "ling:a2df746bbfcb", "answer": ["Standard ML"]}
 {"case_id": "ling:292de56be0f5", "answer": ["DataWeave"]}
 {"case_id": "ling:a4064b3df3d1", "answer": ["DataWeave"]}
 {"case_id": "ling:a8ba52e650f0", "answer": ["DataWeave"]}
@@ -646,7 +646,7 @@
 {"case_id": "ling:d6e2b9840853", "answer": ["EJS"]}
 {"case_id": "ling:441ebba85f0a", "answer": ["EQ"]}
 {"case_id": "ling:82a05a277170", "answer": ["EQ"]}
-{"case_id": "ling:96e21f60c99e", "answer": null}
+{"case_id": "ling:96e21f60c99e", "answer": ["EQ"]}
 {"case_id": "ling:27eb796b8e12", "answer": ["Eagle"]}
 {"case_id": "ling:199800ef4bcc", "answer": ["Eagle"]}
 {"case_id": "ling:035ed5493b0e", "answer": ["Earthly"]}
@@ -673,7 +673,7 @@
 {"case_id": "ling:69c6e4e1ac87", "answer": ["Elixir"]}
 {"case_id": "ling:e51ddc28d84e", "answer": ["Elixir"]}
 {"case_id": "ling:f366102dac91", "answer": ["Elm"]}
-{"case_id": "ling:4d1b0c508f62", "answer": ["Elm"]}
+{"case_id": "ling:4d1b0c508f62", "answer": ["Haskell"]}
 {"case_id": "ling:bd946a9cb695", "answer": ["Elm"]}
 {"case_id": "ling:622cd086a01f", "answer": ["Elvish"]}
 {"case_id": "ling:163336e59044", "answer": ["Emacs Lisp"]}
@@ -691,7 +691,7 @@
 {"case_id": "ling:02c9742c34f1", "answer": ["EmberScript"]}
 {"case_id": "ling:cacad44e38b7", "answer": ["Erlang"]}
 {"case_id": "ling:b4b40a5327a8", "answer": ["Erlang"]}
-{"case_id": "ling:e39bc301df78", "answer": ["Erlang"]}
+{"case_id": "ling:e39bc301df78", "answer": ["Bison"]}
 {"case_id": "ling:751c41a19b81", "answer": ["Erlang"]}
 {"case_id": "ling:1fd5e324ce52", "answer": ["Erlang"]}
 {"case_id": "ling:43606813e97e", "answer": ["Erlang"]}
@@ -726,14 +726,14 @@
 {"case_id": "ling:9fb19015157a", "answer": ["FIGlet Font"]}
 {"case_id": "ling:4a520fabdfa5", "answer": ["FIRRTL"]}
 {"case_id": "ling:85e0070038ca", "answer": ["FIRRTL"]}
-{"case_id": "ling:157267ee0045", "answer": null}
-{"case_id": "ling:3362b6866232", "answer": null}
+{"case_id": "ling:157267ee0045", "answer": ["handel-c"]}
+{"case_id": "ling:3362b6866232", "answer": ["Click"]}
 {"case_id": "ling:052c4bfce36e", "answer": ["B (Formal Method)"]}
-{"case_id": "ling:2738352e6f18", "answer": null}
-{"case_id": "ling:bf9c0a91cf57", "answer": null}
-{"case_id": "ling:e9cfc1d03a94", "answer": null}
-{"case_id": "ling:af2c14d36886", "answer": null}
-{"case_id": "ling:7ab64a51a239", "answer": null}
+{"case_id": "ling:2738352e6f18", "answer": ["Click"]}
+{"case_id": "ling:bf9c0a91cf57", "answer": ["FPP"]}
+{"case_id": "ling:e9cfc1d03a94", "answer": ["FPP"]}
+{"case_id": "ling:af2c14d36886", "answer": ["FPP"]}
+{"case_id": "ling:7ab64a51a239", "answer": ["FPP"]}
 {"case_id": "ling:b8dd06124f96", "answer": null}
 {"case_id": "ling:8e59172e8411", "answer": null}
 {"case_id": "ling:4a3b0e9c7e3a", "answer": ["Fantom"]}
@@ -884,10 +884,10 @@
 {"case_id": "ling:797c742786b3", "answer": ["Genero 4gl"]}
 {"case_id": "ling:61a1b5d6f98b", "answer": ["Genero 4gl"]}
 {"case_id": "ling:c9ee02a92eca", "answer": ["Genero per"]}
-{"case_id": "ling:2afee1daaaf3", "answer": ["Wollok"]}
-{"case_id": "ling:fb2abc481311", "answer": ["Lua"]}
+{"case_id": "ling:2afee1daaaf3", "answer": ["Gosu"]}
+{"case_id": "ling:fb2abc481311", "answer": null}
 {"case_id": "ling:7e5d8a487e94", "answer": ["Genie"]}
-{"case_id": "ling:399e286646d3", "answer": ["Vala"]}
+{"case_id": "ling:399e286646d3", "answer": ["Genie"]}
 {"case_id": "ling:c1be42a0c8bf", "answer": ["Gerber Image"]}
 {"case_id": "ling:37c5ab137c48", "answer": ["Gerber Image"]}
 {"case_id": "ling:1ea67d1887fe", "answer": ["Gerber Image"]}
@@ -914,7 +914,7 @@
 {"case_id": "ling:91974a81b5ae", "answer": ["Git Config"]}
 {"case_id": "ling:a80b7e8953ab", "answer": ["Git Config"]}
 {"case_id": "ling:1f65c0f205dc", "answer": ["Git Config"]}
-{"case_id": "ling:f35dc6459dce", "answer": ["INI"]}
+{"case_id": "ling:f35dc6459dce", "answer": ["Git Config"]}
 {"case_id": "ling:db24608ef587", "answer": ["Git Config"]}
 {"case_id": "ling:1272fb633bc4", "answer": ["Git Revision List"]}
 {"case_id": "ling:3d5fb6ff8bbe", "answer": ["Gleam"]}
@@ -924,7 +924,7 @@
 {"case_id": "ling:33f4ffb59328", "answer": ["Glimmer TS"]}
 {"case_id": "ling:e7ff83cd425e", "answer": ["Glimmer TS"]}
 {"case_id": "ling:ffdeaff090b5", "answer": ["Glyph Bitmap Distribution Format"]}
-{"case_id": "ling:654b4c650902", "answer": ["Go"]}
+{"case_id": "ling:654b4c650902", "answer": ["Gno"]}
 {"case_id": "ling:4de60faaa239", "answer": ["Gnuplot"]}
 {"case_id": "ling:cc3415a4eb09", "answer": ["Gnuplot"]}
 {"case_id": "ling:8dd6944cdab5", "answer": ["Gnuplot"]}
@@ -1050,10 +1050,10 @@
 {"case_id": "ling:759c90938caf", "answer": ["Groovy"]}
 {"case_id": "ling:eef1af6a7e26", "answer": ["Haml"]}
 {"case_id": "ling:33d1537a1c3f", "answer": ["Slim"]}
-{"case_id": "ling:3e18c4fb4112", "answer": null}
-{"case_id": "ling:d4945ff874a0", "answer": ["INI"]}
-{"case_id": "ling:4d4f42b88524", "answer": ["CSS"]}
-{"case_id": "ling:5465dd8d7d9f", "answer": ["CSS"]}
+{"case_id": "ling:3e18c4fb4112", "answer": ["GtkRC"]}
+{"case_id": "ling:d4945ff874a0", "answer": ["GtkRC"]}
+{"case_id": "ling:4d4f42b88524", "answer": ["GtkRC"]}
+{"case_id": "ling:5465dd8d7d9f", "answer": ["GtkRC"]}
 {"case_id": "ling:bd7f0e54eb32", "answer": ["HAProxy"]}
 {"case_id": "ling:affc687fcfa7", "answer": ["HAProxy"]}
 {"case_id": "ling:d6ad2f95b2fe", "answer": ["HAProxy"]}
@@ -1063,7 +1063,7 @@
 {"case_id": "ling:bef72ecbeef5", "answer": ["HCL"]}
 {"case_id": "ling:a41b045b2874", "answer": ["HCL"]}
 {"case_id": "ling:24c00b44a167", "answer": ["HCL"]}
-{"case_id": "ling:d1b09a799091", "answer": ["WDL"]}
+{"case_id": "ling:d1b09a799091", "answer": null}
 {"case_id": "ling:39214cbdb543", "answer": ["HCL"]}
 {"case_id": "ling:3deb3d5365f5", "answer": ["HIP"]}
 {"case_id": "ling:aa799054c05c", "answer": ["HLSL"]}
@@ -1139,7 +1139,7 @@
 {"case_id": "ling:a8367d88d885", "answer": ["HiveQL"]}
 {"case_id": "ling:91212d2fae7a", "answer": ["HiveQL"]}
 {"case_id": "ling:567a28f7999a", "answer": ["HolyC"]}
-{"case_id": "ling:bfe6b0577319", "answer": null}
+{"case_id": "ling:bfe6b0577319", "answer": ["Uno"]}
 {"case_id": "ling:9d979d7f98ce", "answer": ["HolyC"]}
 {"case_id": "ling:d853032fa5a9", "answer": ["HolyC"]}
 {"case_id": "ling:e8cf9be51192", "answer": ["HolyC"]}
@@ -1155,7 +1155,7 @@
 {"case_id": "ling:4eae96f3a36e", "answer": ["HyPhy"]}
 {"case_id": "ling:9e9f5c7de824", "answer": ["HyPhy"]}
 {"case_id": "ling:f62c7b0a9c2e", "answer": ["HyPhy"]}
-{"case_id": "ling:315ceeb5230b", "answer": ["Euphoria"]}
+{"case_id": "ling:315ceeb5230b", "answer": ["nial"]}
 {"case_id": "ling:5fed0ccca30c", "answer": ["HyPhy"]}
 {"case_id": "ling:8f92fe01b2d3", "answer": ["HyPhy"]}
 {"case_id": "ling:7ab697683748", "answer": ["HyPhy"]}
@@ -1168,31 +1168,31 @@
 {"case_id": "ling:251793457720", "answer": ["IGOR Pro"]}
 {"case_id": "ling:f97654d16d72", "answer": ["IGOR Pro"]}
 {"case_id": "ling:e5d5612769ef", "answer": ["IGOR Pro"]}
-{"case_id": "ling:70d40a550d25", "answer": ["CIL"]}
-{"case_id": "ling:b6e7e9802663", "answer": ["CIL"]}
-{"case_id": "ling:4fea5bae9d1d", "answer": ["CIL"]}
-{"case_id": "ling:b3b4deec9913", "answer": ["CIL"]}
+{"case_id": "ling:70d40a550d25", "answer": ["IL Assembly"]}
+{"case_id": "ling:b6e7e9802663", "answer": ["IL Assembly"]}
+{"case_id": "ling:4fea5bae9d1d", "answer": ["IL Assembly"]}
+{"case_id": "ling:b3b4deec9913", "answer": ["IL Assembly"]}
 {"case_id": "ling:e26e46196c14", "answer": ["INI"]}
 {"case_id": "ling:66a06dcd1657", "answer": ["INI"]}
 {"case_id": "ling:0945fac710a6", "answer": ["Java Properties"]}
 {"case_id": "ling:309bc8519c8c", "answer": ["INI"]}
 {"case_id": "ling:ebdcb3964486", "answer": ["INI"]}
-{"case_id": "ling:03549d6b3242", "answer": ["desktop"]}
-{"case_id": "ling:23b6b5428c8f", "answer": ["desktop"]}
+{"case_id": "ling:03549d6b3242", "answer": ["INI"]}
+{"case_id": "ling:23b6b5428c8f", "answer": ["INI"]}
 {"case_id": "ling:2b32f97022f5", "answer": ["INI"]}
 {"case_id": "ling:1cefb6084139", "answer": ["INI"]}
 {"case_id": "ling:d2f5c764c8f6", "answer": ["INI"]}
 {"case_id": "ling:af3c2785c62d", "answer": ["INI"]}
 {"case_id": "ling:0f097911b1e1", "answer": ["INI"]}
 {"case_id": "ling:8eb1cf87941d", "answer": ["INI"]}
-{"case_id": "ling:877c72f63436", "answer": ["desktop"]}
+{"case_id": "ling:877c72f63436", "answer": ["INI"]}
 {"case_id": "ling:06e7ffcd1a74", "answer": ["INI"]}
 {"case_id": "ling:4b182417e71f", "answer": ["INI"]}
 {"case_id": "ling:a7f01ec24a76", "answer": ["INI"]}
 {"case_id": "ling:6567c53df4af", "answer": ["INI"]}
 {"case_id": "ling:dcbf8d34cdec", "answer": ["INI"]}
 {"case_id": "ling:6a1afb67ba44", "answer": ["INI"]}
-{"case_id": "ling:797809e01475", "answer": ["Git Config"]}
+{"case_id": "ling:797809e01475", "answer": ["INI"]}
 {"case_id": "ling:43a24d368630", "answer": ["INI"]}
 {"case_id": "ling:dd3979c38cb8", "answer": ["INI"]}
 {"case_id": "ling:f78749d2c516", "answer": ["Hosts File"]}
@@ -1202,9 +1202,9 @@
 {"case_id": "ling:607c24024643", "answer": ["INI"]}
 {"case_id": "ling:16f0f30deac1", "answer": ["Java Properties"]}
 {"case_id": "ling:938f39db5168", "answer": ["INI"]}
-{"case_id": "ling:a21662b8964a", "answer": ["desktop"]}
+{"case_id": "ling:a21662b8964a", "answer": ["INI"]}
 {"case_id": "ling:884160fabb0f", "answer": ["INI"]}
-{"case_id": "ling:7edb2b7231ba", "answer": ["TOML"]}
+{"case_id": "ling:7edb2b7231ba", "answer": ["INI"]}
 {"case_id": "ling:183aa67f6e0b", "answer": ["INI"]}
 {"case_id": "ling:557607223bc6", "answer": ["ISPC"]}
 {"case_id": "ling:57edbe415cf3", "answer": ["GLSL"]}
@@ -1235,15 +1235,15 @@
 {"case_id": "ling:d992bd473a91", "answer": ["Ignore List"]}
 {"case_id": "ling:4ba47b4a34b4", "answer": ["Ignore List"]}
 {"case_id": "ling:72c3e725423c", "answer": ["Ignore List"]}
-{"case_id": "ling:2bb26ffe1d8b", "answer": ["Kaitai Struct"]}
-{"case_id": "ling:4ca5abe35609", "answer": ["Odin"]}
+{"case_id": "ling:2bb26ffe1d8b", "answer": ["ImHex Pattern Language"]}
+{"case_id": "ling:4ca5abe35609", "answer": ["ImHex Pattern Language"]}
 {"case_id": "ling:73834119ac66", "answer": ["ImageJ Macro"]}
 {"case_id": "ling:00d2b9c82ece", "answer": ["ImageJ Macro"]}
 {"case_id": "ling:1e178c223378", "answer": ["Imba"]}
 {"case_id": "ling:732036e352fc", "answer": ["Inform 7"]}
 {"case_id": "ling:6739ab2aee43", "answer": ["Inform 7"]}
 {"case_id": "ling:7e5cb3d84f7e", "answer": ["Ink"]}
-{"case_id": "ling:27bceadde18d", "answer": ["Talon"]}
+{"case_id": "ling:27bceadde18d", "answer": ["Ink"]}
 {"case_id": "ling:9682796cce0f", "answer": ["Ink"]}
 {"case_id": "ling:f97c77b44ce0", "answer": ["Ink"]}
 {"case_id": "ling:20f9696afbd8", "answer": ["Ink"]}
@@ -1255,17 +1255,17 @@
 {"case_id": "ling:2e56e9f71648", "answer": ["Shell"]}
 {"case_id": "ling:9cac9cfd7a08", "answer": ["J"]}
 {"case_id": "ling:30473eaf4bb0", "answer": ["JAR Manifest"]}
-{"case_id": "ling:d817ea90382a", "answer": null}
-{"case_id": "ling:52398d4d9442", "answer": null}
-{"case_id": "ling:cdf014c012a4", "answer": null}
-{"case_id": "ling:524826a6f680", "answer": null}
+{"case_id": "ling:d817ea90382a", "answer": ["JASS"]}
+{"case_id": "ling:52398d4d9442", "answer": ["JASS"]}
+{"case_id": "ling:cdf014c012a4", "answer": ["JASS"]}
+{"case_id": "ling:524826a6f680", "answer": ["JASS"]}
 {"case_id": "ling:58a46376498a", "answer": ["JCL"]}
 {"case_id": "ling:f5833f27d5ee", "answer": ["JCL"]}
 {"case_id": "ling:d7d4373684ec", "answer": ["JCL"]}
 {"case_id": "ling:59af83016f64", "answer": ["JFlex"]}
 {"case_id": "ling:3d6cace0cb82", "answer": ["JFlex"]}
 {"case_id": "ling:20bd2a9afec2", "answer": ["JSON with Comments"]}
-{"case_id": "ling:602da1a917e4", "answer": ["JSON"]}
+{"case_id": "ling:602da1a917e4", "answer": ["EditorConfig"]}
 {"case_id": "ling:48f664326269", "answer": ["JSON"]}
 {"case_id": "ling:afeae0b6b8e3", "answer": ["JSON"]}
 {"case_id": "ling:3f48b75875ab", "answer": ["JSON"]}
@@ -1275,7 +1275,7 @@
 {"case_id": "ling:e950286fd9ed", "answer": ["JSON with Comments"]}
 {"case_id": "ling:2417e0de58c2", "answer": ["JSON"]}
 {"case_id": "ling:886ec52b356b", "answer": ["JSON with Comments"]}
-{"case_id": "ling:b11dae23b60d", "answer": ["snbt"]}
+{"case_id": "ling:b11dae23b60d", "answer": ["JSON with Comments"]}
 {"case_id": "ling:28ccfa5fbd25", "answer": ["JSON with Comments"]}
 {"case_id": "ling:c2b5991f04f4", "answer": ["JSON"]}
 {"case_id": "ling:a09452c0fe41", "answer": ["JSON"]}
@@ -1336,7 +1336,7 @@
 {"case_id": "ling:d786d66e4f4f", "answer": ["JSON5"]}
 {"case_id": "ling:9dfc32a3eed6", "answer": ["JSON5"]}
 {"case_id": "ling:c0c593a9ccee", "answer": ["JSONLD"]}
-{"case_id": "ling:dab9f2f9fa67", "answer": ["XQuery"]}
+{"case_id": "ling:dab9f2f9fa67", "answer": ["JSONiq"]}
 {"case_id": "ling:6f5308e11204", "answer": ["JSONiq"]}
 {"case_id": "ling:365578b6c3fc", "answer": ["Jac"]}
 {"case_id": "ling:6086d62aaba8", "answer": ["Jac"]}
@@ -1344,7 +1344,7 @@
 {"case_id": "ling:8aeb3909d2a4", "answer": ["Jac"]}
 {"case_id": "ling:6b245f6c9793", "answer": ["Jac"]}
 {"case_id": "ling:c98c0d4598cc", "answer": null}
-{"case_id": "ling:942c27ca492b", "answer": ["Jai"]}
+{"case_id": "ling:942c27ca492b", "answer": null}
 {"case_id": "ling:c5e3f56fc5cc", "answer": ["Janet"]}
 {"case_id": "ling:bb45aa231fa7", "answer": ["Janet"]}
 {"case_id": "ling:3dac6e4819e1", "answer": ["Janet"]}
@@ -1499,14 +1499,14 @@
 {"case_id": "ling:baeac9312d07", "answer": ["LFE"]}
 {"case_id": "ling:0c0a8c745b9b", "answer": ["LFE"]}
 {"case_id": "ling:aab9b7e669f2", "answer": ["LFE"]}
-{"case_id": "ling:efceaf877c47", "answer": ["MLIR"]}
-{"case_id": "ling:83d40e46d0b8", "answer": ["MLIR"]}
-{"case_id": "ling:4afb44ae04a7", "answer": ["MLIR"]}
-{"case_id": "ling:d989fa5f2588", "answer": ["MLIR"]}
-{"case_id": "ling:6ab83d3ec694", "answer": ["MLIR"]}
-{"case_id": "ling:55cbf99ae244", "answer": ["MLIR"]}
-{"case_id": "ling:92091319a95a", "answer": ["MLIR"]}
-{"case_id": "ling:73901d1cae54", "answer": ["MLIR"]}
+{"case_id": "ling:efceaf877c47", "answer": ["LLVM TableGen"]}
+{"case_id": "ling:83d40e46d0b8", "answer": ["LLVM TableGen"]}
+{"case_id": "ling:4afb44ae04a7", "answer": ["LLVM TableGen"]}
+{"case_id": "ling:d989fa5f2588", "answer": ["LLVM TableGen"]}
+{"case_id": "ling:6ab83d3ec694", "answer": ["LLVM TableGen"]}
+{"case_id": "ling:55cbf99ae244", "answer": ["LLVM TableGen"]}
+{"case_id": "ling:92091319a95a", "answer": ["LLVM TableGen"]}
+{"case_id": "ling:73901d1cae54", "answer": ["LLVM TableGen"]}
 {"case_id": "ling:ff68051f7c8b", "answer": ["LOLCODE"]}
 {"case_id": "ling:8e5126d8bfd0", "answer": ["LSL"]}
 {"case_id": "ling:fbf6f946844c", "answer": ["LSL"]}
@@ -1561,7 +1561,7 @@
 {"case_id": "ling:60b9487bca9e", "answer": ["Liquid"]}
 {"case_id": "ling:989e824241d5", "answer": ["Liquid"]}
 {"case_id": "ling:f3923dd87b97", "answer": ["Liquidsoap"]}
-{"case_id": "ling:f670ecc65240", "answer": ["Opa"]}
+{"case_id": "ling:f670ecc65240", "answer": ["Berry"]}
 {"case_id": "ling:fa9f9a64e6f4", "answer": ["Liquidsoap"]}
 {"case_id": "ling:1b6b2aa9832c", "answer": ["Liquidsoap"]}
 {"case_id": "ling:c85db6490a55", "answer": ["Literate Agda"]}
@@ -1572,8 +1572,8 @@
 {"case_id": "ling:0d311ccaafe4", "answer": ["LiveCode Script"]}
 {"case_id": "ling:e55cb74a43ba", "answer": ["LiveCode Script"]}
 {"case_id": "ling:d74b7f9a72bb", "answer": ["LiveScript"]}
-{"case_id": "ling:f429739174d6", "answer": null}
-{"case_id": "ling:ec2d9224e92c", "answer": ["Processing"]}
+{"case_id": "ling:f429739174d6", "answer": ["Lobster"]}
+{"case_id": "ling:ec2d9224e92c", "answer": ["Lobster"]}
 {"case_id": "ling:eda38135a2d2", "answer": ["Logos"]}
 {"case_id": "ling:8b9be3e08572", "answer": ["Logos"]}
 {"case_id": "ling:6d0b5d625acc", "answer": ["Logos"]}
@@ -1613,7 +1613,7 @@
 {"case_id": "ling:ed3f703a013b", "answer": ["M"]}
 {"case_id": "ling:f9ef009ca278", "answer": ["M"]}
 {"case_id": "ling:0cac578a2561", "answer": ["M"]}
-{"case_id": "ling:d0173e2ec7ee", "answer": ["M"]}
+{"case_id": "ling:d0173e2ec7ee", "answer": ["liberty-basic"]}
 {"case_id": "ling:6ffe04962885", "answer": ["M"]}
 {"case_id": "ling:062bca38947a", "answer": ["M"]}
 {"case_id": "ling:72ca7eb16093", "answer": ["M"]}
@@ -1634,7 +1634,7 @@
 {"case_id": "ling:b7b37c66e82e", "answer": ["M4"]}
 {"case_id": "ling:05bb92ee5ae1", "answer": ["M4"]}
 {"case_id": "ling:249d133d52a0", "answer": ["M4"]}
-{"case_id": "ling:3d2613e647ce", "answer": ["M4Sugar"]}
+{"case_id": "ling:3d2613e647ce", "answer": ["M4"]}
 {"case_id": "ling:1435254a3724", "answer": ["M4Sugar"]}
 {"case_id": "ling:81bddbc6ca20", "answer": ["M4Sugar"]}
 {"case_id": "ling:1cc6a2267b2b", "answer": ["M4"]}
@@ -1723,14 +1723,14 @@
 {"case_id": "ling:bb6bd078ef49", "answer": ["Marko"]}
 {"case_id": "ling:41624dee6ad8", "answer": ["Marko"]}
 {"case_id": "ling:f0c1fec39c16", "answer": ["Marko"]}
-{"case_id": "ling:dfc69787d744", "answer": ["Mask"]}
+{"case_id": "ling:dfc69787d744", "answer": null}
 {"case_id": "ling:83b20db5a837", "answer": ["Mathematical Programming System"]}
 {"case_id": "ling:fc84b21be224", "answer": ["Mathematical Programming System"]}
 {"case_id": "ling:c49919c33f73", "answer": ["Maven POM"]}
 {"case_id": "ling:6e1c18f0aca1", "answer": ["Max"]}
 {"case_id": "ling:f39bac15bd25", "answer": ["Max"]}
 {"case_id": "ling:c748cd245c8b", "answer": ["Max"]}
-{"case_id": "ling:080224924f01", "answer": ["Scheme"]}
+{"case_id": "ling:080224924f01", "answer": ["MeTTa"]}
 {"case_id": "ling:d206f6917687", "answer": ["MeTTa"]}
 {"case_id": "ling:3932cb860ee2", "answer": ["PDDL"]}
 {"case_id": "ling:a928ca381564", "answer": ["MeTTa"]}
@@ -1751,7 +1751,7 @@
 {"case_id": "ling:06806e09bf5a", "answer": ["Mermaid"]}
 {"case_id": "ling:176c17677962", "answer": ["Mermaid"]}
 {"case_id": "ling:6d9863503fbe", "answer": ["Mermaid"]}
-{"case_id": "ling:8c8e91bdbfed", "answer": ["PlantUML"]}
+{"case_id": "ling:8c8e91bdbfed", "answer": null}
 {"case_id": "ling:1a2a43fd69dc", "answer": ["Mermaid"]}
 {"case_id": "ling:e188052668ca", "answer": ["Mermaid"]}
 {"case_id": "ling:65365e73c661", "answer": ["Mermaid"]}
@@ -1760,11 +1760,11 @@
 {"case_id": "ling:ecd5eabd53b0", "answer": ["Metal"]}
 {"case_id": "ling:d552a2c05def", "answer": ["Microsoft Developer Studio Project"]}
 {"case_id": "ling:3f167bad132f", "answer": ["Microsoft Visual Studio Solution"]}
-{"case_id": "ling:d10b85f9ba78", "answer": ["MAXScript"]}
-{"case_id": "ling:944756c9d75a", "answer": ["MAXScript"]}
-{"case_id": "ling:de8d592c8d4e", "answer": ["MAXScript"]}
-{"case_id": "ling:9dbc793a6850", "answer": ["MAXScript"]}
-{"case_id": "ling:5cce3dd65e66", "answer": ["MAXScript"]}
+{"case_id": "ling:d10b85f9ba78", "answer": ["MiniScript"]}
+{"case_id": "ling:944756c9d75a", "answer": ["MiniScript"]}
+{"case_id": "ling:de8d592c8d4e", "answer": ["MiniScript"]}
+{"case_id": "ling:9dbc793a6850", "answer": ["MiniScript"]}
+{"case_id": "ling:5cce3dd65e66", "answer": ["MiniScript"]}
 {"case_id": "ling:e757680d1e1b", "answer": ["YAML"]}
 {"case_id": "ling:ff46b398f843", "answer": ["YAML"]}
 {"case_id": "ling:1b34a9e7b9ad", "answer": ["YAML"]}
@@ -1902,7 +1902,7 @@
 {"case_id": "ling:de3de3560688", "answer": ["Nginx"]}
 {"case_id": "ling:a7a2338197f3", "answer": ["Nginx"]}
 {"case_id": "ling:89469d4c2926", "answer": ["Nginx"]}
-{"case_id": "ling:a635180df77b", "answer": ["Nickel"]}
+{"case_id": "ling:a635180df77b", "answer": ["Standard ML"]}
 {"case_id": "ling:9db4476f40d8", "answer": ["Nickel"]}
 {"case_id": "ling:f49ab180824f", "answer": ["Nickel"]}
 {"case_id": "ling:555dd9f07733", "answer": ["Nim"]}
@@ -1937,10 +1937,10 @@
 {"case_id": "ling:b151b509349c", "answer": ["Nit"]}
 {"case_id": "ling:f84ac1260d9f", "answer": ["Nix"]}
 {"case_id": "ling:f1d0fc08a1ae", "answer": ["Zig"]}
-{"case_id": "ling:bb64ca670450", "answer": ["Sway"]}
+{"case_id": "ling:bb64ca670450", "answer": ["Aleo"]}
 {"case_id": "ling:3047165a438d", "answer": ["Noir"]}
 {"case_id": "ling:da6143b8a0c3", "answer": ["Nu"]}
-{"case_id": "ling:c757e9be993d", "answer": ["Nushell"]}
+{"case_id": "ling:c757e9be993d", "answer": ["Nu"]}
 {"case_id": "ling:b5ac9975e097", "answer": ["Nunjucks"]}
 {"case_id": "ling:8cf40f151ccd", "answer": ["Nushell"]}
 {"case_id": "ling:d2afbab9b7a4", "answer": ["Nushell"]}
@@ -1962,7 +1962,7 @@
 {"case_id": "ling:2d71cef8ecd5", "answer": ["OCaml"]}
 {"case_id": "ling:62bcb9d4451b", "answer": ["OMNeT++ MSG"]}
 {"case_id": "ling:68b5b9420247", "answer": ["OMNeT++ NED"]}
-{"case_id": "ling:ba59f487c881", "answer": ["IDL"]}
+{"case_id": "ling:ba59f487c881", "answer": ["C++"]}
 {"case_id": "ling:f988b42b237e", "answer": ["OMNeT++ NED"]}
 {"case_id": "ling:6d2a8cef9bd2", "answer": ["OMNeT++ NED"]}
 {"case_id": "ling:14cf80fa266b", "answer": ["OMNeT++ NED"]}
@@ -2025,8 +2025,8 @@
 {"case_id": "ling:8c10a732d07a", "answer": ["Option List"]}
 {"case_id": "ling:65c41b70505a", "answer": ["Option List"]}
 {"case_id": "ling:2deb15ab9108", "answer": ["Org"]}
-{"case_id": "ling:939e6900d1dc", "answer": ["Python"]}
-{"case_id": "ling:53aea38811b7", "answer": null}
+{"case_id": "ling:939e6900d1dc", "answer": ["OverPy"]}
+{"case_id": "ling:53aea38811b7", "answer": ["OverPy"]}
 {"case_id": "ling:65beb71fc311", "answer": ["OverpassQL"]}
 {"case_id": "ling:74d30f0e2456", "answer": ["OverpassQL"]}
 {"case_id": "ling:91d301816c55", "answer": ["Ox"]}
@@ -2215,8 +2215,8 @@
 {"case_id": "ling:03fc00df478b", "answer": ["PostScript"]}
 {"case_id": "ling:f0cea80e5a98", "answer": ["PostScript"]}
 {"case_id": "ling:59a12c61521e", "answer": ["PostScript"]}
-{"case_id": "ling:c08a965f650e", "answer": null}
-{"case_id": "ling:f2a6f4820c5d", "answer": null}
+{"case_id": "ling:c08a965f650e", "answer": ["Power Query"]}
+{"case_id": "ling:f2a6f4820c5d", "answer": ["Power Query"]}
 {"case_id": "ling:47ae7964684a", "answer": ["PowerBuilder"]}
 {"case_id": "ling:a36c18b23dd7", "answer": ["PowerBuilder"]}
 {"case_id": "ling:bb96cecb9549", "answer": ["PowerBuilder"]}
@@ -2235,7 +2235,7 @@
 {"case_id": "ling:0e2d6053d59b", "answer": ["Prisma"]}
 {"case_id": "ling:c700a35ccfa7", "answer": ["Prisma"]}
 {"case_id": "ling:2b4898daa677", "answer": ["Prisma"]}
-{"case_id": "ling:748addb0c107", "answer": ["C"]}
+{"case_id": "ling:748addb0c107", "answer": ["Pro*C"]}
 {"case_id": "ling:909fedb71d7a", "answer": ["Processing"]}
 {"case_id": "ling:1170845e4f2f", "answer": ["Procfile"]}
 {"case_id": "ling:60f31ac8bfd1", "answer": ["Proguard"]}
@@ -2272,7 +2272,7 @@
 {"case_id": "ling:622a05be8185", "answer": ["Protocol Buffer Text Format"]}
 {"case_id": "ling:347f4974af83", "answer": ["Protocol Buffer Text Format"]}
 {"case_id": "ling:4802aba5430a", "answer": ["Protocol Buffer Text Format"]}
-{"case_id": "ling:6a7c4c5ecc0f", "answer": ["Text"]}
+{"case_id": "ling:6a7c4c5ecc0f", "answer": ["Protocol Buffer Text Format"]}
 {"case_id": "ling:c8243b1c459b", "answer": ["Protocol Buffer"]}
 {"case_id": "ling:1acf04afa202", "answer": ["Public Key"]}
 {"case_id": "ling:94abd5f54420", "answer": ["Public Key"]}
@@ -2330,17 +2330,17 @@
 {"case_id": "ling:1f2eac7412b9", "answer": ["Module Management System"]}
 {"case_id": "ling:f090d55c163f", "answer": ["QuakeC"]}
 {"case_id": "ling:09dcbbb4b2d4", "answer": ["QuakeC"]}
-{"case_id": "ling:bdd4545050fa", "answer": ["Tcl"]}
-{"case_id": "ling:89bf368fbc59", "answer": ["Tcl"]}
-{"case_id": "ling:28ee84f654de", "answer": ["Tcl"]}
+{"case_id": "ling:bdd4545050fa", "answer": ["SIP"]}
+{"case_id": "ling:89bf368fbc59", "answer": ["SIP"]}
+{"case_id": "ling:28ee84f654de", "answer": ["SIP"]}
 {"case_id": "ling:0c5d91871850", "answer": ["QuickBASIC"]}
 {"case_id": "ling:7d3e4d639cf4", "answer": ["QuickBASIC"]}
 {"case_id": "ling:911feb88c262", "answer": ["FreeBASIC"]}
 {"case_id": "ling:5273d865f7cd", "answer": ["BASIC"]}
 {"case_id": "ling:ad498a3fa880", "answer": ["FreeBASIC"]}
-{"case_id": "ling:cddd464b6aa3", "answer": ["TLA"]}
-{"case_id": "ling:36575e909ced", "answer": ["TLA"]}
-{"case_id": "ling:e3d23a6fd2fd", "answer": null}
+{"case_id": "ling:cddd464b6aa3", "answer": ["Quint"]}
+{"case_id": "ling:36575e909ced", "answer": ["Quint"]}
+{"case_id": "ling:e3d23a6fd2fd", "answer": ["Quint"]}
 {"case_id": "ling:8842849558b3", "answer": ["R"]}
 {"case_id": "ling:9301160b917f", "answer": ["R"]}
 {"case_id": "ling:b16840fd82ff", "answer": ["R"]}
@@ -2413,7 +2413,7 @@
 {"case_id": "ling:7fde9d9256ad", "answer": ["Raku"]}
 {"case_id": "ling:0b2240ccdbaa", "answer": ["Lark"]}
 {"case_id": "ling:6f66cdc28bab", "answer": ["Raku"]}
-{"case_id": "ling:6896cb17305d", "answer": ["Nearley"]}
+{"case_id": "ling:6896cb17305d", "answer": ["Ragel"]}
 {"case_id": "ling:8aa27b77eb9a", "answer": ["Raku"]}
 {"case_id": "ling:37253f533c4f", "answer": ["Raku"]}
 {"case_id": "ling:a7ef9c968f21", "answer": ["Raku"]}
@@ -2444,8 +2444,8 @@
 {"case_id": "ling:85eab0e430eb", "answer": ["Red"]}
 {"case_id": "ling:2c35e288f1b8", "answer": ["Red"]}
 {"case_id": "ling:5e3ae4a90eef", "answer": ["Redirect Rules"]}
-{"case_id": "ling:32833faddcb1", "answer": ["Witcher Script"]}
-{"case_id": "ling:b0f0b390ab08", "answer": ["Monkey C"]}
+{"case_id": "ling:32833faddcb1", "answer": ["Redscript"]}
+{"case_id": "ling:b0f0b390ab08", "answer": ["Redscript"]}
 {"case_id": "ling:9e37ce50537c", "answer": ["Regular Expression"]}
 {"case_id": "ling:ed774b36a6b4", "answer": ["Regular Expression"]}
 {"case_id": "ling:09da2f6356bd", "answer": ["Regular Expression"]}
@@ -2456,9 +2456,9 @@
 {"case_id": "ling:963520212d11", "answer": ["Rez"]}
 {"case_id": "ling:9df3c12c594f", "answer": ["Rez"]}
 {"case_id": "ling:f3bf27aaf682", "answer": ["Rez"]}
-{"case_id": "ling:4a7c3984820e", "answer": ["KCL"]}
-{"case_id": "ling:80561557ea64", "answer": ["Talon"]}
-{"case_id": "ling:7e795ea85e04", "answer": ["Talon"]}
+{"case_id": "ling:4a7c3984820e", "answer": ["Rhai"]}
+{"case_id": "ling:80561557ea64", "answer": ["Rhai"]}
+{"case_id": "ling:7e795ea85e04", "answer": ["Rhai"]}
 {"case_id": "ling:3d8a73f7e881", "answer": ["Rich Text Format"]}
 {"case_id": "ling:e98d6c4654d0", "answer": ["Rich Text Format"]}
 {"case_id": "ling:7216a34dc4d0", "answer": ["Ring"]}
@@ -2471,7 +2471,7 @@
 {"case_id": "ling:4dcaab24da0f", "answer": ["RobotFramework"]}
 {"case_id": "ling:4861a3d06ba0", "answer": ["RobotFramework"]}
 {"case_id": "ling:8e1cbfcc627e", "answer": ["RobotFramework"]}
-{"case_id": "ling:b7609149a429", "answer": ["robots.txt"]}
+{"case_id": "ling:b7609149a429", "answer": ["Robots Exclusion Rules"]}
 {"case_id": "ling:196f2fee5615", "answer": ["Roc"]}
 {"case_id": "ling:15c4fc9fb3e6", "answer": ["Roc"]}
 {"case_id": "ling:08160f45408d", "answer": ["Roc"]}
@@ -2575,11 +2575,11 @@
 {"case_id": "ling:c831e2769a29", "answer": ["SELinux Policy"]}
 {"case_id": "ling:7870420ffc55", "answer": ["SELinux Policy"]}
 {"case_id": "ling:c02ad464ed62", "answer": ["SELinux Policy"]}
-{"case_id": "ling:868ed21a1e8c", "answer": ["SWIG"]}
-{"case_id": "ling:a889fb96d9cb", "answer": ["SWIG"]}
-{"case_id": "ling:cfd60ccb88ed", "answer": ["SWIG"]}
-{"case_id": "ling:e64da6935ebd", "answer": ["SWIG"]}
-{"case_id": "ling:067aceca72bd", "answer": ["SWIG"]}
+{"case_id": "ling:868ed21a1e8c", "answer": ["SIP"]}
+{"case_id": "ling:a889fb96d9cb", "answer": ["SIP"]}
+{"case_id": "ling:cfd60ccb88ed", "answer": ["SIP"]}
+{"case_id": "ling:e64da6935ebd", "answer": ["SIP"]}
+{"case_id": "ling:067aceca72bd", "answer": ["SIP"]}
 {"case_id": "ling:bcfa4e59b12e", "answer": ["SMT"]}
 {"case_id": "ling:f8c6715e20e8", "answer": ["SMT"]}
 {"case_id": "ling:98e76ebefa4b", "answer": ["SMT"]}
@@ -2638,12 +2638,12 @@
 {"case_id": "ling:4b25d0077b22", "answer": ["Sail"]}
 {"case_id": "ling:4e059e32445b", "answer": ["Sail"]}
 {"case_id": "ling:191de5235543", "answer": ["Sail"]}
-{"case_id": "ling:a96761c94596", "answer": ["SaltStack"]}
-{"case_id": "ling:385ef4a549de", "answer": ["SaltStack"]}
-{"case_id": "ling:f04f026d58b8", "answer": ["SaltStack"]}
-{"case_id": "ling:d857a9313e40", "answer": ["SaltStack"]}
-{"case_id": "ling:2d98426f5c09", "answer": ["SaltStack"]}
-{"case_id": "ling:0f036eb0a4f8", "answer": ["SaltStack"]}
+{"case_id": "ling:a96761c94596", "answer": ["Salt"]}
+{"case_id": "ling:385ef4a549de", "answer": ["Text"]}
+{"case_id": "ling:f04f026d58b8", "answer": ["Salt"]}
+{"case_id": "ling:d857a9313e40", "answer": ["Salt"]}
+{"case_id": "ling:2d98426f5c09", "answer": ["Salt"]}
+{"case_id": "ling:0f036eb0a4f8", "answer": ["Salt"]}
 {"case_id": "ling:4c8fd86489be", "answer": ["Sass"]}
 {"case_id": "ling:19cd3ef699e8", "answer": ["Scala"]}
 {"case_id": "ling:d8190fc11543", "answer": ["Scala"]}
@@ -2670,7 +2670,7 @@
 {"case_id": "ling:1199002cc026", "answer": ["ShaderLab"]}
 {"case_id": "ling:f8aa0778b990", "answer": ["ShaderLab"]}
 {"case_id": "ling:2995baa88db5", "answer": ["Shell"]}
-{"case_id": "ling:dadfd2860c8a", "answer": ["Alpine Abuild"]}
+{"case_id": "ling:dadfd2860c8a", "answer": ["Shell"]}
 {"case_id": "ling:b1243178d7ae", "answer": ["Shell"]}
 {"case_id": "ling:46d1016c4f6f", "answer": ["Shell"]}
 {"case_id": "ling:2d89188b60b7", "answer": ["Shell"]}
@@ -2759,7 +2759,7 @@
 {"case_id": "ling:7e9f538c13a2", "answer": ["Slang"]}
 {"case_id": "ling:778c48c42c60", "answer": ["Slang"]}
 {"case_id": "ling:adbe3cd1364f", "answer": ["Slang"]}
-{"case_id": "ling:a0e44f884d83", "answer": ["Ruby"]}
+{"case_id": "ling:a0e44f884d83", "answer": ["Ioke"]}
 {"case_id": "ling:0af8d3eb89f0", "answer": ["Slice"]}
 {"case_id": "ling:cc032cf2d0fd", "answer": ["Slice"]}
 {"case_id": "ling:177d068b6cbb", "answer": ["Slice"]}
@@ -2796,8 +2796,8 @@
 {"case_id": "ling:5ad9b8988f87", "answer": ["SourcePawn"]}
 {"case_id": "ling:2b22fa701a05", "answer": ["SourcePawn"]}
 {"case_id": "ling:b13c4a046d36", "answer": ["SourcePawn"]}
-{"case_id": "ling:48c07ebb8ffd", "answer": ["Open Policy Agent"]}
-{"case_id": "ling:8a13da7b1b0a", "answer": ["Open Policy Agent"]}
+{"case_id": "ling:48c07ebb8ffd", "answer": ["SpiceDB Schema"]}
+{"case_id": "ling:8a13da7b1b0a", "answer": ["SpiceDB Schema"]}
 {"case_id": "ling:b3e3b2613169", "answer": ["Squirrel"]}
 {"case_id": "ling:b7cb994fbce6", "answer": ["Stan"]}
 {"case_id": "ling:c66730adab77", "answer": ["Stan"]}
@@ -2819,7 +2819,7 @@
 {"case_id": "ling:a3dda41ed75d", "answer": ["Starlark"]}
 {"case_id": "ling:7c28bcb2313c", "answer": ["Starlark"]}
 {"case_id": "ling:3342d2bad7cd", "answer": ["Stata"]}
-{"case_id": "ling:790c3fa1cb01", "answer": ["Turing"]}
+{"case_id": "ling:790c3fa1cb01", "answer": null}
 {"case_id": "ling:197ebbedfbf5", "answer": ["Text"]}
 {"case_id": "ling:0f7ea46c6c8a", "answer": ["Lua"]}
 {"case_id": "ling:0171b3305820", "answer": ["Stata"]}
@@ -2856,7 +2856,7 @@
 {"case_id": "ling:41810341afb6", "answer": ["Swift"]}
 {"case_id": "ling:2cbcff7cf977", "answer": ["JavaScript"]}
 {"case_id": "ling:0046b13eeb21", "answer": ["Swift"]}
-{"case_id": "ling:fe448919f08d", "answer": ["Swift"]}
+{"case_id": "ling:fe448919f08d", "answer": null}
 {"case_id": "ling:c00874f6f7d3", "answer": ["Swift"]}
 {"case_id": "ling:b0792c4aacab", "answer": ["Swift"]}
 {"case_id": "ling:04d84be980c8", "answer": ["Swift"]}
@@ -2897,7 +2897,7 @@
 {"case_id": "ling:fb5bdd3c4586", "answer": ["TI Program"]}
 {"case_id": "ling:d63d1dfcaa08", "answer": ["TI Program"]}
 {"case_id": "ling:3692d48c905b", "answer": ["TI Program"]}
-{"case_id": "ling:04998008ea0e", "answer": ["Func"]}
+{"case_id": "ling:04998008ea0e", "answer": ["TI Program"]}
 {"case_id": "ling:2673d84c0237", "answer": ["TI Program"]}
 {"case_id": "ling:32d34ed0d57e", "answer": ["TI Program"]}
 {"case_id": "ling:11fe1e5e4855", "answer": ["TL-Verilog"]}
@@ -2932,7 +2932,7 @@
 {"case_id": "ling:2da9789ad2aa", "answer": ["Tact"]}
 {"case_id": "ling:7d6e4261754f", "answer": ["Talon"]}
 {"case_id": "ling:62cae13d09e5", "answer": ["Talon"]}
-{"case_id": "ling:a74004feb731", "answer": null}
+{"case_id": "ling:a74004feb731", "answer": ["Tape"]}
 {"case_id": "ling:cb915c35e7b7", "answer": ["Tcl"]}
 {"case_id": "ling:133c717f1ffa", "answer": ["Tcl"]}
 {"case_id": "ling:f74f0c62bfed", "answer": ["Tcl"]}
@@ -2992,9 +2992,9 @@
 {"case_id": "ling:f9f9b6595be2", "answer": ["Toit"]}
 {"case_id": "ling:7b181eafa71f", "answer": ["Toit"]}
 {"case_id": "ling:ba2f7e1cb484", "answer": ["Toit"]}
-{"case_id": "ling:4e9e943fe658", "answer": null}
-{"case_id": "ling:876f02fb2b5d", "answer": ["Tact"]}
-{"case_id": "ling:fdf0b25fc9af", "answer": ["Tact"]}
+{"case_id": "ling:4e9e943fe658", "answer": ["Tolk"]}
+{"case_id": "ling:876f02fb2b5d", "answer": ["Tolk"]}
+{"case_id": "ling:fdf0b25fc9af", "answer": ["Tolk"]}
 {"case_id": "ling:a328f1408a20", "answer": ["Tor Config"]}
 {"case_id": "ling:2aac3e218c8f", "answer": ["Tree-sitter Query"]}
 {"case_id": "ling:e8700729b5bd", "answer": ["Tree-sitter Query"]}
@@ -3091,23 +3091,23 @@
 {"case_id": "ling:5f71d17c185b", "answer": ["Verilog"]}
 {"case_id": "ling:fd434c5feb9d", "answer": ["Verilog"]}
 {"case_id": "ling:bca6300bd116", "answer": ["Verilog"]}
-{"case_id": "ling:2b94f60c64c8", "answer": null}
-{"case_id": "ling:8d5dc4ab30dd", "answer": null}
-{"case_id": "ling:13bd0e9702ec", "answer": null}
-{"case_id": "ling:5113adf24d8f", "answer": null}
-{"case_id": "ling:d9ddea35793d", "answer": null}
+{"case_id": "ling:2b94f60c64c8", "answer": ["Verse"]}
+{"case_id": "ling:8d5dc4ab30dd", "answer": ["Verse"]}
+{"case_id": "ling:13bd0e9702ec", "answer": ["Vespa Schema Definition"]}
+{"case_id": "ling:5113adf24d8f", "answer": ["Vespa Schema Definition"]}
+{"case_id": "ling:d9ddea35793d", "answer": ["Vespa Schema Definition"]}
 {"case_id": "ling:b5887963fc5e", "answer": ["Vim Help File"]}
 {"case_id": "ling:5f708cd24aa6", "answer": ["Vim Snippet"]}
 {"case_id": "ling:5a6e240fcbab", "answer": ["Vim Snippet"]}
-{"case_id": "ling:bb4379fa0bbc", "answer": ["Vim Script"]}
-{"case_id": "ling:b753d2f2c94d", "answer": ["Vim Script"]}
-{"case_id": "ling:29249d4e585d", "answer": ["Vim Script"]}
-{"case_id": "ling:dca5f2131131", "answer": ["Vim Script"]}
-{"case_id": "ling:59622d803df5", "answer": ["Vim Script"]}
-{"case_id": "ling:3e06214e2d7c", "answer": ["Vim Script"]}
-{"case_id": "ling:6fd7294694b9", "answer": ["Vim Script"]}
-{"case_id": "ling:0185c4d660e4", "answer": ["Vim Script"]}
-{"case_id": "ling:9169f7cea429", "answer": ["Vim Script"]}
+{"case_id": "ling:bb4379fa0bbc", "answer": ["Vim script"]}
+{"case_id": "ling:b753d2f2c94d", "answer": ["Vim script"]}
+{"case_id": "ling:29249d4e585d", "answer": ["Vim script"]}
+{"case_id": "ling:dca5f2131131", "answer": ["Vim script"]}
+{"case_id": "ling:59622d803df5", "answer": ["Vim script"]}
+{"case_id": "ling:3e06214e2d7c", "answer": ["Vim script"]}
+{"case_id": "ling:6fd7294694b9", "answer": ["Vim script"]}
+{"case_id": "ling:0185c4d660e4", "answer": ["Vim script"]}
+{"case_id": "ling:9169f7cea429", "answer": ["Vim script"]}
 {"case_id": "ling:70b8d39c0060", "answer": ["Visual Basic .NET"]}
 {"case_id": "ling:d2db7757c75c", "answer": ["Visual Basic .NET"]}
 {"case_id": "ling:66013b3d425b", "answer": ["Visual Basic .NET"]}
@@ -3228,7 +3228,7 @@
 {"case_id": "ling:fba6f7e3721b", "answer": ["XML"]}
 {"case_id": "ling:d08c16cbe860", "answer": ["XML"]}
 {"case_id": "ling:d87cc889f81e", "answer": ["XML"]}
-{"case_id": "ling:7ea344bb22b3", "answer": ["XML Property List"]}
+{"case_id": "ling:7ea344bb22b3", "answer": ["XML"]}
 {"case_id": "ling:aa5e9c9f1fc4", "answer": ["XML"]}
 {"case_id": "ling:0f8e3edadcab", "answer": ["XML"]}
 {"case_id": "ling:21fdd04d26e6", "answer": ["XML"]}
@@ -3330,7 +3330,7 @@
 {"case_id": "ling:f973a5926cd2", "answer": ["YAML"]}
 {"case_id": "ling:0f4eb0f962ec", "answer": ["YAML"]}
 {"case_id": "ling:61bea1221b44", "answer": ["YAML"]}
-{"case_id": "ling:b2eb3d5ebb12", "answer": ["JSON5"]}
+{"case_id": "ling:b2eb3d5ebb12", "answer": ["JSON"]}
 {"case_id": "ling:de96c091a2a0", "answer": ["YAML"]}
 {"case_id": "ling:787836a9c7b0", "answer": ["YAML"]}
 {"case_id": "ling:d9f7a376a35e", "answer": ["YAML"]}
@@ -3346,7 +3346,7 @@
 {"case_id": "ling:394a119bd235", "answer": ["Yacc"]}
 {"case_id": "ling:7162797bcabb", "answer": ["Yul"]}
 {"case_id": "ling:a3ad672f4a69", "answer": ["Yul"]}
-{"case_id": "ling:9a5be59225a1", "answer": ["zone"]}
+{"case_id": "ling:9a5be59225a1", "answer": ["Assembly"]}
 {"case_id": "ling:51bb07eb6d12", "answer": ["ZIL"]}
 {"case_id": "ling:eb7d9a98b904", "answer": ["Zeek"]}
 {"case_id": "ling:437530e7460d", "answer": ["Zeek"]}
@@ -3387,15 +3387,15 @@
 {"case_id": "ling:8dc112c40af0", "answer": ["nanorc"]}
 {"case_id": "ling:1d8ce215a3e2", "answer": ["nanorc"]}
 {"case_id": "ling:df9dd8a31b76", "answer": ["nanorc"]}
-{"case_id": "ling:cf1a8c09e768", "answer": ["pkgconfig"]}
-{"case_id": "ling:2f8eaa39b375", "answer": ["pkgconfig"]}
+{"case_id": "ling:cf1a8c09e768", "answer": ["pkg-config"]}
+{"case_id": "ling:2f8eaa39b375", "answer": ["pkg-config"]}
 {"case_id": "ling:a2896db7480d", "answer": ["q"]}
 {"case_id": "ling:c31864c4c91e", "answer": ["q"]}
 {"case_id": "ling:329bff5c20fa", "answer": ["Text"]}
 {"case_id": "ling:ae7c623e0d63", "answer": ["sed"]}
 {"case_id": "ling:94ae257aacfc", "answer": ["templ"]}
-{"case_id": "ling:6c7257dc4666", "answer": ["JavaScript"]}
-{"case_id": "ling:2cba5fc8da20", "answer": ["Source (programming language)"]}
+{"case_id": "ling:6c7257dc4666", "answer": ["ucode"]}
+{"case_id": "ling:2cba5fc8da20", "answer": ["ucode"]}
 {"case_id": "ling:9e0900450309", "answer": ["JavaScript"]}
 {"case_id": "ling:106a64e3d58e", "answer": ["vCard"]}
 {"case_id": "ling:4ec16ebb41a8", "answer": ["vCard"]}

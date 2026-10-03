@@ -1,5 +1,5 @@
 {
-"source": "PL-ultimate-llm da4ed69e6 2026-10-02, data/derived/pl_taxonomy (ext_claim minus deprecated/disputed, ext_evidence) and Linguist's file names",
+"source": "PL-ultimate-llm 274fa4cc8 2026-10-03, data/derived/pl_taxonomy (ext_claim minus deprecated/disputed, ext_evidence) and Linguist's file names",
 "languages": {
 "pl/1c-enterprise": {
 "name": "1C Enterprise",
@@ -339,6 +339,15 @@
 ".abc"
 ]
 },
+"pl/aleo": {
+"name": "Aleo",
+"linguist": "Aleo",
+"type": "programming",
+"aliases": [],
+"extensions": [
+".aleo"
+]
+},
 "pl/algol": {
 "name": "ALGOL",
 "linguist": "ALGOL",
@@ -631,6 +640,18 @@
 ".ino"
 ]
 },
+"pl/arkts": {
+"name": "ArkTS",
+"linguist": "ArkTS",
+"type": "programming",
+"aliases": [
+"TypeScript for ArkUI"
+],
+"extensions": [
+".ets",
+".ts"
+]
+},
 "pl/arrow": {
 "name": "arrow",
 "linguist": null,
@@ -859,6 +880,8 @@
 "AHK"
 ],
 "extensions": [
+".ah1",
+".ah2",
 ".ahk",
 ".ahkl"
 ]
@@ -934,9 +957,9 @@
 ]
 },
 "pl/b": {
-"name": "b",
-"linguist": null,
-"type": null,
+"name": "B",
+"linguist": "B",
+"type": "programming",
 "aliases": [
 "B (programming language)"
 ],
@@ -990,6 +1013,15 @@
 ".bal"
 ]
 },
+"pl/baml": {
+"name": "BAML",
+"linguist": "BAML",
+"type": "programming",
+"aliases": [],
+"extensions": [
+".baml"
+]
+},
 "pl/basic": {
 "name": "BASIC",
 "linguist": "BASIC",
@@ -1020,6 +1052,17 @@
 ".bat",
 ".btm",
 ".cmd"
+]
+},
+"pl/bbcode": {
+"name": "BBCode",
+"linguist": "BBCode",
+"type": "markup",
+"aliases": [
+"Bulletin Board Code"
+],
+"extensions": [
+".bbcode"
 ]
 },
 "pl/bc": {
@@ -1066,6 +1109,17 @@
 "aliases": [],
 "extensions": [
 ".bel"
+]
+},
+"pl/bend": {
+"name": "Bend",
+"linguist": "Bend",
+"type": "programming",
+"aliases": [
+"bend2"
+],
+"extensions": [
+".bend"
 ]
 },
 "pl/berry": {
@@ -1122,6 +1176,16 @@
 "extensions": [
 ".bs"
 ]
+},
+"pl/bird2": {
+"name": "BIRD2",
+"linguist": "BIRD2",
+"type": "data",
+"aliases": [
+"bird",
+"bird3"
+],
+"extensions": []
 },
 "pl/bison": {
 "name": "Bison",
@@ -1182,6 +1246,19 @@
 ],
 "extensions": [
 ".bmx"
+]
+},
+"pl/blueprint": {
+"name": "Blueprint",
+"linguist": "Blueprint",
+"type": "markup",
+"aliases": [
+"blp",
+"Blueprint markup language",
+"GTK Blueprint"
+],
+"extensions": [
+".blp"
 ]
 },
 "pl/bluespec": {
@@ -2666,8 +2743,7 @@
 "type": "data",
 "aliases": [],
 "extensions": [
-".desktop",
-".service"
+".desktop"
 ]
 },
 "pl/devicetree": {
@@ -3854,6 +3930,16 @@
 ".spmd"
 ]
 },
+"pl/fpp": {
+"name": "FPP",
+"linguist": "FPP",
+"type": "programming",
+"aliases": [],
+"extensions": [
+".fpp",
+".fppi"
+]
+},
 "pl/freebasic": {
 "name": "FreeBASIC",
 "linguist": "FreeBASIC",
@@ -4440,6 +4526,17 @@
 ".gni"
 ]
 },
+"pl/gno": {
+"name": "Gno",
+"linguist": "Gno",
+"type": "programming",
+"aliases": [
+"gnolang"
+],
+"extensions": [
+".gno"
+]
+},
 "pl/gnuplot": {
 "name": "Gnuplot",
 "linguist": "Gnuplot",
@@ -4696,6 +4793,19 @@
 "aliases": [],
 "extensions": [
 ".gsql"
+]
+},
+"pl/gtkrc": {
+"name": "GtkRC",
+"linguist": "GtkRC",
+"type": "data",
+"aliases": [
+"gtk",
+"gtk 1",
+"gtk 2"
+],
+"extensions": [
+".gtkrc"
 ]
 },
 "pl/guide": {
@@ -5283,6 +5393,18 @@
 ".iif"
 ]
 },
+"pl/il-assembly": {
+"name": "IL Assembly",
+"linguist": "IL Assembly",
+"type": "programming",
+"aliases": [
+"ilasm",
+"msil"
+],
+"extensions": [
+".il"
+]
+},
 "pl/ilbm": {
 "name": "ilbm",
 "linguist": null,
@@ -5325,6 +5447,19 @@
 ".imf"
 ]
 },
+"pl/imhex-pattern-language": {
+"name": "ImHex Pattern Language",
+"linguist": "ImHex Pattern Language",
+"type": "programming",
+"aliases": [
+"ImHex",
+"ImHexPatternLanguage",
+"imhexpl"
+],
+"extensions": [
+".hexpat"
+]
+},
 "pl/inform": {
 "name": "inform",
 "linguist": null,
@@ -5356,18 +5491,19 @@
 "linguist": "INI",
 "type": "data",
 "aliases": [
+"conf",
 "dosini",
 "cfg"
 ],
 "extensions": [
 ".cfg",
 ".cnf",
+".container",
 ".dof",
 ".editorconfig",
 ".frm",
 ".inf",
-".ini",
-".prefs"
+".ini"
 ]
 },
 "pl/ink": {
@@ -5563,6 +5699,18 @@
 "type": "programming",
 "aliases": [
 "jasminxt"
+],
+"extensions": [
+".j"
+]
+},
+"pl/jass": {
+"name": "JASS",
+"linguist": "JASS",
+"type": "programming",
+"aliases": [
+"jass2",
+"Just Another Scripting Syntax"
 ],
 "extensions": [
 ".j"
@@ -5868,6 +6016,7 @@
 "jsonc"
 ],
 "extensions": [
+".hujson",
 ".jsonc",
 ".sublime-menu"
 ]
@@ -6592,6 +6741,27 @@
 ".ll"
 ]
 },
+"pl/llvm-tablegen": {
+"name": "LLVM TableGen",
+"linguist": "LLVM TableGen",
+"type": "programming",
+"aliases": [
+"tablegen",
+"td"
+],
+"extensions": [
+".td"
+]
+},
+"pl/lobster": {
+"name": "Lobster",
+"linguist": "Lobster",
+"type": "programming",
+"aliases": [],
+"extensions": [
+".lobster"
+]
+},
 "pl/logos": {
 "name": "Logos",
 "linguist": "Logos",
@@ -7238,6 +7408,17 @@
 "aliases": [],
 "extensions": [
 ".minid"
+]
+},
+"pl/miniscript": {
+"name": "MiniScript",
+"linguist": "MiniScript",
+"type": "programming",
+"aliases": [
+"ms"
+],
+"extensions": [
+".ms"
 ]
 },
 "pl/miniyaml": {
@@ -8728,6 +8909,17 @@
 ".overpassql"
 ]
 },
+"pl/overpy": {
+"name": "OverPy",
+"linguist": "OverPy",
+"type": "programming",
+"aliases": [
+"opy"
+],
+"extensions": [
+".opy"
+]
+},
 "pl/ox": {
 "name": "Ox",
 "linguist": "Ox",
@@ -9191,6 +9383,18 @@
 ".pixicode"
 ]
 },
+"pl/pkg-config": {
+"name": "pkg-config",
+"linguist": "pkg-config",
+"type": "data",
+"aliases": [
+"pkgconf",
+"pkgconfig"
+],
+"extensions": [
+".pc"
+]
+},
 "pl/pkgconfig": {
 "name": "pkgconfig",
 "linguist": null,
@@ -9419,6 +9623,17 @@
 ".xml"
 ]
 },
+"pl/power-query": {
+"name": "Power Query",
+"linguist": "Power Query",
+"type": "programming",
+"aliases": [
+"powerquery"
+],
+"extensions": [
+".pq"
+]
+},
 "pl/powerbuilder": {
 "name": "PowerBuilder",
 "linguist": "PowerBuilder",
@@ -9590,6 +9805,18 @@
 ".spin"
 ]
 },
+"pl/prostarc": {
+"name": "Pro*C",
+"linguist": "Pro*C",
+"type": "programming",
+"aliases": [
+"pkgconfig",
+"Pro-C/C++"
+],
+"extensions": [
+".pc"
+]
+},
 "pl/protocol-buffer": {
 "name": "Protocol Buffer",
 "linguist": "Protocol Buffer",
@@ -9601,8 +9828,7 @@
 ],
 "extensions": [
 ".binpb",
-".proto",
-".txtpb"
+".proto"
 ]
 },
 "pl/protocol-buffer-text-format": {
@@ -9616,7 +9842,8 @@
 "extensions": [
 ".pbt",
 ".pbtxt",
-".textproto"
+".textproto",
+".txtpb"
 ]
 },
 "pl/prql": {
@@ -9879,6 +10106,15 @@
 ".qc"
 ]
 },
+"pl/quartus-simulation-ip": {
+"name": "Quartus Simulation IP",
+"linguist": "Quartus Simulation IP",
+"type": "data",
+"aliases": [],
+"extensions": [
+".sip"
+]
+},
 "pl/quickbasic": {
 "name": "QuickBASIC",
 "linguist": "QuickBASIC",
@@ -9895,6 +10131,15 @@
 ".bas",
 ".bi",
 ".vb"
+]
+},
+"pl/quint": {
+"name": "Quint",
+"linguist": "Quint",
+"type": "programming",
+"aliases": [],
+"extensions": [
+".qnt"
 ]
 },
 "pl/r": {
@@ -10176,6 +10421,19 @@
 ".rml"
 ]
 },
+"pl/redscript": {
+"name": "Redscript",
+"linguist": "Redscript",
+"type": "programming",
+"aliases": [
+"red",
+"red/system"
+],
+"extensions": [
+".red",
+".reds"
+]
+},
 "pl/regular-expression": {
 "name": "Regular Expression",
 "linguist": "Regular Expression",
@@ -10286,6 +10544,15 @@
 ".r"
 ]
 },
+"pl/rhai": {
+"name": "Rhai",
+"linguist": "Rhai",
+"type": "programming",
+"aliases": [],
+"extensions": [
+".rhai"
+]
+},
 "pl/rich-text-format": {
 "name": "Rich Text Format",
 "linguist": "Rich Text Format",
@@ -10352,12 +10619,14 @@
 ]
 },
 "pl/robots-txt": {
-"name": "robots.txt",
-"linguist": "robots.txt",
+"name": "Robots Exclusion Rules",
+"linguist": "Robots Exclusion Rules",
 "type": "data",
 "aliases": [
 "robots",
-"robots txt"
+"robots txt",
+"robotx.txt",
+"Robots Exclusion Rules"
 ],
 "extensions": []
 },
@@ -10622,14 +10891,16 @@
 ]
 },
 "pl/saltstack": {
-"name": "SaltStack",
-"linguist": "SaltStack",
+"name": "Salt",
+"linguist": "Salt",
 "type": "programming",
 "aliases": [
+"saltstack",
 "saltstate",
-"salt",
 "yaml+jinja",
-"sls"
+"salt",
+"sls",
+"Salt"
 ],
 "extensions": [
 ".sls"
@@ -11032,6 +11303,15 @@
 ".singularity"
 ]
 },
+"pl/sip": {
+"name": "SIP",
+"linguist": "SIP",
+"type": "programming",
+"aliases": [],
+"extensions": [
+".sip"
+]
+},
 "pl/slang": {
 "name": "Slang",
 "linguist": "Slang",
@@ -11312,6 +11592,15 @@
 ],
 "extensions": [
 ".spice"
+]
+},
+"pl/spicedb-schema": {
+"name": "SpiceDB Schema",
+"linguist": "SpiceDB Schema",
+"type": "data",
+"aliases": [],
+"extensions": [
+".zed"
 ]
 },
 "pl/spline-font-database": {
@@ -11765,6 +12054,17 @@
 ".tap"
 ]
 },
+"pl/tape": {
+"name": "Tape",
+"linguist": "Tape",
+"type": "programming",
+"aliases": [
+"vhs"
+],
+"extensions": [
+".tape"
+]
+},
 "pl/tasm": {
 "name": "tasm",
 "linguist": null,
@@ -12099,6 +12399,17 @@
 ".toon"
 ]
 },
+"pl/tolk": {
+"name": "Tolk",
+"linguist": "Tolk",
+"type": "programming",
+"aliases": [
+"TON Tolk"
+],
+"extensions": [
+".tolk"
+]
+},
 "pl/tom": {
 "name": "tom",
 "linguist": null,
@@ -12373,6 +12684,18 @@
 ".ubj"
 ]
 },
+"pl/ucode": {
+"name": "ucode",
+"linguist": "ucode",
+"type": "programming",
+"aliases": [],
+"extensions": [
+".u",
+".u1",
+".u2",
+".uc"
+]
+},
 "pl/udl": {
 "name": "UDL",
 "linguist": null,
@@ -12579,7 +12902,8 @@
 "vdf"
 ],
 "extensions": [
-".vdf"
+".vdf",
+".vmf"
 ]
 },
 "pl/vba": {
@@ -12687,6 +13011,26 @@
 ".veo"
 ]
 },
+"pl/verse": {
+"name": "Verse",
+"linguist": "Verse",
+"type": "programming",
+"aliases": [],
+"extensions": [
+".verse"
+]
+},
+"pl/vespa-schema-definition": {
+"name": "Vespa Schema Definition",
+"linguist": "Vespa Schema Definition",
+"type": "data",
+"aliases": [
+"vespa"
+],
+"extensions": [
+".sd"
+]
+},
 "pl/vhdl": {
 "name": "VHDL",
 "linguist": "VHDL",
@@ -12717,8 +13061,8 @@
 ]
 },
 "pl/vim-script": {
-"name": "Vim Script",
-"linguist": "Vim Script",
+"name": "Vim script",
+"linguist": "Vim script",
 "type": "programming",
 "aliases": [
 "vim",
@@ -13986,6 +14330,12 @@
 ".agda": [
 "pl/agda"
 ],
+".ah1": [
+"pl/autohotkey"
+],
+".ah2": [
+"pl/autohotkey"
+],
 ".aheui": [
 "pl/aheui"
 ],
@@ -14014,6 +14364,9 @@
 ],
 ".ale": [
 "pl/ale"
+],
+".aleo": [
+"pl/aleo"
 ],
 ".alg": [
 "pl/algol",
@@ -14277,6 +14630,9 @@
 ".bal": [
 "pl/ballerina"
 ],
+".baml": [
+"pl/baml"
+],
 ".bas": [
 "pl/b4x",
 "pl/basic",
@@ -14319,6 +14675,9 @@
 ".bbclass": [
 "pl/bitbake"
 ],
+".bbcode": [
+"pl/bbcode"
+],
 ".bbm": [
 "pl/ilbm"
 ],
@@ -14342,6 +14701,9 @@
 ],
 ".bel": [
 "pl/bel"
+],
+".bend": [
+"pl/bend"
 ],
 ".bf": [
 "pl/beef",
@@ -14379,6 +14741,9 @@
 ],
 ".blade": [
 "pl/blade"
+],
+".blp": [
+"pl/blueprint"
 ],
 ".bmx": [
 "pl/blitzmax"
@@ -14773,6 +15138,9 @@
 ],
 ".conllu": [
 "pl/conll-u"
+],
+".container": [
+"pl/ini"
 ],
 ".cook": [
 "pl/cooklang"
@@ -15390,6 +15758,9 @@
 ".eto": [
 "pl/phoenix-object-basic-2"
 ],
+".ets": [
+"pl/arkts"
+],
 ".eva": [
 "pl/eva"
 ],
@@ -15570,7 +15941,11 @@
 "pl/glsl"
 ],
 ".fpp": [
-"pl/fortran"
+"pl/fortran",
+"pl/fpp"
+],
+".fppi": [
+"pl/fpp"
 ],
 ".fprg": [
 "pl/flowgorithm"
@@ -15841,6 +16216,9 @@
 ".gni": [
 "pl/gn"
 ],
+".gno": [
+"pl/gno"
+],
 ".gnu": [
 "pl/gnuplot"
 ],
@@ -15946,6 +16324,9 @@
 "pl/genie",
 "pl/gosu",
 "pl/groovy-server-pages"
+],
+".gtkrc": [
+"pl/gtkrc"
 ],
 ".gtl": [
 "pl/gerber-image"
@@ -16077,6 +16458,9 @@
 ".hex": [
 "pl/hugo"
 ],
+".hexpat": [
+"pl/imhex-pattern-language"
+],
 ".hfs": [
 "pl/hfs"
 ],
@@ -16159,6 +16543,9 @@
 ".http": [
 "pl/http"
 ],
+".hujson": [
+"pl/json-with-comments"
+],
 ".hurl": [
 "pl/hurl"
 ],
@@ -16212,6 +16599,9 @@
 ],
 ".icl": [
 "pl/clean"
+],
+".icls": [
+"pl/xml"
 ],
 ".icml": [
 "pl/icml"
@@ -16297,6 +16687,9 @@
 ],
 ".ik": [
 "pl/ioke"
+],
+".il": [
+"pl/il-assembly"
 ],
 ".ilbm": [
 "pl/ilbm"
@@ -16420,6 +16813,7 @@
 ],
 ".j": [
 "pl/jasmin",
+"pl/jass",
 "pl/objective-j"
 ],
 ".j2": [
@@ -16867,6 +17261,9 @@
 ".load": [
 "pl/fish"
 ],
+".lobster": [
+"pl/lobster"
+],
 ".logtalk": [
 "pl/logtalk"
 ],
@@ -17153,6 +17550,9 @@
 ".meta": [
 "pl/unity3d-asset"
 ],
+".meta4": [
+"pl/xml"
+],
 ".metal": [
 "pl/metal"
 ],
@@ -17330,6 +17730,9 @@
 ".moon": [
 "pl/moonscript"
 ],
+".mount": [
+"pl/ini"
+],
 ".mov": [
 "pl/mov"
 ],
@@ -17382,6 +17785,7 @@
 ],
 ".ms": [
 "pl/maxscript",
+"pl/miniscript",
 "pl/roff",
 "pl/unix-assembly"
 ],
@@ -17552,6 +17956,9 @@
 ],
 ".neon": [
 "pl/neon"
+],
+".network": [
+"pl/ini"
 ],
 ".nexml": [
 "pl/nexml"
@@ -17769,6 +18176,9 @@
 ".opml": [
 "pl/opml"
 ],
+".opy": [
+"pl/overpy"
+],
 ".orc": [
 "pl/csound"
 ],
@@ -17846,6 +18256,9 @@
 "pl/proguard",
 "pl/qmake"
 ],
+".pacscript": [
+"pl/shell"
+],
 ".pact": [
 "pl/pact"
 ],
@@ -17895,7 +18308,9 @@
 "pl/protocol-buffer-text-format"
 ],
 ".pc": [
-"pl/pkgconfig"
+"pl/pkg-config",
+"pl/pkgconfig",
+"pl/prostarc"
 ],
 ".pcbdoc": [
 "pl/altium-designer"
@@ -18192,6 +18607,9 @@
 ".pptx": [
 "pl/ooxml"
 ],
+".pq": [
+"pl/power-query"
+],
 ".pr": [
 "pl/promela",
 "pl/x-pixmap"
@@ -18434,6 +18852,9 @@
 ".qml": [
 "pl/qml"
 ],
+".qnt": [
+"pl/quint"
+],
 ".qs": [
 "pl/q-sharp",
 "pl/qt-script"
@@ -18554,6 +18975,9 @@
 "pl/mirah",
 "pl/ruby"
 ],
+".rbxmx": [
+"pl/xml"
+],
 ".rbxs": [
 "pl/lua"
 ],
@@ -18594,10 +19018,12 @@
 "pl/rebol"
 ],
 ".red": [
-"pl/red"
+"pl/red",
+"pl/redscript"
 ],
 ".reds": [
-"pl/red"
+"pl/red",
+"pl/redscript"
 ],
 ".reek": [
 "pl/yaml"
@@ -18655,6 +19081,9 @@
 ],
 ".rgba": [
 "pl/iris"
+],
+".rhai": [
+"pl/rhai"
 ],
 ".rhistory": [
 "pl/r",
@@ -18959,6 +19388,9 @@
 ".scxml": [
 "pl/xml"
 ],
+".sd": [
+"pl/vespa-schema-definition"
+],
 ".sd7": [
 "pl/seed7"
 ],
@@ -18981,7 +19413,7 @@
 "pl/seq"
 ],
 ".service": [
-"pl/desktop"
+"pl/ini"
 ],
 ".sexp": [
 "pl/common-lisp"
@@ -19071,6 +19503,10 @@
 ".singularity": [
 "pl/singularity"
 ],
+".sip": [
+"pl/quartus-simulation-ip",
+"pl/sip"
+],
 ".siv": [
 "pl/sieve"
 ],
@@ -19100,6 +19536,9 @@
 ],
 ".sln": [
 "pl/microsoft-visual-studio-solution"
+],
+".slnlaunch": [
+"pl/json"
 ],
 ".slnx": [
 "pl/xml"
@@ -19162,6 +19601,9 @@
 ],
 ".so": [
 "pl/elf"
+],
+".socket": [
+"pl/ini"
 ],
 ".sol": [
 "pl/gerber-image",
@@ -19399,6 +19841,12 @@
 ".tap": [
 "pl/tap"
 ],
+".tape": [
+"pl/tape"
+],
+".target": [
+"pl/ini"
+],
 ".targets": [
 "pl/xml"
 ],
@@ -19417,6 +19865,9 @@
 ],
 ".tcsh": [
 "pl/tcsh"
+],
+".td": [
+"pl/llvm-tablegen"
 ],
 ".te": [
 "pl/selinux-policy"
@@ -19489,6 +19940,9 @@
 ".ti": [
 "pl/tibang"
 ],
+".timer": [
+"pl/ini"
+],
 ".tl": [
 "pl/teal",
 "pl/type-language"
@@ -19543,6 +19997,9 @@
 ".toit": [
 "pl/toit"
 ],
+".tolk": [
+"pl/tolk"
+],
 ".toml": [
 "pl/toml"
 ],
@@ -19589,6 +20046,7 @@
 "pl/terse"
 ],
 ".ts": [
+"pl/arkts",
 "pl/assemblyscript",
 "pl/dirac",
 "pl/tritium-programming-language",
@@ -19655,7 +20113,7 @@
 "pl/vim-help-file"
 ],
 ".txtpb": [
-"pl/protocol-buffer"
+"pl/protocol-buffer-text-format"
 ],
 ".txx": [
 "pl/cpp"
@@ -19668,7 +20126,14 @@
 "pl/typoscript"
 ],
 ".u": [
+"pl/ucode",
 "pl/urbiscript"
+],
+".u1": [
+"pl/ucode"
+],
+".u2": [
+"pl/ucode"
 ],
 ".ua": [
 "pl/uiua"
@@ -19677,6 +20142,7 @@
 "pl/ubjson"
 ],
 ".uc": [
+"pl/ucode",
 "pl/unrealscript"
 ],
 ".udeb": [
@@ -19804,6 +20270,9 @@
 ".veo": [
 "pl/verilog"
 ],
+".verse": [
+"pl/verse"
+],
 ".vert": [
 "pl/glsl"
 ],
@@ -19852,6 +20321,9 @@
 ],
 ".vmb": [
 "pl/vim-script"
+],
+".vmf": [
+"pl/valve-data-format"
 ],
 ".volt": [
 "pl/volt"
@@ -20361,6 +20833,9 @@
 ".zcml": [
 "pl/xml"
 ],
+".zed": [
+"pl/spicedb-schema"
+],
 ".zeek": [
 "pl/zeek"
 ],
@@ -20458,6 +20933,12 @@
 ".Justfile": [
 "pl/just"
 ],
+".Rapp.history": [
+"pl/r"
+],
+".Rhistory": [
+"pl/r"
+],
 ".Rprofile": [
 "pl/r"
 ],
@@ -20469,6 +20950,9 @@
 ],
 ".ackrc": [
 "pl/option-list"
+],
+".agignore": [
+"pl/ignore-list"
 ],
 ".all-contributorsrc": [
 "pl/json"
@@ -20517,6 +21001,9 @@
 ],
 ".c8rc": [
 "pl/json"
+],
+".ckignore": [
+"pl/ignore-list"
 ],
 ".clang-format": [
 "pl/yaml"
@@ -20620,8 +21107,15 @@
 ".envrc": [
 "pl/shell"
 ],
+".eslint-ignore": [
+"pl/ignore-list"
+],
 ".eslintignore": [
 "pl/ignore-list"
+],
+".eslintrc": [
+"pl/json-with-comments",
+"pl/yaml"
 ],
 ".eslintrc.json": [
 "pl/json-with-comments"
@@ -20659,8 +21153,14 @@
 ".gitignore": [
 "pl/ignore-list"
 ],
+".gitmessage": [
+"pl/git-commit"
+],
 ".gitmodules": [
 "pl/git-config"
+],
+".gitreview": [
+"pl/ini"
 ],
 ".gn": [
 "pl/gn"
@@ -20761,6 +21261,13 @@
 ".pylintrc": [
 "pl/ini"
 ],
+".releaserc": [
+"pl/json",
+"pl/yaml"
+],
+".rgignore": [
+"pl/ignore-list"
+],
 ".rspec": [
 "pl/option-list"
 ],
@@ -20769,6 +21276,9 @@
 ],
 ".scalafmt.conf": [
 "pl/hocon"
+],
+".secrets.baseline": [
+"pl/json"
 ],
 ".shellcheckrc": [
 "pl/shellcheck-config"
@@ -20790,6 +21300,9 @@
 ],
 ".tern-project": [
 "pl/json"
+],
+".tgitconfig": [
+"pl/git-config"
 ],
 ".tm_properties": [
 "pl/textmate-properties"
@@ -21041,6 +21554,9 @@
 "Makefile.inc": [
 "pl/makefile"
 ],
+"Makefile.pc": [
+"pl/makefile"
+],
 "Makefile.wat": [
 "pl/makefile"
 ],
@@ -21096,6 +21612,9 @@
 "pl/text"
 ],
 "README.nss": [
+"pl/text"
+],
+"README.pc": [
 "pl/text"
 ],
 "ROOT": [
@@ -21224,6 +21743,9 @@
 "bashrc": [
 "pl/shell"
 ],
+"bird.conf": [
+"pl/bird2"
+],
 "browserslist": [
 "pl/browserslist"
 ],
@@ -21256,6 +21778,9 @@
 ],
 "composer.lock": [
 "pl/json"
+],
+"config.worktree": [
+"pl/git-config"
 ],
 "configure.ac": [
 "pl/m4sugar"
@@ -21356,6 +21881,12 @@
 "gradlew.bat": [
 "pl/batchfile"
 ],
+"gtkrc": [
+"pl/gtkrc"
+],
+"gtkrc-2.0": [
+"pl/gtkrc"
+],
 "gvimrc": [
 "pl/vim-script"
 ],
@@ -21447,6 +21978,12 @@
 "meson_options.txt": [
 "pl/meson"
 ],
+"mise.local.lock": [
+"pl/toml"
+],
+"mise.lock": [
+"pl/toml"
+],
 "mix.lock": [
 "pl/elixir"
 ],
@@ -21461,6 +21998,12 @@
 ],
 "mocha.opts": [
 "pl/option-list"
+],
+"moon.mod": [
+"pl/moonbit"
+],
+"moon.pkg": [
+"pl/moonbit"
 ],
 "mvnw": [
 "pl/shell"
@@ -21683,6 +22226,7 @@
 "pl/aldor",
 "pl/ale",
 "pl/alembic",
+"pl/aleo",
 "pl/algol",
 "pl/alias-scene-description-language",
 "pl/alloy",
@@ -21708,6 +22252,7 @@
 "pl/aqasm",
 "pl/arc",
 "pl/arduino",
+"pl/arkts",
 "pl/arrow",
 "pl/arturo",
 "pl/ascii-art",
@@ -21738,22 +22283,27 @@
 "pl/b4x",
 "pl/bag",
 "pl/ballerina",
+"pl/baml",
 "pl/basic",
 "pl/batchfile",
+"pl/bbcode",
 "pl/bc",
 "pl/beef",
 "pl/befunge",
 "pl/bel",
+"pl/bend",
 "pl/berry",
 "pl/bibtex",
 "pl/bibtex-style",
 "pl/bicep",
 "pl/bikeshed",
+"pl/bird2",
 "pl/bison",
 "pl/bitbake",
 "pl/blade",
 "pl/blitzbasic",
 "pl/blitzmax",
+"pl/blueprint",
 "pl/bluespec",
 "pl/bluespec-bh",
 "pl/bnf",
@@ -22000,6 +22550,7 @@
 "pl/fossil",
 "pl/fountain",
 "pl/fountain-script",
+"pl/fpp",
 "pl/freebasic",
 "pl/freefem",
 "pl/freemarker",
@@ -22050,6 +22601,7 @@
 "pl/glyph-bitmap-distribution-format",
 "pl/gml",
 "pl/gn",
+"pl/gno",
 "pl/gnuplot",
 "pl/go",
 "pl/go-checksums",
@@ -22072,6 +22624,7 @@
 "pl/groovy-server-pages",
 "pl/gsc",
 "pl/gsql",
+"pl/gtkrc",
 "pl/guide",
 "pl/guile",
 "pl/gzip",
@@ -22122,10 +22675,12 @@
 "pl/ignore-list",
 "pl/igor-pro",
 "pl/iif",
+"pl/il-assembly",
 "pl/ilbm",
 "pl/imagej-macro",
 "pl/imba",
 "pl/imf",
+"pl/imhex-pattern-language",
 "pl/inform",
 "pl/inform-7",
 "pl/ini",
@@ -22148,6 +22703,7 @@
 "pl/janet",
 "pl/jar-manifest",
 "pl/jasmin",
+"pl/jass",
 "pl/java",
 "pl/java-modeling-language-file-format",
 "pl/java-properties",
@@ -22239,6 +22795,8 @@
 "pl/livecode-script",
 "pl/livescript",
 "pl/llvm",
+"pl/llvm-tablegen",
+"pl/lobster",
 "pl/logos",
 "pl/logtalk",
 "pl/lolcode",
@@ -22295,6 +22853,7 @@
 "pl/microsoft-visual-programming-language-project",
 "pl/microsoft-visual-studio-solution",
 "pl/minid",
+"pl/miniscript",
 "pl/miniyaml",
 "pl/minizinc",
 "pl/minizinc-data",
@@ -22424,6 +22983,7 @@
 "pl/org",
 "pl/osis",
 "pl/overpassql",
+"pl/overpy",
 "pl/ox",
 "pl/oxygene",
 "pl/oz",
@@ -22464,6 +23024,7 @@
 "pl/pike",
 "pl/pip-requirements",
 "pl/pixilang",
+"pl/pkg-config",
 "pl/pkgconfig",
 "pl/pkl",
 "pl/plantuml",
@@ -22485,6 +23046,7 @@
 "pl/postscript",
 "pl/pov-ray-sdl",
 "pl/powder",
+"pl/power-query",
 "pl/powerbuilder",
 "pl/powershell",
 "pl/praat",
@@ -22499,6 +23061,7 @@
 "pl/promela",
 "pl/promql",
 "pl/propeller-spin",
+"pl/prostarc",
 "pl/protocol-buffer",
 "pl/protocol-buffer-text-format",
 "pl/prql",
@@ -22524,7 +23087,9 @@
 "pl/qt-script",
 "pl/quake",
 "pl/quakec",
+"pl/quartus-simulation-ip",
 "pl/quickbasic",
+"pl/quint",
 "pl/r",
 "pl/ra",
 "pl/racket",
@@ -22548,6 +23113,7 @@
 "pl/redcode",
 "pl/redirect-rules",
 "pl/redline-markup-language",
+"pl/redscript",
 "pl/regular-expression",
 "pl/renderscript",
 "pl/renpy",
@@ -22556,6 +23122,7 @@
 "pl/restructuredtext",
 "pl/rexx",
 "pl/rez",
+"pl/rhai",
 "pl/rich-text-format",
 "pl/riff",
 "pl/ring",
@@ -22620,6 +23187,7 @@
 "pl/silk",
 "pl/simple-file-verification",
 "pl/singularity",
+"pl/sip",
 "pl/slang",
 "pl/slash",
 "pl/slice",
@@ -22647,6 +23215,7 @@
 "pl/spec",
 "pl/speech-synthesis-markup-language",
 "pl/spice",
+"pl/spicedb-schema",
 "pl/spline-font-database",
 "pl/sqf",
 "pl/sql",
@@ -22686,6 +23255,7 @@
 "pl/tal",
 "pl/talon",
 "pl/tap",
+"pl/tape",
 "pl/tasm",
 "pl/tcl",
 "pl/tcsh",
@@ -22716,6 +23286,7 @@
 "pl/todotxt",
 "pl/toit",
 "pl/token-oriented-object-notation",
+"pl/tolk",
 "pl/tom",
 "pl/toml",
 "pl/toontalk",
@@ -22741,6 +23312,7 @@
 "pl/typoscript",
 "pl/typst",
 "pl/ubjson",
+"pl/ucode",
 "pl/udl",
 "pl/uiua",
 "pl/umple",
@@ -22767,6 +23339,8 @@
 "pl/vento",
 "pl/verifpal",
 "pl/verilog",
+"pl/verse",
+"pl/vespa-schema-definition",
 "pl/vhdl",
 "pl/vim-help-file",
 "pl/vim-script",

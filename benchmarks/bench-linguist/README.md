@@ -82,15 +82,15 @@ files the classifier was trained on, which changes the reading:
 5. **Taxonomy (33) and file names (16).** Map Synid's own syntaxes (Systemd, MSBuild, ASP) to Linguist's
    languages for comparison; import Linguist's file names.
 
-**The cascade** (the encyclopedia's candidates, then Jev)
+**The cascade** (the encyclopedia's candidates, then Jev) — 143 files since the encyclopedia's Linguist
+import was refreshed (230 before: no candidate 81 → 11, candidates without the right one 43 → 18)
 
-1. **No candidate (81 files, 33 languages).** The encyclopedia's Linguist import dates from May 2026:
-   refreshing it gives these files their candidates.
-2. **Candidates without the right one (43).** Missing claims, often compound extensions or newer
-   Linguist claims — the same refresh, plus claims the encyclopedia's sources lack.
-3. **The right candidate, a wrong choice (94 + 12).** Confusions between an extension's claimants
-   (Befunge / Brainfuck, BASIC dialects); the encyclopedia's own heuristics could decide before the
-   model, and the candidates should stay in the fallback's final.
+1. **The right candidate, a wrong choice (102 + 12).** Now the main cause: confusions between an
+   extension's claimants (Befunge / Brainfuck, BASIC dialects); the encyclopedia's own heuristics could
+   decide before the model, and the candidates should stay in the fallback's final.
+2. **Candidates without the right one (18).** Claims the encyclopedia's sources lack (compound
+   extensions, files outside Linguist's lists).
+3. **No candidate (11).** Extensions no source claims.
 
 ## Other identifiers
 
@@ -102,8 +102,8 @@ for what each can name at all.
 
 | entry | right | note |
 |---|---:|---|
-| **Jev 1.13 among PL-ultimate-llm's candidates**, with file name | **93.2 %** | the extension's candidates from PL-ultimate-llm, Jev decides; 87.7 % on `unseen`, 90.6 % on `ambiguous-ext`; $0.62 |
-| the same, file name not shown to Jev | 91.1 % | the candidates still come from the extension |
+| **Jev 1.13 among PL-ultimate-llm's candidates**, with file name | **95.8 %** | the extension's candidates from PL-ultimate-llm (Linguist import refreshed to 76f88c6), Jev decides; 95.4 % on `unseen`, 92.5 % on `ambiguous-ext`; $0.42 (93.2 % with the May 2026 import) |
+| the same, file name not shown to Jev | 93.8 % | the candidates still come from the extension |
 | GitHub Linguist 9.7.0 † | 99.5 % | trained on every file but 16 (languages it does not know: 0 / 16); 6.1 % without the file name |
 | go-enry 2.9.6 † | 95.7 % | generated from Linguist v9.5.0; on the 62 files added since, in languages it knows: **22.6 %** (Jev: 79.0 %) |
 | Jev 1.13 (OpenRouter), with file name | 89.3 % | $3.29 for the 3,404 files |
@@ -125,11 +125,12 @@ for go-enry on the files added to Linguist after its snapshot (Jev's own trainin
 And the label set matters as much as the model: the same Jev, asked with the 63 labels of the `.m`
 study, is perfect on bench-m and right on 14.2 % here. Giving it, for each file, the languages
 PL-ultimate-llm associates with the file's extension — every source's claims plus what the extension
-studies observed in Software Heritage — gets the best of both: 54/54 on bench-m and 93.2 % here (one
-call per file for 94 % of them; a broad fallback for the rest). Caveat: the candidates include
-Linguist's claims, and this benchmark's labels are Linguist's; and the `.m` observations come from the
-study bench-m's files were drawn from — both benchmarks favour the mapping, which a benchmark of files
-outside both would test.
+studies observed in Software Heritage — gets the best of both: 54/54 on bench-m and 95.8 % here (one
+call per file for 97 % of them; a broad fallback for the rest). Caveat: the candidates include
+Linguist's claims — since the encyclopedia's import was refreshed (PL-ultimate-llm 274fa4cc8), from the
+very Linguist revision this benchmark's labels come from — and the `.m` observations come from the study
+bench-m's files were drawn from: both benchmarks favour the mapping, which a benchmark of files outside
+both would test ([spec](../../specs/bench-heldout.md)).
 
 See the [leaderboard](LEADERBOARD.md) and the [history of Synid versions](HISTORY.md).
 
