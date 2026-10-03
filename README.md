@@ -20,8 +20,9 @@ Synid versions and configurations (a strategy turned off, or without the file
 name); the other identifiers — GitHub Linguist, go-enry, Hyperpolyglot, cloc,
 Pygments, Magika, Guesslang — each run on every benchmark from a pinned Docker
 image (`tools/external/`); lightweight models — Jev (OpenRouter), Kev-4B
-(local, llama.cpp), StarCoder2-3B (local, Ollama); and rules written for one
-benchmark only. Each benchmark has its own leaderboard (accuracy with
+(local, llama.cpp), StarCoder2-3B (local, Ollama); a two-stage identifier
+(PL-ultimate-llm's candidates for the extension, then Jev); and rules written
+for one benchmark only. Each benchmark has its own leaderboard (accuracy with
 intervals, precision of language answers, tags), a coverage report (which of
 its languages each entry can name at all) and a list of the entries not run
 on it, with the reason. † marks an entry trained on part of a benchmark's
@@ -68,6 +69,8 @@ Python 3.10+, no dependencies; runs locally.
 | `tools/jev_linguist.py <bench>` | asks Jev (a lightweight decision model, OpenRouter) the language of each case among all of GitHub Linguist's languages → a leaderboard entry (needs an OpenRouter key; ~$0.06 for bench-m) |
 | `tools/external.py <bench> --tool T` | runs another identifier (Linguist, go-enry, Hyperpolyglot, cloc, Pygments, Magika, Guesslang) in its pinned Docker image → a leaderboard entry (`--content-only`: without the file name; `--labels`: the tool's label set) |
 | `tools/ollama_llm.py <bench> --model M` | asks a local language model (Ollama; e.g. StarCoder2-3B) the language from the first 2,000 characters → an entry |
+| `tools/jev_cascade.py <bench>` | candidates + Jev: the languages PL-ultimate-llm associates with the file's extension (or name), among which Jev chooses; a broad fallback when none fits |
+| `tools/export_pl_candidates.py` | snapshots PL-ultimate-llm's extension → language mapping into `tools/data/pl_candidates.json` |
 | `tools/coverage.py <bench>` | which of the benchmark's languages each entry can name, and its accuracy on those → `COVERAGE.md` |
 | `tools/failures.py <bench>` | every case the latest Synid gets wrong, with the program, the answers of every configuration, and the root cause (from the benchmark's `root_causes.py`) → `<bench>/FAILURES.md` |
 

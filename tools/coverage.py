@@ -49,6 +49,9 @@ def label_set(meta: dict, synid: str | None) -> set[str] | str | None:
     if label.startswith("jev-study63"):  # the languages that have a label of their own
         st = json.loads((HERE / "data" / "jev_study_labels.json").read_text(encoding="utf-8"))
         return {name_key(v[0]) for v in st["to_linguist"].values() if len(v) == 1}
+    if label.startswith("jev-cascade"):  # candidates, or the fallback list: every language of the snapshot
+        d = json.loads((HERE / "data" / "pl_candidates.json").read_text(encoding="utf-8"))
+        return {name_key(lg["name"]) for lg in d["languages"].values()} | {name_key("Text")}
     if label.startswith("llm-"):
         return OPEN
     tool = label.removeprefix("ext-").removesuffix("-content-only")

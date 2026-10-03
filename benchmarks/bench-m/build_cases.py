@@ -43,7 +43,7 @@ FIELDS = ["case_id", "tier", "ext", "sha1_git", "filename", "qualified_swhid", "
 # Synid answers that count as right, per language-level label. Names Synid does
 # not (yet) offer for `.m` are listed too, so that a future version gets credit.
 ACCEPT = {
-    "matlab-family": ["MATLAB"], "objective-c": ["Objective-C"], "mathematica-wolfram": ["Wolfram Language"],
+    "matlab-family": ["MATLAB", "Octave"],  # the study labels the family; Octave accepted since 2026-10-03 "objective-c": ["Objective-C"], "mathematica-wolfram": ["Wolfram Language"],
     "mercury": ["Mercury"], "mumps-m": ["M"], "limbo": ["Limbo"], "muf": ["MUF"], "mason": ["Mason"],
     "magma": ["Magma"], "c-or-cpp": ["C", "C++"], "not-code": ["Text"], "other": [],
 }

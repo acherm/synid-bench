@@ -71,6 +71,8 @@ for what each can name at all.
 
 | entry | right | note |
 |---|---:|---|
+| **Jev 1.13 among PL-ultimate-llm's candidates**, with file name | **93.2 %** | the extension's candidates from PL-ultimate-llm, Jev decides; 87.7 % on `unseen`, 90.6 % on `ambiguous-ext`; $0.62 |
+| the same, file name not shown to Jev | 91.1 % | the candidates still come from the extension |
 | GitHub Linguist 9.7.0 † | 99.5 % | trained on every file but 16 (languages it does not know: 0 / 16); 6.1 % without the file name |
 | go-enry 2.9.6 † | 95.7 % | generated from Linguist v9.5.0; on the 62 files added since, in languages it knows: **22.6 %** (Jev: 79.0 %) |
 | Jev 1.13 (OpenRouter), with file name | 89.3 % | $3.29 for the 3,404 files |
@@ -90,7 +92,13 @@ it, every other tool collapses (2.8 – 10.2 %) while a decision model keeps 82 
 trained on, the decision model does better: 76.1 % vs 54.8 % for Synid on `unseen`; 79.0 % vs 22.6 %
 for go-enry on the files added to Linguist after its snapshot (Jev's own training data is not known).
 And the label set matters as much as the model: the same Jev, asked with the 63 labels of the `.m`
-study, is perfect on bench-m and right on 14.2 % here.
+study, is perfect on bench-m and right on 14.2 % here. Giving it, for each file, the languages
+PL-ultimate-llm associates with the file's extension — every source's claims plus what the extension
+studies observed in Software Heritage — gets the best of both: 54/54 on bench-m and 93.2 % here (one
+call per file for 94 % of them; a broad fallback for the rest). Caveat: the candidates include
+Linguist's claims, and this benchmark's labels are Linguist's; and the `.m` observations come from the
+study bench-m's files were drawn from — both benchmarks favour the mapping, which a benchmark of files
+outside both would test.
 
 See the [leaderboard](LEADERBOARD.md) and the [history of Synid versions](HISTORY.md).
 

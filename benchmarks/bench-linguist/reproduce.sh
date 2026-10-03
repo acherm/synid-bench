@@ -30,6 +30,9 @@ if [ -n "${OPENROUTER_API_KEY:-}" ] || [ -f ~/.openrouter_env ]; then
   python3 tools/jev_linguist.py $B --workers 8 --with-filename
   python3 tools/jev_linguist.py $B --workers 8 --label-set study63                   # ~$0.39
   python3 tools/jev_linguist.py $B --workers 8 --label-set study63 --with-filename
+  # candidates from PL-ultimate-llm (tools/data/pl_candidates.json; refresh with tools/export_pl_candidates.py)
+  python3 tools/jev_cascade.py $B --workers 8                                         # ~$0.62
+  python3 tools/jev_cascade.py $B --workers 8 --content-only
 fi
 # an open decision model, locally: llama.cpp with the /v1/systemone API (commit a4cb4c6 or later)
 if [ -n "${LLAMA_SERVER:-}" ] && [ -n "${KEV_GGUF:-}" ]; then   # Kev-4B-Q8_0.gguf from huggingface.co/ggml-org/Kev-4B-GGUF

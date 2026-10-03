@@ -126,6 +126,10 @@ In short:
   its Pygments step —, cloc 41/54, Magika 38/54, Guesslang 36/54, Pygments 2.21.0 19/54;
   local models: Kev-4B (an open decision model, llama.cpp) 47/54, StarCoder2-3B 43/54. Without
   the file name, the rule-based tools fall to 0–4/54 (Synid 4/54).
+- Jev choosing among the languages PL-ultimate-llm associates with `.m` (claims plus the
+  languages the `.m` study observed, Magma included) gets 54/54, with or without the file
+  name (`tools/jev_cascade.py`). Octave is accepted for the MATLAB family since 2026-10-03
+  (no recorded entry changes).
 
 ## Limits, and growing it
 
