@@ -1,6 +1,7 @@
 # Spec — `bench-heldout`: a benchmark none of the identifiers was built from
 
-*Status: specification, not built. Written 2026-10-03 to be picked up later.*
+*Status: specification, not built. Written 2026-10-03 to be picked up later. Before building it, map
+the existing benchmarks: [literature review prompt](literature-review-prompt.md).*
 
 ## Why
 
