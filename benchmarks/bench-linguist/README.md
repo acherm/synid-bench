@@ -61,6 +61,37 @@ whole file name (`samples/<language>/filenames/`, 321 files).
   `PL/pgSQL`, so the rule is filtered out — the same name mismatch as Wolfram's on bench-m — and the
   new strategy order lets the SQLPL/TSQL rules decide before the classifier.
 
+## Improvement axes
+
+From the failure reports — [Synid's](FAILURES.md) (798 files, `--synid` to tell unknown languages)
+and [the candidates + Jev cascade's](FAILURES-jev-cascade.md) (230 files) — by size, with the share of
+files the classifier was trained on, which changes the reading:
+
+**Synid**
+
+1. **`Text` by default (523 files).** The Pygments step ends the chain with `Text` when no heuristic
+   decides. On 307 files the classifier would be right without it — but 246 of those it was trained on:
+   on files it never saw, the gain is 61 files (and, README above, the wrong answers grow). The fix that
+   holds on both benchmarks is to return the candidates rather than `Text`, and to report undecided.
+2. **Languages Synid cannot name (112 files, 39 languages).** All but one added to Linguist after
+   2023: import Linguist's newer languages, extensions, file names and heuristics.
+3. **Disambiguation within an extension (42) and other wrong languages (55).** Heuristics for the
+   extension pairs involved (`.bf`, `.cls`, `.inc`, …); see the pairs in the report.
+4. **Rule names (16 files).** The `.sql`, `.m`, `.v`, `.ch`, `.q` rules never fire: compare syntax ids,
+   not names — a one-line fix, verified on bench-m.
+5. **Taxonomy (33) and file names (16).** Map Synid's own syntaxes (Systemd, MSBuild, ASP) to Linguist's
+   languages for comparison; import Linguist's file names.
+
+**The cascade** (the encyclopedia's candidates, then Jev)
+
+1. **No candidate (81 files, 33 languages).** The encyclopedia's Linguist import dates from May 2026:
+   refreshing it gives these files their candidates.
+2. **Candidates without the right one (43).** Missing claims, often compound extensions or newer
+   Linguist claims — the same refresh, plus claims the encyclopedia's sources lack.
+3. **The right candidate, a wrong choice (94 + 12).** Confusions between an extension's claimants
+   (Befunge / Brainfuck, BASIC dialects); the encyclopedia's own heuristics could decide before the
+   model, and the candidates should stay in the fallback's final.
+
 ## Other identifiers
 
 Every other tool runs from a pinned, reproducible setup (`reproduce.sh` rebuilds everything): a Docker
