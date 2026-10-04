@@ -1,0 +1,9 @@
+{
+  "version": "0.5.1",
+  "name": "Magika 0.5.1",
+  "about": "Google's deep-learning content-type detector, the last 0.5.x release (March 2024; model standard_v1, 113 content types); reads the bytes only",
+  "url": "https://pypi.org/project/magika/0.5.1/",
+  "content_native": true,
+  "family": "neural content-type detector",
+  "older_release_of": "magika"
+}

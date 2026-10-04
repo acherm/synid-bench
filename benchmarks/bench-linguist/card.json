@@ -1,0 +1,30 @@
+{
+ "name": "bench-linguist",
+ "version": "bench-linguist/1",
+ "title": "GitHub Linguist's sample files, 768 languages",
+ "unit": "whole file",
+ "names": "real",
+ "labels": "Linguist's maintainers (the sample's directory)",
+ "label_kind": "maintainers",
+ "sampling": "curated (Linguist's samples, all of them)",
+ "source": "https://github.com/github-linguist/linguist@76f88c6",
+ "files_stored": false,
+ "cases": 3404,
+ "languages": 768,
+ "home_turf": [
+  "GitHub Linguist",
+  "go-enry",
+  "Hyperpolyglot",
+  "Synid"
+ ],
+ "strengths": [
+  "wide: 768 languages, the long tail",
+  "labels by the people who maintain a taxonomy",
+  "tags for seen / unseen files and ambiguous extensions"
+ ],
+ "weaknesses": [
+  "training data of the Linguist family and of Synid's classifier",
+  "hand-picked samples, often chosen to exercise a heuristic",
+  "labels and taxonomy are Linguist's own"
+ ]
+}

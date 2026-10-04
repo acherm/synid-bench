@@ -1,0 +1,16 @@
+# Magika content-type label → Linguist name(s) of the same language or format. Rule (all tools alike): synonyms only;
+# a narrower kind (csproj/vcxproj vs XML, gemfile vs Ruby) is NOT mapped; "unknown" is no answer.
+label,linguist
+txt,Text
+cs,C#
+ignorefile,Ignore List
+appleplist,XML Property List
+htaccess,ApacheConf
+ics,iCalendar
+bib,BibTeX
+rtf,Rich Text Format
+ipynb,Jupyter Notebook
+srt,SubRip Text
+winregistry,Windows Registry Entries
+po,Gettext Catalog
+unknown,

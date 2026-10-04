@@ -1,0 +1,6 @@
+# philomath-1209/programming-language-identification label (Rosetta Code's language name) → Linguist name(s) of the
+# same language. Rule (all tools alike): synonyms only; a dialect or a broader/narrower kind is NOT mapped (ARM
+# Assembly, one instruction set, stays apart from Linguist's Assembly). Labels equal to a Linguist name or alias
+# (case, spaces and punctuation ignored) need no row.
+label,linguist
+Mathematica/Wolfram Language,Wolfram Language

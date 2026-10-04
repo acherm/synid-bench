@@ -1,0 +1,37 @@
+#version 440 core
+
+uniform samplerCube cubeMap;
+uniform vec3 psCamPos;
+
+vec3 GetCoords(vec3 portalSpacePos, vec3 portalSpaceCameraPos){
+	vec3 res;
+	//portalSpaceCameraPos.z = -0.6f;
+	vec3 dir = portalSpacePos - portalSpaceCameraPos;
+	//dir.x /= 1.5;
+	//dir.xy*=2;
+	dir = normalize(dir);
+	res = (0.5f - portalSpaceCameraPos.z)	// = dot(vec3(0.0f, 0.0f, 0.5f) - portalSpaceCameraPos, vec3(0.0f, 0.0f, 1.0f))
+		  / dir.z						// = dot(dir, vec3(0.0f, 0.0f, 1.0f))
+		  * dir
+		  + portalSpaceCameraPos;
+
+		  res = dot(vec3(0.0f, 0.0f, 0.5f) - portalSpaceCameraPos, vec3(0.0f, 0.0f, 1.0f))
+		  / dot(dir, vec3(0.0f, 0.0f, 1.0f))
+		  * dir
+		  + portalSpaceCameraPos;
+	//res.x /= 2;
+	return res;
+}
+
+in VS_OUT {
+    vec3 psFragPos;
+} fs_in;
+out vec4 FragColor;
+void main(){
+	vec3 coords = GetCoords(fs_in.psFragPos, psCamPos);
+	coords.y *= -1.0f;
+	if (psCamPos.z <= 0 && abs(coords.x) <= 0.5f  && abs(coords.y) <= 0.5f)
+		FragColor = texture(cubeMap, coords);
+	else 
+		FragColor = vec4(0.0f, 1.0f, 0.0f, 1.0f);
+}

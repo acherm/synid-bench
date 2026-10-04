@@ -16,13 +16,9 @@ for s in pygmentsheuristics comment hyplyclassifier hyplyheuristics; do
   python3 tools/run.py $B --synid "$SYNID" --label head-no-$s --disable $s
 done
 
-# other identifiers, each in its pinned Docker image (tools/external/<tool>/)
-for t in linguist enry hyperpolyglot cloc pygments magika guesslang; do
-  python3 tools/external.py $B --tool $t --labels
-done
-python3 tools/external.py $B --tool pygments --content-only
-python3 tools/external.py $B --tool linguist --content-only
-python3 tools/external.py $B --tool enry --content-only
+# other identifiers, each in its pinned Docker image (tools/external/<tool>/): every tool, with the file name
+# and without it where that applies — tools/run_all.py decides (not run where it would not apply)
+python3 tools/run_all.py --bench bench-linguist --force --jobs 3
 
 # lightweight LLMs (optional)
 if [ -n "${OPENROUTER_API_KEY:-}" ] || [ -f ~/.openrouter_env ]; then

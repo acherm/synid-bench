@@ -1,0 +1,8 @@
+{
+  "version": "2.10",
+  "name": "cloc 2.10",
+  "about": "line counter; recognises languages by extension, file name and shebang",
+  "url": "https://github.com/AlDanial/cloc",
+  "family": "line counter",
+  "needs_name": true
+}

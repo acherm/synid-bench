@@ -1,0 +1,5 @@
+# PLangRec label → Linguist name(s) of the same language. Rule (all tools alike): synonyms only; a dialect or a
+# broader/narrower kind is NOT mapped. Labels equal to a Linguist name or alias (case, spaces and punctuation ignored;
+# Matlab = MATLAB) need no row.
+label,linguist
+Unix Shell,Shell

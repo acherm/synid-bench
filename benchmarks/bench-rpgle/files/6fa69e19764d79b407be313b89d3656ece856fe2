@@ -1,0 +1,164 @@
+     /**
+      * \brief BluePKG
+      * 
+      * IBM i package management client.
+      * <p>
+      * This client supports the file format 3 and 4 of the RPM file format.
+      * 
+      * \author Mihael Schmidt
+      * \date   21.11.2014
+      */
+
+
+      *-------------------------------------------------------------------------
+      * Prototypes
+      *-------------------------------------------------------------------------
+      /include 'errno_h.rpgle'
+      /include 'ifsio_h.rpgle'
+      /include 'libc_h.rpgle'
+      
+      /include 'bluepkg_h.rpgle'
+      /include 'bluepkg_util_h.rpgle'
+      
+     D bluepkg_open...
+     D                 PR            10I 0
+     D   path                      1024A   const
+
+     D bluepkg_check   PR              N
+     D  lead                               likeds(rpm_lead_t) const
+
+     D bluepkg_isFileFormatSupported...
+     D                 PR              N
+     D  lead                               likeds(rpm_lead_t) const
+      
+
+      *-------------------------------------------------------------------------
+      * main 
+      *------------------------------------------------------------------------- 
+     D main            PR                  extpgm('BLUEPKG')
+     D main            PI
+      *
+     D lead            DS                  likeds(rpm_lead_t)
+     D filePath        S           1000A 
+      /free
+       filePath = 'rpm/zlib-1.2.5-2.fc14.src.rpm';
+       lead = bluepkg_loadLead(filePath);
+       
+       dsply %subst(lead.name : 1 : 50);
+       dsply %char(lead.sigType);
+              
+       dsply %char(strlen(%addr(lead.name)));
+              
+       *inlr = *on;
+       return;
+      /end-free
+
+
+
+      *-------------------------------------------------------------------------
+      * Procedures 
+      *-------------------------------------------------------------------------
+
+     /**
+      * \brief Load package lead data structure
+      *
+      * Loads the package RPM lead data structure containing the basic 
+      * information about the package.
+      * 
+      * \param file path
+      * 
+      * \return RPM lead data structure
+      * 
+      * \throws escape message if file cannot be read
+      * \throws escape message if file is no rpm package
+      * \throws escape message if rpm file version is not 3.x or 4.x
+      */
+     P bluepkg_loadLead...
+     P                 B                   export
+     D                 PI                  likeds(rpm_lead_t)
+     D   filePath                  1000A   const
+      *
+     D lead            DS                  likeds(rpm_lead_t)
+     D fileHandle      S             10I 0
+     D readLength      S             10I 0
+     D ptr             S               * 
+      /free
+       fileHandle = bluepkg_open(%trimr(filePath));
+
+       readLength = read(fileHandle : %addr(lead) : %size(lead));
+       if (readLength < %size(lead));
+         sendEscapeMessage('no rpm file (file size < package data structure)');
+       endif;
+       
+       if (not bluepkg_check(lead));
+         sendEscapeMessage('no rpm file');
+       endif;
+       
+       if (not bluepkg_isFileFormatSupported(lead));
+         sendEscapeMessage('Unsupported file format version ' + 
+                           %char(lead.major) + '.' + %char(lead.minor));
+       endif;
+
+       // package name is always encoded in UTF-8
+       ptr = %addr(lead.name);
+       translateFromUtf8(ptr : %size(lead.name));
+       // translate adds a null character at the end of the string => remove it
+       lead.name = %str(%addr(lead.name)); 
+
+       callp close(fileHandle);
+
+       return lead;
+      /end-free
+     P                 E
+
+
+     P bluepkg_open...
+     P                 B
+     D                 PI            10I 0
+     D   path                      1024A   const
+      *
+     D fileHandle      S             10I 0
+     D mode            S             10I 0
+     D errorNumber     S             10I 0 based(errorNumberPtr)
+     D errorMessage    S            100A
+      /free
+       mode = O_RDONLY;
+       fileHandle = open(%trimr(path) + x'00' : mode);
+
+       if (fileHandle <> -1);
+         return fileHandle;
+       else;
+         errorNumberPtr = c__errno();
+         errorMessage = %str(strerror(errorNumber));
+         errorMessage = 'Error on opening the file. ' +
+                               %char(errorNumber)+' - ' + %trimr(errorMessage);
+         sendEscapeMessage(errorMessage);
+       endif;
+
+       return -1;
+      /end-free
+     P                 E
+
+
+     P bluepkg_check   B
+     D                 PI              N
+     D  lead                               likeds(rpm_lead_t) const
+      /free
+       return lead.magic = x'edabeedb';
+      /end-free
+     P                 E
+
+     P bluepkg_isFileFormatSupported...
+     P                 B
+     D                 PI              N
+     D  lead                               likeds(rpm_lead_t) const
+      *
+     D message         S             50A
+      /free
+       message = 'checking version ' + %char(lead.major)+'.'+%char(lead.minor);
+       // TODO log dsply message;
+       return lead.major = 3 or lead.major = 4;
+      /end-free
+     P                 E
+     
+     

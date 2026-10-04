@@ -1,0 +1,143 @@
+# file(1) label (its description up to the first comma) → Linguist name(s) of the same language or format. Rule (all
+# tools alike): synonyms only; a label covering several Linguist languages maps to all of them (undecided); a narrower
+# or broader kind (automake makefile vs Makefile, Microsoft HTML Application vs HTML, exported SGML vs XML) is NOT
+# mapped. A plain-text label (ASCII text, Unicode text…) is Text; "data", "empty" and "very short file" are no answer.
+# "a <interpreter> script" labels (a shebang file has no more specific magic) are mapped where the interpreter
+# names one language.
+label,linguist
+a /bin/jconsole script,J
+a /usr/bin/instantfpc script,Pascal
+a /usr/bin/make -f script,Makefile
+a /usr/bin/qmake script,QMake
+a /usr/bin/runhaskell script,Haskell
+a /usr/local/bin/apl --script script,APL
+a cwl-runner script,Common Workflow Language
+a escript script,Erlang
+a gnuplot script,Gnuplot
+a groovy script,Groovy
+a ioke script,Ioke
+a macruby script,Ruby
+a newlisp script,NewLisp
+a nextflow script,Nextflow
+a nu script,Nushell
+a nush script,Nu
+a parrot script,Parrot Assembly;Parrot Internal Representation
+a php script,PHP
+a pwsh script,PowerShell
+a rake script,Ruby
+a rune script,E
+a Rscript script,R
+a swipl script,Prolog
+a wolframscript script,Wolfram Language
+Adblock Plus 2.0 rules file,Adblock Filter List
+Adblock Plus 3.1 rules file,Adblock Filter List
+Adblock Plus 3.13 rules file,Adblock Filter List
+ASCII font metrics,Adobe Font Metrics
+ASCII text,Text
+assembler source,Assembly
+awk or perl script,Awk;Perl
+awk script,Awk
+BibTeX text file,BibTeX
+Bourne-Again shell script,Shell
+BSD makefile script,Makefile
+C program text (from flex),C
+C program text (from lex),C
+C shell script,Tcsh
+C source,C
+C++ source,C++
+Clojure module source,Clojure
+Clojure script,Clojure
+context diff output,Diff
+CSV ASCII text,CSV
+CSV Unicode text,CSV
+Dash shell script,Shell
+data,
+DCL command file,DIGITAL Command Language
+diff output,Diff
+disassembled Android DEX Java class (smali/baksmali),Smali
+DOS batch file,Batchfile
+EBCDIC text,Text
+empty,
+fish shell script,fish
+FORTH program,Forth
+FORTRAN program,Fortran
+GEDCOM genealogy,GEDCOM
+GHC script,Haskell
+GNU awk script,Awk
+GNU gettext message catalogue,Gettext Catalog
+Haskell script,Haskell
+HTML document,HTML
+iCalendar calendar file,iCalendar
+International EBCDIC text,Text
+ISO-8859 text,Text
+Java source,Java
+JavaScript source,JavaScript
+JSON text data,JSON
+Julia script,Julia
+Julia script executable,Julia
+KiCad Board Layout (Version 4),KiCad Layout
+KiCad Footprint,KiCad Layout
+KiCad Schematic Document (Legacy) (Version 2),KiCad Schematic
+KiCad Schematic Document (Version 20201015),KiCad Schematic
+Korn shell script,Shell
+LaTeX 2e document,TeX
+LaTeX auxiliary file,TeX
+LaTeX document,TeX
+LaTeX table of contents,TeX
+lex description,Lex
+Lisp/Scheme program,Common Lisp;Emacs Lisp;Scheme
+Lua script,Lua
+M4 macro processor script,M4
+makefile script,Makefile
+Mathematica 3.0 notebook,Wolfram Language
+Neil Brown's ash script,Shell
+new awk script,Awk
+Node.js script,JavaScript
+Node.js script executable,JavaScript
+Non-ISO extended-ASCII text,Text
+Objective-C source,Objective-C
+OpenRC script,OpenRC runscript
+OpenSSH DSA public key,Public Key
+OpenSSH RSA public key,Public Key
+OS/2 REXX batch file,REXX
+Pascal source,Pascal
+Paul Falstad's zsh script,Shell
+Perl POD document,Pod
+Perl script,Perl
+Perl script text executable,Perl
+Perl5 module source,Perl
+PGP public key block Public-Key (old),Public Key
+PHP script,PHP
+Plan 9 rc shell script,Shell
+POSIX shell script,Shell
+PostScript document text conforming DSC level 2.0,PostScript
+PostScript document text conforming DSC level 3.0,PostScript
+Python script,Python
+ReStructuredText file,reStructuredText
+Rich Text Format data,Rich Text Format
+RCS/CVS diff output,Diff
+RFC 822 mail,E-mail
+Ruby script,Ruby
+Rust Source file,Rust
+SE Linux policy module source,SELinux Policy
+SMTP mail,E-mail
+Squeak program,Smalltalk
+SubRip,SubRip Text
+SVG Scalable Vector Graphics image,SVG
+SVG XML document,SVG
+Tcl script,Tcl
+Tcl/Tk script,Tcl
+Tenex C shell script,Tcsh
+TeX document,TeX
+Texinfo source,Texinfo
+troff or preprocessor input,Roff
+Unicode text,Text
+vCard visiting card,vCard
+very short file (no magic),
+WebVTT subtitles,WebVTT
+Windows Registry text (Win2K or above),Windows Registry Entries
+X pixmap image text,X PixMap
+X11 BDF font,Glyph Bitmap Distribution Format
+XML 1.0 document,XML
+XML 1.0 document text (XSL stylesheet),XSLT
+XML document,XML

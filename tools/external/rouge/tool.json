@@ -1,0 +1,8 @@
+{
+  "version": "5.1.0",
+  "name": "Rouge 5.1.0",
+  "about": "syntax highlighter (Ruby; used by GitLab and Jekyll): `Rouge::Lexer.guess` with file name and content (globs, modeline, source detection, disambiguation), or content only with --content-only; several lexers left = undecided",
+  "url": "https://github.com/rouge-ruby/rouge",
+  "content_flag": true,
+  "family": "syntax highlighter"
+}

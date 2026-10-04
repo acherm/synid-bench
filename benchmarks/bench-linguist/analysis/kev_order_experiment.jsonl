@@ -1,0 +1,450 @@
+{"case_id": "ling:0a16db1c71eb", "stratum": "jev-only", "variant": "reversed", "choice": "Tact", "winners": ["Tact", "Cadence"], "right": false}
+{"case_id": "ling:0a16db1c71eb", "stratum": "jev-only", "variant": "small", "choice": "OpenEdge ABL", "winners": ["OpenEdge ABL", "RPGLE"], "right": false}
+{"case_id": "ling:0a16db1c71eb", "stratum": "jev-only", "variant": "cascade", "choice": "RPGLE", "winners": ["RPGLE"], "right": true}
+{"case_id": "ling:d42bd8db9ade", "stratum": "jev-only", "variant": "reversed", "choice": "1C Enterprise", "winners": ["1C Enterprise", "xBase", "OpenEdge ABL"], "right": false}
+{"case_id": "ling:d42bd8db9ade", "stratum": "jev-only", "variant": "small", "choice": "ObjectScript", "winners": ["xBase", "ObjectScript", "1C Enterprise", "OpenEdge ABL", "RPGLE", "eC", "M"], "right": false}
+{"case_id": "ling:d42bd8db9ade", "stratum": "jev-only", "variant": "cascade", "choice": "A+ (programming language)", "winners": ["A+ (programming language)", "C", "Limbo", "M", "magma", "MATLAB", "Mercury", "MUF", "Objective-C", "Wolfram Language"], "right": false}
+{"case_id": "ling:03549d6b3242", "stratum": "jev-only", "variant": "reversed", "choice": "YAML", "winners": ["TOML", "YAML"], "right": false}
+{"case_id": "ling:03549d6b3242", "stratum": "jev-only", "variant": "small", "choice": "YAML", "winners": ["YAML"], "right": false}
+{"case_id": "ling:03549d6b3242", "stratum": "jev-only", "variant": "cascade", "choice": "INI", "winners": ["INI"], "right": true}
+{"case_id": "ling:789c8b598b13", "stratum": "jev-only", "variant": "reversed", "choice": "Pascal", "winners": ["Pascal", "Toit", "E"], "right": false}
+{"case_id": "ling:789c8b598b13", "stratum": "jev-only", "variant": "small", "choice": "Roc", "winners": ["Ecere Projects", "Opal", "Roc", "Pascal", "V", "D", "Faust", "Monkey C", "Boogie"], "right": false}
+{"case_id": "ling:789c8b598b13", "stratum": "jev-only", "variant": "cascade", "choice": "Pascal", "winners": ["Ecere Projects", "Pascal", "ooc", "Boogie"], "right": false}
+{"case_id": "ling:33f4ffb59328", "stratum": "jev-only", "variant": "reversed", "choice": "Glimmer TS", "winners": ["TypeScript", "Glimmer TS", "E"], "right": true}
+{"case_id": "ling:33f4ffb59328", "stratum": "jev-only", "variant": "small", "choice": "Glimmer TS", "winners": ["Move", "TypeScript", "TSX", "Glimmer TS", "Glimmer JS"], "right": true}
+{"case_id": "ling:33f4ffb59328", "stratum": "jev-only", "variant": "cascade", "choice": "Glimmer TS", "winners": ["Gerber Image", "Glimmer TS"], "right": true}
+{"case_id": "ling:af10e866be5b", "stratum": "jev-only", "variant": "reversed", "choice": "Sieve", "winners": ["Agda", "Toit", "Sieve"], "right": false}
+{"case_id": "ling:af10e866be5b", "stratum": "jev-only", "variant": "small", "choice": "Haskell", "winners": ["Curry", "Literate Haskell", "Mercury", "Haskell", "Clean", "Faust", "Sieve"], "right": false}
+{"case_id": "ling:af10e866be5b", "stratum": "jev-only", "variant": "cascade", "choice": "Mercury", "winners": ["Mercury", "Curry", "Haskell"], "right": false}
+{"case_id": "ling:66bf753a914e", "stratum": "jev-only", "variant": "reversed", "choice": "X Font Directory Index", "winners": ["X Font Directory Index", "Text"], "right": true}
+{"case_id": "ling:66bf753a914e", "stratum": "jev-only", "variant": "small", "choice": "X Font Directory Index", "winners": ["X Font Directory Index"], "right": true}
+{"case_id": "ling:66bf753a914e", "stratum": "jev-only", "variant": "cascade", "choice": "X Font Directory Index", "winners": ["X Font Directory Index"], "right": true}
+{"case_id": "ling:b7335a2e8843", "stratum": "jev-only", "variant": "reversed", "choice": "JSON", "winners": ["XML", "Starlark", "YAML", "JSON"], "right": false}
+{"case_id": "ling:b7335a2e8843", "stratum": "jev-only", "variant": "small", "choice": "JSON", "winners": ["XML", "Jsonnet", "CSON", "Starlark", "JSON5", "JSON", "Jai", "JSON with Comments", "eC", "MiniYAML"], "right": false}
+{"case_id": "ling:b7335a2e8843", "stratum": "jev-only", "variant": "cascade", "choice": "Text", "winners": ["Python"], "right": false}
+{"case_id": "ling:287b3ca3f47a", "stratum": "jev-only", "variant": "reversed", "choice": "Lean", "winners": ["Lean", "Lean 4"], "right": false}
+{"case_id": "ling:287b3ca3f47a", "stratum": "jev-only", "variant": "small", "choice": "Lean", "winners": ["Lean", "Lean 4", "Leo"], "right": false}
+{"case_id": "ling:287b3ca3f47a", "stratum": "jev-only", "variant": "cascade", "choice": "Lean", "winners": ["Lean", "Lean 4"], "right": false}
+{"case_id": "ling:d74b7f9a72bb", "stratum": "jev-only", "variant": "reversed", "choice": "hoon", "winners": ["hoon", "Toit", "LiveScript"], "right": false}
+{"case_id": "ling:d74b7f9a72bb", "stratum": "jev-only", "variant": "small", "choice": "hoon", "winners": ["JetBrains MPS", "ReScript", "SurrealQL", "hoon", "DataWeave", "Langium", "BQN", "Nickel", "Whiley"], "right": false}
+{"case_id": "ling:d74b7f9a72bb", "stratum": "jev-only", "variant": "cascade", "choice": "LiveScript", "winners": ["LiveScript", "LoomScript"], "right": true}
+{"case_id": "ling:8ada9ead1925", "stratum": "jev-only", "variant": "reversed", "choice": "AL", "winners": ["1C Enterprise", "AL", "YAML", "E"], "right": true}
+{"case_id": "ling:8ada9ead1925", "stratum": "jev-only", "variant": "small", "choice": "Grammatical Framework", "winners": ["Oxygene", "Grammatical Framework", "C#", "1C Enterprise", "Scenic", "Langium", "NMODL", "Wollok", "Whiley"], "right": false}
+{"case_id": "ling:8ada9ead1925", "stratum": "jev-only", "variant": "cascade", "choice": "AL", "winners": ["AL", "aldor", "Perl"], "right": true}
+{"case_id": "ling:b3d638da6b91", "stratum": "jev-only", "variant": "reversed", "choice": "Valve Data Format", "winners": ["QMake", "Valve Data Format", "Papyrus"], "right": false}
+{"case_id": "ling:b3d638da6b91", "stratum": "jev-only", "variant": "small", "choice": "Ecere Projects", "winners": ["Ecere Projects", "World of Warcraft Addon Data", "AGS Script", "Witcher Script", "Valve Data Format", "TSV", "Papyrus", "GN"], "right": false}
+{"case_id": "ling:b3d638da6b91", "stratum": "jev-only", "variant": "cascade", "choice": "Text", "winners": ["2-Dimensional Array"], "right": false}
+{"case_id": "ling:6bafdb20aef4", "stratum": "jev-only", "variant": "reversed", "choice": "Pascal", "winners": ["Pascal", "Toit", "E"], "right": false}
+{"case_id": "ling:6bafdb20aef4", "stratum": "jev-only", "variant": "small", "choice": "Pascal", "winners": ["Nim", "Pascal", "D"], "right": false}
+{"case_id": "ling:6bafdb20aef4", "stratum": "jev-only", "variant": "cascade", "choice": null, "winners": [], "right": false}
+{"case_id": "ling:0f4eb0f962ec", "stratum": "jev-only", "variant": "reversed", "choice": "JavaScript", "winners": ["JavaScript", "YAML", "E"], "right": false}
+{"case_id": "ling:0f4eb0f962ec", "stratum": "jev-only", "variant": "small", "choice": "JavaScript", "winners": ["JavaScript", "JSON with Comments"], "right": false}
+{"case_id": "ling:0f4eb0f962ec", "stratum": "jev-only", "variant": "cascade", "choice": "YAML", "winners": ["JSON with Comments", "YAML"], "right": true}
+{"case_id": "ling:0731a7888a27", "stratum": "jev-only", "variant": "reversed", "choice": "XCompose", "winners": ["XCompose", "Vim Script"], "right": true}
+{"case_id": "ling:0731a7888a27", "stratum": "jev-only", "variant": "small", "choice": "Emacs Lisp", "winners": ["XCompose", "Emacs Lisp"], "right": false}
+{"case_id": "ling:0731a7888a27", "stratum": "jev-only", "variant": "cascade", "choice": "XCompose", "winners": ["XCompose"], "right": true}
+{"case_id": "ling:e7363f9376e0", "stratum": "jev-only", "variant": "reversed", "choice": "Cadence", "winners": ["Motoko", "ZIL", "Noir", "Cadence"], "right": true}
+{"case_id": "ling:e7363f9376e0", "stratum": "jev-only", "variant": "small", "choice": "Cadence", "winners": ["Move", "Noir", "KRL", "F*", "Sway", "ZIL", "Cadence", "Motoko", "Hack", "Redcode"], "right": true}
+{"case_id": "ling:e7363f9376e0", "stratum": "jev-only", "variant": "cascade", "choice": "Cadence", "winners": ["Cadence"], "right": true}
+{"case_id": "ling:a781c683defd", "stratum": "jev-only", "variant": "reversed", "choice": "AutoIt", "winners": ["AutoIt", "AutoHotkey", "Batchfile"], "right": false}
+{"case_id": "ling:a781c683defd", "stratum": "jev-only", "variant": "small", "choice": "AutoHotkey", "winners": ["AutoHotkey", "Batchfile", "AutoIt"], "right": true}
+{"case_id": "ling:a781c683defd", "stratum": "jev-only", "variant": "cascade", "choice": "AutoHotkey", "winners": ["AutoHotkey"], "right": true}
+{"case_id": "ling:85b34c464c01", "stratum": "jev-only", "variant": "reversed", "choice": "JSON", "winners": ["HTML", "D2", "YAML", "JSON"], "right": true}
+{"case_id": "ling:85b34c464c01", "stratum": "jev-only", "variant": "small", "choice": "JSON", "winners": ["JSON5", "JSON", "HTML", "Riot", "HTML+ECR"], "right": true}
+{"case_id": "ling:85b34c464c01", "stratum": "jev-only", "variant": "cascade", "choice": "JSON", "winners": ["JSON"], "right": true}
+{"case_id": "ling:2dfcbcf270bd", "stratum": "jev-only", "variant": "reversed", "choice": "Isabelle", "winners": ["Isabelle", "Pascal", "Toit", "E"], "right": false}
+{"case_id": "ling:2dfcbcf270bd", "stratum": "jev-only", "variant": "small", "choice": "Ada", "winners": ["Oberon", "JetBrains MPS", "Dylan", "Ada", "B (Formal Method)", "Mercury", "F*", "Modula-3", "Standard ML", "Modula-2", "V", "Shen", "Eiffel", "Whiley"], "right": false}
+{"case_id": "ling:2dfcbcf270bd", "stratum": "jev-only", "variant": "cascade", "choice": "Modula-3", "winners": ["Modula-3"], "right": true}
+{"case_id": "ling:dcbf8d34cdec", "stratum": "jev-only", "variant": "reversed", "choice": "TOML", "winners": ["TOML", "YAML", "E"], "right": false}
+{"case_id": "ling:dcbf8d34cdec", "stratum": "jev-only", "variant": "small", "choice": "YAML", "winners": ["INI", "TOML", "YAML", "JSON with Comments"], "right": false}
+{"case_id": "ling:dcbf8d34cdec", "stratum": "jev-only", "variant": "cascade", "choice": "TOML", "winners": ["TOML", "YAML"], "right": false}
+{"case_id": "ling:2e704b6c98a8", "stratum": "jev-only", "variant": "reversed", "choice": "Nim", "winners": ["Nim", "Toit", "E"], "right": false}
+{"case_id": "ling:2e704b6c98a8", "stratum": "jev-only", "variant": "small", "choice": "Nim", "winners": ["Nim", "D", "eC"], "right": false}
+{"case_id": "ling:2e704b6c98a8", "stratum": "jev-only", "variant": "cascade", "choice": "Nim", "winners": ["Nim", "D"], "right": false}
+{"case_id": "ling:d717ec022f11", "stratum": "jev-only", "variant": "reversed", "choice": "TeX", "winners": ["TeX", "Pod", "Raku", "E"], "right": true}
+{"case_id": "ling:d717ec022f11", "stratum": "jev-only", "variant": "small", "choice": "TeX", "winners": ["TeX", "Pod", "Edge", "Perl", "Raku", "Pod 6"], "right": true}
+{"case_id": "ling:d717ec022f11", "stratum": "jev-only", "variant": "cascade", "choice": "TeX", "winners": ["TeX", "World of Warcraft Addon Data"], "right": true}
+{"case_id": "ling:b25aff669b3c", "stratum": "jev-only", "variant": "reversed", "choice": "Simple File Verification", "winners": ["Simple File Verification", "Text", "Checksums"], "right": false}
+{"case_id": "ling:b25aff669b3c", "stratum": "jev-only", "variant": "small", "choice": "Simple File Verification", "winners": ["Checksums", "Simple File Verification"], "right": false}
+{"case_id": "ling:b25aff669b3c", "stratum": "jev-only", "variant": "cascade", "choice": "Checksums", "winners": ["Checksums"], "right": true}
+{"case_id": "ling:12ecf82232e9", "stratum": "jev-only", "variant": "reversed", "choice": "Cadence", "winners": ["Motoko", "Ox", "Toit", "Cadence"], "right": true}
+{"case_id": "ling:12ecf82232e9", "stratum": "jev-only", "variant": "small", "choice": "Cadence", "winners": ["Move", "Lean 4", "Cairo", "ZIL", "Cadence", "Motoko", "Hack", "ReasonLIGO"], "right": true}
+{"case_id": "ling:12ecf82232e9", "stratum": "jev-only", "variant": "cascade", "choice": "Cadence", "winners": ["Cadence"], "right": true}
+{"case_id": "ling:ebdcb3964486", "stratum": "jev-only", "variant": "reversed", "choice": "YAML", "winners": ["YAML"], "right": false}
+{"case_id": "ling:ebdcb3964486", "stratum": "jev-only", "variant": "small", "choice": null, "winners": [], "right": false}
+{"case_id": "ling:ebdcb3964486", "stratum": "jev-only", "variant": "cascade", "choice": "Text", "winners": ["INI"], "right": false}
+{"case_id": "ling:50034138d55e", "stratum": "jev-only", "variant": "reversed", "choice": "ANTLR", "winners": ["ANTLR", "E"], "right": false}
+{"case_id": "ling:50034138d55e", "stratum": "jev-only", "variant": "small", "choice": "Java", "winners": ["JetBrains MPS", "B (Formal Method)", "Java"], "right": true}
+{"case_id": "ling:50034138d55e", "stratum": "jev-only", "variant": "cascade", "choice": "Java", "winners": ["Java"], "right": true}
+{"case_id": "ling:c33148ccf689", "stratum": "jev-only", "variant": "reversed", "choice": "REALbasic", "winners": ["XML", "REALbasic", "Xojo"], "right": false}
+{"case_id": "ling:c33148ccf689", "stratum": "jev-only", "variant": "small", "choice": "Xojo", "winners": ["Ecere Projects", "REALbasic", "Xojo", "KFramework", "VCL"], "right": true}
+{"case_id": "ling:c33148ccf689", "stratum": "jev-only", "variant": "cascade", "choice": "Xojo", "winners": ["Xojo"], "right": true}
+{"case_id": "ling:aaf9f2d250d3", "stratum": "jev-only", "variant": "reversed", "choice": "Toit", "winners": ["Toit", "E"], "right": false}
+{"case_id": "ling:aaf9f2d250d3", "stratum": "jev-only", "variant": "small", "choice": "JetBrains MPS", "winners": ["Moocode", "JetBrains MPS", "AngelScript", "D", "HolyC", "Faust", "Whiley"], "right": false}
+{"case_id": "ling:aaf9f2d250d3", "stratum": "jev-only", "variant": "cascade", "choice": "eC", "winners": ["Ecere Projects", "eC", "Whiley"], "right": false}
+{"case_id": "ling:3433f0683cc0", "stratum": "jev-only", "variant": "reversed", "choice": "PLpgSQL", "winners": ["SQLPL", "PLpgSQL"], "right": false}
+{"case_id": "ling:3433f0683cc0", "stratum": "jev-only", "variant": "small", "choice": "PLpgSQL", "winners": ["SQLPL", "PLpgSQL", "TSQL", "SQL", "PLSQL"], "right": false}
+{"case_id": "ling:3433f0683cc0", "stratum": "jev-only", "variant": "cascade", "choice": "PLpgSQL", "winners": ["PLpgSQL", "PLSQL", "SQL", "SQLPL", "TSQL"], "right": false}
+{"case_id": "ling:52cb3f6201a0", "stratum": "jev-only", "variant": "reversed", "choice": "Propeller Spin", "winners": ["C", "Propeller Spin", "Toit", "E"], "right": true}
+{"case_id": "ling:52cb3f6201a0", "stratum": "jev-only", "variant": "small", "choice": "Propeller Spin", "winners": ["Oberon", "Motorola 68K Assembly", "ChucK", "Nasal", "V", "TI Program", "C", "Propeller Spin", "Grace"], "right": true}
+{"case_id": "ling:52cb3f6201a0", "stratum": "jev-only", "variant": "cascade", "choice": "Propeller Spin", "winners": ["Propeller Spin"], "right": true}
+{"case_id": "ling:6d3e839aecac", "stratum": "jev-only", "variant": "reversed", "choice": "Assembly", "winners": ["C", "Unix Assembly", "Assembly"], "right": false}
+{"case_id": "ling:6d3e839aecac", "stratum": "jev-only", "variant": "small", "choice": "Unix Assembly", "winners": ["Unix Assembly", "Assembly", "C", "eC"], "right": true}
+{"case_id": "ling:6d3e839aecac", "stratum": "jev-only", "variant": "cascade", "choice": "Assembly", "winners": ["Assembly", "Motorola 68K Assembly", "promal", "R", "s", "Unix Assembly"], "right": false}
+{"case_id": "ling:78c0e72aa46a", "stratum": "jev-only", "variant": "reversed", "choice": "Pascal", "winners": ["Pascal", "E"], "right": true}
+{"case_id": "ling:78c0e72aa46a", "stratum": "jev-only", "variant": "small", "choice": "Pascal", "winners": ["Pascal", "VCL"], "right": true}
+{"case_id": "ling:78c0e72aa46a", "stratum": "jev-only", "variant": "cascade", "choice": "Pascal", "winners": ["Assembly", "BitBake", "C++", "Hack", "HTML", "Motorola 68K Assembly", "NASL", "Pascal", "Pawn", "PHP", "POV-Ray SDL", "SourcePawn", "SQL"], "right": true}
+{"case_id": "ling:df5f120c3109", "stratum": "jev-only", "variant": "reversed", "choice": "UnrealScript", "winners": ["UnrealScript", "NWScript", "Papyrus"], "right": false}
+{"case_id": "ling:df5f120c3109", "stratum": "jev-only", "variant": "small", "choice": "AGS Script", "winners": ["AGS Script", "Witcher Script", "UnrealScript", "NWScript", "Papyrus", "Shen", "Redcode"], "right": false}
+{"case_id": "ling:df5f120c3109", "stratum": "jev-only", "variant": "cascade", "choice": "Papyrus", "winners": ["Papyrus", "Praat"], "right": true}
+{"case_id": "ling:75fd9da31cd4", "stratum": "jev-only", "variant": "reversed", "choice": "Befunge", "winners": ["APL", "Valve Data Format", "Befunge"], "right": true}
+{"case_id": "ling:75fd9da31cd4", "stratum": "jev-only", "variant": "small", "choice": "Befunge", "winners": ["Forth", "Csound Score", "LOLCODE", "Befunge", "mcfunction", "BQN"], "right": true}
+{"case_id": "ling:75fd9da31cd4", "stratum": "jev-only", "variant": "cascade", "choice": "Befunge", "winners": ["Beef", "Befunge", "Brainfuck", "HyPhy"], "right": true}
+{"case_id": "ling:0bd2ead3fcab", "stratum": "jev-only", "variant": "reversed", "choice": "Objective-C", "winners": ["Cycript", "Objective-C", "E"], "right": false}
+{"case_id": "ling:0bd2ead3fcab", "stratum": "jev-only", "variant": "small", "choice": "Objective-C", "winners": ["Objective-C"], "right": false}
+{"case_id": "ling:0bd2ead3fcab", "stratum": "jev-only", "variant": "cascade", "choice": "Objective-C", "winners": ["Objective-C", "Smali"], "right": false}
+{"case_id": "ling:5b8fe85b22f7", "stratum": "jev-only", "variant": "reversed", "choice": "Isabelle", "winners": ["Isabelle", "Isabelle ROOT"], "right": false}
+{"case_id": "ling:5b8fe85b22f7", "stratum": "jev-only", "variant": "small", "choice": "Isabelle", "winners": ["Isabelle", "Isabelle ROOT"], "right": false}
+{"case_id": "ling:5b8fe85b22f7", "stratum": "jev-only", "variant": "cascade", "choice": "Isabelle ROOT", "winners": ["Isabelle ROOT"], "right": true}
+{"case_id": "ling:41810341afb6", "stratum": "jev-only", "variant": "reversed", "choice": "JavaScript", "winners": ["JavaScript", "E"], "right": false}
+{"case_id": "ling:41810341afb6", "stratum": "jev-only", "variant": "small", "choice": "JavaScript", "winners": ["Luau", "TypeScript", "JavaScript"], "right": false}
+{"case_id": "ling:41810341afb6", "stratum": "jev-only", "variant": "cascade", "choice": "TypeScript", "winners": ["TypeScript", "Ruby"], "right": false}
+{"case_id": "ling:b1f8ad67edfe", "stratum": "jev-only", "variant": "reversed", "choice": "Mojo", "winners": ["Perl", "Mojo", "E"], "right": false}
+{"case_id": "ling:b1f8ad67edfe", "stratum": "jev-only", "variant": "small", "choice": "Mojo", "winners": ["Move", "Perl", "Mojo"], "right": false}
+{"case_id": "ling:b1f8ad67edfe", "stratum": "jev-only", "variant": "cascade", "choice": "Perl", "winners": ["ECLiPSe", "Perl", "Prolog", "Raku"], "right": true}
+{"case_id": "ling:f2964dbbe9b7", "stratum": "jev-only", "variant": "reversed", "choice": "Luau", "winners": ["Luau"], "right": true}
+{"case_id": "ling:f2964dbbe9b7", "stratum": "jev-only", "variant": "small", "choice": "Luau", "winners": ["Luau", "Jai", "eC", "Lua"], "right": true}
+{"case_id": "ling:f2964dbbe9b7", "stratum": "jev-only", "variant": "cascade", "choice": "Luau", "winners": ["Luau"], "right": true}
+{"case_id": "ling:0c606a757f75", "stratum": "jev-only", "variant": "reversed", "choice": "OCaml", "winners": ["OCaml", "E"], "right": true}
+{"case_id": "ling:0c606a757f75", "stratum": "jev-only", "variant": "small", "choice": "OCaml", "winners": ["ReScript", "Reason", "OCaml"], "right": true}
+{"case_id": "ling:0c606a757f75", "stratum": "jev-only", "variant": "cascade", "choice": "OCaml", "winners": ["OCaml"], "right": true}
+{"case_id": "ling:71eff38a1ee6", "stratum": "jev-only", "variant": "reversed", "choice": "Lua", "winners": ["XML", "World of Warcraft Addon Data", "YAML", "Lua"], "right": false}
+{"case_id": "ling:71eff38a1ee6", "stratum": "jev-only", "variant": "small", "choice": "Lua", "winners": ["XML", "World of Warcraft Addon Data", "Luau", "Roc", "Lua"], "right": false}
+{"case_id": "ling:71eff38a1ee6", "stratum": "jev-only", "variant": "cascade", "choice": "World of Warcraft Addon Data", "winners": ["TeX", "World of Warcraft Addon Data"], "right": true}
+{"case_id": "ling:a1423afba81a", "stratum": "jev-only", "variant": "reversed", "choice": "C", "winners": ["C", "E"], "right": false}
+{"case_id": "ling:a1423afba81a", "stratum": "jev-only", "variant": "small", "choice": "Processing", "winners": ["Processing"], "right": false}
+{"case_id": "ling:a1423afba81a", "stratum": "jev-only", "variant": "cascade", "choice": "arduino", "winners": ["arduino", "C++"], "right": false}
+{"case_id": "ling:7ebc1080d7ac", "stratum": "jev-only", "variant": "reversed", "choice": "C", "winners": ["C", "C++", "E"], "right": false}
+{"case_id": "ling:7ebc1080d7ac", "stratum": "jev-only", "variant": "small", "choice": "C++", "winners": ["QuakeC", "C++", "Jai", "C", "eC"], "right": true}
+{"case_id": "ling:7ebc1080d7ac", "stratum": "jev-only", "variant": "cascade", "choice": "C++", "winners": ["C++"], "right": true}
+{"case_id": "ling:0ae5539277c7", "stratum": "jev-only", "variant": "reversed", "choice": "HOCON", "winners": ["HOCON", "HCL", "YAML"], "right": false}
+{"case_id": "ling:0ae5539277c7", "stratum": "jev-only", "variant": "small", "choice": "HCL", "winners": ["YAML", "RON", "HOCON", "HCL"], "right": true}
+{"case_id": "ling:0ae5539277c7", "stratum": "jev-only", "variant": "cascade", "choice": "HCL", "winners": ["HCL"], "right": true}
+{"case_id": "ling:43a24d368630", "stratum": "jev-only", "variant": "reversed", "choice": "YAML", "winners": ["YAML", "E"], "right": false}
+{"case_id": "ling:43a24d368630", "stratum": "jev-only", "variant": "small", "choice": "Pep8", "winners": ["Pep8", "Python", "TOML", "YAML", "JSON with Comments"], "right": false}
+{"case_id": "ling:43a24d368630", "stratum": "jev-only", "variant": "cascade", "choice": "Pep8", "winners": ["Python", "Pep8", "EditorConfig"], "right": false}
+{"case_id": "ling:1decdd894811", "stratum": "jev-only", "variant": "reversed", "choice": "Common Workflow Language", "winners": ["Common Workflow Language", "Nextflow", "WDL", "Cadence"], "right": false}
+{"case_id": "ling:1decdd894811", "stratum": "jev-only", "variant": "small", "choice": "WDL", "winners": ["Opal", "WDL", "Nextflow", "Scenic", "BuildStream", "Snakemake", "Common Workflow Language", "Faust"], "right": true}
+{"case_id": "ling:1decdd894811", "stratum": "jev-only", "variant": "cascade", "choice": "WDL", "winners": ["WDL"], "right": true}
+{"case_id": "ling:ed28b7c6d7f9", "stratum": "jev-only", "variant": "reversed", "choice": "Perl", "winners": ["Perl", "E"], "right": false}
+{"case_id": "ling:ed28b7c6d7f9", "stratum": "jev-only", "variant": "small", "choice": "Perl", "winners": ["Perl"], "right": false}
+{"case_id": "ling:ed28b7c6d7f9", "stratum": "jev-only", "variant": "cascade", "choice": "XS", "winners": ["Perl", "XS"], "right": true}
+{"case_id": "ling:72ce5391f816", "stratum": "jev-only", "variant": "reversed", "choice": "Jinja", "winners": ["Latte", "Jinja", "Nunjucks", "Handlebars"], "right": false}
+{"case_id": "ling:72ce5391f816", "stratum": "jev-only", "variant": "small", "choice": "Liquid", "winners": ["HTML+Razor", "HTML+EEX", "Liquid", "Svelte", "Go Template", "Nunjucks", "FreeMarker", "Mustache", "Jinja", "EJS", "templ", "mdsvex", "Twig"], "right": false}
+{"case_id": "ling:72ce5391f816", "stratum": "jev-only", "variant": "cascade", "choice": "HTML", "winners": ["Ecmarkup", "HTML", "jscript", "VBScript"], "right": false}
+{"case_id": "ling:cf44ceba57e1", "stratum": "jev-only", "variant": "reversed", "choice": "R", "winners": ["R", "E"], "right": true}
+{"case_id": "ling:cf44ceba57e1", "stratum": "jev-only", "variant": "small", "choice": "R", "winners": ["Roc", "RAScript", "R"], "right": true}
+{"case_id": "ling:cf44ceba57e1", "stratum": "jev-only", "variant": "cascade", "choice": "R", "winners": ["R"], "right": true}
+{"case_id": "ling:66c67d022010", "stratum": "jev-only", "variant": "reversed", "choice": "Bison", "winners": ["Bison"], "right": false}
+{"case_id": "ling:66c67d022010", "stratum": "jev-only", "variant": "small", "choice": "Jison", "winners": ["Yacc", "EBNF", "Jison", "Jison Lex"], "right": true}
+{"case_id": "ling:66c67d022010", "stratum": "jev-only", "variant": "cascade", "choice": "Jison", "winners": ["Jison"], "right": true}
+{"case_id": "ling:6ce96a58d09b", "stratum": "jev-only", "variant": "reversed", "choice": "JavaScript", "winners": ["JavaScript", "CoffeeScript"], "right": false}
+{"case_id": "ling:6ce96a58d09b", "stratum": "jev-only", "variant": "small", "choice": "JavaScript", "winners": ["JavaScript", "CoffeeScript"], "right": false}
+{"case_id": "ling:6ce96a58d09b", "stratum": "jev-only", "variant": "cascade", "choice": "JavaScript", "winners": ["JavaScript", "CoffeeScript"], "right": false}
+{"case_id": "ling:a2ccff7019de", "stratum": "jev-only", "variant": "reversed", "choice": "Git Commit", "winners": ["Git Commit", "YAML", "E"], "right": false}
+{"case_id": "ling:a2ccff7019de", "stratum": "jev-only", "variant": "small", "choice": "TextMate Properties", "winners": ["Tree-sitter Query", "Vim Script", "JSON5", "JSON", "Emacs Lisp", "TextMate Properties", "Git Commit"], "right": false}
+{"case_id": "ling:a2ccff7019de", "stratum": "jev-only", "variant": "cascade", "choice": "Git Commit", "winners": ["Emacs Lisp", "Git Commit"], "right": false}
+{"case_id": "ling:4ba5cb65295a", "stratum": "jev-only", "variant": "reversed", "choice": "SQL", "winners": ["SQL", "SQLPL", "TSQL"], "right": false}
+{"case_id": "ling:4ba5cb65295a", "stratum": "jev-only", "variant": "small", "choice": "SQL", "winners": ["SQLPL", "PLpgSQL", "TSQL", "SQL", "PLSQL"], "right": false}
+{"case_id": "ling:4ba5cb65295a", "stratum": "jev-only", "variant": "cascade", "choice": "SQLPL", "winners": ["SQLPL"], "right": true}
+{"case_id": "ling:2e025153b099", "stratum": "jev-only", "variant": "reversed", "choice": "Roff", "winners": ["Roff", "Roff Manpage", "Texinfo"], "right": false}
+{"case_id": "ling:2e025153b099", "stratum": "jev-only", "variant": "small", "choice": "Roff", "winners": ["Roff", "Pod", "Edge", "Roff Manpage"], "right": false}
+{"case_id": "ling:2e025153b099", "stratum": "jev-only", "variant": "cascade", "choice": "Roff Manpage", "winners": ["Roff", "Roff Manpage"], "right": true}
+{"case_id": "ling:b464ac29c289", "stratum": "jev-only", "variant": "reversed", "choice": "Common Workflow Language", "winners": ["Common Workflow Language", "Starlark", "WDL", "Cadence"], "right": false}
+{"case_id": "ling:b464ac29c289", "stratum": "jev-only", "variant": "small", "choice": "WDL", "winners": ["WDL", "Nextflow", "Scenic", "Common Workflow Language", "Faust"], "right": true}
+{"case_id": "ling:b464ac29c289", "stratum": "jev-only", "variant": "cascade", "choice": "WDL", "winners": ["WDL"], "right": true}
+{"case_id": "ling:6fb384bd9fc5", "stratum": "jev-only", "variant": "reversed", "choice": "E", "winners": ["Ox", "Toit", "E"], "right": false}
+{"case_id": "ling:6fb384bd9fc5", "stratum": "jev-only", "variant": "small", "choice": "E", "winners": ["Oberon", "Move", "Red", "E", "Mercury", "Odin", "Fennel", "Turing", "Euphoria", "D", "eC", "Janet"], "right": false}
+{"case_id": "ling:6fb384bd9fc5", "stratum": "jev-only", "variant": "cascade", "choice": "Euphoria", "winners": ["Elixir", "Euphoria", "HTML+EEX"], "right": true}
+{"case_id": "ling:91605c2e6b67", "stratum": "jev-only", "variant": "reversed", "choice": "Toit", "winners": ["Toit", "E"], "right": false}
+{"case_id": "ling:91605c2e6b67", "stratum": "jev-only", "variant": "small", "choice": "Brightscript", "winners": ["Opal", "Raku", "Scenic", "Roc", "Brightscript", "Talon", "Redcode", "Lua"], "right": true}
+{"case_id": "ling:91605c2e6b67", "stratum": "jev-only", "variant": "cascade", "choice": "Brightscript", "winners": ["Brightscript"], "right": true}
+{"case_id": "ling:e46a92802b82", "stratum": "jev-only", "variant": "reversed", "choice": "Text", "winners": ["Text"], "right": false}
+{"case_id": "ling:e46a92802b82", "stratum": "jev-only", "variant": "small", "choice": "Text", "winners": ["Text", "LOLCODE"], "right": false}
+{"case_id": "ling:e46a92802b82", "stratum": "jev-only", "variant": "cascade", "choice": "Text", "winners": ["jade", "Pug"], "right": false}
+{"case_id": "ling:3570cc2b4d02", "stratum": "jev-only", "variant": "reversed", "choice": "SQL", "winners": ["SQL", "SQLPL", "TSQL", "OpenEdge ABL"], "right": false}
+{"case_id": "ling:3570cc2b4d02", "stratum": "jev-only", "variant": "small", "choice": "SQLPL", "winners": ["SQLPL", "PLpgSQL", "TSQL", "SQL", "PLSQL"], "right": true}
+{"case_id": "ling:3570cc2b4d02", "stratum": "jev-only", "variant": "cascade", "choice": "SQLPL", "winners": ["SQLPL"], "right": true}
+{"case_id": "ling:6eae62fae6ba", "stratum": "jev-only", "variant": "reversed", "choice": "Clojure", "winners": ["RobotFramework", "Clojure", "E"], "right": true}
+{"case_id": "ling:6eae62fae6ba", "stratum": "jev-only", "variant": "small", "choice": "Clojure", "winners": ["Red", "LFE", "Clojure", "Fennel", "Scheme"], "right": true}
+{"case_id": "ling:6eae62fae6ba", "stratum": "jev-only", "variant": "cascade", "choice": "Clojure", "winners": ["Clojure"], "right": true}
+{"case_id": "ling:b3dfed11d0db", "stratum": "jev-only", "variant": "reversed", "choice": "Mustache", "winners": ["Mustache", "Velocity Template Language", "StringTemplate", "E"], "right": false}
+{"case_id": "ling:b3dfed11d0db", "stratum": "jev-only", "variant": "small", "choice": "JavaScript+ERB", "winners": ["Classic ASP", "Slim", "Liquid", "JavaScript+ERB", "Go Template", "Nunjucks", "FreeMarker", "Mustache", "Jinja", "EJS", "templ", "Velocity Template Language"], "right": false}
+{"case_id": "ling:b3dfed11d0db", "stratum": "jev-only", "variant": "cascade", "choice": "Go Template", "winners": ["templ", "Go Template", "EJS", "FreeMarker"], "right": false}
+{"case_id": "ling:46f730b29de4", "stratum": "jev-only", "variant": "reversed", "choice": "Filebench WML", "winners": ["Perl", "Shell", "Filebench WML"], "right": true}
+{"case_id": "ling:46f730b29de4", "stratum": "jev-only", "variant": "small", "choice": "Filebench WML", "winners": ["Shell", "Soong", "Filebench WML", "Common Workflow Language", "Tcl"], "right": true}
+{"case_id": "ling:46f730b29de4", "stratum": "jev-only", "variant": "cascade", "choice": "Filebench WML", "winners": ["Filebench WML", "Forth", "Fortran"], "right": true}
+{"case_id": "ling:6f5f22881f0e", "stratum": "jev-only", "variant": "reversed", "choice": "Prolog", "winners": ["GAML", "Prolog", "E"], "right": false}
+{"case_id": "ling:6f5f22881f0e", "stratum": "jev-only", "variant": "small", "choice": "Fennel", "winners": ["Raku", "ECL", "Fennel", "ECLiPSe", "Shen", "CLIPS", "Tcl"], "right": false}
+{"case_id": "ling:6f5f22881f0e", "stratum": "jev-only", "variant": "cascade", "choice": "CLIPS", "winners": ["CLIPS"], "right": true}
+{"case_id": "ling:59d2f6977798", "stratum": "jev-only", "variant": "reversed", "choice": "Prolog", "winners": ["Prolog", "Logtalk"], "right": false}
+{"case_id": "ling:59d2f6977798", "stratum": "jev-only", "variant": "small", "choice": "Prolog", "winners": ["LFE", "Mercury", "Raku", "Logtalk", "Standard ML", "Oz", "ECLiPSe", "Shen", "Prolog", "Janet"], "right": false}
+{"case_id": "ling:59d2f6977798", "stratum": "jev-only", "variant": "cascade", "choice": "Mercury", "winners": ["A+ (programming language)", "C", "Limbo", "M", "magma", "MATLAB", "Mercury", "MUF", "Objective-C", "Wolfram Language"], "right": true}
+{"case_id": "ling:408e9c582af4", "stratum": "jev-only", "variant": "reversed", "choice": "Moocode", "winners": ["Moocode", "MoonScript", "Toit", "E"], "right": false}
+{"case_id": "ling:408e9c582af4", "stratum": "jev-only", "variant": "small", "choice": "Moocode", "winners": ["Moocode", "Move", "ReScript", "Lean 4", "Mojo", "PureScript", "Standard ML", "Elm", "MoonBit", "Nickel", "OCaml", "Whiley"], "right": false}
+{"case_id": "ling:408e9c582af4", "stratum": "jev-only", "variant": "cascade", "choice": "Motoko", "winners": ["Modelica", "Motoko"], "right": true}
+{"case_id": "ling:2d86ba856574", "stratum": "jev-only", "variant": "reversed", "choice": "Toit", "winners": ["GAML", "Toit", "Cadence"], "right": false}
+{"case_id": "ling:2d86ba856574", "stratum": "jev-only", "variant": "small", "choice": "Wren", "winners": ["Moocode", "Opal", "Wren", "Io", "Scenic", "Roc", "Uno", "D", "MoonBit", "Nickel", "Wollok", "Whiley"], "right": false}
+{"case_id": "ling:2d86ba856574", "stratum": "jev-only", "variant": "cascade", "choice": "Pony", "winners": ["Pony"], "right": true}
+{"case_id": "ling:ebff7844570c", "stratum": "jev-only", "variant": "reversed", "choice": "Lean 4", "winners": ["Isabelle", "OCaml", "Lean 4"], "right": false}
+{"case_id": "ling:ebff7844570c", "stratum": "jev-only", "variant": "small", "choice": "Agda", "winners": ["Agda", "Lean 4", "F*", "Rocq Prover", "Isabelle", "Faust", "OCaml"], "right": false}
+{"case_id": "ling:ebff7844570c", "stratum": "jev-only", "variant": "cascade", "choice": "Rocq Prover", "winners": ["Rocq Prover", "V", "Verilog", "x3d"], "right": true}
+{"case_id": "ling:bdc26a8eff14", "stratum": "jev-only", "variant": "reversed", "choice": "F#", "winners": ["F#", "Toit", "E"], "right": false}
+{"case_id": "ling:bdc26a8eff14", "stratum": "jev-only", "variant": "small", "choice": "F#", "winners": ["F#", "ReScript", "TSX", "F*", "PureScript", "Elm", "OCaml", "Whiley"], "right": false}
+{"case_id": "ling:bdc26a8eff14", "stratum": "jev-only", "variant": "cascade", "choice": "Elm", "winners": ["Elm", "ReScript", "PureScript"], "right": false}
+{"case_id": "ling:f3923dd87b97", "stratum": "jev-only", "variant": "reversed", "choice": "Csound Score", "winners": ["Csound Score", "SuperCollider", "Liquidsoap", "LiveScript"], "right": false}
+{"case_id": "ling:f3923dd87b97", "stratum": "jev-only", "variant": "small", "choice": "Csound", "winners": ["Csound", "JetBrains MPS", "ReScript", "LFE", "Csound Score", "SuperCollider", "Scenic", "Fennel", "BuildStream", "Csound Document", "Faust", "Liquidsoap", "Max"], "right": false}
+{"case_id": "ling:f3923dd87b97", "stratum": "jev-only", "variant": "cascade", "choice": "Liquidsoap", "winners": ["Liquidsoap"], "right": true}
+{"case_id": "ling:bf134a57806a", "stratum": "jev-only", "variant": "reversed", "choice": "Agda", "winners": ["Agda", "Toit", "E"], "right": false}
+{"case_id": "ling:bf134a57806a", "stratum": "jev-only", "variant": "small", "choice": "Idris", "winners": ["Idris", "Mercury", "F*", "PureScript", "Elm"], "right": true}
+{"case_id": "ling:bf134a57806a", "stratum": "jev-only", "variant": "cascade", "choice": "Idris", "winners": ["Idris"], "right": true}
+{"case_id": "ling:1c444dca101d", "stratum": "jev-only", "variant": "reversed", "choice": "Csound Score", "winners": ["Csound Score", "Liquidsoap", "Csound Document"], "right": false}
+{"case_id": "ling:1c444dca101d", "stratum": "jev-only", "variant": "small", "choice": "Csound", "winners": ["Csound", "Filterscript", "Csound Score", "BuildStream", "Csound Document", "Faust", "Liquidsoap", "Max"], "right": true}
+{"case_id": "ling:1c444dca101d", "stratum": "jev-only", "variant": "cascade", "choice": "Csound", "winners": ["Csound"], "right": true}
+{"case_id": "ling:b2f755213ecf", "stratum": "jev-only", "variant": "reversed", "choice": "Toit", "winners": ["Toit", "Flix"], "right": false}
+{"case_id": "ling:b2f755213ecf", "stratum": "jev-only", "variant": "small", "choice": "Wren", "winners": ["Opal", "Wren", "Mojo", "Roc", "ooc", "D", "eC", "Wollok", "Whiley"], "right": false}
+{"case_id": "ling:b2f755213ecf", "stratum": "jev-only", "variant": "cascade", "choice": "Pony", "winners": ["Pony"], "right": true}
+{"case_id": "ling:3e90153dddf1", "stratum": "jev-only", "variant": "reversed", "choice": "OpenEdge ABL", "winners": ["xBase", "OpenEdge ABL"], "right": false}
+{"case_id": "ling:3e90153dddf1", "stratum": "jev-only", "variant": "small", "choice": "ObjectScript", "winners": ["xBase", "ObjectScript", "1C Enterprise", "OpenEdge ABL", "V", "eC", "M"], "right": false}
+{"case_id": "ling:3e90153dddf1", "stratum": "jev-only", "variant": "cascade", "choice": "A+ (programming language)", "winners": ["A+ (programming language)", "C", "Limbo", "M", "magma", "MATLAB", "Mercury", "MUF", "Objective-C", "Wolfram Language"], "right": false}
+{"case_id": "ling:96c626799434", "stratum": "jev-only", "variant": "reversed", "choice": "edn", "winners": ["JSON with Comments", "YAML", "edn"], "right": false}
+{"case_id": "ling:96c626799434", "stratum": "jev-only", "variant": "small", "choice": "edn", "winners": ["LFE", "Nix", "Elixir", "JSON5", "JSON", "Jai", "JSON with Comments", "Erlang", "edn", "eC", "OCaml"], "right": false}
+{"case_id": "ling:96c626799434", "stratum": "jev-only", "variant": "cascade", "choice": "Erlang", "winners": ["Erlang"], "right": true}
+{"case_id": "ling:04998008ea0e", "stratum": "jev-only", "variant": "reversed", "choice": "Toit", "winners": ["Toit", "E"], "right": false}
+{"case_id": "ling:04998008ea0e", "stratum": "jev-only", "variant": "small", "choice": "AGS Script", "winners": ["AGS Script", "GDScript", "TI Program"], "right": false}
+{"case_id": "ling:04998008ea0e", "stratum": "jev-only", "variant": "cascade", "choice": "AGS Script", "winners": ["Ecere Projects", "AGS Script", "GDScript"], "right": false}
+{"case_id": "ling:e9e30ef7228b", "stratum": "jev-only", "variant": "reversed", "choice": "Open Policy Agent", "winners": ["GAML", "D2", "Answer Set Programming", "Open Policy Agent"], "right": false}
+{"case_id": "ling:e9e30ef7228b", "stratum": "jev-only", "variant": "small", "choice": "Open Policy Agent", "winners": ["JetBrains MPS", "Open Policy Agent", "Alloy", "Scenic", "Answer Set Programming"], "right": false}
+{"case_id": "ling:e9e30ef7228b", "stratum": "jev-only", "variant": "cascade", "choice": "Text", "winners": ["Polar"], "right": false}
+{"case_id": "ling:0a519475e29f", "stratum": "jev-only", "variant": "reversed", "choice": "Jsonnet", "winners": ["Jsonnet", "MiniYAML"], "right": false}
+{"case_id": "ling:0a519475e29f", "stratum": "jev-only", "variant": "small", "choice": "JetBrains MPS", "winners": ["KDL", "JetBrains MPS", "EBNF", "Alloy", "JSON with Comments", "Langium", "KCL", "templ"], "right": false}
+{"case_id": "ling:0a519475e29f", "stratum": "jev-only", "variant": "cascade", "choice": "CUE", "winners": ["CUE", "Cue Sheet"], "right": true}
+{"case_id": "ling:5085f65d11cd", "stratum": "jev-only", "variant": "reversed", "choice": "Luau", "winners": ["Luau"], "right": true}
+{"case_id": "ling:5085f65d11cd", "stratum": "jev-only", "variant": "small", "choice": "Luau", "winners": ["Luau", "eC", "Lua"], "right": true}
+{"case_id": "ling:5085f65d11cd", "stratum": "jev-only", "variant": "cascade", "choice": "Luau", "winners": ["Luau"], "right": true}
+{"case_id": "ling:557e9f7aa09c", "stratum": "jev-only", "variant": "reversed", "choice": "JavaScript", "winners": ["JavaScript", "Ruby", "E"], "right": false}
+{"case_id": "ling:557e9f7aa09c", "stratum": "jev-only", "variant": "small", "choice": "JavaScript", "winners": ["JavaScript", "CoffeeScript"], "right": false}
+{"case_id": "ling:557e9f7aa09c", "stratum": "jev-only", "variant": "cascade", "choice": "JavaScript", "winners": ["JavaScript", "Ruby"], "right": false}
+{"case_id": "ling:c00874f6f7d3", "stratum": "jev-only", "variant": "reversed", "choice": "Swift", "winners": ["Kotlin", "Swift", "E"], "right": true}
+{"case_id": "ling:c00874f6f7d3", "stratum": "jev-only", "variant": "small", "choice": "Swift", "winners": ["Rust", "Jai", "Swift"], "right": true}
+{"case_id": "ling:c00874f6f7d3", "stratum": "jev-only", "variant": "cascade", "choice": "Swift", "winners": ["Swift"], "right": true}
+{"case_id": "ling:20f9696afbd8", "stratum": "jev-only", "variant": "reversed", "choice": "PogoScript", "winners": ["GAML", "D2", "Toit", "PogoScript"], "right": false}
+{"case_id": "ling:20f9696afbd8", "stratum": "jev-only", "variant": "small", "choice": "Grammatical Framework", "winners": ["Fluent", "Grammatical Framework", "KoLmafia ASH", "KRL", "Cooklang", "Scenic", "BuildStream", "FLUX", "TXL"], "right": false}
+{"case_id": "ling:20f9696afbd8", "stratum": "jev-only", "variant": "cascade", "choice": "Scenic", "winners": ["Ecere Projects", "Cooklang", "Option List", "Scenic"], "right": false}
+{"case_id": "ling:e083240c68f9", "stratum": "jev-only", "variant": "reversed", "choice": "Haskell", "winners": ["Standard ML", "Scheme", "Toit", "Haskell"], "right": false}
+{"case_id": "ling:e083240c68f9", "stratum": "jev-only", "variant": "small", "choice": "Haskell", "winners": ["F#", "Curry", "Literate Haskell", "Mercury", "Haskell", "Clean", "Elm", "Nickel"], "right": false}
+{"case_id": "ling:e083240c68f9", "stratum": "jev-only", "variant": "cascade", "choice": "Haskell", "winners": ["Roc", "Mercury", "Curry", "Haskell"], "right": false}
+{"case_id": "ling:af345e19e6e5", "stratum": "jev-only", "variant": "reversed", "choice": "Koka", "winners": ["Koka", "Toit", "E"], "right": false}
+{"case_id": "ling:af345e19e6e5", "stratum": "jev-only", "variant": "small", "choice": "Xojo", "winners": ["Xojo", "KCL", "Koka", "Wollok"], "right": false}
+{"case_id": "ling:af345e19e6e5", "stratum": "jev-only", "variant": "cascade", "choice": "Kojo (learning environment)", "winners": ["Kojo (learning environment)", "Scala"], "right": false}
+{"case_id": "ling:0cac578a2561", "stratum": "jev-only", "variant": "reversed", "choice": "APL", "winners": ["APL", "Toit", "LiveScript"], "right": false}
+{"case_id": "ling:0cac578a2561", "stratum": "jev-only", "variant": "small", "choice": "JetBrains MPS", "winners": ["JetBrains MPS", "Factor", "Forth", "Mercury", "Fennel", "Faust", "TXL", "Janet"], "right": false}
+{"case_id": "ling:0cac578a2561", "stratum": "jev-only", "variant": "cascade", "choice": "Mercury", "winners": ["A+ (programming language)", "C", "Limbo", "M", "magma", "MATLAB", "Mercury", "MUF", "Objective-C", "Wolfram Language"], "right": false}
+{"case_id": "ling:91d14bf54e55", "stratum": "jev-only", "variant": "reversed", "choice": "Jinja", "winners": ["Mustache", "Jinja", "Nunjucks", "Handlebars"], "right": false}
+{"case_id": "ling:91d14bf54e55", "stratum": "jev-only", "variant": "small", "choice": "Liquid", "winners": ["XML", "Liquid", "Go Template", "Nunjucks", "FreeMarker", "Mustache", "Jinja", "EJS", "templ", "Velocity Template Language", "Twig"], "right": false}
+{"case_id": "ling:91d14bf54e55", "stratum": "jev-only", "variant": "cascade", "choice": "XML", "winners": ["Maven POM", "musicxml", "Osis", "Powder", "sbml", "xbel", "xbrl", "XML"], "right": false}
+{"case_id": "ling:acbb8eb0fb46", "stratum": "jev-only", "variant": "reversed", "choice": "Agda", "winners": ["Agda", "Toit"], "right": false}
+{"case_id": "ling:acbb8eb0fb46", "stratum": "jev-only", "variant": "small", "choice": "JetBrains MPS", "winners": ["JetBrains MPS"], "right": false}
+{"case_id": "ling:acbb8eb0fb46", "stratum": "jev-only", "variant": "cascade", "choice": "Turing", "winners": ["Turing"], "right": false}
+{"case_id": "ling:af3c2785c62d", "stratum": "jev-only", "variant": "reversed", "choice": "Shell", "winners": ["Shell", "YAML"], "right": false}
+{"case_id": "ling:af3c2785c62d", "stratum": "jev-only", "variant": "small", "choice": "Shell", "winners": ["Shell", "YAML"], "right": false}
+{"case_id": "ling:af3c2785c62d", "stratum": "jev-only", "variant": "cascade", "choice": "Text", "winners": ["INI"], "right": false}
+{"case_id": "ling:b58ee9ed179d", "stratum": "jev-only", "variant": "reversed", "choice": "R", "winners": ["R", "E"], "right": true}
+{"case_id": "ling:b58ee9ed179d", "stratum": "jev-only", "variant": "small", "choice": "R", "winners": ["Roc", "R"], "right": true}
+{"case_id": "ling:b58ee9ed179d", "stratum": "jev-only", "variant": "cascade", "choice": "RAScript", "winners": ["RAScript", "R"], "right": false}
+{"case_id": "ling:5879cf497148", "stratum": "jev-only", "variant": "reversed", "choice": "Clojure", "winners": ["Fennel", "F#", "Clojure", "Wolfram Language"], "right": true}
+{"case_id": "ling:5879cf497148", "stratum": "jev-only", "variant": "small", "choice": "Clojure", "winners": ["Ioke", "F#", "Red", "LFE", "Clojure", "Fennel", "Racket", "Common Lisp", "edn", "Scheme"], "right": true}
+{"case_id": "ling:5879cf497148", "stratum": "jev-only", "variant": "cascade", "choice": "Clojure", "winners": ["Clojure"], "right": true}
+{"case_id": "ling:b89f034aa9a1", "stratum": "jev-only", "variant": "reversed", "choice": "YAML", "winners": ["TOML", "YAML", "E"], "right": false}
+{"case_id": "ling:b89f034aa9a1", "stratum": "jev-only", "variant": "small", "choice": "HOCON", "winners": ["CUE", "JSON with Comments", "Snakemake", "HOCON", "MiniYAML"], "right": false}
+{"case_id": "ling:b89f034aa9a1", "stratum": "jev-only", "variant": "cascade", "choice": "HOCON", "winners": ["HOCON", "TOML", "YAML", "EditorConfig"], "right": false}
+{"case_id": "ling:75902acedd11", "stratum": "jev-only", "variant": "reversed", "choice": "KakouneScript", "winners": ["XML", "Vim Script", "YAML", "KakouneScript"], "right": false}
+{"case_id": "ling:75902acedd11", "stratum": "jev-only", "variant": "small", "choice": "KakouneScript", "winners": ["KakouneScript", "Vim Script", "YAML", "Emacs Lisp"], "right": false}
+{"case_id": "ling:75902acedd11", "stratum": "jev-only", "variant": "cascade", "choice": "KakouneScript", "winners": ["Vim Script", "YAML", "KakouneScript"], "right": false}
+{"case_id": "ling:ceecc11ed45b", "stratum": "jev-only", "variant": "reversed", "choice": "APL", "winners": ["APL", "E"], "right": false}
+{"case_id": "ling:ceecc11ed45b", "stratum": "jev-only", "variant": "small", "choice": null, "winners": [], "right": false}
+{"case_id": "ling:ceecc11ed45b", "stratum": "jev-only", "variant": "cascade", "choice": "TI Program", "winners": ["TI Program"], "right": true}
+{"case_id": "ling:9617f1de06d8", "stratum": "jev-only", "variant": "reversed", "choice": "Smalltalk", "winners": ["Smalltalk", "Toit", "E"], "right": false}
+{"case_id": "ling:9617f1de06d8", "stratum": "jev-only", "variant": "small", "choice": "Smalltalk", "winners": ["Smalltalk", "Opal", "Wren", "ZAP", "Io", "Scenic", "MAXScript", "Uno", "Xtend", "eC", "Wollok", "Janet"], "right": false}
+{"case_id": "ling:9617f1de06d8", "stratum": "jev-only", "variant": "cascade", "choice": "Smalltalk", "winners": ["Smalltalk", "eC", "Wollok", "LiveCode Script"], "right": false}
+{"case_id": "ling:5d9d53a5afe9", "stratum": "jev-only", "variant": "reversed", "choice": "Roff", "winners": ["Roff", "Roff Manpage", "Texinfo"], "right": false}
+{"case_id": "ling:5d9d53a5afe9", "stratum": "jev-only", "variant": "small", "choice": "Roff", "winners": ["Roff", "Pod", "Edge", "Roff Manpage", "Pod 6"], "right": false}
+{"case_id": "ling:5d9d53a5afe9", "stratum": "jev-only", "variant": "cascade", "choice": "Roff Manpage", "winners": ["Roff", "Roff Manpage"], "right": true}
+{"case_id": "ling:222063246250", "stratum": "jev-only", "variant": "reversed", "choice": "GAML", "winners": ["GAML"], "right": false}
+{"case_id": "ling:222063246250", "stratum": "jev-only", "variant": "small", "choice": "JetBrains MPS", "winners": ["JetBrains MPS", "Alloy", "F*", "Isabelle", "Langium", "Nickel", "TXL", "Boogie"], "right": false}
+{"case_id": "ling:222063246250", "stratum": "jev-only", "variant": "cascade", "choice": "Rascal", "winners": ["Rascal", "RouterOS Script"], "right": true}
+{"case_id": "ling:3bed88acf7af", "stratum": "jev-only", "variant": "reversed", "choice": "XML", "winners": ["XML", "JetBrains MPS"], "right": false}
+{"case_id": "ling:3bed88acf7af", "stratum": "jev-only", "variant": "small", "choice": "XML", "winners": ["XML", "JetBrains MPS"], "right": false}
+{"case_id": "ling:3bed88acf7af", "stratum": "jev-only", "variant": "cascade", "choice": "JetBrains MPS", "winners": ["JetBrains MPS", "Mathematical Programming System"], "right": true}
+{"case_id": "ling:072fd04410ba", "stratum": "jev-only", "variant": "reversed", "choice": "SQL", "winners": ["SQL", "SQLPL", "TSQL", "E"], "right": false}
+{"case_id": "ling:072fd04410ba", "stratum": "jev-only", "variant": "small", "choice": "SQL", "winners": ["SQLPL", "SQL"], "right": false}
+{"case_id": "ling:072fd04410ba", "stratum": "jev-only", "variant": "cascade", "choice": "CQL", "winners": ["CQL"], "right": true}
+{"case_id": "ling:72e6fd677d2c", "stratum": "jev-only", "variant": "reversed", "choice": "Haskell", "winners": ["Haskell"], "right": false}
+{"case_id": "ling:72e6fd677d2c", "stratum": "jev-only", "variant": "small", "choice": "Haskell", "winners": ["Module Management System", "Haskell"], "right": false}
+{"case_id": "ling:72e6fd677d2c", "stratum": "jev-only", "variant": "cascade", "choice": "Text", "winners": ["Cabal Config"], "right": false}
+{"case_id": "ling:0f097911b1e1", "stratum": "jev-only", "variant": "reversed", "choice": "YAML", "winners": ["YAML"], "right": false}
+{"case_id": "ling:0f097911b1e1", "stratum": "jev-only", "variant": "small", "choice": null, "winners": [], "right": false}
+{"case_id": "ling:0f097911b1e1", "stratum": "jev-only", "variant": "cascade", "choice": "Text", "winners": ["INI"], "right": false}
+{"case_id": "ling:d878d9aff932", "stratum": "jev-only", "variant": "reversed", "choice": "SourcePawn", "winners": ["Valve Data Format", "SourcePawn", "E"], "right": false}
+{"case_id": "ling:d878d9aff932", "stratum": "jev-only", "variant": "small", "choice": "QuakeC", "winners": ["QuakeC", "AGS Script", "GDScript", "SourcePawn", "Nasal", "Quake", "UnrealScript", "NWScript", "Pawn", "eC", "Redcode", "Lua"], "right": false}
+{"case_id": "ling:d878d9aff932", "stratum": "jev-only", "variant": "cascade", "choice": "MAXScript", "winners": ["MAXScript", "eC", "AGS Script", "Lua"], "right": false}
+{"case_id": "ling:7590244e817b", "stratum": "both", "variant": "reversed", "choice": "Assembly", "winners": ["Assembly"], "right": true}
+{"case_id": "ling:7590244e817b", "stratum": "both", "variant": "small", "choice": "Assembly", "winners": ["Assembly"], "right": true}
+{"case_id": "ling:7590244e817b", "stratum": "both", "variant": "cascade", "choice": "Assembly", "winners": ["Assembly", "Motorola 68K Assembly", "tasm"], "right": true}
+{"case_id": "ling:fe40eceecb7a", "stratum": "both", "variant": "reversed", "choice": "Cadence", "winners": ["Motoko", "ZIL", "Toit", "Cadence"], "right": true}
+{"case_id": "ling:fe40eceecb7a", "stratum": "both", "variant": "small", "choice": "Cadence", "winners": ["Lean", "Move", "Noir", "Luau", "KRL", "LoomScript", "F*", "Sway", "ZIL", "Cadence", "Motoko", "Faust", "ReasonLIGO", "Pike"], "right": true}
+{"case_id": "ling:fe40eceecb7a", "stratum": "both", "variant": "cascade", "choice": "Cadence", "winners": ["Cadence"], "right": true}
+{"case_id": "ling:66a06dcd1657", "stratum": "both", "variant": "reversed", "choice": "Pascal", "winners": ["1C Enterprise", "Pascal", "YAML"], "right": false}
+{"case_id": "ling:66a06dcd1657", "stratum": "both", "variant": "small", "choice": "Pascal", "winners": ["Oxygene", "INI", "1C Enterprise", "Roc", "Pascal", "D"], "right": false}
+{"case_id": "ling:66a06dcd1657", "stratum": "both", "variant": "cascade", "choice": "INI", "winners": ["INI"], "right": true}
+{"case_id": "ling:d2db7757c75c", "stratum": "both", "variant": "reversed", "choice": "Visual Basic .NET", "winners": ["Visual Basic .NET", "E"], "right": true}
+{"case_id": "ling:d2db7757c75c", "stratum": "both", "variant": "small", "choice": "C#", "winners": ["C#", "Visual Basic .NET", "Jai", "eC"], "right": false}
+{"case_id": "ling:d2db7757c75c", "stratum": "both", "variant": "cascade", "choice": "Visual Basic .NET", "winners": ["B4X", "FreeBASIC", "QuickBASIC", "VBA", "visual-basic", "Visual Basic 6.0", "Visual Basic .NET"], "right": true}
+{"case_id": "ling:7f3546c42fed", "stratum": "both", "variant": "reversed", "choice": "AsciiDoc", "winners": ["AsciiDoc"], "right": true}
+{"case_id": "ling:7f3546c42fed", "stratum": "both", "variant": "small", "choice": "AsciiDoc", "winners": ["AsciiDoc"], "right": true}
+{"case_id": "ling:7f3546c42fed", "stratum": "both", "variant": "cascade", "choice": "AsciiDoc", "winners": ["AGS Script", "ASCII art", "AsciiDoc", "Public Key"], "right": true}
+{"case_id": "ling:5e21e011b8bc", "stratum": "both", "variant": "reversed", "choice": "X10", "winners": ["X10"], "right": true}
+{"case_id": "ling:5e21e011b8bc", "stratum": "both", "variant": "small", "choice": "X10", "winners": ["X10", "eC"], "right": true}
+{"case_id": "ling:5e21e011b8bc", "stratum": "both", "variant": "cascade", "choice": "X10", "winners": ["X10"], "right": true}
+{"case_id": "ling:e11bd54a9f64", "stratum": "both", "variant": "reversed", "choice": "HTML", "winners": ["HTML", "D2"], "right": true}
+{"case_id": "ling:e11bd54a9f64", "stratum": "both", "variant": "small", "choice": "HTML", "winners": ["Edge", "HTML", "HTML+PHP", "HTML+ECR"], "right": true}
+{"case_id": "ling:e11bd54a9f64", "stratum": "both", "variant": "cascade", "choice": "HTML", "winners": ["Assembly", "BitBake", "C++", "Hack", "HTML", "Motorola 68K Assembly", "NASL", "Pascal", "Pawn", "PHP", "POV-Ray SDL", "SourcePawn", "SQL"], "right": true}
+{"case_id": "ling:f93ea63d4690", "stratum": "both", "variant": "reversed", "choice": "Propeller Spin", "winners": ["Propeller Spin", "Toit", "E"], "right": true}
+{"case_id": "ling:f93ea63d4690", "stratum": "both", "variant": "small", "choice": "Propeller Spin", "winners": ["Parrot Assembly", "Unix Assembly", "Assembly", "P4", "Propeller Spin", "Grace", "Parrot Internal Representation"], "right": true}
+{"case_id": "ling:f93ea63d4690", "stratum": "both", "variant": "cascade", "choice": "Propeller Spin", "winners": ["Propeller Spin"], "right": true}
+{"case_id": "ling:33a175cd52f0", "stratum": "both", "variant": "reversed", "choice": "Public Key", "winners": ["Public Key", "Text", "SSH Config"], "right": true}
+{"case_id": "ling:33a175cd52f0", "stratum": "both", "variant": "small", "choice": "Public Key", "winners": ["Public Key"], "right": true}
+{"case_id": "ling:33a175cd52f0", "stratum": "both", "variant": "cascade", "choice": "Public Key", "winners": ["AGS Script", "ASCII art", "AsciiDoc", "Public Key"], "right": true}
+{"case_id": "ling:86b8a2347846", "stratum": "both", "variant": "reversed", "choice": "RPM Spec", "winners": ["Gentoo Eclass", "RPM Spec", "Debian Package Control File"], "right": true}
+{"case_id": "ling:86b8a2347846", "stratum": "both", "variant": "small", "choice": "RPM Spec", "winners": ["Gentoo Ebuild", "Nix", "RPM Spec", "Gentoo Eclass", "BitBake", "Debian Package Control File"], "right": true}
+{"case_id": "ling:86b8a2347846", "stratum": "both", "variant": "cascade", "choice": "RPM Spec", "winners": ["Python", "RPM Spec", "Ruby", "spec"], "right": true}
+{"case_id": "ling:0854f992ed57", "stratum": "both", "variant": "reversed", "choice": "Visual Basic 6.0", "winners": ["Pascal", "Visual Basic .NET", "Visual Basic 6.0"], "right": true}
+{"case_id": "ling:0854f992ed57", "stratum": "both", "variant": "small", "choice": "Visual Basic 6.0", "winners": ["REALbasic", "Visual Basic .NET", "VBA", "Pascal", "Visual Basic 6.0", "eC", "VCL"], "right": true}
+{"case_id": "ling:0854f992ed57", "stratum": "both", "variant": "cascade", "choice": "Visual Basic 6.0", "winners": ["INI", "VBA", "Visual Basic 6.0", "Visual Basic .NET"], "right": true}
+{"case_id": "ling:d4d0e01b5206", "stratum": "both", "variant": "reversed", "choice": "Dart", "winners": ["Dart", "E"], "right": true}
+{"case_id": "ling:d4d0e01b5206", "stratum": "both", "variant": "small", "choice": "Dart", "winners": ["Move", "Dart", "eC"], "right": true}
+{"case_id": "ling:d4d0e01b5206", "stratum": "both", "variant": "cascade", "choice": "Dart", "winners": ["Dart"], "right": true}
+{"case_id": "ling:251793457720", "stratum": "both", "variant": "reversed", "choice": "IGOR Pro", "winners": ["IGOR Pro"], "right": true}
+{"case_id": "ling:251793457720", "stratum": "both", "variant": "small", "choice": "IGOR Pro", "winners": ["IGOR Pro"], "right": true}
+{"case_id": "ling:251793457720", "stratum": "both", "variant": "cascade", "choice": "IGOR Pro", "winners": ["IGOR Pro", "ipf"], "right": true}
+{"case_id": "ling:3f167bad132f", "stratum": "both", "variant": "reversed", "choice": "Microsoft Visual Studio Solution", "winners": ["XML", "Microsoft Developer Studio Project", "Microsoft Visual Studio Solution"], "right": true}
+{"case_id": "ling:3f167bad132f", "stratum": "both", "variant": "small", "choice": "Microsoft Visual Studio Solution", "winners": ["XML", "Microsoft Visual Studio Solution", "Microsoft Developer Studio Project"], "right": true}
+{"case_id": "ling:3f167bad132f", "stratum": "both", "variant": "cascade", "choice": "Microsoft Visual Studio Solution", "winners": ["Microsoft Visual Studio Solution"], "right": true}
+{"case_id": "ling:5f5f29922f30", "stratum": "both", "variant": "reversed", "choice": "Ruby", "winners": ["Ruby", "E"], "right": true}
+{"case_id": "ling:5f5f29922f30", "stratum": "both", "variant": "small", "choice": "Ruby", "winners": ["Move", "Ruby"], "right": true}
+{"case_id": "ling:5f5f29922f30", "stratum": "both", "variant": "cascade", "choice": "Ruby", "winners": ["Mirah", "Ruby"], "right": true}
+{"case_id": "ling:2b106a0a7b8d", "stratum": "both", "variant": "reversed", "choice": "Sail", "winners": ["Sail", "Toit", "E"], "right": true}
+{"case_id": "ling:2b106a0a7b8d", "stratum": "both", "variant": "small", "choice": "Sail", "winners": ["Singularity", "Sail", "Whiley"], "right": true}
+{"case_id": "ling:2b106a0a7b8d", "stratum": "both", "variant": "cascade", "choice": "Sail", "winners": ["Sail"], "right": true}
+{"case_id": "ling:c75bfaf7a5bd", "stratum": "both", "variant": "reversed", "choice": "Erlang", "winners": ["Standard ML", "Elixir", "Erlang", "E"], "right": true}
+{"case_id": "ling:c75bfaf7a5bd", "stratum": "both", "variant": "small", "choice": "Erlang", "winners": ["LFE", "Elixir", "Standard ML", "Erlang", "OCaml"], "right": true}
+{"case_id": "ling:c75bfaf7a5bd", "stratum": "both", "variant": "cascade", "choice": "Erlang", "winners": ["Erlang"], "right": true}
+{"case_id": "ling:66102c640a95", "stratum": "both", "variant": "reversed", "choice": "Lua", "winners": ["Toit", "Lua"], "right": true}
+{"case_id": "ling:66102c640a95", "stratum": "both", "variant": "small", "choice": "Luau", "winners": ["Luau", "Lua"], "right": false}
+{"case_id": "ling:66102c640a95", "stratum": "both", "variant": "cascade", "choice": "Lua", "winners": ["Lua"], "right": true}
+{"case_id": "ling:1ab9ea4614ff", "stratum": "both", "variant": "reversed", "choice": "E", "winners": ["E"], "right": false}
+{"case_id": "ling:1ab9ea4614ff", "stratum": "both", "variant": "small", "choice": "C#", "winners": ["C#"], "right": true}
+{"case_id": "ling:1ab9ea4614ff", "stratum": "both", "variant": "cascade", "choice": "C#", "winners": ["C#"], "right": true}
+{"case_id": "ling:7dc6d8032998", "stratum": "both", "variant": "reversed", "choice": "Prisma", "winners": ["Prisma", "TOML", "YAML", "Cadence"], "right": true}
+{"case_id": "ling:7dc6d8032998", "stratum": "both", "variant": "small", "choice": "Prisma", "winners": ["Prisma", "Graph Modeling Language"], "right": true}
+{"case_id": "ling:7dc6d8032998", "stratum": "both", "variant": "cascade", "choice": "Prisma", "winners": ["Prisma"], "right": true}
+{"case_id": "ling:a928ca381564", "stratum": "both", "variant": "reversed", "choice": "MeTTa", "winners": ["Fennel", "MUF", "MeTTa", "edn"], "right": true}
+{"case_id": "ling:a928ca381564", "stratum": "both", "variant": "small", "choice": "MeTTa", "winners": ["Ioke", "MUF", "Fennel", "edn", "MeTTa"], "right": true}
+{"case_id": "ling:a928ca381564", "stratum": "both", "variant": "cascade", "choice": "MeTTa", "winners": ["MeTTa"], "right": true}
+{"case_id": "ling:b3e3b2613169", "stratum": "both", "variant": "reversed", "choice": "Squirrel", "winners": ["Squirrel", "E"], "right": true}
+{"case_id": "ling:b3e3b2613169", "stratum": "both", "variant": "small", "choice": "Squirrel", "winners": ["Squirrel", "Lua"], "right": true}
+{"case_id": "ling:b3e3b2613169", "stratum": "both", "variant": "cascade", "choice": "Squirrel", "winners": ["Squirrel"], "right": true}
+{"case_id": "ling:7b8d158ca462", "stratum": "both", "variant": "reversed", "choice": "Motorola 68K Assembly", "winners": ["Motorola 68K Assembly", "Assembly"], "right": true}
+{"case_id": "ling:7b8d158ca462", "stratum": "both", "variant": "small", "choice": "Motorola 68K Assembly", "winners": ["Motorola 68K Assembly", "Unix Assembly", "Assembly"], "right": true}
+{"case_id": "ling:7b8d158ca462", "stratum": "both", "variant": "cascade", "choice": "Assembly", "winners": ["Assembly", "Motorola 68K Assembly", "promal", "R", "s", "Unix Assembly"], "right": false}
+{"case_id": "ling:6739ab2aee43", "stratum": "both", "variant": "reversed", "choice": "Inform 7", "winners": ["Inform 7", "ZIL", "Scenic"], "right": true}
+{"case_id": "ling:6739ab2aee43", "stratum": "both", "variant": "small", "choice": "Inform 7", "winners": ["Inform 7", "NMODL"], "right": true}
+{"case_id": "ling:6739ab2aee43", "stratum": "both", "variant": "cascade", "choice": "Inform 7", "winners": ["Inform 7"], "right": true}
+{"case_id": "ling:5e3ae4a90eef", "stratum": "both", "variant": "reversed", "choice": "Redirect Rules", "winners": ["ApacheConf", "robots.txt", "Redirect Rules", "E"], "right": true}
+{"case_id": "ling:5e3ae4a90eef", "stratum": "both", "variant": "small", "choice": "Caddyfile", "winners": ["ApacheConf", "Nginx", "Slash", "Caddyfile", "robots.txt", "Redirect Rules"], "right": false}
+{"case_id": "ling:5e3ae4a90eef", "stratum": "both", "variant": "cascade", "choice": "Redirect Rules", "winners": ["Redirect Rules"], "right": true}
+{"case_id": "ling:a414924af860", "stratum": "both", "variant": "reversed", "choice": "JSON", "winners": ["XML", "JSON with Comments", "YAML", "JSON"], "right": true}
+{"case_id": "ling:a414924af860", "stratum": "both", "variant": "small", "choice": "JSON", "winners": ["XML", "CSON", "TOML", "JSON5", "JSON", "edn", "HOCON", "GN", "MiniYAML"], "right": true}
+{"case_id": "ling:a414924af860", "stratum": "both", "variant": "cascade", "choice": "JSON", "winners": ["JSON"], "right": true}
+{"case_id": "ling:90952daaeceb", "stratum": "both", "variant": "reversed", "choice": "FreeBASIC", "winners": ["FreeBASIC", "Pascal", "Toit", "E"], "right": true}
+{"case_id": "ling:90952daaeceb", "stratum": "both", "variant": "small", "choice": "FreeBASIC", "winners": ["Oxygene", "FreeBASIC", "V", "C", "eC"], "right": true}
+{"case_id": "ling:90952daaeceb", "stratum": "both", "variant": "cascade", "choice": "FreeBASIC", "winners": ["B4X", "BASIC", "FreeBASIC", "liberty-basic", "QuickBASIC", "smallbasic", "VBA", "visual-basic", "Visual Basic 6.0", "Visual Basic .NET"], "right": true}
+{"case_id": "ling:450bd888c720", "stratum": "both", "variant": "reversed", "choice": "PHP", "winners": ["PHP", "HTML+PHP", "Toit", "E"], "right": true}
+{"case_id": "ling:450bd888c720", "stratum": "both", "variant": "small", "choice": "PHP", "winners": ["PHP", "Move", "Roc", "eC"], "right": true}
+{"case_id": "ling:450bd888c720", "stratum": "both", "variant": "cascade", "choice": "PHP", "winners": ["Assembly", "BitBake", "C++", "Hack", "HTML", "Motorola 68K Assembly", "NASL", "Pascal", "Pawn", "PHP", "POV-Ray SDL", "SourcePawn", "SQL"], "right": true}
+{"case_id": "ling:a0eb2c42b7ff", "stratum": "both", "variant": "reversed", "choice": "SWIG", "winners": ["SWIG"], "right": true}
+{"case_id": "ling:a0eb2c42b7ff", "stratum": "both", "variant": "small", "choice": "SWIG", "winners": ["SWIG"], "right": true}
+{"case_id": "ling:a0eb2c42b7ff", "stratum": "both", "variant": "cascade", "choice": "SWIG", "winners": ["Assembly", "Cool", "Motorola 68K Assembly", "OpenCL", "Proguard", "QMake", "SWIG", "yorick"], "right": true}
+{"case_id": "ling:48222f945311", "stratum": "both", "variant": "reversed", "choice": "JSON", "winners": ["XML", "JSON with Comments", "YAML", "JSON"], "right": true}
+{"case_id": "ling:48222f945311", "stratum": "both", "variant": "small", "choice": "JSON", "winners": ["XML", "FIRRTL", "JSON5", "JSON"], "right": true}
+{"case_id": "ling:48222f945311", "stratum": "both", "variant": "cascade", "choice": "JSON", "winners": ["JSON", "Slice"], "right": true}
+{"case_id": "ling:2f2ba5560e3b", "stratum": "both", "variant": "reversed", "choice": "Dotenv", "winners": ["Vue", "TOML", "YAML", "Dotenv"], "right": true}
+{"case_id": "ling:2f2ba5560e3b", "stratum": "both", "variant": "small", "choice": "Dotenv", "winners": ["YAML", "JSON with Comments", "Dotenv"], "right": true}
+{"case_id": "ling:2f2ba5560e3b", "stratum": "both", "variant": "cascade", "choice": "Dotenv", "winners": ["Dotenv"], "right": true}
+{"case_id": "ling:fbbe810a2e33", "stratum": "both", "variant": "reversed", "choice": "CodeQL", "winners": ["q", "CodeQL"], "right": true}
+{"case_id": "ling:fbbe810a2e33", "stratum": "both", "variant": "small", "choice": "CodeQL", "winners": ["CQL", "CodeQL", "QML", "q"], "right": true}
+{"case_id": "ling:fbbe810a2e33", "stratum": "both", "variant": "cascade", "choice": "CodeQL", "winners": ["CodeQL"], "right": true}
+{"case_id": "ling:0c2adafbb04c", "stratum": "both", "variant": "reversed", "choice": "JavaScript", "winners": ["JavaScript", "E"], "right": true}
+{"case_id": "ling:0c2adafbb04c", "stratum": "both", "variant": "small", "choice": "JavaScript", "winners": ["JavaScript", "eC"], "right": true}
+{"case_id": "ling:0c2adafbb04c", "stratum": "both", "variant": "cascade", "choice": "JavaScript", "winners": ["JavaScript"], "right": true}
+{"case_id": "ling:ae95ead7438c", "stratum": "both", "variant": "reversed", "choice": "OpenEdge ABL", "winners": ["OpenEdge ABL"], "right": false}
+{"case_id": "ling:ae95ead7438c", "stratum": "both", "variant": "small", "choice": "ObjectScript", "winners": ["ObjectScript", "OpenEdge ABL", "eC", "M"], "right": false}
+{"case_id": "ling:ae95ead7438c", "stratum": "both", "variant": "cascade", "choice": "A+ (programming language)", "winners": ["A+ (programming language)", "C", "Limbo", "M", "magma", "MATLAB", "Mercury", "MUF", "Objective-C", "Wolfram Language"], "right": false}
+{"case_id": "ling:6a543a78bf0a", "stratum": "both", "variant": "reversed", "choice": "Visual Basic 6.0", "winners": ["Pascal", "Visual Basic .NET", "Visual Basic 6.0"], "right": true}
+{"case_id": "ling:6a543a78bf0a", "stratum": "both", "variant": "small", "choice": "Visual Basic 6.0", "winners": ["QuickBASIC", "Visual Basic .NET", "VBA", "Pascal", "Visual Basic 6.0", "VCL"], "right": true}
+{"case_id": "ling:6a543a78bf0a", "stratum": "both", "variant": "cascade", "choice": "Visual Basic 6.0", "winners": ["Visual Basic 6.0", "Visual Basic .NET"], "right": true}
+{"case_id": "ling:0588f5cfd3d6", "stratum": "both", "variant": "reversed", "choice": "Nit", "winners": ["Nit", "Toit", "E"], "right": true}
+{"case_id": "ling:0588f5cfd3d6", "stratum": "both", "variant": "small", "choice": "Nit", "winners": ["Nit", "Nickel"], "right": true}
+{"case_id": "ling:0588f5cfd3d6", "stratum": "both", "variant": "cascade", "choice": "Nit", "winners": ["Nit"], "right": true}
+{"case_id": "ling:a1914c04f9f9", "stratum": "both", "variant": "reversed", "choice": "Snakemake", "winners": ["Snakemake"], "right": true}
+{"case_id": "ling:a1914c04f9f9", "stratum": "both", "variant": "small", "choice": "Snakemake", "winners": ["Snakemake"], "right": true}
+{"case_id": "ling:a1914c04f9f9", "stratum": "both", "variant": "cascade", "choice": "Snakemake", "winners": ["Snakemake"], "right": true}
+{"case_id": "ling:0fd367f3a313", "stratum": "both", "variant": "reversed", "choice": "Crystal", "winners": ["Crystal", "Toit", "E"], "right": false}
+{"case_id": "ling:0fd367f3a313", "stratum": "both", "variant": "small", "choice": "Nim", "winners": ["Moocode", "Nim", "Wren", "XS", "Odin", "V", "D", "Zig", "eC", "Janet"], "right": false}
+{"case_id": "ling:0fd367f3a313", "stratum": "both", "variant": "cascade", "choice": "V", "winners": ["Rocq Prover", "V", "Verilog", "x3d"], "right": true}
+{"case_id": "ling:6d2a8cef9bd2", "stratum": "both", "variant": "reversed", "choice": "OMNeT++ NED", "winners": ["GAML", "OMNeT++ NED", "E"], "right": true}
+{"case_id": "ling:6d2a8cef9bd2", "stratum": "both", "variant": "small", "choice": "OMNeT++ MSG", "winners": ["Ecere Projects", "Opal", "Module Management System", "OMNeT++ MSG", "Langium", "NMODL", "Faust", "OMNeT++ NED", "Whiley"], "right": false}
+{"case_id": "ling:6d2a8cef9bd2", "stratum": "both", "variant": "cascade", "choice": "OMNeT++ NED", "winners": ["OMNeT++ NED"], "right": true}
+{"case_id": "ling:ecc1f3faf80a", "stratum": "both", "variant": "reversed", "choice": "Zig", "winners": ["Zig", "E"], "right": true}
+{"case_id": "ling:ecc1f3faf80a", "stratum": "both", "variant": "small", "choice": "Zig", "winners": ["Zig"], "right": true}
+{"case_id": "ling:ecc1f3faf80a", "stratum": "both", "variant": "cascade", "choice": "Zig", "winners": ["Zig"], "right": true}
+{"case_id": "ling:77c124a33b52", "stratum": "both", "variant": "reversed", "choice": "Cylc", "winners": ["Common Workflow Language", "Jinja", "YAML", "Cylc"], "right": true}
+{"case_id": "ling:77c124a33b52", "stratum": "both", "variant": "small", "choice": "Cylc", "winners": ["Go Template", "YAML", "Cylc", "Jinja", "Common Workflow Language"], "right": true}
+{"case_id": "ling:77c124a33b52", "stratum": "both", "variant": "cascade", "choice": "Cylc", "winners": ["Cylc"], "right": true}
+{"case_id": "ling:17dd653200ff", "stratum": "both", "variant": "reversed", "choice": "Hy", "winners": ["Hy"], "right": true}
+{"case_id": "ling:17dd653200ff", "stratum": "both", "variant": "small", "choice": "Hy", "winners": ["Hy", "Fennel"], "right": true}
+{"case_id": "ling:17dd653200ff", "stratum": "both", "variant": "cascade", "choice": "Hy", "winners": ["Hy"], "right": true}
+{"case_id": "ling:28cb970fef59", "stratum": "both", "variant": "reversed", "choice": "TOML", "winners": ["TOML", "YAML", "Rust"], "right": true}
+{"case_id": "ling:28cb970fef59", "stratum": "both", "variant": "small", "choice": "TOML", "winners": ["Go Checksums", "Rust", "TOML", "JSON", "JSON with Comments", "RON"], "right": true}
+{"case_id": "ling:28cb970fef59", "stratum": "both", "variant": "cascade", "choice": "TOML", "winners": ["TOML"], "right": true}
+{"case_id": "ling:9c0d9a7678ca", "stratum": "both", "variant": "reversed", "choice": "DTrace", "winners": ["DTrace", "E"], "right": true}
+{"case_id": "ling:9c0d9a7678ca", "stratum": "both", "variant": "small", "choice": "DTrace", "winners": ["DTrace"], "right": true}
+{"case_id": "ling:9c0d9a7678ca", "stratum": "both", "variant": "cascade", "choice": "DTrace", "winners": ["D", "DTrace", "Makefile"], "right": true}
+{"case_id": "ling:770c636fee98", "stratum": "both", "variant": "reversed", "choice": "Common Lisp", "winners": ["Emacs Lisp", "Scheme", "Common Lisp", "Wolfram Language"], "right": true}
+{"case_id": "ling:770c636fee98", "stratum": "both", "variant": "small", "choice": "Common Lisp", "winners": ["Wolfram Language", "Emacs Lisp", "Racket", "Common Lisp", "Scheme"], "right": true}
+{"case_id": "ling:770c636fee98", "stratum": "both", "variant": "cascade", "choice": "Common Lisp", "winners": ["Common Lisp", "Lex", "PicoLisp", "Roff"], "right": true}
+{"case_id": "ling:45986dc7a3c5", "stratum": "both", "variant": "reversed", "choice": "ActionScript", "winners": ["ActionScript", "E"], "right": true}
+{"case_id": "ling:45986dc7a3c5", "stratum": "both", "variant": "small", "choice": "ActionScript", "winners": ["ActionScript"], "right": true}
+{"case_id": "ling:45986dc7a3c5", "stratum": "both", "variant": "cascade", "choice": "ActionScript", "winners": ["ActionScript", "aldor", "AngelScript", "atlas"], "right": true}
+{"case_id": "ling:314f9bbeba6c", "stratum": "both", "variant": "reversed", "choice": "Go Template", "winners": ["Go Template", "Nunjucks", "Liquid"], "right": true}
+{"case_id": "ling:314f9bbeba6c", "stratum": "both", "variant": "small", "choice": "Go Template", "winners": ["Go Template", "Nunjucks", "Jinja"], "right": true}
+{"case_id": "ling:314f9bbeba6c", "stratum": "both", "variant": "cascade", "choice": "Go Template", "winners": ["Go Template", "YAML", "Liquid"], "right": true}
+{"case_id": "ling:03623a23e115", "stratum": "both", "variant": "reversed", "choice": "CoNLL-U", "winners": ["CoNLL-U", "Text"], "right": true}
+{"case_id": "ling:03623a23e115", "stratum": "both", "variant": "small", "choice": "CoNLL-U", "winners": ["CoNLL-U", "Grammatical Framework", "Formatted", "Raw token data", "GN"], "right": true}
+{"case_id": "ling:03623a23e115", "stratum": "both", "variant": "cascade", "choice": "CoNLL-U", "winners": ["CoNLL-U"], "right": true}
+{"case_id": "ling:c26c7c5627b6", "stratum": "both", "variant": "reversed", "choice": "Zig", "winners": ["Zig", "Nim", "Toit", "E"], "right": true}
+{"case_id": "ling:c26c7c5627b6", "stratum": "both", "variant": "small", "choice": "Zig", "winners": ["Nim", "Rust", "Odin", "Chapel", "V", "D", "Zig", "Hack"], "right": true}
+{"case_id": "ling:c26c7c5627b6", "stratum": "both", "variant": "cascade", "choice": "Zig", "winners": ["Zig"], "right": true}
+{"case_id": "ling:e37cef63f04d", "stratum": "both", "variant": "reversed", "choice": "Frege", "winners": ["Frege", "E"], "right": true}
+{"case_id": "ling:e37cef63f04d", "stratum": "both", "variant": "small", "choice": "Frege", "winners": ["Frege"], "right": true}
+{"case_id": "ling:e37cef63f04d", "stratum": "both", "variant": "cascade", "choice": "Frege", "winners": ["Forth", "Frege", "Text"], "right": true}

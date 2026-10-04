@@ -1,0 +1,10 @@
+{
+  "name": "synid-bench-linguist-js",
+  "private": true,
+  "description": "linguist-js (JavaScript re-implementation of GitHub Linguist's rules), pinned (tools/external/linguist-js)",
+  "type": "module",
+  "dependencies": {
+    "linguist-js": "3.0.4",
+    "js-yaml": "4.3.2"
+  }
+}

@@ -1,4 +1,4 @@
-{"meta": {"label": "ext-pygments-content-only", "kind": "other-identifier", "benchmark": "bench-m/1", "name": "Pygments 2.21.0, content only", "version": "synid-bench/pygments:2.21.0 (tools/external/pygments)", "about": "syntax highlighter: `guess_lexer_for_filename` (file name, then content), or `guess_lexer` (content only) \u2014 run on the content only (file named `file`)", "url": "https://pygments.org", "date": "2026-10-02", "seconds": 2.2}}
+{"meta": {"label": "ext-pygments-content-only", "kind": "other-identifier", "benchmark": "bench-m/1", "name": "Pygments 2.21.0, content only", "version": "synid-bench/pygments:2.21.0 (tools/external/pygments)", "about": "syntax highlighter: `guess_lexer_for_filename` (file name, then content), or `guess_lexer` (content only) \u2014 run on the content only (file named `file`)", "url": "https://pygments.org", "date": "2026-10-04", "seconds": 5.3, "source": "386311579acd", "names_csv": "124ff950e62e"}}
 {"case_id": "m:146faacad4fb", "answer": ["Matlab"]}
 {"case_id": "m:1f3bba4d2cd6", "answer": ["Objective-C"]}
 {"case_id": "m:1fa4cb2b6c7b", "answer": ["Logos"]}

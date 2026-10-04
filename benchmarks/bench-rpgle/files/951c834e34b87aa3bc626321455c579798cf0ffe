@@ -1,0 +1,134 @@
+**FREE
+
+/if not defined (IPKGDB)
+/define IPKGDB
+
+dcl-ds ipkg_db_file_t qualified template;
+  path varchar(10000);
+  library char(10);
+end-ds;
+
+dcl-ds ipkg_db_repo_t qualified template;
+  id int(10);
+  name varchar(50);
+  url varchar(1000);
+end-ds;
+
+dcl-ds ipkg_db_package_t qualified template;
+  id int(10);
+  repoId int(10);
+  name varchar(100);
+  version char(20);
+  summary varchar(1000);
+  group varchar(100);
+  checksumType char(10);
+  checksum varchar(100);
+  path varchar(1000);
+end-ds;
+
+dcl-ds ipkg_db_installed_package_t qualified template;
+  id int(10);
+  name varchar(100);
+  version char(20);
+end-ds;
+
+dcl-pr ipkg_db_beginTransaction extproc(*dclcase);
+  ipkglib char(10) const;
+end-pr;
+
+dcl-pr ipkg_db_installPackage int(10) extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  headers pointer const;
+  installLibrary char(10) const;
+end-pr;
+
+dcl-pr ipkg_db_uninstallPackage extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  package varchar(100) const;
+end-pr;
+
+dcl-pr ipkg_db_listInstalledPackages pointer extproc(*dclcase);
+  ipkgLibrary char(10) const;
+end-pr;
+
+dcl-pr ipkg_db_listFiles pointer extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  package varchar(100) const;
+end-pr;
+
+dcl-pr ipkg_db_endTransaction extproc(*dclcase);
+  ipkgLibrary char(10) const;
+end-pr;
+
+dcl-pr ipkg_db_abortTransaction extproc(*dclcase);
+  ipkgLibrary char(10) const;
+end-pr;
+
+dcl-pr ipkg_db_isInstalled ind extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  package varchar(100) const;
+end-pr;
+
+dcl-pr ipkg_db_listDependentPackages pointer extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  package varchar(100) const;
+end-pr;
+
+dcl-pr ipkg_db_addRepo int(10) extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  name varchar(50) const;
+  url varchar(1000) const;
+end-pr;
+
+dcl-pr ipkg_db_deleteRepo extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  name varchar(50) const;
+end-pr;
+
+dcl-pr ipkg_db_listRepos pointer extproc(*dclcase);
+  ipkgLibrary char(10) const;
+end-pr;
+
+dcl-pr ipkg_db_updatePackage extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  package likeds(ipkg_db_package_t) const;
+end-pr;
+
+dcl-pr ipkg_db_getPackageInfo likeds(ipkg_db_package_t) extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  package varchar(100) const;
+end-pr;
+
+dcl-pr ipkg_db_getRepository likeds(ipkg_db_repo_t) extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  id int(10) const;
+end-pr;
+
+dcl-pr ipkg_db_addUninstallScripts extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  package int(10) const;
+  prescript varchar(10000) const;
+  postscript varchar(10000) const;
+end-pr;
+
+dcl-pr ipkg_db_getUninstallScripts varchar(10000) dim(2) extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  package varchar(10) const;
+end-pr;
+
+dcl-pr ipkg_db_isDependencyMet ind extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  name varchar(100) const;
+  version char(20) const;
+  type int(10) const;
+end-pr;
+
+dcl-pr ipkg_db_addDependency extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  packageId int(10) const;
+  name varchar(100) const;
+  version char(20) const;
+  type int(10) const;
+end-pr;
+
+/endif

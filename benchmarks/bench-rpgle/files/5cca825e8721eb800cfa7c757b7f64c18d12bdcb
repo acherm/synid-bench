@@ -1,0 +1,346 @@
+**FREE
+
+/if not defined (BLUEDROPLET_SERVICE_H)
+/define BLUEDROPLET_SERVICE_H
+
+//-------------------------------------------------------------------------------------------------
+//
+// (C) Copyleft 2016 Mihael Schmidt
+//
+// This file is part of BlueDroplet.
+//
+// BlueDroplet is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published
+// the Free Software Foundation, either version 3 of the License, or
+// any later version.
+//
+// BlueDroplet is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with BlueDroplet.  If not, see <http://www.gnu.org/licenses/>.
+//
+//-------------------------------------------------------------------------------------------------
+
+
+//-------------------------------------------------------------------------------------------------
+// Data Structures
+//-------------------------------------------------------------------------------------------------
+/include 'config_t.rpgle'
+
+
+//-------------------------------------------------------------------------------------------------
+// Constants
+//-------------------------------------------------------------------------------------------------
+
+// HTTP methods
+dcl-c DROPLET_GET 'GET';
+dcl-c DROPLET_PUT 'PUT';
+dcl-c DROPLET_POST 'POST';
+dcl-c DROPLET_DELETE 'DELETE';
+dcl-c DROPLET_PATCH 'PATCH';
+
+// content types
+dcl-c DROPLET_JSON 'application/json';
+dcl-c DROPLET_XML 'application/xml';
+dcl-c DROPLET_TEXT 'text/plain';
+dcl-c DROPLET_HTML 'text/html';
+
+// HTTP codes
+dcl-c DROPLET_OK 200;
+dcl-c DROPLET_CREATED 201;
+dcl-c DROPLET_ACCEPTED 202;
+dcl-c DROPLET_NON_AUTH_INFO 203;
+dcl-c DROPLET_NO_CONTENT 204;
+dcl-c DROPLET_RESET_CONTENT 205;
+dcl-c DROPLET_PARTIAL_CONTENT 206;
+dcl-c DROPLET_MULTI_STATUS 207;
+dcl-c DROPLET_ALREADY_REPORTED 208;
+dcl-c DROPLET_IM_USED 226;
+dcl-c DROPLET_MULTIPLE_CHOICES 300;
+dcl-c DROPLET_MOVED_PERMANENTLY 301;
+dcl-c DROPLET_FOUND 302;
+dcl-c DROPLET_SEE_OTHER 303;
+dcl-c DROPLET_NOT_MODIFIED 304;
+dcl-c DROPLET_USE_PROXY 305;
+dcl-c DROPLET_SWITCH_PROXY 306;
+dcl-c DROPLET_TEMPORARY_REDIRECT 307;
+dcl-c DROPLET_PERMANENT_REDIRECT 308;
+dcl-c DROPLET_BAD_REQUEST 400;
+dcl-c DROPLET_UNAUTHORIZED 401;
+dcl-c DROPLET_PAYMENT_REQUIRED 402;
+dcl-c DROPLET_FORBIDDEN 403;
+dcl-c DROPLET_NOT_FOUND 404;
+dcl-c DROPLET_METHOD_NOT_ALLOWED 405;
+dcl-c DROPLET_NOT_ACCEPTABLE 406;
+dcl-c DROPLET_PROXY_AUTH_REQUIRED 407;
+dcl-c DROPLET_REQUEST_TIMEOUT 408;
+dcl-c DROPLET_CONFLICT 409;
+dcl-c DROPLET_GONE 410;
+dcl-c DROPLET_LENGTH_REQUIRED 411;
+dcl-c DROPLET_PRECONDITION_FAILED 412;
+dcl-c DROPLET_PAYLOAD_TOO_LARGE 413;
+dcl-c DROPLET_URI_TOO_LONG 414;
+dcl-c DROPLET_UNSUPPORTED_MEDIA_TYPE 415;
+dcl-c DROPLET_RANGE_NOT_SATISFIABLE 416;
+dcl-c DROPLET_EXPECTATION_FAILED 417;
+dcl-c DROPLET_I_AM_A_TEAPOT 418;
+dcl-c DROPLET_MISDIRECTED_REQUEST 421;
+dcl-c DROPLET_UNPROCESSABLE_ENTITY 422;
+dcl-c DROPLET_LOCKED 423;
+dcl-c DROPLET_FAILED_DEPENDENCY 424;
+dcl-c DROPLET_UPGRADE_REQUIRED 426;
+dcl-c DROPLET_PRECONDITION_REQUIRED 428;
+dcl-c DROPLET_TOO_MANY_REQUESTS 429;
+dcl-c DROPLET_REQUEST_HEADER_FIELDS_TOO_LARGE 431;
+dcl-c DROPLET_UNAVAILABLE_FOR_LEGAL_REASONS 451;
+dcl-c DROPLET_INTERNAL_SERVER_ERROR 500;
+dcl-c DROPLET_NOT_IMPLEMENTED 501;
+dcl-c DROPLET_BAD_GATEWAY 502;
+dcl-c DROPLET_SERVICE_UNAVAILABLE 503;
+dcl-c DROPLET_GATEWAY_TIMEOUT 504;
+dcl-c DROPLET_HTTP_VERSION_NOT_SUPPORTED 505;
+dcl-c DROPLET_VARIANT_ALSO_NEGOTIATES 506;
+dcl-c DROPLET_INSUFFICIENT_STORAGE 507;
+dcl-c DROPLET_LOOP_DETECTED 508;
+dcl-c DROPLET_NOT_EXTENDED 510;
+dcl-c DROPLET_NETWORK_AUTH_REQUIRED 511;
+
+
+//-------------------------------------------------------------------------------------------------
+// Prototypes
+//-------------------------------------------------------------------------------------------------
+dcl-pr droplet_service_create pointer extproc('droplet_service_create') end-pr;
+   
+dcl-pr droplet_service_finalize extproc('droplet_service_finalize');
+  service pointer;
+end-pr;
+
+dcl-pr droplet_service_start extproc('droplet_service_start');
+  service pointer;
+end-pr;
+
+dcl-pr droplet_service_setHttpAddress extproc('droplet_service_setHttpAddress');
+  service pointer const;
+  address char(100) const;
+end-pr;
+
+dcl-pr droplet_service_setHttpPort extproc('droplet_service_setHttpPort');
+  service pointer const;
+  port int(10) const;
+end-pr;
+
+dcl-pr droplet_service_enableAdmin extproc('droplet_service_enableAdmin');
+  service pointer const;
+  enabled ind const;
+end-pr;
+
+dcl-pr droplet_service_setAdminAddress extproc('droplet_service_setAdminAddress');
+  service pointer const;
+  address char(100) const;
+end-pr;
+
+dcl-pr droplet_service_setAdminPort extproc('droplet_service_setAdminPort');
+  service pointer const;
+  port int(10) const;
+end-pr;
+
+dcl-pr droplet_service_enableLogging extproc('droplet_service_enableLogging');
+  service pointer const;
+  enabled ind const;
+end-pr;
+
+dcl-pr droplet_service_setTemplatePath extproc('droplet_service_setTemplatePath');
+  service pointer const;
+  path char(1024) const;
+end-pr;
+
+dcl-pr droplet_service_setConfiguration extproc('droplet_service_setConfiguration');
+  service pointer const;
+  configuration likeds(droplet_config_configuration) const;
+end-pr;
+
+dcl-pr droplet_service_addEndPoint extproc('droplet_service_addEndPoint');
+  service pointer const;
+  endPoint pointer(*proc) const;
+  path char(1024) const;
+  method char(10) const;
+end-pr;
+
+dcl-pr droplet_service_setPollInterval extproc('droplet_service_setPollInterval');
+  service pointer const;
+  interval int(10) const;
+end-pr;
+
+dcl-pr droplet_service_setLogger extproc('droplet_service_setLogger');
+  service pointer const;
+  logger pointer const;
+end-pr;
+
+dcl-pr droplet_service_getLogger pointer extproc('droplet_service_getLogger');
+  service pointer const;
+end-pr;
+
+dcl-pr droplet_service_setLogLevel extproc('droplet_service_setLogLevel');
+  service pointer const;
+  logLevel char(10) const;
+end-pr;
+
+dcl-pr droplet_service_setFlag extproc('droplet_service_setFlag');
+  connection pointer const;
+  flag uns(10) const;
+end-pr;
+
+dcl-pr droplet_service_getFlags uns(10) extproc('droplet_service_getFlags');
+  connection pointer const;
+end-pr;
+
+dcl-pr droplet_service_isFlagSet ind extproc('droplet_service_isFlagSet');
+  connection pointer const;
+  flag uns(10) const;
+end-pr;
+
+dcl-pr droplet_service_send extproc('droplet_service_send');
+  connection pointer const;
+  httpCode uns(10) const;
+  body varchar(65536) const options(*nopass);
+  contentType char(100) const options(*nopass);
+  headers pointer options(*nopass);
+end-pr;
+
+dcl-pr droplet_service_ok extproc('droplet_service_ok');
+  connection pointer const;
+  body varchar(65536) const options(*nopass);
+  contentType char(100) const options(*nopass);
+  headers pointer options(*nopass);
+end-pr;
+
+dcl-pr droplet_service_noContent extproc('droplet_service_noContent');
+  connection pointer const;
+  body varchar(65536) const options(*nopass);
+  contentType char(100) const options(*nopass);
+  headers pointer options(*nopass);
+end-pr;
+
+dcl-pr droplet_service_notFound extproc('droplet_service_notFound');
+  connection pointer const;
+  body varchar(65536) const options(*nopass);
+  contentType char(100) const options(*nopass);
+  headers pointer options(*nopass);
+end-pr;
+
+dcl-pr droplet_service_serverError extproc('droplet_service_serverError');
+  connection pointer const;
+  body varchar(65536) const options(*nopass);
+  contentType char(100) const options(*nopass);
+  headers pointer options(*nopass);
+end-pr;
+
+dcl-pr droplet_service_sendHead extproc('droplet_service_sendHead');
+  connection pointer const;
+  httpCode uns(10) const;
+  contentType char(100) const options(*nopass);
+  headers pointer options(*nopass);
+end-pr;
+
+dcl-pr droplet_service_sendChunk extproc('droplet_service_sendChunk');
+  connection pointer const;
+  data pointer const;
+  length int(10) const;
+end-pr;
+
+dcl-pr droplet_service_finishChunkedTransfer extproc('droplet_service_finishChunkedTransfer');
+  connection pointer const;
+end-pr;
+
+dcl-pr droplet_service_setAutoEncodeInput extproc('droplet_service_setAutoEncodeInput');
+  service pointer const;
+  enabled ind const;
+end-pr;
+
+dcl-pr droplet_service_setAutoEncodeOutput extproc('droplet_service_setAutoEncodeOutput');
+  service pointer const;
+  enabled ind const;
+end-pr;
+
+///
+// Get last path segment of URI
+//
+// Returns the last path segment of the passed URI.
+//
+// \param pointer to path
+// \param length of path
+//
+// \return path segment or *blank if there is no last path segment (f. e. root only)
+///
+dcl-pr droplet_service_getLastPathSegment char(1024) extproc('droplet_service_getLastPathSegment');
+  path pointer const;
+  length int(10) const;
+end-pr;
+
+///
+// Get path segment of URI at index
+//
+// Returns the nth path segment of the passed URI.
+//
+// \param pointer to path
+// \param length of path
+// \param index (0 based)
+//
+// \return path segment or *blank if there is no path segment at the passed index
+///
+dcl-pr droplet_service_getPathSegment char(1024) extproc('droplet_service_getPathSegment');
+  path pointer const;
+  length int(10) const;
+  index int(10) const;
+end-pr;
+
+///
+// Split Path into Segments
+//
+// Returns a list of path segments.
+//
+// \param pointer to path
+// \param path length
+//
+// \return list of path segments (each max 1024 char)
+//
+// \note The caller must free the memory for the returned list with list_dispose().
+//
+///
+dcl-pr droplet_service_splitPath pointer extproc('droplet_service_splitPath');
+  path pointer const;
+  length int(10) const;
+end-pr;
+
+///
+// Add library
+//
+// Adds the passed library to the user part of the library list 
+// of the current job.
+//
+// \param pointer to service
+// \param library
+///
+dcl-pr droplet_service_addLibrary extproc('droplet_service_addLibrary');
+  service pointer const;
+  library char(10) const;
+end-pr;
+
+///
+// Set libraries
+//
+// Replaces the user part of the library list with the passed list of libraries.
+// The order of the libraries will be maintained.
+//
+// \param pointer to the service
+// \param list of libraries (each entry char(10))
+///
+dcl-pr droplet_service_setLibraryList extproc('droplet_service_setLibraryList');
+  service pointer const;
+  libraries pointer const;
+end-pr;
+
+/endif

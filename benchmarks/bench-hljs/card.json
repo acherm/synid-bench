@@ -1,0 +1,27 @@
+{
+ "name": "bench-hljs",
+ "version": "bench-hljs/1",
+ "title": "highlight.js' auto-detection test files, one or a few per language, without names",
+ "unit": "snippet",
+ "names": "none",
+ "labels": "highlight.js' maintainers (the test's directory, a language id), crosswalked to Linguist's names",
+ "label_kind": "maintainers",
+ "sampling": "curated (every auto-detection test file of a language)",
+ "source": "https://github.com/highlightjs/highlight.js@fc3f06392f189354eed922973635ab9e9268b983",
+ "files_stored": false,
+ "cases": 191,
+ "languages": 185,
+ "home_turf": [
+  "highlight.js"
+ ],
+ "strengths": [
+  "content only: no file name, so every identifier is tested on the bytes",
+  "185 languages, one file each: no language dominates",
+  "independent of Linguist: no file is a Linguist sample"
+ ],
+ "weaknesses": [
+  "highlight.js' home turf: from 2014 to March 2024 its test suite required auto-detection to get every file right",
+  "short snippets written to show off a grammar, not files from real projects",
+  "one file per language: a per-language figure is a single file"
+ ]
+}

@@ -1,0 +1,18 @@
+{
+  "_about": "Entries whose identifier was built, trained or tuned on (part of) this benchmark's files — their score is partly accuracy on their own test data. Keys are entry-name prefixes; counts are of this benchmark's 455 files, by git blob id. A value is either a text (the whole benchmark is that entry's home turf) or {\"why\", \"cases_tag\" or \"cases\"}: only those cases are; the overall leaderboard then counts the entry, held out, on the other cases.",
+  "Rouge": "its test suite lexes every one of these files (spec/lexers_spec.rb: each sample must round-trip, each demo must lex without error): the lexers were written against them. Its guessing is not tested on them (the guessing specs use file names, MIME types and short sources)",
+  "Chroma": {
+    "why": "1 file (the YANG sample) is an input of Chroma's lexer tests (lexers/testdata/yang.actual, checked at a6d00fe)",
+    "cases": [
+      "rouge:a83e00f217e5"
+    ]
+  },
+  "GitHub Linguist": {
+    "why": "1 file (the Fluent demo) is byte-identical to a Linguist sample (samples/Fluent/simple.ftl, added in v7.15.0, 2021: in every Linguist release run here; tag `linguist-sample`)",
+    "cases_tag": "linguist-sample"
+  },
+  "go-enry": {
+    "why": "the same Fluent demo (go-enry 2.8.9 and 2.9.6 are generated from Linguist releases that have that sample)",
+    "cases_tag": "linguist-sample"
+  }
+}

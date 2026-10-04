@@ -1,0 +1,21 @@
+# vscode-languagedetection model id → Linguist name(s) of the same language. Rule (all tools alike): synonyms only;
+# a dialect or a broader/narrower language is NOT mapped. The ids are Guesslang's file extensions; each maps to the
+# name Guesslang 2.2.1 gives the same class (guesslang/data/languages.json), as for the Guesslang entry: v is Verilog
+# (not V), vba is Guesslang's "Visual Basic" (Linguist's alias of Visual Basic .NET), mm is Objective-C.
+label,linguist
+cbl,COBOL
+clj,Clojure
+cs,C#
+erl,Erlang
+ex,Elixir
+f90,Fortran
+hs,Haskell
+jl,Julia
+kt,Kotlin
+ml,OCaml
+mm,Objective-C
+pas,Pascal
+pm,Perl
+ps1,PowerShell
+v,Verilog
+vba,Visual Basic .NET

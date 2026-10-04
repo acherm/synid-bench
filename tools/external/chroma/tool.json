@@ -1,0 +1,8 @@
+{
+  "version": "2.27.0",
+  "name": "Chroma 2.27.0",
+  "about": "syntax highlighter (Go; used by Hugo, Gitea): `lexers.Match` (file name; the highest-priority lexer whose glob matches), else `lexers.Analyse` (content), as its CLI's autodetect; `lexers.Analyse` only with --content-only",
+  "url": "https://github.com/alecthomas/chroma",
+  "content_flag": true,
+  "family": "syntax highlighter"
+}

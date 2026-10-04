@@ -1,0 +1,65 @@
+**FREE
+
+/if not defined (IPKGUTIL)
+/define IPKGUTIL
+
+/include 'ipkgio_h.rpgle'
+
+dcl-pr ipkg_util_translateFromUtf8 char(IPKG_HEADER_VALUE_LENGTH) extproc(*dclcase);
+   string pointer const;
+   pLength uns(10) const;
+end-pr;
+
+dcl-pr ipkg_util_fileExist ind extproc(*dclcase);
+  filePath like(ipkg_path_t) const;
+end-pr;
+
+dcl-pr ipkg_util_fileReadable ind extproc(*dclcase);
+  filePath like(ipkg_path_t) const;
+end-pr;
+
+dcl-pr ipkg_util_init int(10) extproc(*dclcase);
+  ipkgLibrary char(10) const;
+end-pr;
+
+dcl-pr ipkg_util_cleanup extproc(*dclcase) end-pr;
+
+dcl-pr ipkg_util_alloc pointer extproc(*dclcase);
+  size uns(10) const;
+end-pr;
+
+dcl-pr ipkg_util_getHeaderEntryById likeds(ipkg_rpm_header_entry_t) extproc(*dclcase);
+  headers pointer const;
+  id int(10) const;
+end-pr;
+
+dcl-pr ipkg_util_objectExist ind extproc(*dclcase);
+  library char(10) const;
+  name char(10) const;
+  type char(10) const;
+end-pr;
+
+dcl-pr ipkg_util_executeScript extproc(*dclcase);
+  script varchar(10000) const;
+end-pr;
+
+dcl-pr ipkg_util_determineObjectName char(10) extproc(*dclcase);
+  ifsPath like(ipkg_path_t) const;
+end-pr;
+  
+dcl-pr ipkg_util_determineObjectType char(10) extproc(*dclcase);
+  ifsPath like(ipkg_path_t) const;
+end-pr;
+
+dcl-pr ipkg_util_determineInstallLibrary char(10) extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  objectLibrary char(10) const;
+  dataLibrary char(10) const;
+  headers pointer const;
+end-pr;
+
+dcl-pr ipkg_util_checkIpkgDataArea ind extproc(*dclcase);
+  ipkgLibrary char(10) const;
+end-pr;
+
+/endif

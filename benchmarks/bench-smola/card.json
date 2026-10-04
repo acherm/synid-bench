@@ -1,0 +1,32 @@
+{
+ "name": "bench-smola",
+ "version": "bench-smola/1",
+ "title": "files from GitHub repositories, the samples of smola/language-dataset (2019–2022), 261 languages",
+ "unit": "whole file",
+ "names": "real",
+ "labels": "a human for 1,107 files (gold); for 2,765, the dataset's vote, i.e. Linguist's own answer of 2019–2022 (silver)",
+ "label_kind": "human",
+ "sampling": "all (every sample with a language label; one file per repository, ~20 per language, picked where Linguist named the language)",
+ "source": "https://github.com/smola/language-dataset@4d1827d",
+ "files_stored": false,
+ "cases": 3872,
+ "languages": 261,
+ "home_turf": [
+  "GitHub Linguist",
+  "go-enry",
+  "Hyperpolyglot",
+  "Synid"
+ ],
+ "strengths": [
+  "real files from 3,872 different repositories, under their real names",
+  "1,107 labels checked by a human, of which 167 correct Linguist's answer (tag `human-overrode-linguist`)",
+  "a different source from bench-linguist: only 3 files are Linguist samples"
+ ],
+ "weaknesses": [
+  "the silver labels (2,765 files) are Linguist's own answers: circular for the Linguist family (and Synid, built from it) — read the gold tier",
+  "every sample was picked because Linguist (via GitHub's language search and a Linguist scan) named its language: files Linguist finds hard are under-represented, even in the gold tier",
+  "one human annotator for nearly all gold labels; no agreement measure",
+  "175 samples whose label is `Unknown` (or contested) are not scored"
+ ],
+ "headline_tier": "gold"
+}

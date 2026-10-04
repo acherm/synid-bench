@@ -1,0 +1,8 @@
+source_label,linguist,how
+rpgle,RPGLE,exact
+not-code:data,Text,manual
+not-code:docs,Text,manual
+not-code:generated,Text,manual
+other-language:REXX,REXX,exact
+other-language:XSLT,XSLT,exact
+other-language:DDS,,none

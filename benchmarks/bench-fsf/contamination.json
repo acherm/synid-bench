@@ -1,0 +1,5 @@
+{
+  "_about": "Entries built or tuned with knowledge of this benchmark's files — their score is partly accuracy on their own development data. Keys are entry-name prefixes.",
+  "Hand-written .fsf rule": "written after reading the LLM judge's labels on the .fsf study's 1,662 judged files, the 467 cases here among them",
+  "Jev 1.13, PL-ultimate-llm candidates": "its candidates for .fsf (C++, GLSL, Tcl) are exactly the languages the .fsf study observed in the population these files were drawn from; no other source PL-ultimate-llm imports claims .fsf"
+}

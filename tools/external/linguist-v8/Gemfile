@@ -1,0 +1,7 @@
+# GitHub Linguist 8.0.0 and its dependencies, at the versions of tools/external/linguist's image (Gemfile.lock pins them)
+source "https://rubygems.org"
+gem "github-linguist", "8.0.0"
+gem "charlock_holmes", "0.7.9"
+gem "rugged", "1.9.6"
+gem "mini_mime", "1.1.5"
+gem "cgi", "0.4.2"

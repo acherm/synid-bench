@@ -1,0 +1,8 @@
+{
+  "version": "3fb01dd",
+  "name": "PLangRec 3fb01dd",
+  "about": "character-level bidirectional LSTM per line (first 40 characters of each stripped line) + stacking meta-model over the line predictions (Future Generation Computer Systems 166, 2025); trained on 8.5 million GitHub files of 21 languages labelled by extension and checked with ANTLR grammars; reads the text only, every line; answers its top language (no threshold); TensorFlow 2.15.0",
+  "url": "https://github.com/ComputationalReflection/PLangRec/tree/3fb01dd875997fc6af49fbf8984a1555201e5812",
+  "content_native": true,
+  "family": "neural language classifier"
+}

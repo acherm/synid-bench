@@ -123,7 +123,44 @@ CAUSES = {
         "fix": "keep the candidates in the fallback's final",
         "verified": "the expected language is among the candidates; the case went to the fallback",
     },
+    "ko-not-in-list": {
+        "title": "The language is not in the list asked",
+        "mechanism": "The question offers the 804 languages of a May 2026 snapshot of Linguist; languages Linguist added "
+                     "since (Aleo, BAML, FPP, JASS, …) cannot be answered.",
+        "fix": "ask with the current list (or the encyclopedia's candidates)",
+        "verified": "the expected language is not among the options",
+    },
+    "ko-lost-group-other": {
+        "title": "Lost in the first round: another language won the group",
+        "mechanism": "The options are asked in 4 groups of ~200 (a question takes at most 255); in the group holding "
+                     "the expected language, the model picks another one. For Kev, mostly an option listed near the "
+                     "start of the group (a primacy bias over long option lists — see analysis/KEV-VS-JEV.md).",
+        "fix": "shorter option lists (smaller groups, or the extension's candidates first); for Kev, several orders",
+        "verified": "the expected language's group sent another winner to the final",
+    },
+    "ko-lost-group-none": {
+        "title": "Lost in the first round: \"none of these\" in its group",
+        "mechanism": "In the group holding the expected language, the model answers \"none of these\".",
+        "fix": "as above",
+        "verified": "the expected language's group sent no winner",
+    },
+    "ko-lost-final": {
+        "title": "Lost in the final",
+        "mechanism": "The expected language won its group but lost the final among the groups' winners — more "
+                     "likely when the other groups also send winners (Kev rarely answers \"none of these\").",
+        "fix": "fewer finalists (a model that rejects irrelevant groups), or the extension's candidates first",
+        "verified": "the expected language was among the finalists",
+    },
 }
+
+
+def knockout_groups() -> dict[str, int]:
+    """The group of each Linguist language in tools/jev_linguist.py's knockout (seeded shuffle, 4 groups)."""
+    import random
+    ling = json.loads((ROOT / "tools" / "data" / "linguist_languages.json").read_text(encoding="utf-8"))["languages"]
+    names = sorted(lg["name"] for lg in ling)
+    random.Random(20261002).shuffle(names)
+    return {n: i % 4 for i, n in enumerate(names)}
 
 
 def load_ctx(bench: Path, synid_names: set[str] | None) -> dict:
@@ -134,12 +171,13 @@ def load_ctx(bench: Path, synid_names: set[str] | None) -> dict:
         for e in d.get("extensions") or []:
             ext_l[e.lower()].add(n)
     raw = {}
-    for p in (bench / "entries" / "raw").glob("jev-cascade*.jsonl"):
+    for p in [*(bench / "entries" / "raw").glob("jev-cascade*.jsonl"),
+              *(bench / "entries" / "raw").glob("*-linguist*.jsonl")]:
         raw[p.stem] = {json.loads(line)["case_id"]: json.loads(line) for line in p.read_text(encoding="utf-8").splitlines()}
     return {"linguist_keys": {key(a) for n, d in ling.items() for a in [n, *(d.get("aliases") or [])]},
             "ext_langs": ext_l, "synid": synid_names,
             "pl": json.loads((ROOT / "tools" / "data" / "pl_candidates.json").read_text(encoding="utf-8")),
-            "cascade_raw": raw}
+            "cascade_raw": raw, "groups": knockout_groups()}
 
 
 def candidates(case: dict, pl: dict) -> list[str]:
@@ -156,6 +194,16 @@ def diagnose(case: dict, text: str, answers: dict, run: str | None = None, ctx: 
     ctx = ctx or {}
     acc = {key(a) for a in case["accept"].split(";") if a}
     ans = answers.get(run) if run else None
+    if run and (run.startswith("kev-linguist") or run.startswith("jev-linguist")):  # the 804-language knockout
+        r = ctx["cascade_raw"].get(run, {}).get(case["case_id"], {})
+        groups = ctx["groups"]
+        exp = next((n for n in groups if key(n) in acc), None)
+        if exp is None:
+            return "ko-not-in-list"
+        if exp in (r.get("group_winners") or []):
+            return "ko-lost-final"
+        mine = [w for w in r.get("group_winners") or [] if groups.get(w) == groups[exp]]
+        return "ko-lost-group-other" if mine else "ko-lost-group-none"
     if run and run.startswith("jev-cascade"):
         cand = candidates(case, ctx["pl"])
         if not cand:

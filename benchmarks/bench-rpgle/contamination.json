@@ -1,0 +1,4 @@
+{
+  "_about": "Entries built or tuned with knowledge of this benchmark's files — their score is partly accuracy on their own development data. Keys are entry-name prefixes. Not listed: the study's hand-written rules, frozen before these (held-out) files were judged.",
+  "Jev 1.13, PL-ultimate-llm candidates": "its candidates for .rpgle come from PL-ultimate-llm's extension evidence, which includes what the .rpgle study observed in the population these files were drawn from (RPGLE only — also Linguist's claim, so the study adds no language to the list)"
+}

@@ -1,0 +1,8 @@
+[package]
+name = "gengo-identify"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+gengo-language = "=0.15.0"
+serde_json = "1"

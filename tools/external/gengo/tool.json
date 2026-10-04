@@ -1,0 +1,8 @@
+{
+  "version": "0.15.0",
+  "name": "gengo 0.15.0",
+  "about": "Rust re-implementation of Linguist's rules (shebang, file name, path pattern, extension, heuristics), without a classifier; 130 languages",
+  "url": "https://github.com/spenserblack/gengo",
+  "family": "linguist-family",
+  "needs_name": true
+}

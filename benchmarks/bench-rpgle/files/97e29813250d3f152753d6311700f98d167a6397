@@ -1,0 +1,12 @@
+**FREE
+
+/if not defined (IPKGREQTR)
+/define IPKGREQTR
+
+dcl-pr ipkg_req_doesMeetTrRequirement ind extproc(*dclcase);
+  requiredTr char(20) const;
+  version char(5) const options(*nopass);
+  type int(10) const options(*nopass);
+end-pr;
+
+/endif

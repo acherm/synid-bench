@@ -1,7 +1,18 @@
 {
-  "_about": "Entries whose identifier was trained on (part of) this benchmark's files — their score is partly accuracy on training data. Keys are entry-name prefixes; counts are of this benchmark's 3,404 files, by git blob id.",
-  "Synid": "its classifier is Hyperpolyglot's, trained on a 2023 copy of Linguist's samples: 2,271 of the files (tag `seen-in-training`)",
-  "Hyperpolyglot": "classifier trained on a 2023 copy of Linguist's samples: 2,271 of the files (tag `seen-in-training`)",
+  "_about": "Entries whose identifier was trained on (part of) this benchmark's files — their score is partly accuracy on training data. Keys are entry-name prefixes; counts are of this benchmark's 3,404 files, by git blob id. A value is either a text (the whole benchmark is that entry's home turf) or {\"why\", \"cases_tag\" or \"cases\"}: only those cases are; the overall leaderboard then counts the entry, held out, on the other cases.",
+  "Synid": {
+    "why": "its classifier is Hyperpolyglot's, trained on a 2023 copy of Linguist's samples: 2,271 of the files (tag `seen-in-training`)",
+    "cases_tag": "seen-in-training"
+  },
+  "Hyperpolyglot": {
+    "why": "classifier trained on a 2023 copy of Linguist's samples: 2,271 of the files (tag `seen-in-training`)",
+    "cases_tag": "seen-in-training"
+  },
   "GitHub Linguist 9.7.0": "heuristics and classifier built from its own samples: every file but the 16 added after 9.7.0",
-  "go-enry 2.9.6": "generated from Linguist v9.5.0: 3,250 of the files (all but the 154 added since)"
+  "go-enry 2.9.6": "generated from Linguist v9.5.0: 3,250 of the files (all but the 154 added since)",
+  "GitHub Linguist 7.30.0": "heuristics and naive Bayes classifier built from its samples at v7.30.0: 2,954 of the files",
+  "GitHub Linguist 8.0.0": "heuristics and centroid classifier built from its samples at v8.0.0: 2,991 of the files",
+  "go-enry 2.8.9": "generated from Linguist v7.30.0: 2,954 of the files",
+  "linguist-js": "re-implements Linguist's rules with its data at b45dbe9 (2026-08-20): heuristics written and tested against these samples (Linguist's test suite checks each heuristic on them); no classifier",
+  "gengo": "re-implements Linguist's rules (heuristics included), which Linguist's test suite checks on these samples; no classifier"
 }

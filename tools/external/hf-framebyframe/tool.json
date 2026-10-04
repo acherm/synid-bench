@@ -1,0 +1,8 @@
+{
+  "version": "da6a18b",
+  "name": "FrameByFrame/programming-language-identification-100plus da6a18b",
+  "about": "Hugging Face model: ModernBERT-base fine-tuned on Rosetta Code (cakiki/rosetta-code) and The Stack v1 (91,209 samples, labels checked by an LLM judge) for 107 languages; reads the text only, its first 512 characters (as trained); answers its top label (no threshold); bfloat16 weights run in float32; transformers 5.18.0, torch 2.14.1 CPU",
+  "url": "https://huggingface.co/FrameByFrame/programming-language-identification-100plus/tree/da6a18b742571df3f01e4e8913ac27ac2283b4bf",
+  "content_native": true,
+  "family": "neural language classifier"
+}

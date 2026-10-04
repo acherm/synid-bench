@@ -1,0 +1,8 @@
+{
+  "version": "15.0.0",
+  "name": "tokei 15.0.0",
+  "about": "line counter; recognises languages by file name, extension and (without an extension) shebang",
+  "url": "https://github.com/XAMPPRocky/tokei",
+  "family": "line counter",
+  "needs_name": true
+}

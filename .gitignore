@@ -2,3 +2,10 @@ results/
 __pycache__/
 .work/
 benchmarks/bench-linguist/files/
+benchmarks/bench-smola/files/
+benchmarks/bench-rosetta/files/
+benchmarks/bench-hello/files/
+benchmarks/bench-pygments/files/
+benchmarks/bench-hljs/files/
+benchmarks/bench-rouge/files/
+benchmarks/bench-cobol/files/

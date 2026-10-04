@@ -1,0 +1,16 @@
+# ohcount label → Linguist name(s) of the same language. Rule (all tools alike): synonyms only; a label covering
+# several Linguist languages maps to all of them (the answer then counts as undecided); a dialect or a broader/narrower
+# kind (automake vs Makefile, xaml vs XML, tex_dtx vs TeX) is NOT mapped — it stays a different answer.
+label,linguist
+assembler,Assembly
+classic_basic,BASIC
+cs_aspx,ASP.NET
+vb_aspx,ASP.NET
+dmd,D
+ebuild,Gentoo Ebuild
+fortranfixed,Fortran
+fortranfree,Fortran Free Form
+idl_pvwave,IDL
+livecode,LiveCode Script
+xmlschema,XML
+visualbasic,Visual Basic .NET;Visual Basic 6.0;VBA;VBScript

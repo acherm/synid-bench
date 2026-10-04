@@ -1,0 +1,8 @@
+{
+  "version": "11.12.0",
+  "name": "highlight.js 11.12.0",
+  "about": "syntax highlighter (npm highlight.js): `highlightAuto` on the content only, over its 189 languages that allow auto-detection (C does not: C code comes out as C++ or another); the language with the highest relevance, no answer when none beats plain text",
+  "url": "https://highlightjs.org",
+  "content_native": true,
+  "family": "syntax highlighter"
+}

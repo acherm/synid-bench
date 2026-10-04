@@ -1,0 +1,29 @@
+{
+ "name": "bench-cobol",
+ "version": "bench-cobol/1",
+ "title": "archived .cbl/.CBL files: COBOL programs and copybooks, synthetic stubs, comic-book lists",
+ "unit": "whole file",
+ "names": "real",
+ "labels": "an LLM judge (Claude Sonnet 4.6), else the study's rules",
+ "label_kind": "llm-judge",
+ "sampling": "population-sampled with weights (uniform by-file sample; synthetic stubs drawn down to 40)",
+ "source": "Software Heritage, via PL-ultimate-llm's COBOL study (swh-evidence-v1@274fa4cc8)",
+ "files_stored": false,
+ "cases": 605,
+ "languages": 3,
+ "home_turf": [
+  "Hand-written COBOL rules",
+  "Jev 1.13, PL-ultimate-llm candidates"
+ ],
+ "strengths": [
+  "drawn uniformly from the archive's 276,831 .cbl/.CBL files, with population weights",
+  "real COBOL as archived: Japanese comments in Shift-JIS, copybooks, generated code, both casings",
+  "contamination as the archive has it: 41 % of the files are synthetic stubs"
+ ],
+ "weaknesses": [
+  "labels by one LLM judge, or by the study's rules where the judge's gate skipped the file",
+  "files the rules call `other` (foreign code, metadata) are left out: no label",
+  "the file name alone scores 91 % unweighted",
+  "the rules and the cascade's candidates were built from these files"
+ ]
+}

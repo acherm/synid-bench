@@ -1,0 +1,65 @@
+**FREE
+
+/if not defined (BLUEDROPLET_LOGGER_SIMPLE_H)
+/define BLUEDROPLET_LOGGER_SIMPLE_H
+
+///
+// \brief BlueDroplet : Simple Logger
+//
+// \author Mihael Schmidt
+// \date   21.11.2016
+//
+///
+
+//-------------------------------------------------------------------------------------------------
+//
+// (C) Copyleft 2016 Mihael Schmidt
+//
+// This file is part of BlueDroplet.
+//
+// BlueDroplet is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published
+// the Free Software Foundation, either version 3 of the License, or
+// any later version.
+//
+// BlueDroplet is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with BlueDroplet.  If not, see <http://www.gnu.org/licenses/>.
+//
+//-------------------------------------------------------------------------------------------------
+
+
+//-------------------------------------------------------------------------------------------------
+// Prototypes
+//-------------------------------------------------------------------------------------------------
+dcl-pr droplet_logger_simple_create pointer extproc('droplet_logger_simple_create') end-pr;
+
+dcl-pr droplet_logger_simple_debug extproc('droplet_logger_simple_debug');
+  logger pointer const;
+  message varchar(1024) const;
+end-pr;
+
+dcl-pr droplet_logger_simple_info extproc('droplet_logger_simple_info');
+  logger pointer const;
+  message varchar(1024) const;
+end-pr;
+
+dcl-pr droplet_logger_simple_warn extproc('droplet_logger_simple_warn');
+  logger pointer const;
+  message varchar(1024) const;
+end-pr;
+
+dcl-pr droplet_logger_simple_error extproc('droplet_logger_simple_error');
+  logger pointer const;
+  message varchar(1024) const;
+end-pr;
+
+dcl-pr droplet_logger_simple_finalize extproc('droplet_logger_simple_finalize');
+  logger pointer;
+end-pr;
+
+/endif

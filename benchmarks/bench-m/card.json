@@ -1,0 +1,29 @@
+{
+ "name": "bench-m",
+ "version": "bench-m/1",
+ "title": "archived .m files: Objective-C, MATLAB/Octave, Wolfram, Mercury, MUMPS, Magma…",
+ "unit": "whole file",
+ "names": "real",
+ "labels": "blind human review; two LLM judges agree on all",
+ "label_kind": "human",
+ "sampling": "population-sampled with weights (stratified, hard cases over-sampled)",
+ "source": "Software Heritage, via PL-ultimate-llm's .m study (swh-evidence-v1)",
+ "files_stored": true,
+ "cases": 54,
+ "languages": 8,
+ "home_turf": [
+  "Hand-written .m rules",
+  "Jev 1.13, PL-ultimate-llm candidates"
+ ],
+ "strengths": [
+  "labels checked by a human, blind",
+  "drawn from the archive, with population weights",
+  "one hard ambiguous extension, in depth",
+  "small: every failure can be read"
+ ],
+ "weaknesses": [
+  "54 files, 8 languages, one extension: wide intervals",
+  "MATLAB is 32 of 54",
+  "the cascade's candidates include what the .m study observed in these files"
+ ]
+}

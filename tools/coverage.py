@@ -14,8 +14,8 @@ its list is not stored here); the other tools' from
 tools/external/<tool>/labels.json (`tools/external.py --tool X --labels`),
 mapped through names.csv; Jev with Linguist's languages chooses among all of
 them; a local LLM answers freely (open vocabulary). A label matches a case
-when it is the expected language or one of its accepted names (case, spaces
-and punctuation ignored).
+when it is the expected language or one of its accepted names, or a Linguist
+alias of one (case, spaces and punctuation ignored).
 """
 
 from __future__ import annotations
@@ -31,7 +31,7 @@ ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
 from external import name_map  # noqa: E402
 from leaderboard import entry_name, load_runs  # noqa: E402
-from score import metrics, name_key, pct, read_cases  # noqa: E402
+from score import LINGUIST_NAMES, metrics, name_key, pct, read_cases  # noqa: E402
 
 OPEN = "open vocabulary"
 
@@ -81,7 +81,8 @@ def main() -> int:
         if ls == OPEN:
             covered = ids
         else:
-            covered = [i for i in ids if any(name_key(x) in ls for x in cases[i]["accept"].split(";") if x)]
+            covered = [i for i in ids if any(k in ls for x in cases[i]["accept"].split(";") if x
+                                             for k in LINGUIST_NAMES.get(name_key(x), {name_key(x)}))]
         n_lang = len({cases[i]["expected"] for i in covered})
         m_all, m_cov = metrics(cases, ans, ids), metrics(cases, ans, covered)
         rows.append((entry_name(meta), "open" if ls == OPEN else len(ls), n_lang, len(covered), m_all, m_cov))

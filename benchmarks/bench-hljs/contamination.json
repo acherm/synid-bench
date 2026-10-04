@@ -1,0 +1,4 @@
+{
+  "_about": "Entries whose identifier was built, trained or tuned on (part of) this benchmark's files — their score is partly accuracy on their own test data. Keys are entry-name prefixes; counts are of this benchmark's 191 files, by git blob id.",
+  "highlight.js": "these are its auto-detection tests: from 2014 to March 2024 (commit 105a11a) its test suite required `highlightAuto` to detect every file as its directory's language, so grammars and their relevance scores were tuned until they passed; the test is commented out since, the files are kept"
+}

@@ -1,0 +1,80 @@
+# Vim filetype → Linguist name(s) of the same language. Rule (all tools alike): synonyms only; a label covering several
+# Linguist languages maps to all of them (undecided); a dialect or a broader/narrower kind (arduino vs C++, mysql vs SQL,
+# javascriptreact vs JavaScript, systemd vs INI, automake vs Makefile) is NOT mapped. A filetype that is a homonym of
+# another Linguist name or alias is mapped to what it is (its Linguist name, or a name that is not Linguist's), so that
+# it does not count as that language: b (B (Formal Method), not B), idl (an interface description language, not IDL),
+# mf (METAFONT, not Makefile's alias mf), nu (Nushell, not Nu), pic (PIC assembler, not Pic), quake (Quake game
+# config, not Quake), slang (S-Lang, not Slang). cqlang is the Clinical Quality Language, not Linguist's CQL (Cassandra).
+label,linguist
+ant,Ant Build System
+antlr4,ANTLR
+asm68k,Motorola 68K Assembly
+asn,ASN.1
+aspperl,Classic ASP
+aspvbs,Classic ASP
+asy,Asymptote
+b,B (Formal Method)
+bdf,Glyph Bitmap Distribution Format
+bib,BibTeX
+bindzone,DNS Zone
+bp,Soong
+bst,BibTeX Style
+cabalproject,Cabal Config
+capnp,Cap'n Proto
+cdc,Cadence
+cf,ColdFusion
+config,M4Sugar
+cs,C#
+csh,Tcsh
+debcontrol,Debian Package Control File
+dns,DNS Zone
+dot,Graphviz (DOT)
+eelixir,HTML+EEX
+env,Dotenv
+eruby,HTML+ERB
+euphoria3,Euphoria
+euphoria4,Euphoria
+fan,Fantom
+gdresource,Godot Resource
+idl,Interface Description Language
+idlang,IDL
+idris2,Idris
+iss,Inno Setup
+javascript.glimmer,Glimmer JS
+jproperties,Java Properties
+ld,Linker Script
+m3quake,Quake
+mf,METAFONT
+moo,Moocode
+msmessages,Win32 Message File
+nu,Nushell
+obj,Wavefront Object
+objcpp,Objective-C++
+pbtxt,Protocol Buffer Text Format
+pic,PIC assembler
+po,Gettext Catalog
+pov,POV-Ray SDL
+pq,Power Query
+ps1,PowerShell
+python2,Python
+quake,Quake config
+query,Tree-sitter Query
+registry,Windows Registry Entries
+rego,Open Policy Agent
+requirements,Pip Requirements
+rmd,RMarkdown
+robot,RobotFramework
+routeros,RouterOS Script
+rtf,Rich Text Format
+shaderslang,Slang
+slang,S-Lang
+solution,Microsoft Visual Studio Solution
+spec,RPM Spec
+srt,SubRip Text
+st,Smalltalk
+terraform-vars,HCL
+typescript.glimmer,Glimmer TS
+uc,UnrealScript
+vb,Visual Basic .NET;Visual Basic 6.0;VBA;VBScript
+wat,WebAssembly
+wget,Wget Config

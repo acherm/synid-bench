@@ -1,0 +1,7 @@
+{
+  "version": "4.0.0-5",
+  "name": "ohcount 4.0.0 (Debian 4.0.0-5)",
+  "about": "Black Duck's line counter (Open Hub); recognises languages by extension, file name, Emacs mode line, shebang, libmagic and content checks on shared extensions",
+  "url": "https://github.com/blackducksoftware/ohcount",
+  "family": "line counter"
+}

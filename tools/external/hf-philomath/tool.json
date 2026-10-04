@@ -1,0 +1,8 @@
+{
+  "version": "9090d38",
+  "name": "philomath-1209/programming-language-identification 9090d38",
+  "about": "Hugging Face model: CodeBERTa-small (RoBERTa, 6 layers) fine-tuned on Rosetta Code (cakiki/rosetta-code, ~26,000 programs) for 26 languages; reads the text only, its first 512 tokens; answers its top label (no threshold); transformers 5.18.0, torch 2.14.1 CPU",
+  "url": "https://huggingface.co/philomath-1209/programming-language-identification/tree/9090d38e7333a2c6ff00f154ab981a549842c20f",
+  "content_native": true,
+  "family": "neural language classifier"
+}

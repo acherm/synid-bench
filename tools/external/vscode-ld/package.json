@@ -1,0 +1,8 @@
+{
+  "name": "synid-bench-vscode-ld",
+  "private": true,
+  "description": "@vscode/vscode-languagedetection (Guesslang model in TensorFlow.js), pinned (tools/external/vscode-ld)",
+  "dependencies": {
+    "@vscode/vscode-languagedetection": "1.0.23"
+  }
+}

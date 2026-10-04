@@ -1,0 +1,29 @@
+{
+ "name": "bench-rpgle",
+ "version": "bench-rpgle/1",
+ "title": "archived .rpgle files: ILE RPG in its three source formats, and the few that are not RPG",
+ "unit": "whole file",
+ "names": "real",
+ "labels": "an LLM judge (Claude Sonnet 4.6), the study's rules beside it",
+ "label_kind": "llm-judge",
+ "sampling": "population-sampled with weights (uniform by-file sample, files judged after the rules froze)",
+ "source": "Software Heritage, via PL-ultimate-llm's .rpgle study (swh-evidence-v1@274fa4cc8)",
+ "files_stored": true,
+ "cases": 760,
+ "languages": 4,
+ "home_turf": [
+  "Jev 1.13, PL-ultimate-llm candidates"
+ ],
+ "strengths": [
+  "drawn uniformly from the archive's 13,002 .rpgle files, with population weights",
+  "real file names and repositories (qualified SWHIDs)",
+  "a legacy language no other benchmark covers, in its three source formats (tags)",
+  "held out from the study's rules"
+ ],
+ "weaknesses": [
+  "labels by one LLM judge, which saw the rules' indicators; no human check",
+  "755 of 760 are RPGLE: the file name alone scores 99 %",
+  "one extension; three parser repositories hold a fifth of the files",
+  "the cascade's candidates include what the study observed"
+ ]
+}

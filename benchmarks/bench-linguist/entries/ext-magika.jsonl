@@ -1,4 +1,4 @@
-{"meta": {"label": "ext-magika", "kind": "other-identifier", "benchmark": "bench-linguist/1", "name": "Magika 1.0.3", "version": "synid-bench/magika:1.0.3 (tools/external/magika)", "about": "Google's deep-learning content-type detector; reads the bytes only (~200 content types)", "url": "https://github.com/google/magika", "date": "2026-10-02", "seconds": 148.6}}
+{"meta": {"label": "ext-magika", "kind": "other-identifier", "benchmark": "bench-linguist/1", "name": "Magika 1.0.3", "version": "synid-bench/magika:1.0.3 (tools/external/magika)", "about": "Google's deep-learning content-type detector; reads the bytes only (~200 content types)", "url": "https://github.com/google/magika", "date": "2026-10-04", "seconds": 1137.4, "source": "0e2274681378", "names_csv": "a693df774470"}}
 {"case_id": "ling:a980425b282c", "answer": ["Text"]}
 {"case_id": "ling:331cac4f575d", "answer": ["Text"]}
 {"case_id": "ling:1a34ecb6263f", "answer": ["Text"]}

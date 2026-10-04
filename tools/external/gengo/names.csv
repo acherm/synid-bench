@@ -1,0 +1,11 @@
+# gengo label → Linguist name(s) of the same language. Rule (all tools alike): synonyms only; a label covering several
+# Linguist languages maps to all of them (the answer then counts as undecided); a dialect or a broader/narrower
+# kind (Arduino vs C++, GitHub Workflow vs YAML, XAML vs XML, Jinja-like vs Jinja) is NOT mapped — it stays a
+# different answer.
+label,linguist
+.Env,Dotenv
+Docker,Dockerfile
+FORTRAN Legacy,Fortran
+Fortran Modern,Fortran Free Form
+Python Requirements File,Pip Requirements
+Plain Text,Text

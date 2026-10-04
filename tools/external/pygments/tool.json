@@ -1,0 +1,8 @@
+{
+  "version": "2.21.0",
+  "name": "Pygments 2.21.0",
+  "about": "syntax highlighter: `guess_lexer_for_filename` (file name, then content), or `guess_lexer` (content only)",
+  "url": "https://pygments.org",
+  "content_flag": true,
+  "family": "syntax highlighter"
+}

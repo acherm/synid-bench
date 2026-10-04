@@ -1,0 +1,583 @@
+     H NOMAIN
+     H AlwNull(*UsrCtl)
+     H BNDDIR('QC2LE')
+
+      /copy vos_h
+      /copy vpase_h
+      /copy vconv_h
+      /copy virt_h
+
+       // *************************************************
+       // global
+       // *************************************************
+       dcl-ds virtTable likeds(virtTable_t) dim(VIRT_TABLE_MAX);
+
+       dcl-s iLangVirtual POINTER(*PROC);
+
+       dcl-pr LangCallBack IND EXTPROC(iLangVirtual);
+          iCall POINTER(*PROC) VALUE;
+          argc INT(10) VALUE;
+          argv POINTER dim(VIRT_CALLARG_MAX) VALUE;
+          ileDesc likeds(virtVar_t) dim(VIRT_CALLARG_MAX);
+          paseDesc likeds(virtVar_t) dim(VIRT_CALLARG_MAX);
+       end-pr;
+
+       dcl-ds virtPase_t qualified template; 
+         pHere UNS(10); 
+       end-ds;
+
+       // *************************************************
+       // internal, but exported for PASE
+       // *************************************************
+       dcl-pr VirtualInit IND;
+          paseName POINTER VALUE;
+          paseCall POINTER VALUE;
+       end-pr;
+
+       dcl-pr VirtualCallBack32 IND;
+         name POINTER VALUE;
+         desc POINTER VALUE;
+         arg1 POINTER VALUE;
+         arg2 POINTER VALUE;
+         arg3 POINTER VALUE;
+         arg4 POINTER VALUE;
+         arg5 POINTER VALUE;
+         arg6 POINTER VALUE;
+         arg7 POINTER VALUE;
+         arg8 POINTER VALUE;
+         arg9 POINTER VALUE;
+         arg10 POINTER VALUE;
+         arg11 POINTER VALUE;
+         arg12 POINTER VALUE;
+         arg13 POINTER VALUE;
+         arg14 POINTER VALUE;
+         arg15 POINTER VALUE;
+         arg16 POINTER VALUE;
+         arg17 POINTER VALUE;
+         arg18 POINTER VALUE;
+         arg19 POINTER VALUE;
+         arg20 POINTER VALUE;
+         arg21 POINTER VALUE;
+         arg22 POINTER VALUE;
+         arg23 POINTER VALUE;
+         arg24 POINTER VALUE;
+         arg25 POINTER VALUE;
+         arg26 POINTER VALUE;
+         arg27 POINTER VALUE;
+         arg28 POINTER VALUE;
+         arg29 POINTER VALUE;
+         arg30 POINTER VALUE;
+         arg31 POINTER VALUE;
+         arg32 POINTER VALUE;
+       end-pr;
+
+
+       // *************************************************
+       // virtual table API -- RPG language (vphp, ... )
+       // *************************************************
+       dcl-proc VirtualSetLanguage export;
+         dcl-pi *N;
+          iCopy POINTER(*PROC) VALUE;
+         end-pi;
+
+         iLangVirtual = iCopy;
+
+       end-proc; 
+
+       // *************************************************
+       // virtual table API -- called PASE lang start
+       // *************************************************
+       dcl-proc VirtualInit export;
+         dcl-pi *N IND;
+          paseName POINTER VALUE;
+          paseCall POINTER VALUE;
+         end-pi;
+         DCL-S rc INT(10) INZ(0);
+
+         dcl-s iName CHAR(1024) INZ(*BLANKS);
+         dcl-s pName CHAR(1024) INZ(*BLANKS);
+
+         DCL-S fromCCSID INT(10) INZ(0);
+         DCL-S toCCSID INT(10) INZ(0);
+         DCL-S buffLen INT(10) INZ(0);
+         DCL-S outLen INT(10) INZ(0);
+         DCL-S buffPtr POINTER INZ(*NULL);
+         DCL-S outPtr POINTER INZ(*NULL);
+ 
+         // conversion
+         fromCCSID = PaseLstCCSID();
+         toCCSID = getIleCCSID();
+
+         buffPtr = paseName;
+         buffLen = strlen(paseName);
+         outPtr = %addr(iName);
+         outLen = %size(iName);
+         memset(outPtr:0:outLen);
+         rc = convCCSID(fromCCSID:toCCSID:buffPtr:buffLen:outPtr:outLen);
+         if rc < 0;
+           return *OFF;
+         endif;
+         pName = *BLANKS;
+         pName = %str(outPtr:%size(pName));
+         VirtualAddCallBack(pName:%paddr(VirtualInit):paseCall);
+ 
+         return *ON;
+       end-proc; 
+
+       // *************************************************
+       // virtual table API -- add your ILE call to table
+       // *************************************************
+       dcl-proc VirtualAddCallBack export;
+         dcl-pi *N IND;
+          iName CHAR(1024) VALUE;
+          iCall POINTER(*PROC) VALUE;
+          pCall POINTER VALUE options (*nopass);
+         end-pi;
+         DCL-S i INT(10) INZ(0);
+         DCL-S j INT(10) INZ(0);
+         DCL-S iNameE POINTER INZ(*NULL);
+         DCL-S lenNameE INT(10) INZ(0);
+         dcl-s pNullp POINTER;
+         dcl-s pNull UNS(3) based(pNullp);
+         dcl-s pName CHAR(1024) INZ(*BLANKS);
+
+         iNameE = %addr(iName);
+         lenNameE = %len(%trim(iName));
+         for i = 1 to VIRT_TABLE_MAX;
+           // new entry
+           if virtTable(i).iNameLen > %size(iName);
+             virtTable(i).iCall = iCall;
+             virtTable(i).iName = %alloc(lenNameE + 1);
+             cpybytes(virtTable(i).iName:iNameE:lenNameE);
+             virtTable(i).iNameLen = lenNameE;
+             pNullp = virtTable(i).iName + lenNameE;
+             pNull = 0;
+             virtTable(i).iComplete = *OFF;
+             if %parms > 2;
+                virtTable(i).pCall = pCall;
+             else;
+                virtTable(i).pCall = *NULL;
+             endif;
+             for j = 1 to VIRT_CALLARG_MAX;
+               virtTable(i).iVar(j).iType = 0; 
+               virtTable(i).iVar(j).iLen = 0; 
+               virtTable(i).iVar(j).iScale = 0;
+               virtTable(i).iVar(j).iTypeIO = 0;
+               virtTable(i).iVar(j).paseAddr = 0;
+             endfor; 
+             return *ON;
+           endif;
+           //name already taken
+           pName = *BLANKS;
+           pName = %str(virtTable(i).iName:%size(pName));
+           if iName = pName;
+             return *OFF;
+           endif;
+         endfor;
+
+         // no more space
+         return *OFF;
+       end-proc; 
+
+       // *************************************************
+       // virtual table API -- add param description
+       // *************************************************
+       dcl-proc VirtualAddCallBackDesc export;
+         dcl-pi *N IND;
+          iName CHAR(1024) VALUE; 
+          iType INT(10) VALUE; 
+          iLen INT(10) VALUE; 
+          iScale INT(10) VALUE;
+          iTypeIO INT(10) VALUE;
+         end-pi;
+         DCL-S i INT(10) INZ(0);
+         DCL-S j INT(10) INZ(0);
+         dcl-s pName CHAR(1024) INZ(*BLANKS);
+
+         for i = 1 to VIRT_TABLE_MAX;
+           if virtTable(i).iNameLen > %size(iName);
+             return *OFF;
+           endif;
+           pName = *BLANKS;
+           pName = %str(virtTable(i).iName:%size(pName));
+           if iName = pName;
+             if virtTable(i).iComplete = *ON;
+               return *OFF;
+             endif;
+             for j = 1 to VIRT_CALLARG_MAX;
+               if virtTable(i).iVar(j).iType  = 0;
+                 virtTable(i).iVar(j).iType = iType; 
+                 virtTable(i).iVar(j).iLen = iLen; 
+                 virtTable(i).iVar(j).iScale = iScale;
+                 virtTable(i).iVar(j).iTypeIO = iTypeIO;
+                 virtTable(i).iVar(j).paseAddr = 0;
+                 return *ON;
+               endif;
+             endfor; 
+           endif;
+         endfor;
+
+         return *OFF;
+       end-proc; 
+
+
+       // *************************************************
+       // virtual table API -- add param description
+       // *************************************************
+       dcl-proc VirtualCompleteCallBack export;
+         dcl-pi *N IND;
+          iName CHAR(1024) VALUE; 
+         end-pi;
+         DCL-S i INT(10) INZ(0);
+         DCL-S j INT(10) INZ(0);
+         dcl-s pName CHAR(1024) INZ(*BLANKS);
+
+         for i = 1 to VIRT_TABLE_MAX;
+           if virtTable(i).iNameLen > %size(iName);
+             return *OFF;
+           endif;
+           pName = *BLANKS;
+           pName = %str(virtTable(i).iName:%size(pName));
+           if iName = pName;
+             virtTable(i).iComplete = *ON;
+             return *ON;
+           endif;
+         endfor;
+
+         return *OFF;
+       end-proc; 
+
+       // *************************************************
+       // virtual table API -- call PASE script (init)
+       // *************************************************
+       dcl-proc VirtualCallScript32 export;
+         dcl-pi *N IND;
+          paseName CHAR(1024) VALUE;
+          scriptChunk CHAR(65500) VALUE;
+         end-pi;
+         DCL-S rcb IND INZ(*ON);
+         DCL-S rc INT(10) INZ(0);
+
+         DCL-S fromCCSID INT(10) INZ(0);
+         DCL-S toCCSID INT(10) INZ(0);
+         DCL-S buffLen INT(10) INZ(0);
+         DCL-S outLen INT(10) INZ(0);
+         DCL-S buffPtr POINTER INZ(*NULL);
+         DCL-S outPtr POINTER INZ(*NULL);
+
+         DCL-S presult INT(5) INZ(QP2_RESULT_VOID);
+         DCL-S signature INT(5) INZ(0) dim(2);
+         DCL-S ptarget POINTER INZ(*NULL);
+         DCL-S psignature POINTER INZ(*NULL);
+         DCL-S pbuf POINTER INZ(*NULL);
+         DCL-S p64PASE UNS(20) INZ(0);
+
+         DCL-S iData POINTER INZ(*NULL);
+         DCL-S pDataStrILE POINTER INZ(*NULL);
+         DCL-S pDataMaxILE INT(10) INZ(0);
+         DCL-S pDataSizeILE INT(10) INZ(0);
+
+         DCL-S pSize INT(10) INZ(0);
+         DCL-S pPtrPASE POINTER INZ(*NULL);
+         dcl-ds pArgPASE likeds(virtPase_t) 
+                         based(pPtrPASE);
+
+         DCL-S i INT(10) INZ(0);
+         DCL-S found IND INZ(*OFF);
+         dcl-s iName CHAR(1024) INZ(*BLANKS);
+         dcl-s pName CHAR(1024) INZ(*BLANKS);
+
+         dcl-s iPaseCall POINTER INZ(*NULL);
+
+         iName = paseName;
+         for i = 1 to VIRT_TABLE_MAX;
+           if virtTable(i).iNameLen > %size(iName);
+             leave;
+           endif;
+           pName = *BLANKS;
+           pName = %str(virtTable(i).iName:%size(pName));
+           if iName = pName;
+             found = *ON;
+             iPaseCall = virtTable(i).pCall;
+             leave;
+           endif;
+         endfor;
+         if found = *OFF;
+           return *OFF;
+         endif;
+
+         signature(1) = QP2_ARG_PTR32;
+         signature(2) = QP2_ARG_END;
+         psignature = %addr(signature);
+
+         pDataStrILE = %addr(scriptChunk);
+         pDataMaxILE = %size(scriptChunk)+1;
+         pDataSizeILE = %len(%trim(scriptChunk));
+
+         pSize = pDataSizeILE * VIRT_CONV_EXPAND + 32;
+
+         // PASE memory
+         pPtrPASE = Qp2Malloc(pSize:%addr(p64PASE));
+         memset(pPtrPASE:0:pSize);
+         // PASE addr to memory
+         pArgPASE.pHere = p64PASE + 4;
+         // ILE addr (same location)
+         iData = pPtrPASE + 4;
+
+         // conversion
+         fromCCSID = getIleCCSID();
+         toCCSID = PaseLstCCSID();
+
+         buffPtr = pDataStrILE;
+         buffLen = pDataSizeILE;
+         outPtr = iData;
+         outLen = pDataSizeILE * VIRT_CONV_EXPAND;
+         rc = convCCSID(fromCCSID:toCCSID:buffPtr:buffLen:outPtr:outLen);
+         if rc < 0;
+           return *OFF;
+         endif;
+
+         // call pase script runner
+         ptarget = iPaseCall;
+         rc = Qp2CallPase(ptarget:pPtrPASE:psignature:presult:pbuf);
+         if rc < 0;
+           return *OFF;
+         endif;
+ 
+         return *ON;
+       end-proc; 
+
+       // *************************************************
+       // virtual table API -- PASE lang callback
+       // *************************************************
+       dcl-proc VirtualCallBack32 export;
+         dcl-pi *N IND;
+          name POINTER VALUE;
+          desc POINTER VALUE;
+          arg1 POINTER VALUE;
+          arg2 POINTER VALUE;
+          arg3 POINTER VALUE;
+          arg4 POINTER VALUE;
+          arg5 POINTER VALUE;
+          arg6 POINTER VALUE;
+          arg7 POINTER VALUE;
+          arg8 POINTER VALUE;
+          arg9 POINTER VALUE;
+          arg10 POINTER VALUE;
+          arg11 POINTER VALUE;
+          arg12 POINTER VALUE;
+          arg13 POINTER VALUE;
+          arg14 POINTER VALUE;
+          arg15 POINTER VALUE;
+          arg16 POINTER VALUE;
+          arg17 POINTER VALUE;
+          arg18 POINTER VALUE;
+          arg19 POINTER VALUE;
+          arg20 POINTER VALUE;
+          arg21 POINTER VALUE;
+          arg22 POINTER VALUE;
+          arg23 POINTER VALUE;
+          arg24 POINTER VALUE;
+          arg25 POINTER VALUE;
+          arg26 POINTER VALUE;
+          arg27 POINTER VALUE;
+          arg28 POINTER VALUE;
+          arg29 POINTER VALUE;
+          arg30 POINTER VALUE;
+          arg31 POINTER VALUE;
+          arg32 POINTER VALUE;
+         end-pi;
+         DCL-S rcb IND INZ(*ON);
+         dcl-s argc INT(10) INZ(0);
+         dcl-s argv POINTER dim(VIRT_CALLARG_MAX) INZ(*NULL);
+         dcl-s rc INT(10) INZ(0);
+         dcl-s i INT(10) INZ(0);
+         dcl-s iName CHAR(1024) INZ(*BLANKS);
+         dcl-s pName CHAR(1024) INZ(*BLANKS);
+         DCL-S fromCCSID INT(10) INZ(0);
+         DCL-S toCCSID INT(10) INZ(0);
+         DCL-S buffLen INT(10) INZ(0);
+         DCL-S outLen INT(10) INZ(0);
+         DCL-S buffPtr POINTER INZ(*NULL);
+         DCL-S outPtr POINTER INZ(*NULL);
+         DCL-S iCall POINTER(*PROC) INZ(*NULL);
+         DCL-S pIleDesc POINTER INZ(*NULL);
+         dcl-ds ileDesc  likeds(virtVar_t) 
+                         dim(VIRT_CALLARG_MAX) 
+                         based(pIleDesc);
+         DCL-S pPaseDesc POINTER INZ(*NULL);
+         dcl-ds paseDesc likeds(virtVar_t) 
+                         dim(VIRT_CALLARG_MAX) 
+                         based(pPaseDesc);
+
+         if arg1 <> *NULL;
+           argc+=1;
+           argv(argc) = arg1;
+         endif;
+         if arg2 <> *NULL;
+           argc+=1;
+           argv(argc) = arg2;
+         endif;
+         if arg3 <> *NULL;
+           argc+=1;
+           argv(argc) = arg3;
+         endif;
+         if arg4 <> *NULL;
+           argc+=1;
+           argv(argc) = arg4;
+         endif;
+         if arg5 <> *NULL;
+           argc+=1;
+           argv(argc) = arg5;
+         endif;
+         if arg6 <> *NULL;
+           argc+=1;
+           argv(argc) = arg6;
+         endif;
+         if arg7 <> *NULL;
+           argc+=1;
+           argv(argc) = arg7;
+         endif;
+         if arg8 <> *NULL;
+           argc+=1;
+           argv(argc) = arg8;
+         endif;
+         if arg9 <> *NULL;
+           argc+=1;
+           argv(argc) = arg9;
+         endif;
+         if arg10 <> *NULL;
+           argc+=1;
+           argv(argc) = arg10;
+         endif;
+         if arg11 <> *NULL;
+           argc+=1;
+           argv(argc) = arg11;
+         endif;
+         if arg12 <> *NULL;
+           argc+=1;
+           argv(argc) = arg12;
+         endif;
+         if arg13 <> *NULL;
+           argc+=1;
+           argv(argc) = arg13;
+         endif;
+         if arg14 <> *NULL;
+           argc+=1;
+           argv(argc) = arg14;
+         endif;
+         if arg15 <> *NULL;
+           argc+=1;
+           argv(argc) = arg15;
+         endif;
+         if arg16 <> *NULL;
+           argc+=1;
+           argv(argc) = arg16;
+         endif;
+         if arg17 <> *NULL;
+           argc+=1;
+           argv(argc) = arg17;
+         endif;
+         if arg18 <> *NULL;
+           argc+=1;
+           argv(argc) = arg18;
+         endif;
+         if arg19 <> *NULL;
+           argc+=1;
+           argv(argc) = arg19;
+         endif;
+         if arg20 <> *NULL;
+           argc+=1;
+           argv(argc) = arg20;
+         endif;
+         if arg21 <> *NULL;
+           argc+=1;
+           argv(argc) = arg21;
+         endif;
+         if arg22 <> *NULL;
+           argc+=1;
+           argv(argc) = arg22;
+         endif;
+         if arg23 <> *NULL;
+           argc+=1;
+           argv(argc) = arg23;
+         endif;
+         if arg24 <> *NULL;
+           argc+=1;
+           argv(argc) = arg24;
+         endif;
+         if arg25 <> *NULL;
+           argc+=1;
+           argv(argc) = arg25;
+         endif;
+         if arg26 <> *NULL;
+           argc+=1;
+           argv(argc) = arg26;
+         endif;
+         if arg27 <> *NULL;
+           argc+=1;
+           argv(argc) = arg27;
+         endif;
+         if arg28 <> *NULL;
+           argc+=1;
+           argv(argc) = arg28;
+         endif;
+         if arg29 <> *NULL;
+           argc+=1;
+           argv(argc) = arg29;
+         endif;
+         if arg30 <> *NULL;
+           argc+=1;
+           argv(argc) = arg30;
+         endif;
+         if arg31 <> *NULL;
+           argc+=1;
+           argv(argc) = arg31;
+         endif;
+         if arg32 <> *NULL;
+           argc+=1;
+           argv(argc) = arg32;
+         endif;
+
+         // convert ascii to ebcdic name
+         pName = %str(name:%size(pName));
+         fromCCSID = PaseLstCCSID();
+         toCCSID = getIleCCSID();
+         buffPtr = %addr(pName);
+         buffLen = %len(%trim(pName));
+         outPtr = %addr(iName);
+         outLen = %size(iName);
+         rc = convCCSID(fromCCSID:toCCSID:buffPtr:buffLen:outPtr:outLen);
+         if rc < 0;
+           return *OFF;
+         endif;
+
+         // find routine pase looking to call
+         pName = *BLANKS;
+         pName = %str(%addr(iName):%size(iName));
+         outLen = %len(%trim(pName));
+         for i = 1 to VIRT_TABLE_MAX;
+           if virtTable(i).iNameLen > %size(iName);
+             return *OFF;
+           endif;
+           if virtTable(i).iNameLen = outLen;
+             iName = *BLANKS;
+             iName = %str(virtTable(i).iName:%size(iName));
+             if pName = iName;
+               iCall = virtTable(i).iCall;
+               leave;
+             endif;
+           endif;
+         endfor;
+         if i > VIRT_TABLE_MAX;
+           return *OFF;
+         endif;
+
+         // call RPG language handler (VirtualSetLanguage)
+         pIleDesc = %addr(virtTable(i).iVar);
+         pPaseDesc = desc;
+         rcb = LangCallBack(iCall:argc:argv:ileDesc:paseDesc);
+
+         return rcb;
+       end-proc; 
+

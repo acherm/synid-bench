@@ -1,0 +1,111 @@
+     H AlwNull(*UsrCtl)
+
+      /copy ../../vphp/iconf_h
+      /copy ../../vphp/virt_h
+      /copy ../../vphp/vos_h
+      /copy ../../vphp/vpase_h
+      /copy ../../vphp/vlic_h
+      /copy ../../vphp/vconv_h
+
+       // *************************************************
+       // internal
+       // *************************************************
+       dcl-pr writeStdOutLF;
+        text pointer value;
+        len int(10) value;
+       end-pr;
+
+       dcl-c LF const(x'25');
+
+       dcl-pr IleSSL;
+          meChar CHAR(1024);
+       end-pr;
+
+       //**************************************************
+       // test worked
+       //**************************************************
+       dcl-s iscallme ind inz(*OFF);
+
+       // *************************************************
+       // main program
+       // *************************************************
+       DCL-S rcb IND INZ(*OFF);
+       dcl-s pgm CHAR(65500) inz(*BLANKS);
+       dcl-s arg CHAR(65500) dim(8) inz(*BLANKS);
+       dcl-s env CHAR(65500) dim(8) inz(*BLANKS);
+       dcl-s myPaseCCSID INT(10) inz(819);
+
+       dcl-s request CHAR(65500) inz(*BLANKS);
+
+       dcl-s response CHAR(400) inz(*BLANKS);
+
+       dcl-s msg3 CHAR(30) inz('good PHP');
+       dcl-s msg4 CHAR(30) inz('fail PHP');
+
+       pgm = PHP_SHARE 
+           + '/' + PHP_VLANG 
+           + '/' + 'testsslbasic32';
+       arg(1) = 'testsslbasic32';
+       env(1) = PHP_PATH 
+              + ':' + PASE_PATH;
+       env(2) = PHP_LIBPATH 
+              + ':' + PASE_LIBPATH;
+       env(3) = PASE_ATTACH;
+
+       rcb = PaseStart32(pgm:arg:env:myPaseCCSID);
+
+       VirtualAddCallBack('IleSSL':%paddr(IleSSL));
+       VirtualAddCallBackDesc('IleSSL':VIRT_CHAR:1024:0:VIRT_IO_IN);
+       VirtualCompleteCallBack('IleSSL');
+
+       request = 'GET / HTTP/1.1'
+               + LF
+               + 'Host: www.verisign.com'
+               + LF
+               + 'Connection: Close'
+               + LF
+               + LF;
+       writeStdOutLF(%addr(request):%len(%trim(request)));
+       rcb = VirtualCallScript32('hey_ssl':request);
+
+       PaseStop();
+
+       if iscallme = *ON;
+         writeStdOutLF(%addr(response):%len(%trim(response)));
+         writeStdOutLF(%addr(msg3):%len(%trim(msg3)));
+       else;
+         writeStdOutLF(%addr(msg4):%len(%trim(msg4)));
+       endif;
+
+       return;
+
+       // *************************************************
+       // callback location
+       // *************************************************
+       dcl-proc IleSSL export;
+         dcl-pi *N;
+          meChar CHAR(1024);
+         end-pi;
+
+         response = %trim(response) + meChar;
+
+         iscallme = *ON;
+
+       end-proc; 
+
+       // *************************************************
+       // write stdout with LF 
+       // *************************************************
+       dcl-proc writeStdOutLF export;
+       dcl-pi *N;
+        text pointer value;
+        len int(10) value;
+       end-pi;
+       dcl-s addLF char(1) inz(x'25');
+
+       writeIFS(1:text:len);
+       writeIFS(1:%addr(addLF):1);
+
+       end-proc; 
+
+

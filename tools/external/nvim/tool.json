@@ -1,0 +1,8 @@
+{
+  "version": "0.12.5",
+  "name": "Neovim 0.12.5 filetype",
+  "about": "editor's filetype detection: `vim.filetype.match` with the file name and its lines (name, extension, path patterns, then content checks), or the lines only with --content-only; answers are Vim filetype names",
+  "url": "https://neovim.io/doc/user/lua.html#vim.filetype",
+  "content_flag": true,
+  "family": "editor"
+}

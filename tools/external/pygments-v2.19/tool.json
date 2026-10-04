@@ -1,0 +1,9 @@
+{
+  "version": "2.19.2",
+  "name": "Pygments 2.19.2",
+  "about": "syntax highlighter (June 2025 release; the version of bench-m's reference entry `pygments`): `guess_lexer_for_filename` (file name, then content), or `guess_lexer` (content only)",
+  "url": "https://pypi.org/project/Pygments/2.19.2/",
+  "content_flag": true,
+  "family": "syntax highlighter",
+  "older_release_of": "pygments"
+}

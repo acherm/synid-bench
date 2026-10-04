@@ -1,0 +1,8 @@
+{
+  "version": "8.0.0",
+  "name": "GitHub Linguist 8.0.0",
+  "about": "GitHub's language detector (Ruby gem), the first 8.x release (September 2024): file name, extension, shebang, heuristics, then the centroid classifier (new in 8.0.0; it replaced naive Bayes) trained on its own samples",
+  "url": "https://github.com/github-linguist/linguist/releases/tag/v8.0.0",
+  "family": "linguist-family",
+  "older_release_of": "linguist"
+}

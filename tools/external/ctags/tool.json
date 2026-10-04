@@ -1,0 +1,7 @@
+{
+  "version": "6.2.1",
+  "name": "Universal Ctags 6.2.1",
+  "about": "tag generator; `ctags --guess-language-eagerly --print-language` names the parser it would use for a file: file name, extension, shebang, Emacs/Vim modelines, and content selectors for a few ambiguous extensions (used by Software Heritage's former indexer and by World of Code)",
+  "url": "https://github.com/universal-ctags/ctags",
+  "family": "tag generator"
+}

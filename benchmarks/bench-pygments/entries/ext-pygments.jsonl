@@ -1,0 +1,638 @@
+{"meta": {"label": "ext-pygments", "kind": "other-identifier", "benchmark": "bench-pygments/1", "name": "Pygments 2.21.0", "version": "synid-bench/pygments:2.21.0 (tools/external/pygments)", "about": "syntax highlighter: `guess_lexer_for_filename` (file name, then content), or `guess_lexer` (content only)", "url": "https://pygments.org", "date": "2026-10-04", "seconds": 16.9, "source": "386311579acd", "names_csv": "124ff950e62e"}}
+{"case_id": "pyg:7ea7ab24789e", "answer": ["ABNF"]}
+{"case_id": "pyg:ffe3ecc8c55f", "answer": ["ABNF"]}
+{"case_id": "pyg:ef7afa29489f", "answer": ["Ada"]}
+{"case_id": "pyg:8200499bc390", "answer": ["Ada"]}
+{"case_id": "pyg:b76f81953e31", "answer": ["Ada"]}
+{"case_id": "pyg:6bc3c4b9f4f5", "answer": ["ADL"]}
+{"case_id": "pyg:cb74194131d3", "answer": ["ADL"]}
+{"case_id": "pyg:3a8d85aa2eeb", "answer": ["Agda"]}
+{"case_id": "pyg:d61ebfef3636", "answer": ["Aheui"]}
+{"case_id": "pyg:bfbb7667d3a7", "answer": ["Aheui"]}
+{"case_id": "pyg:9693a27c8297", "answer": ["Aheui"]}
+{"case_id": "pyg:4171e77e32c5", "answer": ["autohotkey"]}
+{"case_id": "pyg:9ada4b739dc3", "answer": ["Alloy"]}
+{"case_id": "pyg:d0a311e09f03", "answer": ["AMDGPU"]}
+{"case_id": "pyg:ffbd20bb22bf", "answer": ["GAP"]}
+{"case_id": "pyg:0c69ac5039e3", "answer": null}
+{"case_id": "pyg:46ec34c16f6d", "answer": ["ApacheConf"]}
+{"case_id": "pyg:342e8ab84b4e", "answer": ["ANSYS parametric design language"]}
+{"case_id": "pyg:bb9a42be0e03", "answer": ["ANSYS parametric design language"]}
+{"case_id": "pyg:d5536c0e6887", "answer": ["APL"]}
+{"case_id": "pyg:3b525b193ecc", "answer": ["AppleScript"]}
+{"case_id": "pyg:0b24166871a8", "answer": ["AppleScript"]}
+{"case_id": "pyg:9d0e647f3434", "answer": ["Arduino"]}
+{"case_id": "pyg:2b4a9f17e434", "answer": ["Arrow"]}
+{"case_id": "pyg:4d704fa0d81d", "answer": ["Arturo"]}
+{"case_id": "pyg:12971117c499", "answer": ["ActionScript 3"]}
+{"case_id": "pyg:233f350e88e1", "answer": ["ActionScript 3"]}
+{"case_id": "pyg:d4ba8fa8d040", "answer": ["ActionScript"]}
+{"case_id": "pyg:d03641423e82", "answer": ["ASCII armored"]}
+{"case_id": "pyg:8e7f118d12e8", "answer": ["ASN.1"]}
+{"case_id": "pyg:d252ee4232fa", "answer": ["aspx-cs"]}
+{"case_id": "pyg:2a474fea3488", "answer": ["aspx-vb"]}
+{"case_id": "pyg:c626bc4b2d5a", "answer": ["Asymptote"]}
+{"case_id": "pyg:f79b04818f6f", "answer": ["AmbientTalk"]}
+{"case_id": "pyg:b266f04f4694", "answer": ["AutoIt"]}
+{"case_id": "pyg:0eabc6c00979", "answer": ["Awk"]}
+{"case_id": "pyg:3057c32f1637", "answer": ["BARE"]}
+{"case_id": "pyg:91d0666f120c", "answer": ["Bash"]}
+{"case_id": "pyg:3a4db9507698", "answer": ["Bash"]}
+{"case_id": "pyg:8fb351f41725", "answer": ["Bash"]}
+{"case_id": "pyg:70ac4c0072dd", "answer": ["Bash"]}
+{"case_id": "pyg:d4cb3c6e88ae", "answer": ["Batchfile"]}
+{"case_id": "pyg:a46ceac3d860", "answer": ["BBC Basic"]}
+{"case_id": "pyg:19f5b4947526", "answer": ["BC"]}
+{"case_id": "pyg:6f2192f5803b", "answer": ["Gherkin"]}
+{"case_id": "pyg:3c2dd6fef968", "answer": ["Berry"]}
+{"case_id": "pyg:db5d8567e9cc", "answer": ["BibTeX"]}
+{"case_id": "pyg:97d21ea4d70f", "answer": ["BitBake"]}
+{"case_id": "pyg:b6873b0d54d8", "answer": ["BlitzBasic"]}
+{"case_id": "pyg:7f88aa4ac82b", "answer": ["BlitzMax"]}
+{"case_id": "pyg:2fbe39d767cf", "answer": ["Blueprint"]}
+{"case_id": "pyg:d8b5386722e2", "answer": ["BNF"]}
+{"case_id": "pyg:358ff3322e09", "answer": ["Boa"]}
+{"case_id": "pyg:e240bf55c062", "answer": ["Boo"]}
+{"case_id": "pyg:e04c5d791c82", "answer": ["Boogie"]}
+{"case_id": "pyg:73dc696817bf", "answer": ["BST"]}
+{"case_id": "pyg:b93ba4124d91", "answer": ["BUGS"]}
+{"case_id": "pyg:3e11adc21a61", "answer": ["C"]}
+{"case_id": "pyg:a20ffb847083", "answer": ["C"]}
+{"case_id": "pyg:d1e91a714f6a", "answer": ["C"]}
+{"case_id": "pyg:a9935eaf8719", "answer": ["C"]}
+{"case_id": "pyg:8730aa829e57", "answer": ["C"]}
+{"case_id": "pyg:a1b17047ffd4", "answer": ["GAS"]}
+{"case_id": "pyg:99867ce6260f", "answer": ["Caddyfile"]}
+{"case_id": "pyg:4e4de28c7001", "answer": ["cADL"]}
+{"case_id": "pyg:692ae7da7811", "answer": ["cADL"]}
+{"case_id": "pyg:3cc6ed8c5208", "answer": ["CAmkES"]}
+{"case_id": "pyg:19a5f30df0f2", "answer": ["CapDL"]}
+{"case_id": "pyg:a3eec1ad390b", "answer": ["Cap'n Proto"]}
+{"case_id": "pyg:3f019a76ed90", "answer": ["Carbon"]}
+{"case_id": "pyg:27768c86d0f4", "answer": ["Carbon"]}
+{"case_id": "pyg:2ddaaab220b1", "answer": ["Carbon"]}
+{"case_id": "pyg:45ecc95b1731", "answer": ["CBM BASIC V2"]}
+{"case_id": "pyg:36e45eff789e", "answer": ["CDDL"]}
+{"case_id": "pyg:43b96785ac8f", "answer": ["CEL"]}
+{"case_id": "pyg:bad5d3cf3cb2", "answer": ["Ceylon"]}
+{"case_id": "pyg:8a919f9f5e5b", "answer": ["Coldfusion CFC"]}
+{"case_id": "pyg:ec830ec24789", "answer": ["Coldfusion CFC"]}
+{"case_id": "pyg:6275fe60316d", "answer": ["Coldfusion HTML"]}
+{"case_id": "pyg:670eb606fb15", "answer": ["ChaiScript"]}
+{"case_id": "pyg:48ef1e7cf73b", "answer": ["Chapel"]}
+{"case_id": "pyg:411d8dc9138a", "answer": ["Charmci"]}
+{"case_id": "pyg:c50dd9da39a1", "answer": ["Cheetah"]}
+{"case_id": "pyg:ad080558d77b", "answer": ["Cirru"]}
+{"case_id": "pyg:cb6817fe69cb", "answer": ["Clay"]}
+{"case_id": "pyg:6ed0ec30fdac", "answer": ["Clean"]}
+{"case_id": "pyg:93169b46beda", "answer": ["Clojure"]}
+{"case_id": "pyg:c9d9a769ae45", "answer": ["Clojure"]}
+{"case_id": "pyg:26afd3be1e87", "answer": ["Clojure"]}
+{"case_id": "pyg:c4a5d98d5c7f", "answer": ["Clojure"]}
+{"case_id": "pyg:619bd2ffe1ee", "answer": ["ClojureScript"]}
+{"case_id": "pyg:cb00c204ab55", "answer": ["CMake"]}
+{"case_id": "pyg:8e833cc880d9", "answer": ["COBOL"]}
+{"case_id": "pyg:d6741a47cd7c", "answer": ["CoffeeScript"]}
+{"case_id": "pyg:6e12738c635f", "answer": ["CoffeeScript"]}
+{"case_id": "pyg:19f807b9872e", "answer": ["COMAL-80"]}
+{"case_id": "pyg:2154212ab6fb", "answer": ["Common Lisp"]}
+{"case_id": "pyg:dffc8a349d55", "answer": ["Bash Session"]}
+{"case_id": "pyg:c7eefded248a", "answer": ["Bash Session"]}
+{"case_id": "pyg:24ca2f63e71b", "answer": ["Debian Control file"]}
+{"case_id": "pyg:5b87d0d9a2f2", "answer": ["Rocq Prover"]}
+{"case_id": "pyg:7de276db1cdc", "answer": ["verilog"]}
+{"case_id": "pyg:32ae11c9e93e", "answer": ["Prolog"]}
+{"case_id": "pyg:3cba8c9d5d02", "answer": ["Prolog"]}
+{"case_id": "pyg:26b953d9a9a6", "answer": ["Prolog"]}
+{"case_id": "pyg:dc83472e95dd", "answer": ["Prolog"]}
+{"case_id": "pyg:42915420b2a1", "answer": ["Prolog"]}
+{"case_id": "pyg:84011e3a51a1", "answer": ["C++"]}
+{"case_id": "pyg:74aa5f7b6eeb", "answer": ["C++"]}
+{"case_id": "pyg:bdf9ad06caa3", "answer": ["C++"]}
+{"case_id": "pyg:0fcf9963d8b1", "answer": ["C++"]}
+{"case_id": "pyg:6b9b9f59e1e9", "answer": ["C++"]}
+{"case_id": "pyg:9bacc7cec3b5", "answer": ["C++"]}
+{"case_id": "pyg:ef88a0b96514", "answer": ["CPSA"]}
+{"case_id": "pyg:d16eca9f87c1", "answer": ["Crystal"]}
+{"case_id": "pyg:5a0bc8d5952c", "answer": ["Crmsh"]}
+{"case_id": "pyg:933a8fa42659", "answer": ["Croc"]}
+{"case_id": "pyg:de060be78fb9", "answer": ["C#"]}
+{"case_id": "pyg:dd6e0ae64120", "answer": ["C#"]}
+{"case_id": "pyg:ffbf0d930dc2", "answer": ["Csound Document"]}
+{"case_id": "pyg:e5352475ec0d", "answer": ["Csound Score"]}
+{"case_id": "pyg:70a0b4306982", "answer": ["Csound Orchestra"]}
+{"case_id": "pyg:950eb784a484", "answer": ["CSS+mozpreproc"]}
+{"case_id": "pyg:299505f873ea", "answer": ["CSS+Lasso"]}
+{"case_id": "pyg:e797f7cfaf50", "answer": ["CSS+Lasso"]}
+{"case_id": "pyg:08d819633282", "answer": ["Gherkin"]}
+{"case_id": "pyg:5fdd88af5c89", "answer": ["CUDA"]}
+{"case_id": "pyg:5f079e656346", "answer": ["Cypher"]}
+{"case_id": "pyg:756f5d15201f", "answer": ["D"]}
+{"case_id": "pyg:0174e4a681cd", "answer": ["D"]}
+{"case_id": "pyg:77f4078e16e1", "answer": ["Dart"]}
+{"case_id": "pyg:608a535f0b2e", "answer": ["Dax"]}
+{"case_id": "pyg:95ac3bfeb58c", "answer": ["Delphi"]}
+{"case_id": "pyg:27239957e045", "answer": ["Delphi"]}
+{"case_id": "pyg:57ce9d7f1af6", "answer": ["Devicetree"]}
+{"case_id": "pyg:8ae1c1233860", "answer": ["dg"]}
+{"case_id": "pyg:45d45994e851", "answer": null}
+{"case_id": "pyg:c92ea8810be0", "answer": ["Docker"]}
+{"case_id": "pyg:fab384dd45ee", "answer": ["DTD"]}
+{"case_id": "pyg:db2c74299f49", "answer": ["Duel"]}
+{"case_id": "pyg:4810bdef8677", "answer": ["Duel"]}
+{"case_id": "pyg:315be997d5b3", "answer": ["DylanLID"]}
+{"case_id": "pyg:00da029c1fa6", "answer": ["Dylan"]}
+{"case_id": "pyg:8fec95d6037a", "answer": ["Dylan"]}
+{"case_id": "pyg:b09d35cf4a64", "answer": ["Earl Grey"]}
+{"case_id": "pyg:8ce3ddbe0ebb", "answer": ["Easytrieve"]}
+{"case_id": "pyg:6fc17723d66d", "answer": ["Easytrieve"]}
+{"case_id": "pyg:888dde56ab2c", "answer": ["EBNF"]}
+{"case_id": "pyg:48f7b610e167", "answer": ["eC"]}
+{"case_id": "pyg:0a82b648ca5f", "answer": ["eC"]}
+{"case_id": "pyg:aa1122d0b580", "answer": ["Eiffel"]}
+{"case_id": "pyg:ac4a6faf5e25", "answer": ["Elixir"]}
+{"case_id": "pyg:0c54659b14c0", "answer": ["Elm"]}
+{"case_id": "pyg:b3eea8e174f0", "answer": ["EmacsLisp"]}
+{"case_id": "pyg:f4f01f722463", "answer": ["E-mail"]}
+{"case_id": "pyg:ac3ac26cabd7", "answer": ["Erlang"]}
+{"case_id": "pyg:4f15015c7932", "answer": ["Erlang"]}
+{"case_id": "pyg:1da4913faf1f", "answer": ["Evoque"]}
+{"case_id": "pyg:5a9f0c2c9589", "answer": ["execline"]}
+{"case_id": "pyg:bba56c96eba7", "answer": ["xtlang"]}
+{"case_id": "pyg:bbb583969b14", "answer": ["Ezhil"]}
+{"case_id": "pyg:505d285738b0", "answer": ["Factor"]}
+{"case_id": "pyg:bd621acf1380", "answer": ["Fantom"]}
+{"case_id": "pyg:d70b9e2fc916", "answer": ["Fancy"]}
+{"case_id": "pyg:0c372a766600", "answer": ["Felix"]}
+{"case_id": "pyg:afe606896cc7", "answer": ["Fennel"]}
+{"case_id": "pyg:f8caf9785021", "answer": ["Fift"]}
+{"case_id": "pyg:22279440670c", "answer": ["Fish"]}
+{"case_id": "pyg:cbf80e3eda24", "answer": null}
+{"case_id": "pyg:516ebf4614a2", "answer": ["FloScript"]}
+{"case_id": "pyg:4895683866c9", "answer": ["Forth"]}
+{"case_id": "pyg:07ada2381bc4", "answer": ["Fortran"]}
+{"case_id": "pyg:97ed08999805", "answer": ["Fortran"]}
+{"case_id": "pyg:201a917cd608", "answer": ["FortranFixed"]}
+{"case_id": "pyg:4f891f6b85b4", "answer": ["FoxPro"]}
+{"case_id": "pyg:0cb3522e7b70", "answer": ["Freefem"]}
+{"case_id": "pyg:f2ea7d6daa8d", "answer": ["F#"]}
+{"case_id": "pyg:1faa4c6d8928", "answer": ["FStar"]}
+{"case_id": "pyg:6c31d4aefe3f", "answer": ["FunC"]}
+{"case_id": "pyg:368861d015c6", "answer": ["Futhark"]}
+{"case_id": "pyg:b1ecf5281acd", "answer": ["GAP"]}
+{"case_id": "pyg:44eb76afcd14", "answer": ["GAP"]}
+{"case_id": "pyg:606478ffcc6c", "answer": ["g-code"]}
+{"case_id": "pyg:ec0784a755f2", "answer": ["g-code"]}
+{"case_id": "pyg:976c362cfba5", "answer": ["GDScript"]}
+{"case_id": "pyg:1dc4f940d4f2", "answer": ["Genshi"]}
+{"case_id": "pyg:e925feef5ec0", "answer": null}
+{"case_id": "pyg:f12ac1149052", "answer": ["Gleam"]}
+{"case_id": "pyg:e807ab90d027", "answer": ["GLSL"]}
+{"case_id": "pyg:ddf18748b57d", "answer": ["GLSL"]}
+{"case_id": "pyg:f8697ded3dcf", "answer": ["Gnuplot"]}
+{"case_id": "pyg:d39db06c1d6d", "answer": ["Go"]}
+{"case_id": "pyg:4d6bdf9e273b", "answer": ["Go"]}
+{"case_id": "pyg:95439b0e82a3", "answer": ["Go"]}
+{"case_id": "pyg:423fff36cb44", "answer": ["Golo"]}
+{"case_id": "pyg:5f7cf4a53662", "answer": ["Golo"]}
+{"case_id": "pyg:fcbea2bd3277", "answer": ["GoodData-CL"]}
+{"case_id": "pyg:2dbdbba61def", "answer": ["Gosu"]}
+{"case_id": "pyg:af4c680aa42f", "answer": ["GraphQL"]}
+{"case_id": "pyg:b8baf3ebeae6", "answer": ["GraphQL"]}
+{"case_id": "pyg:b594a7790b88", "answer": ["GraphQL"]}
+{"case_id": "pyg:fa073b34fdac", "answer": ["GraphQL"]}
+{"case_id": "pyg:52e853061a20", "answer": ["GraphQL"]}
+{"case_id": "pyg:da04065ca033", "answer": ["GraphQL"]}
+{"case_id": "pyg:f3536bfc2b6c", "answer": ["GraphQL"]}
+{"case_id": "pyg:696870ba1d07", "answer": ["GraphQL"]}
+{"case_id": "pyg:d3740265278f", "answer": ["GraphQL"]}
+{"case_id": "pyg:bf2970da5015", "answer": ["GraphQL"]}
+{"case_id": "pyg:565b1e9f3605", "answer": ["GraphQL"]}
+{"case_id": "pyg:70e704536d49", "answer": ["GraphQL"]}
+{"case_id": "pyg:7e9aff84fba7", "answer": ["GraphQL"]}
+{"case_id": "pyg:36f28a6474ef", "answer": ["GraphQL"]}
+{"case_id": "pyg:a13a6dd7bf58", "answer": ["Graphviz"]}
+{"case_id": "pyg:6a78bc7dabcc", "answer": ["Groff"]}
+{"case_id": "pyg:691b7053c1ab", "answer": ["Groovy"]}
+{"case_id": "pyg:93b2be108953", "answer": ["Groovy"]}
+{"case_id": "pyg:944286e76287", "answer": ["Groovy"]}
+{"case_id": "pyg:d53996955ed4", "answer": ["Groovy"]}
+{"case_id": "pyg:7000fcb30edc", "answer": ["GSQL"]}
+{"case_id": "pyg:b8bf51408e01", "answer": ["Gosu Template"]}
+{"case_id": "pyg:07985a38b483", "answer": ["Haskell"]}
+{"case_id": "pyg:710de540ad1b", "answer": ["Haskell"]}
+{"case_id": "pyg:c612d1794d72", "answer": ["Haskell"]}
+{"case_id": "pyg:795241f9bb2c", "answer": ["HLSL"]}
+{"case_id": "pyg:471e3a56aa0c", "answer": ["HSAIL"]}
+{"case_id": "pyg:31a81f3195b3", "answer": ["HTML+Handlebars"]}
+{"case_id": "pyg:48190c2988bd", "answer": ["HTML+Handlebars"]}
+{"case_id": "pyg:1c9cee38c933", "answer": ["HTML + Angular2"]}
+{"case_id": "pyg:837eb6891ddc", "answer": ["HTML+PHP"]}
+{"case_id": "pyg:c8ce308059d2", "answer": ["HTML+PHP"]}
+{"case_id": "pyg:4a6d8dd47e07", "answer": ["HTML"]}
+{"case_id": "pyg:e7252f122ee4", "answer": null}
+{"case_id": "pyg:f641759bbee3", "answer": null}
+{"case_id": "pyg:b6af5370c33d", "answer": ["Haxe"]}
+{"case_id": "pyg:458035212b28", "answer": ["Haxe"]}
+{"case_id": "pyg:4e8cd689232a", "answer": ["Hybris"]}
+{"case_id": "pyg:0cbc84e6b256", "answer": ["Hy"]}
+{"case_id": "pyg:51b491935d2d", "answer": ["Inform 6 template"]}
+{"case_id": "pyg:e581f73a9b83", "answer": ["Icon"]}
+{"case_id": "pyg:67171ba819b1", "answer": ["Visual Prolog"]}
+{"case_id": "pyg:28f9a994b251", "answer": ["Idris"]}
+{"case_id": "pyg:5a2f9c62799b", "answer": ["INI"]}
+{"case_id": "pyg:42852dcc8fb1", "answer": ["Inform 7"]}
+{"case_id": "pyg:b654bb03f891", "answer": ["Inform 7"]}
+{"case_id": "pyg:36db0380ba6d", "answer": ["INI"]}
+{"case_id": "pyg:afe6ba0c99f6", "answer": ["INI"]}
+{"case_id": "pyg:afbcaa3ad58b", "answer": ["Ioke"]}
+{"case_id": "pyg:a85b7ead185d", "answer": ["IRC logs"]}
+{"case_id": "pyg:f7b3944f2b15", "answer": ["Isabelle"]}
+{"case_id": "pyg:602f6c715f55", "answer": ["Isabelle"]}
+{"case_id": "pyg:5c41c01572fd", "answer": ["J"]}
+{"case_id": "pyg:a46722367a34", "answer": ["JAGS"]}
+{"case_id": "pyg:bb81052f8746", "answer": ["Jasmin"]}
+{"case_id": "pyg:ec526f9845b7", "answer": ["Java"]}
+{"case_id": "pyg:faec23f3cfc3", "answer": ["Java"]}
+{"case_id": "pyg:3a054027181c", "answer": ["Java"]}
+{"case_id": "pyg:086fd65835fc", "answer": ["Java"]}
+{"case_id": "pyg:d0cce3b82e52", "answer": ["Javascript+mozpreproc"]}
+{"case_id": "pyg:1bb6603ad818", "answer": ["JCL"]}
+{"case_id": "pyg:6af043e4f80f", "answer": null}
+{"case_id": "pyg:0029ff1dd7dc", "answer": ["JMESPath"]}
+{"case_id": "pyg:3fab9ca65782", "answer": ["JavaScript"]}
+{"case_id": "pyg:330efb3d620f", "answer": ["JavaScript"]}
+{"case_id": "pyg:1e965431b25d", "answer": ["JavaScript+Genshi Text"]}
+{"case_id": "pyg:23672419c6ae", "answer": ["JavaScript"]}
+{"case_id": "pyg:8cc2e44f27e9", "answer": ["JavaScript"]}
+{"case_id": "pyg:4c2e72fd1c5d", "answer": ["JSGF"]}
+{"case_id": "pyg:3e0e96508fb6", "answer": ["JSON"]}
+{"case_id": "pyg:92439fee2dbb", "answer": ["JSON"]}
+{"case_id": "pyg:1a0248f78dee", "answer": ["JSON-LD"]}
+{"case_id": "pyg:d399da4479e4", "answer": ["Jsonnet"]}
+{"case_id": "pyg:385ba7f3f20a", "answer": ["Java Server Page"]}
+{"case_id": "pyg:030d7944e992", "answer": ["JSX"]}
+{"case_id": "pyg:8d0c5fe3a6a7", "answer": ["Julia"]}
+{"case_id": "pyg:e59b73605a24", "answer": ["Juttle"]}
+{"case_id": "pyg:c4e0a5de9b55", "answer": ["Kal"]}
+{"case_id": "pyg:14fe102be737", "answer": ["Kconfig"]}
+{"case_id": "pyg:437ad6fc2584", "answer": ["Koka"]}
+{"case_id": "pyg:cc7fcc45e664", "answer": ["Kotlin"]}
+{"case_id": "pyg:ff9ad76d9e1d", "answer": ["Kuin"]}
+{"case_id": "pyg:576aad2848b9", "answer": ["Kusto"]}
+{"case_id": "pyg:b38c3920aba7", "answer": ["Literate Agda"]}
+{"case_id": "pyg:1e6efa4cc42e", "answer": ["Lasso"]}
+{"case_id": "pyg:a78d58965ce9", "answer": ["Lasso"]}
+{"case_id": "pyg:f0165477476f", "answer": ["LDAP configuration file"]}
+{"case_id": "pyg:a4736ee32982", "answer": ["LDIF"]}
+{"case_id": "pyg:49e11fc72b15", "answer": ["Lean"]}
+{"case_id": "pyg:50a194b1e1d2", "answer": ["Lean4"]}
+{"case_id": "pyg:f5289e5eeb05", "answer": ["Literate Haskell"]}
+{"case_id": "pyg:1429631b639b", "answer": ["Literate Haskell"]}
+{"case_id": "pyg:fd548b3d8684", "answer": ["Lighttpd configuration file"]}
+{"case_id": "pyg:8c074401c641", "answer": ["LilyPond"]}
+{"case_id": "pyg:8d49954b68cc", "answer": ["Limbo"]}
+{"case_id": "pyg:01455802d8d5", "answer": ["liquid"]}
+{"case_id": "pyg:cb137066b228", "answer": ["LiveScript"]}
+{"case_id": "pyg:07306da3bfe3", "answer": ["LLVM-MIR"]}
+{"case_id": "pyg:703b0def7539", "answer": ["Logos"]}
+{"case_id": "pyg:5f43fdc92cab", "answer": ["Logtalk"]}
+{"case_id": "pyg:c419bf12fd5a", "answer": ["LSL"]}
+{"case_id": "pyg:2695fe2c8aba", "answer": ["Lua"]}
+{"case_id": "pyg:81d6cb12f64c", "answer": ["Lua"]}
+{"case_id": "pyg:a00b0b11f6a9", "answer": ["Lua"]}
+{"case_id": "pyg:c750342d7fd3", "answer": ["Luau"]}
+{"case_id": "pyg:d70a23fbdaaf", "answer": ["Luau"]}
+{"case_id": "pyg:5eff366aa94f", "answer": ["Luau"]}
+{"case_id": "pyg:42b80346f510", "answer": ["Macaulay2"]}
+{"case_id": "pyg:94d29f20614f", "answer": ["Makefile"]}
+{"case_id": "pyg:202b01670bff", "answer": ["Makefile"]}
+{"case_id": "pyg:ce0540487ad0", "answer": ["Makefile"]}
+{"case_id": "pyg:e9585cb6c79a", "answer": ["Makefile"]}
+{"case_id": "pyg:f33f7056401f", "answer": ["Makefile"]}
+{"case_id": "pyg:4b658d6e4513", "answer": ["Mako"]}
+{"case_id": "pyg:197fb3ff47d8", "answer": ["Maple"]}
+{"case_id": "pyg:51830a17a4eb", "answer": ["Maple"]}
+{"case_id": "pyg:8bb3beee5832", "answer": ["MAQL"]}
+{"case_id": "pyg:55cd51cd94f2", "answer": ["Markdown"]}
+{"case_id": "pyg:ca01ced41c7f", "answer": ["Mask"]}
+{"case_id": "pyg:f0fd5acc7bca", "answer": ["Mathematica"]}
+{"case_id": "pyg:79486b3871a0", "answer": ["Matlab"]}
+{"case_id": "pyg:551e28be1c55", "answer": ["Matlab"]}
+{"case_id": "pyg:7bc682f70bf3", "answer": ["Maxima"]}
+{"case_id": "pyg:83fcf85d2692", "answer": ["MCFunction"]}
+{"case_id": "pyg:96d8d05c58ef", "answer": ["MCSchema"]}
+{"case_id": "pyg:1d5e632fe779", "answer": ["MCSchema"]}
+{"case_id": "pyg:dce9afd7ef22", "answer": ["MCSchema"]}
+{"case_id": "pyg:b17dc9ffcaba", "answer": ["MCSchema"]}
+{"case_id": "pyg:92dc4b4e0370", "answer": ["Markdown"]}
+{"case_id": "pyg:1ac8dd431219", "answer": ["Meson"]}
+{"case_id": "pyg:4e9526b9a8dd", "answer": ["E-mail"]}
+{"case_id": "pyg:76712dd1531f", "answer": ["MIPS"]}
+{"case_id": "pyg:1721a842214a", "answer": ["Modelica"]}
+{"case_id": "pyg:e9d143615176", "answer": ["Modula-2"]}
+{"case_id": "pyg:8748797990cc", "answer": ["Modula-2"]}
+{"case_id": "pyg:7e21ca1b06d9", "answer": ["Modula-2"]}
+{"case_id": "pyg:1dafbdb888ed", "answer": ["Mojo"]}
+{"case_id": "pyg:04f81ee9b18b", "answer": ["Monkey"]}
+{"case_id": "pyg:138c49f8be5c", "answer": ["Monte"]}
+{"case_id": "pyg:b121a05e6b2e", "answer": ["MOOCode"]}
+{"case_id": "pyg:392405d7b259", "answer": ["MOOCode"]}
+{"case_id": "pyg:139fd6cc881d", "answer": ["MoonScript"]}
+{"case_id": "pyg:273b2434e179", "answer": ["Mosel"]}
+{"case_id": "pyg:dcf82d4032fd", "answer": ["MQL"]}
+{"case_id": "pyg:a30e9e160f03", "answer": ["MQL"]}
+{"case_id": "pyg:7cf43f356e66", "answer": ["MiniScript"]}
+{"case_id": "pyg:c316522762b6", "answer": ["Mscgen"]}
+{"case_id": "pyg:8b9fe3794a74", "answer": ["Mscgen"]}
+{"case_id": "pyg:bab0cb828070", "answer": ["MuPAD"]}
+{"case_id": "pyg:946c4b03ac3e", "answer": ["MuPAD"]}
+{"case_id": "pyg:edeec85b9564", "answer": ["Myghty"]}
+{"case_id": "pyg:85e86d846c63", "answer": ["NASM"]}
+{"case_id": "pyg:0fa8a8e8af62", "answer": ["NASM"]}
+{"case_id": "pyg:d1eb5d7ed5a7", "answer": ["NASM"]}
+{"case_id": "pyg:367266f8475d", "answer": ["NCL"]}
+{"case_id": "pyg:6152a7510bc5", "answer": ["Nemerle"]}
+{"case_id": "pyg:093424cbcaf6", "answer": ["nesC"]}
+{"case_id": "pyg:a01df998194b", "answer": ["nesC"]}
+{"case_id": "pyg:bc584227d829", "answer": ["NewLisp"]}
+{"case_id": "pyg:ce38c3fdcbb3", "answer": ["NewLisp"]}
+{"case_id": "pyg:9efc077e3690", "answer": ["NewLisp"]}
+{"case_id": "pyg:d94efe07a9cf", "answer": ["Newspeak"]}
+{"case_id": "pyg:475914082767", "answer": ["Newspeak"]}
+{"case_id": "pyg:aab840973a2c", "answer": ["Nginx configuration file"]}
+{"case_id": "pyg:e4fa18e6ad4e", "answer": ["Nimrod"]}
+{"case_id": "pyg:dd02f60d950a", "answer": ["Nimrod"]}
+{"case_id": "pyg:af50031f4bb9", "answer": ["Nit"]}
+{"case_id": "pyg:5448bff858f6", "answer": ["Nix"]}
+{"case_id": "pyg:7cc656da34e7", "answer": ["NSIS"]}
+{"case_id": "pyg:99707a08b9de", "answer": ["NestedText"]}
+{"case_id": "pyg:bc495a98c578", "answer": ["NestedText"]}
+{"case_id": "pyg:78093e0d3e64", "answer": ["NuSMV"]}
+{"case_id": "pyg:9615b7605144", "answer": ["Objective-C"]}
+{"case_id": "pyg:c47c3975c25b", "answer": ["Objective-J"]}
+{"case_id": "pyg:9e456c36fd00", "answer": ["OCaml"]}
+{"case_id": "pyg:c8e61161f5d7", "answer": ["ODIN"]}
+{"case_id": "pyg:acad1b5689fe", "answer": ["ODIN"]}
+{"case_id": "pyg:2225436fcc9b", "answer": ["OMG Interface Definition Language"]}
+{"case_id": "pyg:38baf10b3548", "answer": ["Opa"]}
+{"case_id": "pyg:c078d62d5dea", "answer": ["OpenEdge ABL"]}
+{"case_id": "pyg:3fcf03582a4e", "answer": ["OpenEdge ABL"]}
+{"case_id": "pyg:5b7d36344949", "answer": ["Org Mode"]}
+{"case_id": "pyg:1294c78da7d6", "answer": ["PacmanConf"]}
+{"case_id": "pyg:a667c491ca6f", "answer": ["Pan"]}
+{"case_id": "pyg:5128fa80916e", "answer": ["ParaSail"]}
+{"case_id": "pyg:f457d3d88672", "answer": ["OpenEdge ABL"]}
+{"case_id": "pyg:455481d17787", "answer": ["Pawn"]}
+{"case_id": "pyg:f72bad70254d", "answer": ["PDDL"]}
+{"case_id": "pyg:34bd0c89e1b5", "answer": ["PDDL"]}
+{"case_id": "pyg:5348d5abe858", "answer": ["Perl"]}
+{"case_id": "pyg:6a2525f8dd25", "answer": ["Perl"]}
+{"case_id": "pyg:531c0f94ab3f", "answer": ["Perl"]}
+{"case_id": "pyg:940444a3dd66", "answer": ["Perl6"]}
+{"case_id": "pyg:63f92f0a0f01", "answer": ["Perl6"]}
+{"case_id": "pyg:cda2fe05f9e5", "answer": ["Perl6"]}
+{"case_id": "pyg:9b137756f408", "answer": ["Phix"]}
+{"case_id": "pyg:dc0a281e393e", "answer": ["PHP"]}
+{"case_id": "pyg:86ec94c422e3", "answer": ["PHP"]}
+{"case_id": "pyg:b3848799d0d7", "answer": ["Pig"]}
+{"case_id": "pyg:4d6a16f8ee50", "answer": ["Pike"]}
+{"case_id": "pyg:3561ac3f1ce3", "answer": ["Pike"]}
+{"case_id": "pyg:8498acd8d173", "answer": ["PkgConfig"]}
+{"case_id": "pyg:f4e0770e401d", "answer": ["Pointless"]}
+{"case_id": "pyg:d777057aa9c6", "answer": ["Pony"]}
+{"case_id": "pyg:27d932557050", "answer": ["Portugol"]}
+{"case_id": "pyg:c53355db870a", "answer": ["Text"]}
+{"case_id": "pyg:b716cd2833cf", "answer": ["PostScript"]}
+{"case_id": "pyg:0bac3e011bb6", "answer": ["Gettext Catalog"]}
+{"case_id": "pyg:46ca1312f2b6", "answer": ["POVRay"]}
+{"case_id": "pyg:364adf18dcf0", "answer": ["POVRay"]}
+{"case_id": "pyg:f2a35939d80e", "answer": ["PowerShell"]}
+{"case_id": "pyg:eeb38d1c112c", "answer": ["PowerShell"]}
+{"case_id": "pyg:231bda57c599", "answer": ["Praat"]}
+{"case_id": "pyg:1063364c9f48", "answer": ["Procfile"]}
+{"case_id": "pyg:f15cdf2faee8", "answer": ["Prolog"]}
+{"case_id": "pyg:0c4455a05787", "answer": ["Prolog"]}
+{"case_id": "pyg:2ce7ca5b1450", "answer": ["Prolog"]}
+{"case_id": "pyg:f03b4defc2d4", "answer": ["Promela"]}
+{"case_id": "pyg:6d1d04a8f2fc", "answer": ["Promela"]}
+{"case_id": "pyg:32faca1c3910", "answer": ["PromQL"]}
+{"case_id": "pyg:3316fb7bf882", "answer": ["Properties"]}
+{"case_id": "pyg:6355b2e378ec", "answer": ["Protocol Buffer"]}
+{"case_id": "pyg:816fe4bb2bbe", "answer": ["PRQL"]}
+{"case_id": "pyg:8072bb1f344b", "answer": ["Puppet"]}
+{"case_id": "pyg:83ac2cecbf6e", "answer": ["PureScript"]}
+{"case_id": "pyg:e300a928ee5d", "answer": ["Python 2.x Traceback"]}
+{"case_id": "pyg:49d5849dadf9", "answer": ["Python 2.x Traceback"]}
+{"case_id": "pyg:d6a66bc759d6", "answer": null}
+{"case_id": "pyg:02040345e396", "answer": null}
+{"case_id": "pyg:b5bd92101855", "answer": ["Python Traceback"]}
+{"case_id": "pyg:10437ecc34c0", "answer": ["Python Traceback"]}
+{"case_id": "pyg:b185c97f7773", "answer": ["Python Traceback"]}
+{"case_id": "pyg:a02f586fdad2", "answer": ["Python Traceback"]}
+{"case_id": "pyg:67155dc1ca79", "answer": ["Python Traceback"]}
+{"case_id": "pyg:58d56195a6c8", "answer": ["Python Traceback"]}
+{"case_id": "pyg:e0afaad71226", "answer": ["Python Traceback"]}
+{"case_id": "pyg:99643e7a8941", "answer": ["Python Traceback"]}
+{"case_id": "pyg:53992fe8bc1d", "answer": ["Python"]}
+{"case_id": "pyg:cdef637104ba", "answer": ["Python"]}
+{"case_id": "pyg:96872b48d34e", "answer": ["Python"]}
+{"case_id": "pyg:cf9384da52f4", "answer": ["Python"]}
+{"case_id": "pyg:be256cabcc33", "answer": ["Q"]}
+{"case_id": "pyg:43bb1612a47e", "answer": ["CBM BASIC V2"]}
+{"case_id": "pyg:d2562e72a971", "answer": ["Qlik"]}
+{"case_id": "pyg:907a07e9c927", "answer": ["QML"]}
+{"case_id": "pyg:7d8a98c796fe", "answer": ["QVTO"]}
+{"case_id": "pyg:a2812331c5f4", "answer": ["Racket"]}
+{"case_id": "pyg:b58c24cbf0b2", "answer": ["Ragel in CPP Host"]}
+{"case_id": "pyg:140b1869ebe6", "answer": ["Ragel"]}
+{"case_id": "pyg:45f6ea5de11e", "answer": ["Ruby"]}
+{"case_id": "pyg:05d8e56a9ec9", "answer": ["Ruby"]}
+{"case_id": "pyg:de5b68753709", "answer": ["Ruby"]}
+{"case_id": "pyg:4c57bc248f66", "answer": ["Ruby"]}
+{"case_id": "pyg:dde8d5a15a7d", "answer": ["Ruby"]}
+{"case_id": "pyg:5361abfa105d", "answer": ["Ruby"]}
+{"case_id": "pyg:372ac9d86601", "answer": ["Ruby"]}
+{"case_id": "pyg:6d5be59a2763", "answer": ["Ruby"]}
+{"case_id": "pyg:e9f6852f7363", "answer": ["Rd"]}
+{"case_id": "pyg:b8667d0a096c", "answer": ["ReasonML"]}
+{"case_id": "pyg:26e60cdbcc50", "answer": ["REBOL"]}
+{"case_id": "pyg:29330ac349ed", "answer": ["Red"]}
+{"case_id": "pyg:8db8b823873a", "answer": ["Red"]}
+{"case_id": "pyg:b3bd978dcf4f", "answer": ["Redcode"]}
+{"case_id": "pyg:566a2797d052", "answer": ["reg"]}
+{"case_id": "pyg:594163e03701", "answer": ["Rell"]}
+{"case_id": "pyg:7efa6307534d", "answer": null}
+{"case_id": "pyg:ffa45d20c0e0", "answer": ["Rexx"]}
+{"case_id": "pyg:51f9ba16461e", "answer": ["RHTML"]}
+{"case_id": "pyg:f487d595daf7", "answer": ["RHTML"]}
+{"case_id": "pyg:64b897ff2de3", "answer": ["Ride"]}
+{"case_id": "pyg:f7e70d9773eb", "answer": ["Rita"]}
+{"case_id": "pyg:76e3e4a6108c", "answer": ["Relax-NG Compact"]}
+{"case_id": "pyg:6199928791d1", "answer": ["Roboconf Graph"]}
+{"case_id": "pyg:ac83b3285aed", "answer": ["Roboconf Instances"]}
+{"case_id": "pyg:88228f80f89f", "answer": ["RobotFramework"]}
+{"case_id": "pyg:9c76c36dfadd", "answer": ["RQL"]}
+{"case_id": "pyg:bfb37a234c23", "answer": ["RSL"]}
+{"case_id": "pyg:841866b3dc87", "answer": ["reStructuredText"]}
+{"case_id": "pyg:550f0a7fe11a", "answer": ["reStructuredText"]}
+{"case_id": "pyg:57f41194e31d", "answer": ["TrafficScript"]}
+{"case_id": "pyg:6a1929746bec", "answer": ["Rust"]}
+{"case_id": "pyg:7d0e525527dc", "answer": ["Savi"]}
+{"case_id": "pyg:21d8fa694748", "answer": ["SuperCollider"]}
+{"case_id": "pyg:d58f63b18872", "answer": ["Scala"]}
+{"case_id": "pyg:f6619152f4d1", "answer": ["Scala"]}
+{"case_id": "pyg:7972651b3a94", "answer": ["Scala"]}
+{"case_id": "pyg:034d1e4d3350", "answer": ["Scala"]}
+{"case_id": "pyg:c7d23dab7ded", "answer": ["Scala"]}
+{"case_id": "pyg:d3a5002bca09", "answer": ["Scala"]}
+{"case_id": "pyg:36cf53ade985", "answer": ["Scala"]}
+{"case_id": "pyg:55c67c03712b", "answer": ["Scala"]}
+{"case_id": "pyg:24ec85b34741", "answer": ["Scala"]}
+{"case_id": "pyg:5d8ac5c68c4e", "answer": ["Scala"]}
+{"case_id": "pyg:43da2497d53b", "answer": ["Scala"]}
+{"case_id": "pyg:0a584d66b89b", "answer": ["Scala"]}
+{"case_id": "pyg:3af51182876b", "answer": ["Scala"]}
+{"case_id": "pyg:cb3232a11e4b", "answer": ["Scala"]}
+{"case_id": "pyg:d598898f603c", "answer": ["Scala"]}
+{"case_id": "pyg:66ebfc39c091", "answer": ["Scala"]}
+{"case_id": "pyg:ee05f3d4fe1c", "answer": ["Scala"]}
+{"case_id": "pyg:09bddb367a4d", "answer": ["Scala"]}
+{"case_id": "pyg:b0d10f8404a1", "answer": ["Scala"]}
+{"case_id": "pyg:13cdb8ee8bda", "answer": ["Scala"]}
+{"case_id": "pyg:54215a0cc90b", "answer": ["Scala"]}
+{"case_id": "pyg:100c43c1f332", "answer": ["Scala"]}
+{"case_id": "pyg:2748355c5497", "answer": ["Scala"]}
+{"case_id": "pyg:030a6f2bc3ae", "answer": ["Scala"]}
+{"case_id": "pyg:99fa21715782", "answer": ["Scala"]}
+{"case_id": "pyg:5e672aed49c1", "answer": ["Scala"]}
+{"case_id": "pyg:6544b293e2b8", "answer": ["Scaml"]}
+{"case_id": "pyg:09cf252aa2b8", "answer": ["scdoc"]}
+{"case_id": "pyg:6a8f05ac1146", "answer": ["Scheme"]}
+{"case_id": "pyg:3d11280ce911", "answer": ["Scheme"]}
+{"case_id": "pyg:873454aa5dca", "answer": ["Scilab"]}
+{"case_id": "pyg:fdadfbb3d8c8", "answer": ["Scilab"]}
+{"case_id": "pyg:b2bb828ca7bd", "answer": ["Scilab"]}
+{"case_id": "pyg:787f6b108d11", "answer": ["Sed"]}
+{"case_id": "pyg:de29bd663039", "answer": ["Sed"]}
+{"case_id": "pyg:0b67e0860fa5", "answer": ["Sed"]}
+{"case_id": "pyg:e76e4474404d", "answer": ["Sed"]}
+{"case_id": "pyg:c6029e902cb5", "answer": ["SmartGameFormat"]}
+{"case_id": "pyg:b5497e72da8d", "answer": ["Shen"]}
+{"case_id": "pyg:a108b1153cc7", "answer": ["ShExC"]}
+{"case_id": "pyg:9fca645a4eb0", "answer": ["Sieve"]}
+{"case_id": "pyg:a0281500c2cf", "answer": ["Silver"]}
+{"case_id": "pyg:7c026960ed98", "answer": ["Singularity"]}
+{"case_id": "pyg:fb28e240b946", "answer": ["Slim"]}
+{"case_id": "pyg:7228688ea782", "answer": ["Slurm"]}
+{"case_id": "pyg:1857fbd7f6ff", "answer": ["Smali"]}
+{"case_id": "pyg:52bee32be548", "answer": ["Smalltalk"]}
+{"case_id": "pyg:f232871559e1", "answer": ["XML+Smarty"]}
+{"case_id": "pyg:455d23e99ffd", "answer": ["Smithy"]}
+{"case_id": "pyg:bbb6269e7e52", "answer": ["Standard ML"]}
+{"case_id": "pyg:e98bd5820dc5", "answer": ["Standard ML"]}
+{"case_id": "pyg:a2be86fd80cb", "answer": ["Standard ML"]}
+{"case_id": "pyg:daa2d30123eb", "answer": ["SNBT"]}
+{"case_id": "pyg:93b4159c65ee", "answer": ["Snobol"]}
+{"case_id": "pyg:c58ac9ed4680", "answer": ["Snowball"]}
+{"case_id": "pyg:951e50a0a18c", "answer": ["Solidity"]}
+{"case_id": "pyg:19e6c584c478", "answer": ["Sophia"]}
+{"case_id": "pyg:0eb18da0a089", "answer": ["Debian Sourcelist"]}
+{"case_id": "pyg:0fe2a0faf747", "answer": ["SourcePawn"]}
+{"case_id": "pyg:399718f53878", "answer": ["SPARQL"]}
+{"case_id": "pyg:7bcf96eaab45", "answer": ["RPMSpec"]}
+{"case_id": "pyg:f0d26460f16a", "answer": ["Spice"]}
+{"case_id": "pyg:dd8fc138245f", "answer": ["Spice"]}
+{"case_id": "pyg:aff3033f09a0", "answer": ["S"]}
+{"case_id": "pyg:d18c5f7fc3bc", "answer": ["SQL+Jinja"]}
+{"case_id": "pyg:073424bfc5cc", "answer": ["SquidConf"]}
+{"case_id": "pyg:9c8a668e3aa9", "answer": null}
+{"case_id": "pyg:7596e498e843", "answer": null}
+{"case_id": "pyg:7138a93f893e", "answer": null}
+{"case_id": "pyg:b9e4750647de", "answer": null}
+{"case_id": "pyg:61a161a589c3", "answer": ["Scalate Server Page"]}
+{"case_id": "pyg:768c4fd20685", "answer": ["Stan"]}
+{"case_id": "pyg:f74ae7755b29", "answer": ["Swift"]}
+{"case_id": "pyg:242c09089c3c", "answer": ["SWIG"]}
+{"case_id": "pyg:e9775819d2a8", "answer": ["SWIG"]}
+{"case_id": "pyg:7abde6e831dd", "answer": ["systemverilog"]}
+{"case_id": "pyg:b12281e8d0f0", "answer": ["Tact"]}
+{"case_id": "pyg:03f6bf80839f", "answer": ["TADS 3"]}
+{"case_id": "pyg:8cfee83bb8e5", "answer": ["Tal"]}
+{"case_id": "pyg:f9d6be2e9d38", "answer": ["TASM"]}
+{"case_id": "pyg:9ed66730ef21", "answer": ["Tcsh"]}
+{"case_id": "pyg:590e1bdbd992", "answer": ["Tea"]}
+{"case_id": "pyg:a9c94ce8a3b1", "answer": ["teal"]}
+{"case_id": "pyg:a2af0e614e55", "answer": ["Termcap"]}
+{"case_id": "pyg:86175bf3dedc", "answer": ["Terminfo"]}
+{"case_id": "pyg:ebe120256198", "answer": ["ThingsDB"]}
+{"case_id": "pyg:fc155d2134db", "answer": ["Thrift"]}
+{"case_id": "pyg:d9214d6716ce", "answer": ["tiddler"]}
+{"case_id": "pyg:2686630068f2", "answer": ["Tl-b"]}
+{"case_id": "pyg:05c202580ed2", "answer": ["Text"]}
+{"case_id": "pyg:9e7503b1730b", "answer": ["Typographic Number Theory"]}
+{"case_id": "pyg:e3305b3afebb", "answer": ["Todotxt"]}
+{"case_id": "pyg:abd77e6a6134", "answer": ["TOML"]}
+{"case_id": "pyg:8fe13cc54d41", "answer": ["Text"]}
+{"case_id": "pyg:5839647b8811", "answer": ["Treetop"]}
+{"case_id": "pyg:0612c975bbe7", "answer": ["TypeScript"]}
+{"case_id": "pyg:3d40a79b6b81", "answer": ["Transact-SQL"]}
+{"case_id": "pyg:9ab89a2f2394", "answer": ["TSX"]}
+{"case_id": "pyg:654bc0cac7e0", "answer": ["Tera Term macro"]}
+{"case_id": "pyg:be8642d0ede5", "answer": ["Turtle"]}
+{"case_id": "pyg:a9f1c0be7a3d", "answer": null}
+{"case_id": "pyg:a5f92a4e1260", "answer": ["TypoScript"]}
+{"case_id": "pyg:9a6cf91a8dcb", "answer": ["Typst"]}
+{"case_id": "pyg:fc350f4309a8", "answer": ["ucode"]}
+{"case_id": "pyg:424cb242f03a", "answer": ["UL4"]}
+{"case_id": "pyg:a50b36049a5f", "answer": ["UL4"]}
+{"case_id": "pyg:e7c53b68d144", "answer": ["UL4"]}
+{"case_id": "pyg:a7f9f1d06e34", "answer": ["UL4"]}
+{"case_id": "pyg:c9ea225b06c4", "answer": ["Unicon"]}
+{"case_id": "pyg:a612fec0bc1c", "answer": ["UrbiScript"]}
+{"case_id": "pyg:6a9393b8fb47", "answer": ["USD"]}
+{"case_id": "pyg:5434235e2194", "answer": ["VB.net"]}
+{"case_id": "pyg:571082620eb9", "answer": ["VB.net"]}
+{"case_id": "pyg:27c95fa7e3e4", "answer": ["VBScript"]}
+{"case_id": "pyg:1c30890f3036", "answer": ["VCL"]}
+{"case_id": "pyg:d84b29be3e40", "answer": ["Verifpal"]}
+{"case_id": "pyg:1315f50e8a37", "answer": ["verilog"]}
+{"case_id": "pyg:6c03a130a630", "answer": ["VGL"]}
+{"case_id": "pyg:9416e10bd700", "answer": ["vhdl"]}
+{"case_id": "pyg:d5d93bd9a065", "answer": ["VimL"]}
+{"case_id": "pyg:c8dc1ad6b679", "answer": ["VimL"]}
+{"case_id": "pyg:a433ece39b56", "answer": ["Prolog"]}
+{"case_id": "pyg:737fb19ea2ad", "answer": ["Prolog"]}
+{"case_id": "pyg:04816b0d1f61", "answer": ["Visual Prolog Grammar"]}
+{"case_id": "pyg:2009d0821252", "answer": ["Visual Prolog Grammar"]}
+{"case_id": "pyg:8ab66a06e55c", "answer": ["Vue"]}
+{"case_id": "pyg:4a439897c703", "answer": ["Vyper"]}
+{"case_id": "pyg:7e0c1304b633", "answer": ["WebAssembly"]}
+{"case_id": "pyg:8a3e4ac1d036", "answer": ["Web IDL"]}
+{"case_id": "pyg:7a9aed69b828", "answer": ["Whiley"]}
+{"case_id": "pyg:6097c34f98a7", "answer": null}
+{"case_id": "pyg:9f1e3c56d193", "answer": ["World of Warcraft TOC"]}
+{"case_id": "pyg:2d5fcc73f53e", "answer": ["World of Warcraft TOC"]}
+{"case_id": "pyg:109447faab65", "answer": ["World of Warcraft TOC"]}
+{"case_id": "pyg:667636c9028b", "answer": ["World of Warcraft TOC"]}
+{"case_id": "pyg:bc6deb9c3f81", "answer": ["Wren"]}
+{"case_id": "pyg:294d32f8df07", "answer": ["X10"]}
+{"case_id": "pyg:5278f0321f26", "answer": ["XML"]}
+{"case_id": "pyg:64d99e918dea", "answer": ["Xorg"]}
+{"case_id": "pyg:a322713dd561", "answer": ["X++"]}
+{"case_id": "pyg:8ed873e99b0a", "answer": ["XQuery"]}
+{"case_id": "pyg:f34f4aa37d29", "answer": ["XQuery"]}
+{"case_id": "pyg:659dd9499dfd", "answer": ["XQuery"]}
+{"case_id": "pyg:c8eaafe888b4", "answer": ["XSLT"]}
+{"case_id": "pyg:cd0420ebfec5", "answer": ["Xtend"]}
+{"case_id": "pyg:ee51f9957deb", "answer": ["XUL+mozpreproc"]}
+{"case_id": "pyg:25b0e6e71aa2", "answer": ["YAML+Jinja"]}
+{"case_id": "pyg:59725a6d5a92", "answer": ["YAML"]}
+{"case_id": "pyg:0aa92667b81e", "answer": ["YANG"]}
+{"case_id": "pyg:306b5ab55ccc", "answer": ["YARA"]}
+{"case_id": "pyg:ab026f5cfd89", "answer": ["Zeek"]}
+{"case_id": "pyg:b31503de7dea", "answer": ["Zeek"]}
+{"case_id": "pyg:00bafae5c86c", "answer": ["Zephir"]}
+{"case_id": "pyg:73881066c2c0", "answer": ["Zig"]}
+{"case_id": "pyg:d88fddd32dde", "answer": ["Zone"]}
+{"case_id": "pyg:5c11999288cb", "answer": ["Zone"]}

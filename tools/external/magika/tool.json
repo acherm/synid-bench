@@ -1,0 +1,8 @@
+{
+  "version": "1.0.3",
+  "name": "Magika 1.0.3",
+  "about": "Google's deep-learning content-type detector; reads the bytes only (~200 content types)",
+  "url": "https://github.com/google/magika",
+  "content_native": true,
+  "family": "neural content-type detector"
+}

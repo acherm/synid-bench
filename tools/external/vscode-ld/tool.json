@@ -1,0 +1,8 @@
+{
+  "version": "1.0.23",
+  "name": "vscode-languagedetection 1.0.23",
+  "about": "VS Code's language detection (npm @vscode/vscode-languagedetection): Guesslang's model in TensorFlow.js, content only, 54 languages labelled by file extension; used as VS Code's languageDetectionWebWorker.ts (3d6c0d4) does: first 10,000 characters, no answer under 20, confidences adjusted (+0.05 js/html/json/ts/css/py/xml/php, +0.025 cpp/sh/java/cs/c, -0.5 bat/ini/makefile/sql/csv/toml), the top language only if it is >= 0.2 and the candidates down to the first gap of 0.2 are all above 0.2; without VS Code's regexp fallback and history biases",
+  "url": "https://github.com/microsoft/vscode-languagedetection",
+  "content_native": true,
+  "family": "neural language guesser"
+}

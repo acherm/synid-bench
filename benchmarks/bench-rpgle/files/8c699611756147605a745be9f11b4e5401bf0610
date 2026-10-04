@@ -1,0 +1,2618 @@
+
+      /////////////////////////////////////////////////////////////////////////////////
+      //
+      //    Common Service Access Protocol
+      //
+      //    csapapi.rpgle
+      //    CSAP Application Programming Interface
+      //    Version 3.0.0
+      //
+      //    Compile module with:
+      //
+      //       CRTSQLRPGI OBJ(CSAPAPI) OBJTYPE(*MODULE) OUTPUT(*NONE)
+      //                  DBGVIEW(*SOURCE)
+      //
+      //    Build program with:
+      //
+      //       CRTSRVPGM SRVPGM(FSOUC0/CSAPAPI) MODULE(CSAPAPI)
+      //       BNDSRVPGM(CFSAPI) EXPORT(*ALL)
+      //
+      //
+      //    Distributed under the MIT license
+      //
+      //    Copyright (c) 2013 Clarasoft I.T. Solutions Inc.
+      //
+      //    Permission is hereby granted, free of charge, to any person obtaining
+      //    a copy of this software and associated documentation files
+      //    (the "Software"), to deal in the Software without restriction,
+      //    including without limitation the rights to use, copy, modify,
+      //    merge, publish, distribute, sublicense, and/or sell
+      //    copies of the Software, and to permit persons to whom the Software is
+      //    furnished to do so, subject to the following conditions:
+      //    The above copyright notice and this permission notice shall be
+      //    included in all copies or substantial portions of the Software.
+      //    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+      //    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+      //    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+      //    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
+      //    ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+      //    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH
+      //    THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+      //
+      /////////////////////////////////////////////////////////////////////////////////
+
+
+     H NOMAIN
+
+     FCSAPCDIR  IF   E           K Disk
+
+      /Include qcpysrc,cfs400h
+      /Include qcpysrc,csapapi.h
+      /Include QSYSINC/QRPGLESRC,FCNTL
+
+      *----------------------------------------------------------------------
+      *  Connection object: this will be initialised by the CSAP broker
+      *----------------------------------------------------------------------
+
+     DCFSCONN_E        S               *     EXPORT
+     DSEC_E            S             10I 0   EXPORT
+
+      *----------------------------------------------------------------------
+      *  CTLST
+      *----------------------------------------------------------------------
+
+     DCTLST_TOP...
+     D                 C                   Const(0)
+     DCTLST_BOTTOM...
+     D                 C                   Const(2147483646)
+
+     DCTLST_Clear...
+     D                 PR            10I 0
+     D@This                            *   Value
+
+     DCTLST_Constructor...
+     D                 PR              *
+
+     DCTLST_Count...
+     D                 PR            10I 0
+     D@This                            *   Value
+
+     DCTLST_Destructor...
+     D                 PR            10I 0
+     D@This                            *
+
+     DCTLST_Get...
+     D                 PR            10I 0
+     D@This                            *   Value
+     D@Value                           *   Value
+     D@Bytes                         10I 0
+     D@Index                         10I 0 Value
+
+     DCTLST_GetItemRef...
+     D                 PR            10I 0
+     D@This                            *   Value
+     D@ItemRef                         *
+     D@Bytes                         10I 0
+     D@Index                         10I 0 Value
+
+     DCTLST_Insert...
+     D                 PR            10I 0
+     D@This                            *   Value
+     D@Value                           *   Value
+     D@Bytes                         10I 0 Value
+     D@Index                         10I 0 Value
+
+     DCTLST_ItemSize...
+     D                 PR            10I 0
+     D@This                            *   Value
+     D@Index                         10I 0 Value
+
+     DCTLST_IterNext...
+     D                 PR            10I 0
+     D@This                            *   Value
+     D@Value                           *   Value
+     D@Bytes                         10I 0
+
+     DCTLST_IterNextSize...
+     D                 PR            10I 0
+     D@This                            *   Value
+
+     DCTLST_IterStart...
+     D                 PR            10I 0
+     D@This                            *   Value
+
+     DCTLST_Remove...
+     D                 PR            10I 0
+     D@This                            *   Value
+     D@Index                         10I 0 Value
+
+     DCTLST_Set...
+     D                 PR            10I 0
+     D@This                            *   Value
+     D@Value                           *   Value
+     D@Bytes                         10I 0 Value
+     D@Index                         10I 0 Value
+
+     DCTLST_PRIVATE_MemCpy...
+     D                 PR                  ExtProc('memcpy')
+     D@To                              *   Value
+     D@From                            *   Value
+     D@Len                           10I 0 Value
+
+     DCTLST_PRIVATE_Goto...
+     D                 PR            10I 0
+     D@This                            *   Value
+     D@n                             10I 0 Value
+
+     DCTLST_PRIVATE_Next...
+     D                 PR            10I 0
+     D@This                            *   Value
+
+     DCTLST_PRIVATE_Previous...
+     D                 PR            10I 0
+     D@This                            *   Value
+
+     DCTLST_PRIVATE_CurIndex...
+     D                 PR            10I 0
+     D@This                            *   Value
+
+     DCTLST_Head       DS                  Based(Null)
+     D                                     Qualified
+     DCount                          10I 0
+     DFirst                            *
+     DLast                             *
+     DCurrent                          *
+     DCurIndex                       10I 0
+     DNextIndex                      10I 0
+
+     DCTLST_Node       DS                  Based(Null)
+     D                                     Qualified
+     D Value                           *
+     D Bytes                         10I 0
+     D Next                            *
+     D Prev                            *
+
+      *----------------------------------------------------------------------
+      *  Conversion
+      *----------------------------------------------------------------------
+
+     DConvert          PR                  ExtPgm('QDCXLATE')
+     D@DataLen                        5P 0 Const
+     D@Data                       32766A   Options(*VarSize)
+     D@ConvTable                     10A   Const
+
+     DAsciiToEbcdic    PR
+     D@Data                       32766A   Options(*VarSize)
+     D@Len                            5P 0 Value
+
+     DEbcdicToAscii    PR
+     D@Data                       32766A   Options(*VarSize)
+     D@Len                            5P 0 Const
+
+      *----------------------------------------------------------------------
+      *  CSAP Implemetation
+      *----------------------------------------------------------------------
+
+     DCSAP_VERSION     C                   Const('0000000003')
+
+     D CSAPSERVER_Instance...
+     D                 DS                  Qualified
+     DSessionID                      32A
+     DServiceID                      32A
+     DServiceName                    64A
+     DVersion                        10A
+     DConnectionHandle...
+     D                                5I 0
+     DpLastError                       *
+     DpDataFrame                       *
+     DDataFrameSize                  10I 0
+     DDataFrameOffset                10I 0
+     DpResponseDataFrame...
+     D                                 *
+     DResponseDataFrameSize...
+     D                               10I 0
+     DBytesAvail                     10I 0
+     DCtlCode                         3A
+     DUserRef                        32A
+     DCCSID                           5I 0
+     DLock                             *
+     DLockName                       99A
+     DLog                              N
+     DpCONN                            *
+     DSecure                         10I 0
+
+     D CSAPCLIENT_Instance...
+     D                 DS                  Qualified
+     DSessionID                      32A
+     DServiceName                    64A
+     DVersion                        10A
+     DConnectionHandle...
+     D                                5I 0
+     DpLastError                       *
+     D#IPAddress                     10U 0
+     D#szIPAddress                   15A
+     D#Hostname                      32A
+     D#Port                           5P 0
+     DpDataFrame                       *
+     DDataFrameSize                  10I 0
+     DpResponseFrame                   *
+     DResponseFrameSize...
+     D                               10I 0
+     DResponseFrameOffset...
+     D                               10I 0
+     DBytesAvail                     10I 0
+     DCtlCode                         3A
+     DUserRef                        32A
+     DCCSID                           5I 0
+     DpCONN                            *
+     DSecure                         10I 0
+
+     DCSAP_T_Handshake...
+     D                 DS                  Qualified
+     DStatus                          3A
+     DReason                         10A
+     DSessionID                      32A
+     DVersion                        10A
+
+     DCSAP_T_CtlFrame...
+     D                 DS                  Qualified
+     DCtlCode                         3A
+     DUserRef                        32A
+     DDataEncoding                    5A
+     DDataFrameSize                  10A
+     DUserCtlSize                    10A
+
+     DCSAP_Handshake...
+     D                 DS                  Qualified
+     DStatus                          3A
+     DReason                         10A
+     DSessionID                      32A
+     DVersion                        10A
+
+     DCSAP_PRIVATE_MemCpy...
+     D                 PR                  ExtProc('memcpy')
+     D@To                              *   Value
+     D@From                            *   Value
+     D@Len                           10I 0 Value
+
+     DCSAP_PRIVATE_MemSet...
+     D                 PR                  ExtProc('memset')
+     D@To                              *   Value
+     D@Value                          3I 0 Value
+     D@Len                           10I 0 Value
+
+     DCSAP_PRIVATE_sem_open...
+     D                 PR              *   ExtProc('sem_open')
+     DName                             *   Value  Options(*String)
+     DFlags                          10I 0 Value
+     DMode                           10U 0 Value  Options(*NoPass)
+     DValue                          10I 0 Value  Options(*NoPass)
+
+     DCSAP_PRIVATE_sem_close...
+     D                 PR            10I 0 ExtProc('sem_close')
+     DLock                             *   Value
+
+     DCSAP_PRIVATE_sem_unlink...
+     D                 PR            10I 0 ExtProc('sem_unlink')
+     DName                             *   Value  Options(*String)
+
+     DCSAP_PRIVATE_sem_wait...
+     D                 PR            10I 0 ExtProc('sem_wait')
+     DName                             *   Value
+
+     DCSAP_PRIVATE_sem_post...
+     D                 PR            10I 0 ExtProc('sem_post')
+     DName                             *   Value
+
+      *=======================================================================
+      *=======================================================================
+
+
+      *===================================================================
+      *
+      * CSAPSERVER_Instance
+      *
+      *===================================================================
+
+     PCSAPSERVER_Constructor...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *
+
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+
+      /Free
+
+          @This = %Alloc(%Size(CSAPSERVER_Instance));
+
+          CSAP_PRIVATE_MemSet(@This: 0:
+                              %Size(CSAPSERVER_Instance));
+
+          #Instance.pDataFrame = *Null;
+          #Instance.ConnectionHandle = -1;
+          #Instance.DataFrameOffset = 0;
+          #Instance.Lock = *Null;
+
+          CSAP_PRIVATE_MemSet(%Addr(#Instance.LockName): 0:
+                              %Size(#Instance.LockName));
+
+          #Instance.pResponseDataFrame = CTLST_Constructor();
+
+          #Instance.pLastError = %Alloc(%Size(CSAP_Result));
+
+          CSAP_PRIVATE_MemSet(#Instance.pLastError: 0:
+                              %Size(CSAP_Result));
+
+          Return CSAP_SUCCESS;
+
+      /End-Free
+
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPSERVER_Destructor...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *
+
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+
+      /Free
+
+          If (@This <> *Null);
+
+            If (#Instance.pDataFrame <> *Null);
+              Dealloc #Instance.pDataFrame;
+            EndIf;
+
+            If (#Instance.pLastError <> *Null);
+              Dealloc #Instance.pLastError;
+            EndIf;
+
+            If (#Instance.Lock <> *Null);
+              //CSAP_PRIVATE_sem_close(#Instance.Lock);
+              //CSAP_PRIVATE_sem_unlink(#Instance.LockName);
+            EndIf;
+
+            CTLST_Destructor(#Instance.pResponseDataFrame);
+
+            Dealloc @This;
+            @This = *Null;
+          EndIf;
+
+          Return CSAP_SUCCESS;
+
+      /End-Free
+
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPSERVER_OpenChannel...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@ServiceName                   64A   Value
+     D@ServiceID                     32A   Value
+     D@SessionID                     32A   Value
+     D@ConnectionHandle...
+     D                                5I 0 Value
+
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+     D#Values          S               *
+     D#Value           S             64A
+     D#ValueSize       S             10I 0
+
+      /Free
+          #Values = CTLST_Constructor();
+
+          #Instance.pCONN = CFSCONN_E;
+
+          If SEC_E = 1;
+            #Instance.Secure = 1;
+          Else;
+            #Instance.Secure = 0;
+          EndIf;
+
+          Monitor;
+
+          #Instance.ServiceName = @ServiceName;
+          #Instance.ServiceID = @ServiceID;
+          #Instance.SessionID = @SessionID;
+          #Instance.Version   = CSAP_VERSION;
+          #Instance.ConnectionHandle = @ConnectionHandle;
+          CSAPSERVER_GetConfig(@This: '*LOG': #Values);
+          #Instance.Log = *Off;
+          If CTLST_Count(#Values) > 0;
+            CTLST_Get(#Values: %Addr(#Value): #ValueSize: CTLST_TOP);
+            If (%Trim(#Value) = 'YES' Or %Trim(#Value) = 'yes');
+              #Instance.Log = *On;
+            EndIf;
+          EndIf;
+          On-Error;
+
+          EndMon;
+          CTLST_Destructor(#Values);
+          Return CSAP_SUCCESS;
+
+      /End-Free
+
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPSERVER_CloseChannel...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+
+      /Free
+
+          If (#Instance.pCONN <> *Null);
+
+              If #Instance.Secure = 1;
+                CFS_Close(#Instance.pCONN);
+              Else;
+                CFS_SecureClose(#Instance.pCONN);
+              EndIf;
+
+              #Instance.pCONN = *Null;
+
+          EndIf;
+
+          Return CSAP_SUCCESS;
+
+      /End-Free
+
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPSERVER_RecvFrame...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@CtlFrame                            LikeDS(CSAP_CtlFrame)
+
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+
+     D#LastError       DS                  LikeDs(CSAP_Result)
+     D                                     Based(#Instance.pLastError)
+
+     D#hresult         S             10I 0
+     D#Bytes           S             10I 0
+     D#Size            S             10I 0
+     D#DataSize        S             20U 0
+     D#Rc              S             10U 0
+     D#SSLResult       S             10I 0
+     D#CtlFrameA       DS                  LikeDS(CSAP_T_CtlFrame)
+
+      /Free
+
+         #hResult = CSAP_FAILURE;
+         CSAP_PRIVATE_MemSet(#Instance.pLastError: 0:
+                             %Size(CSAP_Result));
+
+         #DataSize = %Size(CSAP_T_CtlFrame);
+
+         If #Instance.Secure = 1;
+
+           #Rc = CFS_SecureReadRecord(#Instance.pCONN:
+                                      %Addr(#CtlFrameA):
+                                      %Addr(#DataSize):
+                                      -1: %Addr(#SSLResult));
+         Else;
+
+           #Rc = CFS_ReadRecord(#Instance.pCONN:
+                                %Addr(#CtlFrameA):
+                                %Addr(#DataSize):
+                                -1);
+         EndIf;
+
+         If %bitand(#Rc: CS_MASK_ERROR) = CS_SUCCESS;
+
+           AsciiToEbcdic(#CtlFrameA: #Size);
+
+           @CtlFrame.CtlCode       = #CtlFrameA.CtlCode;
+           @CtlFrame.UserRef       = #CtlFrameA.UserRef;
+           @CtlFrame.DataEncoding  = %Int(%Trim(#CtlFrameA.DataEncoding));
+
+           If (#CtlFrameA.DataFrameSize <> *Blanks);
+             @CtlFrame.DataFrameSize = %Int(%Trim(#CtlFrameA.DataFrameSize));
+           Else;
+             @CtlFrame.DataFrameSize = 0;
+           EndIf;
+
+           If (#CtlFrameA.UserCtlSize <> *Blanks);
+             @CtlFrame.UserCtlSize = %Int(%Trim(#CtlFrameA.UserCtlSize));
+           Else;
+             @CtlFrame.UserCtlSize = 0;
+           EndIf;
+
+           #Instance.DataFrameSize = @CtlFrame.DataFrameSize;
+
+           If (@CtlFrame.DataFrameSize > 0);
+
+             // Read the Data
+
+             If (#Instance.pDataFrame <> *Null);
+               Dealloc #Instance.pDataFrame;
+               #Instance.DataFrameOffset = 0;
+             EndIf;
+
+             #Instance.pDataFrame = %Alloc(@CtlFrame.DataFrameSize);
+
+             If #Instance.pDataFrame <> *Null;
+
+               #DataSize =#Instance.DataFrameSize;
+
+               If #Instance.Secure = 1;
+
+                 #Rc = CFS_SecureReadRecord(#Instance.pCONN:
+                                            #Instance.pDataFrame:
+                                            %Addr(#DataSize):
+                                            -1: %Addr(#SSLResult));
+               Else;
+
+                 #Rc = CFS_ReadRecord(#Instance.pCONN:
+                                      #Instance.pDataFrame:
+                                      %Addr(#DataSize):
+                                      -1);
+               EndIf;
+
+               @CtlFrame.BytesAvail = #Bytes;
+               #Instance.BytesAvail = #Bytes;
+
+               If %bitand(#Rc: CS_MASK_ERROR) = CS_SUCCESS;
+                 #hResult = CSAP_SUCCESS;
+                 #LastError.Status = '200';
+                 #LastError.Reason = CSAP_OK;
+               Else;
+                 // Could not read all data
+                 // Low-order Reason is given by ReadChannel
+                 #LastError.Status = '601';
+                 #LastError.Reason = CSAP_RECV +
+                                     CSAP_USRDATASEGMENT +
+                                     %Trim(#LastError.Reason);
+                 #hResult = CSAP_FAILURE;
+               EndIf;
+             Else;
+               // Could not allocate buffer to read data
+               @CtlFrame.BytesAvail = 0;
+               #Instance.BytesAvail = 0;
+               #LastError.Status = '601';
+               #LastError.Reason = CSAP_RECV +
+                                   CSAP_USRDATASEGMENT +
+                                   CSAP_BUFFERERROR;
+               #hResult = CSAP_FAILURE;
+             EndIf;
+           Else;
+             // Client sent no data
+             #hResult = CSAP_SUCCESS;
+             #LastError.Status = '200';
+             #LastError.Reason = CSAP_OK;
+             @CtlFrame.BytesAvail = 0;
+             #Instance.BytesAvail = 0;
+           EndIf;
+         Else;
+           // Could not read entire control frame
+           #hResult = CSAP_FAILURE;
+           #LastError.Status = '601';
+           #LastError.Reason = CSAP_RECV +
+                               CSAP_CTLSEGMENT +
+                               %Trim(#LastError.Reason);
+
+           CSAP_PRIVATE_MemSet(%Addr(@CtlFrame): 0: %Size(@CtlFrame));
+         EndIf;
+
+         Return #hResult;
+
+      /End-Free
+
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPSERVER_ReadData...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Buffer                          *   Value
+     D@Size                          10I 0 Value
+
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+     D#hresult         S             10I 0
+
+      /Free
+
+         If @Size <= 0;
+           #hResult = CSAP_SUCCESS;
+         EndIf;
+
+         #hResult = CSAP_FAILURE;
+         If (#Instance.DataFrameOffset < #Instance.DataFrameSize);
+           If (@Size <= #Instance.DataFrameSize - #Instance.DataFrameOffset);
+             #hResult = CSAP_SUCCESS;
+             CSAP_PRIVATE_MemCpy(@Buffer:
+                                 #Instance.pDataFrame
+                                       + #Instance.DataFrameOffset:
+                                 @Size);
+
+             #Instance.DataFrameOffset += @Size;
+
+           EndIf;
+         EndIf;
+
+         Return #hResult;
+
+      /End-Free
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPSERVER_WriteData...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Buffer                          *   Value
+     D@Size                          10I 0 Value
+
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+
+     D#hResult         S             10I 0
+
+      /Free
+
+         #Instance.ResponseDataFrameSize += @Size;
+         CTLST_Insert(#Instance.pResponseDataFrame:
+                      @Buffer:
+                      @Size:
+                      CTLST_BOTTOM);
+
+        Return CSAP_SUCCESS;
+
+      /End-Free
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPSERVER_SendFrame...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@UserCtl                         *   Value
+     D@Size                          10I 0 Value
+     D@UserRef                       32A   Value
+     D@CCSID                          5I 0 Value
+
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+
+     D#LastError       DS                  LikeDs(CSAP_Result)
+     D                                     Based(#Instance.pLastError)
+
+     D#hResult         S             10I 0
+     D#Count           S             10I 0
+     D#i               S             10I 0
+     D#DataSize        S             20U 0
+     D#Size            S             10I 0
+     D#FrameSize       S             10I 0
+     D#Bytes           S             10I 0
+     D#SSLResult       S             10I 0
+     D#Data            S               *
+     D#Rc              S             10U 0
+     D#CtlFrameA       DS                  LikeDS(CSAP_T_CtlFrame)
+
+      /Free
+
+         #hResult = CSAP_FAILURE;
+
+         // Build the Control Frame and send it
+
+         #CtlFrameA.CtlCode = 'USR';
+         // Use the reference sent by the client CSAP layer
+         // To match this data segment with the one previously read
+         #CtlFrameA.UserRef = @UserRef;
+         #CtlFrameA.DataEncoding = %EditC(@CCSID: 'X');
+         #FrameSize = #Instance.ResponseDataFrameSize + @Size;
+         #CtlFrameA.DataFrameSize = %Char(#FrameSize);
+         #CtlFrameA.UserCtlSize = %Char(@Size);
+
+         EbcdicToAscii(#CtlFrameA : %Size(CSAP_T_CtlFrame));
+
+         #DataSize = %Size(CSAP_T_CtlFrame);
+
+         If #Instance.Secure = 1;
+
+           #Rc = CFS_SecureWriteRecord(#Instance.pCONN:
+                                       %Addr(#CtlFrameA):
+                                       %Addr(#DataSize):
+                                       -1: %Addr(#SSLResult));
+         Else;
+
+           #Rc = CFS_WriteRecord(#Instance.pCONN:
+                                 %Addr(#CtlFrameA):
+                                 %Addr(#DataSize):
+                                 -1);
+         EndIf;
+
+         If %bitand(#Rc: CS_MASK_ERROR) = CS_SUCCESS;
+
+           // Send the user control record first (if there is one)
+
+           If (@Size > 0);
+
+             #DataSize = @Size;
+
+             If #Instance.Secure = 1;
+
+               #Rc = CFS_SecureWriteRecord(#Instance.pCONN:
+                                           @UserCtl:
+                                           %Addr(#DataSize):
+                                           -1: %Addr(#SSLResult));
+             Else;
+
+               #Rc = CFS_WriteRecord(#Instance.pCONN:
+                                     @UserCtl:
+                                     %Addr(#DataSize):
+                                     -1);
+             EndIf;
+
+           EndIf;
+
+           If %bitand(#Rc: CS_MASK_ERROR) = CS_SUCCESS;
+
+             // Send the data
+             #Count = CTLST_Count(#Instance.pResponseDataFrame);
+             #Data = *Null;
+
+             For #i=1 To #Count By 1;
+               #Size = CTLST_ItemSize(#Instance.pResponseDataFrame: #i);
+               If (#Data <> *Null);
+                 Dealloc #Data;
+               EndIf;
+               #Data = %Alloc(#Size);
+               CTLST_Get(#Instance.pResponseDataFrame: #Data: #Size: #i);
+               If #Data <> *Null;
+
+                 #DataSize = #Size;
+
+                 If #Instance.Secure = 1;
+
+                     #Rc = CFS_SecureWriteRecord(#Instance.pCONN:
+                                           #Data:
+                                           %Addr(#DataSize):
+                                          -1: %Addr(#SSLResult));
+                 Else;
+
+                     #Rc = CFS_WriteRecord(#Instance.pCONN:
+                                           #Data:
+                                           %Addr(#DataSize):
+                                          -1);
+                 EndIf;
+
+                 If %bitand(#Rc: CS_MASK_ERROR) = CS_FAILURE;
+
+                   // Failure to send all data; reason code is
+                   // already written by WriteChannel
+                   #hResult = CSAP_FAILURE;
+                   #LastError.Status = '602';
+                   #LastError.Reason = CSAP_SEND +
+                                       CSAP_USRDATASEGMENT +
+                                       #LastError.Reason;
+                   Leave;
+                 EndIf;
+               Else;
+                 // Data retrieval failure from local buffer
+                 #hResult = CSAP_FAILURE;
+                 #LastError.Status = '602';
+                 #LastError.Reason = CSAP_SEND +
+                                     CSAP_USRDATASEGMENT +
+                                     CSAP_BUFFERERROR;
+                 Leave;
+               EndIf;
+             EndFor;
+
+             If #Count < #i;
+               #hResult = CSAP_SUCCESS;
+             Else;
+               // Log an error
+             EndIf;
+           Else;
+             // Could not send entire user control segment
+             #hResult = CSAP_FAILURE;
+             #LastError.Status = '602';
+             #LastError.Reason = CSAP_SEND +
+                                 CSAP_USRCTLSEGMENT +
+                                 #LastError.Reason;
+             // Log an error
+           EndIf;
+         Else;
+           // Could not send entire control frame
+           #hResult = CSAP_FAILURE;
+           #LastError.Status = '602';
+           #LastError.Reason = CSAP_SEND +
+                               CSAP_CTLSEGMENT +
+                               #LastError.Reason;
+         EndIf;
+
+         #Instance.ResponseDataFrameSize = 0;
+         CTLST_Clear(#Instance.pResponseDataFrame);
+         Return #hResult;
+
+      /End-Free
+
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPSERVER_GetLastResult...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Result                              LikeDS(CSAP_Result)
+
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+
+     D#LastError       DS                  LikeDs(CSAP_Result)
+     D                                     Based(#Instance.pLastError)
+
+      /Free
+
+         @Result.Status = #LastError.Status;
+         @Result.Reason = #LastError.Reason;
+
+         Return CSAP_SUCCESS;
+
+      /End-Free
+
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPSERVER_SetLLData...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Limit                         10I 0 Value
+
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+     D#hresult         S             10I 0
+
+      /Free
+
+       #hResult = CSAP_FAILURE;
+       If @Limit < 0;
+         @Limit = 1;
+       EndIf;
+
+       If (@Limit < #Instance.DataFrameSize);
+         #hResult = CSAP_SUCCESS;
+         #Instance.DataFrameOffset = @Limit;
+       Else;
+         #Instance.DataFrameOffset = #Instance.DataFrameSize;
+       EndIf;
+
+       Return #hResult;
+
+      /End-Free
+
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPSERVER_Acquire...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@LockName                      64A   Value
+     D@TimeOut                       10I 0 Value
+
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+     D#hresult         S             10I 0
+     D#Name            S             66A
+
+      /Free
+            #Name = '/' + %Trim(@LockName) + x'00';
+
+            #Instance.Lock = CSAP_PRIVATE_sem_open(%Addr(#Name):
+                                                   O_CREAT:
+                                                   448 + 56 + 7:
+                                                   1);
+
+            If (#Instance.Lock = *Null);
+              Return CSAP_FAILURE;
+            EndIf;
+
+            #hresult = CSAP_PRIVATE_sem_wait(#Instance.Lock);
+            If (#hResult < 0);
+              CSAP_PRIVATE_sem_close(#Instance.Lock);
+              CSAP_PRIVATE_sem_unlink(#Instance.LockName);
+            EndIf;
+
+            Return CSAP_SUCCESS;
+
+      /End-Free
+
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPSERVER_Release...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+     D#hresult         S             10I 0
+
+      /Free
+
+            If (#Instance.Lock <> *Null);
+              CSAP_PRIVATE_sem_post(#Instance.Lock);
+              CSAP_PRIVATE_sem_close(#Instance.Lock);
+              CSAP_PRIVATE_sem_unlink(#Instance.LockName);
+            EndIf;
+
+            Return CSAP_SUCCESS;
+
+      /End-Free
+
+     P                 E
+
+     PCSAPSERVER_LogEvent...
+     P                 B                   EXPORT
+     FSRVLOG    UF A E           K Disk
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Type                          10I 0 Value
+     D@Reason                        10A   Value
+     D@Msg                          255A   Value
+     D@Mode                          10I 0 Value
+
+     D#Result          DS                  LikeDS(CSAP_Result)
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+     D#LogEntry        DS                  LikeRec(SRVLOGR: *Output)
+
+      /Free
+
+        If @Mode = CSAP_LOG_YES
+           Or #Instance.Log = *On;
+          If @Type = CSAP_EVENT_CSAP;
+            CSAPSERVER_GetLastResult(@This: #Result);
+            #LogEntry.LOG001STAT = #Result.Status;
+            #LogEntry.LOG001RESN = #Result.Reason;
+          Else;
+            #LogEntry.LOG001STAT = '000';
+            #LogEntry.LOG001RESN = @Reason;
+          EndIf;
+
+          #LogEntry.LOG001SEID = #Instance.SessionID;
+          #LogEntry.LOG001SRVI = #Instance.ServiceID;
+          #LogEntry.LOG001SRVN = #Instance.ServiceName;
+          #LogEntry.LOG001DATE = %Int(%Char(%Date(): *iso0));
+          #LogEntry.LOG001TIME = %Int(%Char(%Time(): *iso0));
+          #LogEntry.LOG001DATA = @Msg;
+          Write SRVLOGR #LogEntry;
+        EndIf;
+        Return 0;
+      /End-Free
+
+     P                 E
+
+     PCSAPSERVER_GetConfig...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Param                         64A   Value
+     D@Values                          *   Value
+
+     D#Rc              S             10I 0
+     D#Result          DS                  LikeDS(CSAP_Result)
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+     D#Value           S             64A
+
+      /Free
+        #Rc = CSAP_SUCCESS;
+
+        Monitor;
+          CTLST_Clear(@Values);
+          Exec SQL Declare C_SRVCONF Cursor For
+             select CFG001VAL FROM SRVCONF
+                  WHERE CFG001PARM = :@Param
+                        AND CFG001SRVN = :#Instance.ServiceName
+                        AND CFG001SRVI = :#Instance.ServiceID
+                   ORDER BY CFG001SEQ;
+
+          Exec SQL Open C_SRVCONF;
+          If SqlCode = 0;
+            Exec SQL Fetch C_SRVCONF into :#Value;
+            Dow SqlCode = 0;
+              CTLST_Insert(@Values: %Addr(#Value):
+                                %Size(#Value): CTLST_BOTTOM);
+              Exec SQL Fetch C_SRVCONF into :#Value;
+            EndDo;
+            Exec SQL Close C_SRVCONF;
+          EndIf;
+        On-Error;
+          Exec SQL Close C_SRVCONF;
+          #Rc = CSAP_FAILURE;
+        EndMon;
+
+        Return #Rc;
+      /End-Free
+
+     P                 E
+
+      *===================================================================
+      *
+      * CSAPCLIENT_Instance
+      *
+      *===================================================================
+
+     PCSAPCLIENT_Constructor...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *
+
+     D#Instance        DS                  LikeDs(CSAPCLIENT_Instance)
+     D                                     Based(@This)
+
+      /Free
+
+          @This = %Alloc(%Size(CSAPCLIENT_Instance));
+
+          CSAP_PRIVATE_MemSet(@This: 0:
+                              %Size(CSAPCLIENT_Instance));
+
+          #Instance.pResponseFrame = *Null;
+          #Instance.pCONN = *Null;
+          #Instance.Secure = 0;   // Non-secure by default
+
+          #Instance.pLastError = %Alloc(%Size(CSAP_Result));
+          CSAP_PRIVATE_MemSet(#Instance.pLastError: 0:
+                              %Size(CSAP_Result));
+
+          #Instance.pDataFrame = CTLST_Constructor();
+          Return CSAP_SUCCESS;
+
+      /End-Free
+
+     P                 E
+
+     PCSAPCLIENT_Destructor...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *
+
+     D#Instance        DS                  LikeDs(CSAPCLIENT_Instance)
+     D                                     Based(@This)
+
+      /Free
+
+          If (@This <> *Null);
+
+            If (#Instance.pResponseFrame <> *Null);
+              Dealloc #Instance.pResponseFrame;
+            EndIf;
+
+            If (#Instance.pLastError <> *Null);
+              Dealloc #Instance.pLastError;
+            EndIf;
+
+            If #Instance.pCONN <> *Null;
+
+              If #Instance.Secure = 1;
+                CFS_Close(#Instance.pCONN);
+              Else;
+                CFS_SecureClose(#Instance.pCONN);
+              EndIf;
+
+            EndIf;
+
+            CTLST_Destructor(#Instance.pDataFrame);
+
+            Dealloc @This;
+            @This = *Null;
+          EndIf;
+
+          Return CSAP_SUCCESS;
+
+      /End-Free
+
+     P                 E
+
+     PCSAPCLIENT_OpenService...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@ServiceName                   64A   Value
+     D@SessionInfo                         LikeDS(CSAP_Session)
+
+     D#Instance        DS                  LikeDs(CSAPCLIENT_Instance)
+     D                                     Based(@This)
+
+     D#LastError       DS                  LikeDs(CSAP_Result)
+     D                                     Based(#Instance.pLastError)
+
+     D#Rc              S             10U 0
+     D#Flags           S             10I 0
+     D#hResult         S             10I 0
+     D#Bytes           S             10I 0
+     D#Size            S             10I 0
+     D#SSLResult       S             10I 0
+     D#DataSize        S             20U 0
+     D#HostBuffer      S            256A
+     D#AppID           S             32A
+     D#Handshake       DS                  LikeDS(CSAP_Handshake)
+     D#Req             S              3A   Inz('EXC')
+     D#SessionInfo     DS                  LikeDS(CLIENTSESSIONINFO_100)
+     D#ServiceName     S             64A
+
+      /Free
+
+          If (#Instance.pCONN <> *Null);
+
+              If #Instance.Secure = 1;
+                CFS_Close(#Instance.pCONN);
+              Else;
+                CFS_SecureClose(#Instance.pCONN);
+              EndIf;
+
+          EndIf;
+
+          CSAP_PRIVATE_MemSet(#Instance.pLastError: 0: %Size(CSAP_Result));
+
+          #Instance.Version = *Blanks;
+          #Instance.SessionID = *Blanks;
+          #Instance.ServiceName = @ServiceName;
+
+          #hResult = CSAP_FAILURE;
+          Chain(n) (@ServiceName) CSAPCDIR;
+
+          If %Found();
+
+            // Lire le vrai nom de service
+            @ServiceName = DIR001SERV;
+            #HostBuffer = %Trim(DIR001HOST) + x'00';
+            #Instance.#Port = DIR001PORT;
+
+            Select;
+
+              When DIRX01SCMD = '*SSL';
+
+                #Instance.Secure = 1;
+                #AppID = %Trim(DIRX01PID) + x'00';
+                #SessionInfo.pszBuffers(CFS_OFFSET_GSK_OS400_APPLICATION_ID)
+                                       = %Addr(#AppID);
+
+              When DIRX01SCMD = '*NOSEC';
+
+                #Instance.Secure = 0;
+
+            EndSl;
+
+            #SessionInfo.szHostName = %Addr(#HostBuffer);
+            #SessionInfo.port = %Int(DIR001PORT);
+
+            If #Instance.Secure = 1;
+
+              #Instance.pCONN = CFS_SecureConnect(%Addr(#SessionInfo):
+                                                  CFS_CLIENTSESSION_FMT_100:
+                                                  %Addr(#SSLResult));
+
+            Else;
+
+              #Instance.pCONN = CFS_Connect(%Addr(#SessionInfo):
+                                            CFS_CLIENTSESSION_FMT_100);
+
+            EndIf;
+
+            If #Instance.pCONN <> *Null;
+
+              EbcdicToAscii(@ServiceName: 64);
+              #ServiceName = @ServiceName;
+              #DataSize = 64;
+
+              If #Instance.Secure = 1;
+
+                #Rc = CFS_SecureWriteRecord(#Instance.pCONN:
+                                            %Addr(#ServiceName):
+                                            %Addr(#DataSize):
+                                            -1: %Addr(#SSLResult));
+              Else;
+
+                #Rc = CFS_WriteRecord(#Instance.pCONN:
+                                      %Addr(#ServiceName):
+                                      %Addr(#DataSize):
+                                      -1);
+              EndIf;
+
+              If %bitand(#Rc: CS_MASK_ERROR) = CS_SUCCESS;
+
+                #DataSize = %Size(CSAP_Handshake);
+
+                If #Instance.Secure = 1;
+
+                  #Rc = CFS_SecureReadRecord(#Instance.pCONN:
+                                             %Addr(#Handshake):
+                                             %Addr(#DataSize):
+                                             -1: %Addr(#SSLResult));
+                Else;
+
+                  #Rc = CFS_ReadRecord(#Instance.pCONN:
+                                       %Addr(#Handshake):
+                                       %Addr(#DataSize):
+                                       -1);
+                EndIf;
+
+                If %bitand(#Rc: CS_MASK_ERROR) = CS_SUCCESS;
+
+                  #Size = #DataSize;
+
+                  // Convert response to EBCDIC
+                  AsciiToEbcdic(#Handshake: #Size);
+
+                  #LastError.Status = #Handshake.Status;
+                  #LastError.Reason = #Handshake.Reason;
+
+                  Select;
+                    When #Handshake.Status = '110';
+                      #LastError.Status = '110';
+                      #hResult = CSAP_FAILURE;
+                    When #Handshake.Status = '120';
+                      #LastError.Status = '120';
+                      #hResult = CSAP_FAILURE;
+                    When #Handshake.Status = '130';
+                      #LastError.Status = '130';
+                      #hResult = CSAP_FAILURE;
+                    When #Handshake.Status = '200';
+                      #LastError.Status = '200';
+                      #LastError.Reason = CSAP_OK;
+                      #hResult = CSAP_SUCCESS;
+                  EndSl;
+
+                  #Instance.Version = #Handshake.Version;
+                  #Instance.SessionID = #Handshake.SessionID;
+
+                  @SessionInfo.Version = #Handshake.Version;
+                  @SessionInfo.SessionID = #Handshake.SessionID;
+
+                Else;
+
+                  // Could not read all required data
+                  #LastError.Status = '101';
+                  #LastError.Reason = CSAP_OPEN +
+                                      CSAP_CLIENT +
+                                      #LastError.Reason;
+
+                EndIf;
+
+              Else;
+
+                // Could not send all required data
+                #LastError.Status = '101';
+                #LastError.Reason = CSAP_OPEN +
+                                    CSAP_CLIENT +
+                                    #LastError.Reason;
+              EndIf;
+
+            EndIf;
+
+          Else;
+
+            // Service not found
+            #LastError.Status = '101';
+            #LastError.Reason = CSAP_OPEN +
+                                CSAP_CLIENT +
+                                CSAP_SRVNOTFOUND;
+
+          EndIf;
+
+          Return #hResult;
+
+      /End-Free
+
+     P                 E
+
+     PCSAPCLIENT_CloseService...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+
+     D#Instance        DS                  LikeDs(CSAPCLIENT_Instance)
+     D                                     Based(@This)
+
+      /Free
+
+          If (#Instance.pCONN <> *Null);
+
+              If #Instance.Secure = 1;
+                CFS_Close(#Instance.pCONN);
+              Else;
+                CFS_SecureClose(#Instance.pCONN);
+              EndIf;
+
+              #Instance.pCONN = *Null;
+
+          EndIf;
+
+          Return CSAP_SUCCESS;
+
+      /End-Free
+
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPCLIENT_RecvFrame...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@CtlFrame                            LikeDS(CSAP_CtlFrame)
+
+     D#Instance        DS                  LikeDs(CSAPCLIENT_Instance)
+     D                                     Based(@This)
+
+     D#LastError       DS                  LikeDs(CSAP_Result)
+     D                                     Based(#Instance.pLastError)
+
+     D#hresult         S             10I 0
+     D#Bytes           S             10I 0
+     D#Size            S             10I 0
+     D#SSLResult       S             10I 0
+     D#DataSize        S             20U 0
+     D#Rc              S             10U 0
+     D#CtlFrameA       DS                  LikeDS(CSAP_T_CtlFrame)
+
+      /Free
+
+         #hResult = CSAP_FAILURE;
+         CSAP_PRIVATE_MemSet(#Instance.pLastError: 0:
+                             %Size(CSAP_Result));
+
+         #DataSize = %Size(CSAP_T_CtlFrame);
+
+         If #Instance.Secure = 1;
+
+           #Rc = CFS_SecureReadRecord(#Instance.pCONN:
+                                      %Addr(#CtlFrameA):
+                                      %Addr(#DataSize):
+                                      -1: %Addr(#SSLResult));
+         Else;
+
+           #Rc = CFS_ReadRecord(#Instance.pCONN:
+                                %Addr(#CtlFrameA):
+                                %Addr(#DataSize):
+                                -1);
+         EndIf;
+
+         If %bitand(#Rc: CS_MASK_ERROR) = CS_SUCCESS;
+
+           AsciiToEbcdic(#CtlFrameA: #Size);
+
+           @CtlFrame.CtlCode       = #CtlFrameA.CtlCode;
+           @CtlFrame.UserRef       = #CtlFrameA.UserRef;
+           @CtlFrame.DataEncoding  = %Int(%Trim(#CtlFrameA.DataEncoding));
+           @CtlFrame.DataFrameSize = %Int(%Trim(#CtlFrameA.DataFrameSize));
+           #Instance.ResponseFrameSize = @CtlFrame.DataFrameSize;
+           @CtlFrame.UserCtlSize = %Int(%Trim(#CtlFrameA.UserCtlSize));
+
+           If (@CtlFrame.DataFrameSize > 0);
+
+             // Read the Data
+
+             If (#Instance.pResponseFrame <> *Null);
+               Dealloc #Instance.pResponseFrame;
+               #Instance.ResponseFrameOffset = 0;
+             EndIf;
+
+             #Instance.pResponseFrame = %Alloc(@CtlFrame.DataFrameSize);
+
+             If #Instance.pResponseFrame <> *Null;
+
+               #DataSize = @CtlFrame.DataFrameSize;
+
+               If #Instance.Secure = 1;
+
+                 #Rc = CFS_SecureReadRecord(#Instance.pCONN:
+                                            #Instance.pResponseFrame:
+                                            %Addr(#DataSize):
+                                            -1: %Addr(#SSLResult));
+               Else;
+
+                 #Rc = CFS_ReadRecord(#Instance.pCONN:
+                                      #Instance.pResponseFrame:
+                                      %Addr(#DataSize):
+                                      -1);
+               EndIf;
+
+               @CtlFrame.BytesAvail = #Bytes;
+               #Instance.BytesAvail = #Bytes;
+
+               If %bitand(#Rc: CS_MASK_ERROR) = CS_SUCCESS;
+                 #hResult = CSAP_SUCCESS;
+                 #LastError.Status = '200';
+                 #LastError.Reason = CSAP_OK;
+               Else;
+                 // Could not read all data
+                 #LastError.Status = '501';
+                 #LastError.Reason = CSAP_RECV +
+                                     CSAP_USRDATASEGMENT +
+                                     %Trim(#LastError.Reason);
+                 #hResult = CSAP_FAILURE;
+               EndIf;
+
+             Else;
+               // Could not allocate buffer to read data
+               @CtlFrame.BytesAvail = 0;
+               #Instance.BytesAvail = 0;
+               #LastError.Status = '501';
+               #LastError.Reason = CSAP_RECV +
+                                   CSAP_USRDATASEGMENT +
+                                   CSAP_BUFFERERROR;
+               #hResult = CSAP_FAILURE;
+             EndIf;
+           Else;
+             // Client sent no data
+             #hResult = CSAP_SUCCESS;
+             #LastError.Status = '200';
+             #LastError.Reason = CSAP_NODATA;
+             @CtlFrame.BytesAvail = 0;
+             #Instance.BytesAvail = 0;
+           EndIf;
+         Else;
+           // Could not read entire control frame
+           #hResult = CSAP_FAILURE;
+           #LastError.Status = '501';
+           #LastError.Reason = CSAP_RECV +
+                               CSAP_CTLSEGMENT +
+                               %Trim(#LastError.Reason);
+           CSAP_PRIVATE_MemSet(%Addr(@CtlFrame): 0: %Size(@CtlFrame));
+         EndIf;
+
+         Return #hResult;
+
+      /End-Free
+
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPCLIENT_ReadData...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Buffer                          *   Value
+     D@Size                          10I 0 Value
+
+     D#Instance        DS                  LikeDs(CSAPCLIENT_Instance)
+     D                                     Based(@This)
+     D#hresult         S             10I 0
+
+      /Free
+
+         If @Size <= 0;
+           #hResult = CSAP_SUCCESS;
+         EndIf;
+
+         #hResult = CSAP_FAILURE;
+         If (#Instance.ResponseFrameOffset < #Instance.ResponseFrameSize);
+           If (@Size <=
+               #Instance.ResponseFrameSize - #Instance.ResponseFrameOffset);
+             #hResult = CSAP_SUCCESS;
+             CSAP_PRIVATE_MemCpy(@Buffer:
+                                 #Instance.pResponseFrame
+                                       + #Instance.ResponseFrameOffset:
+                                 @Size);
+
+             #Instance.ResponseFrameOffset += @Size;
+
+           EndIf;
+         EndIf;
+
+         Return #hResult;
+
+      /End-Free
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPCLIENT_SetLLData...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Limit                         10I 0 Value
+
+     D#Instance        DS                  LikeDs(CSAPCLIENT_Instance)
+     D                                     Based(@This)
+     D#hresult         S             10I 0
+
+      /Free
+
+       #hResult = CSAP_FAILURE;
+       If @Limit < 0;
+         @Limit = 1;
+       EndIf;
+
+       If (@Limit < #Instance.ResponseFrameSize);
+         #hResult = CSAP_SUCCESS;
+         #Instance.ResponseFrameOffset = @Limit;
+       Else;
+         #Instance.ResponseFrameOffset = #Instance.ResponseFrameSize;
+       EndIf;
+
+       Return #hResult;
+
+      /End-Free
+
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPCLIENT_WriteData...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Buffer                          *   Value
+     D@Size                          10I 0 Value
+
+     D#Instance        DS                  LikeDs(CSAPCLIENT_Instance)
+     D                                     Based(@This)
+
+     D#hResult         S             10I 0
+
+      /Free
+
+         #Instance.DataFrameSize += @Size;
+         CTLST_Insert(#Instance.pDataFrame:
+                      @Buffer:
+                      @Size:
+                      CTLST_BOTTOM);
+
+        Return CSAP_SUCCESS;
+
+      /End-Free
+     P                 E
+
+      *-----------------------------------------------------------------------------
+      *-----------------------------------------------------------------------------
+
+     PCSAPCLIENT_SendFrame...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@UserCtl                         *   Value
+     D@Size                          10I 0 Value
+     D@UserRef                       32A   Value
+     D@CCSID                          5I 0 Value
+
+     D#Instance        DS                  LikeDs(CSAPCLIENT_Instance)
+     D                                     Based(@This)
+
+     D#LastError       DS                  LikeDs(CSAP_Result)
+     D                                     Based(#Instance.pLastError)
+
+     D#hResult         S             10I 0
+     D#Rc              S             10U 0
+     D#DataSize        S             20U 0
+     D#Count           S             10I 0
+     D#i               S             10I 0
+     D#Size            S             10I 0
+     D#FrameSize       S             10I 0
+     D#Bytes           S             10I 0
+     D#SSLResult       S             10I 0
+     D#Data            S               *
+     D#CtlFrameA       DS                  LikeDS(CSAP_T_CtlFrame)
+
+      /Free
+
+         #hResult = CSAP_FAILURE;
+
+         // Build the Control Frame
+
+         #CtlFrameA.CtlCode = 'REQ';
+         // Generate UUID for system reference
+         #CtlFrameA.UserRef = @UserRef;
+         #CtlFrameA.DataEncoding = %EditC(@CCSID: 'X');
+         #FrameSize = #Instance.DataFrameSize + @Size;
+         #CtlFrameA.DataFrameSize = %Char(#FrameSize);
+         #CtlFrameA.UserCtlSize = %Char(@Size);
+
+         EbcdicToAscii(#CtlFrameA : %Size(CSAP_T_CtlFrame));
+
+         #DataSize = %Size(CSAP_T_CtlFrame);
+
+         If #Instance.Secure = 1;
+
+           #Rc = CFS_SecureWriteRecord(#Instance.pCONN:
+                                       %Addr(#CtlFrameA):
+                                       %Addr(#DataSize):
+                                       -1: %Addr(#SSLResult));
+         Else;
+
+           #Rc = CFS_WriteRecord(#Instance.pCONN:
+                                 %Addr(#CtlFrameA):
+                                 %Addr(#DataSize):
+                                 -1);
+         EndIf;
+
+         If %bitand(#Rc: CS_MASK_ERROR) = CS_SUCCESS;
+
+           // Send the user control record first (if there is one)
+
+           If (@Size > 0);
+
+             #DataSize = @Size;
+
+             If #Instance.Secure = 1;
+
+               #Rc = CFS_SecureWriteRecord(#Instance.pCONN:
+                                           @UserCtl:
+                                           %Addr(#DataSize):
+                                           -1: %Addr(#SSLResult));
+             Else;
+
+               #Rc = CFS_WriteRecord(#Instance.pCONN:
+                                     @UserCtl:
+                                     %Addr(#DataSize):
+                                     -1);
+             EndIf;
+           EndIf;
+
+           If %bitand(#Rc: CS_MASK_ERROR) = CS_SUCCESS;
+
+             // Send the data
+             #Count = CTLST_Count(#Instance.pDataFrame);
+             #Data = *Null;
+             For #i=1 To #Count By 1;
+               #Size = CTLST_ItemSize(#Instance.pDataFrame: #i);
+               If (#Data <> *Null);
+                 Dealloc #Data;
+               EndIf;
+               #Data = %Alloc(#Size);
+               CTLST_Get(#Instance.pDataFrame: #Data: #Size: #i);
+               If #Data <> *Null;
+
+                 #DataSize = #Size;
+
+                 If #Instance.Secure = 1;
+
+                     #Rc = CFS_SecureWriteRecord(#Instance.pCONN:
+                                           #Data:
+                                           %Addr(#DataSize):
+                                          -1: %Addr(#SSLResult));
+                 Else;
+
+                     #Rc = CFS_WriteRecord(#Instance.pCONN:
+                                           #Data:
+                                           %Addr(#DataSize):
+                                          -1);
+                 EndIf;
+
+                 If %bitand(#Rc: CS_MASK_ERROR) = CS_FAILURE;
+
+                   // Failure to send all data
+                   #hResult = CSAP_FAILURE;
+                   #LastError.Status = '502';
+                   #LastError.Reason = CSAP_SEND +
+                                       CSAP_USRDATASEGMENT +
+                                       #LastError.Reason;
+                   Leave;
+                 EndIf;
+               Else;
+                 // Data retrieval failure from local buffer
+                 #hResult = CSAP_FAILURE;
+                 #LastError.Reason = CSAP_BUFFERERROR;
+                 #LastError.Status = '502';
+                 #LastError.Reason = CSAP_SEND +
+                                     CSAP_USRDATASEGMENT +
+                                     CSAP_BUFFERERROR;
+                 Leave;
+               EndIf;
+             EndFor;
+
+             If #Count < #i;
+               #hResult = CSAP_SUCCESS;
+             Else;
+               // Log an error
+             EndIf;
+           Else;
+             // Failure to send all data
+             #hResult = CSAP_FAILURE;
+             #LastError.Status = '502';
+             #LastError.Reason = CSAP_SEND +
+                                 CSAP_USRCTLSEGMENT +
+                                 #LastError.Reason;
+           EndIf;
+         Else;
+           // Could not send entire control frame
+           #hResult = CSAP_FAILURE;
+           #LastError.Status = '502';
+           #LastError.Reason = CSAP_SEND +
+                               CSAP_CTLSEGMENT +
+                               #LastError.Reason;
+         EndIf;
+
+         #Instance.DataFrameSize = 0;
+         CTLST_Clear(#Instance.pDataFrame);
+
+         Return #hResult;
+
+      /End-Free
+
+     P                 E
+
+     PCSAPCLIENT_GetLastResult...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Result                              LikeDS(CSAP_Result)
+
+     D#Instance        DS                  LikeDs(CSAPCLIENT_Instance)
+     D                                     Based(@This)
+
+     D#hResult         S             10I 0
+     D#Bytes           S             10I 0
+     D#Size            S             10I 0
+     D#Rc              S             10I 0
+     D#Response        DS                  LikeDS(CSAP_Result)
+     D#CtlFrameA       DS                  LikeDS(CSAP_T_CtlFrame)
+
+     D#LastError       DS                  LikeDs(CSAP_Result)
+     D                                     Based(#Instance.pLastError)
+
+      /Free
+
+          #hResult = CSAP_SUCCESS;
+          @Result = #LastError.Status;
+          @Result.Reason = #LastError.Reason;
+          Return #hResult;
+
+      /End-Free
+
+     P                 E
+
+     PCSAP_MakeSysRef...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@ref                           32A
+
+     D#UUID            S             33A
+
+      /Free
+         //@ref = *Blanks;
+
+         //CFS_MakeUUID(%Addr(#UUID): 0);
+         //CSAP_PRIVATE_MemCpy(@Ref: %Addr(#UUID): 32);
+
+         Return CSAP_SUCCESS;
+
+      /End-Free
+     P                 E
+
+     PEbcdicToAscii...
+     P                 B
+     D                 PI
+     D@Data                       32766A   Options(*VarSize)
+     D@Len                            5P 0 Const
+
+      /Free
+          Convert(@Len: @Data: 'QTCPASC');
+      /End-Free
+
+     P                 E
+
+     PAsciiToEbcdic...
+     P                 B
+     D                 PI
+     D@Data                       32766A   Options(*VarSize)
+     D@Len                            5P 0 Value
+
+      /Free
+          Convert(@Len: @Data: 'QTCPEBC');
+      /End-Free
+
+     P                 E
+
+     PCSAPSERVER_ResetLock...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@LockName                      64A   Value
+
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+     D#hResult         S             10I 0
+     D#Name            S             66A
+
+      /Free
+         #hresult = CSAP_SUCCESS;
+         #Name = '/' + %Trim(@LockName) + x'00';
+
+         #Instance.Lock = CSAP_PRIVATE_sem_open(%Addr(#Name):
+                                                O_CREAT:
+                                                448 + 56 + 7:
+                                                1);
+         CSAP_PRIVATE_sem_post(#Instance.Lock);
+         Return #hResult;
+
+      /End-Free
+
+     P                 E
+
+     PCSAPCLIENT_LogEvent...
+     P                 B                   EXPORT
+     FCLTLOG    UF A E           K Disk
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Type                          10I 0 Value
+     D@Reason                        10A   Value
+     D@Msg                          255A   Value
+     D@Mode                          10I 0 Value
+
+     D#Result          DS                  LikeDS(CSAP_Result)
+     D#Instance        DS                  LikeDs(CSAPCLIENT_Instance)
+     D                                     Based(@This)
+     D#LogEntry        DS                  LikeRec(CLTLOGR: *Output)
+
+      /Free
+
+        If @Mode = CSAP_LOG_YES;
+          //Or #Instance.Log = *On;
+          If @Type = CSAP_EVENT_CSAP;
+            CSAPCLIENT_GetLastResult(@This: #Result);
+            #LogEntry.LOG001STAT = #Result.Status;
+            #LogEntry.LOG001RESN = #Result.Reason;
+          Else;
+            #LogEntry.LOG001STAT = '000';
+            #LogEntry.LOG001RESN = @Reason;
+          EndIf;
+
+          #LogEntry.LOG001SEID = #Instance.SessionID;
+          #LogEntry.LOG001SRVN = #Instance.ServiceName;
+          #LogEntry.LOG001DATE = %Int(%Char(%Date(): *iso0));
+          #LogEntry.LOG001TIME = %Int(%Char(%Time(): *iso0));
+          #LogEntry.LOG001DATA = @Msg;
+          Write CLTLOGR #LogEntry;
+        EndIf;
+        Return 0;
+      /End-Free
+
+     P                 E
+
+     PCSAPCLIENT_FLUSHFRAME...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+
+     D#Instance        DS                  LikeDs(CSAPCLIENT_Instance)
+     D                                     Based(@This)
+
+      /Free
+
+        #Instance.DataFrameSize = 0;
+        CTLST_Clear(#Instance.pDataFrame);
+        Return CSAP_SUCCESS;
+
+      /End-Free
+
+     P                 E
+
+     PCSAPSERVER_FLUSHFRAME...
+     P                 B                   EXPORT
+     D                 PI            10I 0
+     D@This                            *   Value
+
+     D#Instance        DS                  LikeDs(CSAPSERVER_Instance)
+     D                                     Based(@This)
+
+      /Free
+
+        #Instance.ResponseDataFrameSize = 0;
+        CTLST_Clear(#Instance.pResponseDataFrame);
+        Return CSAP_SUCCESS;
+
+      /End-Free
+
+     P                 E
+
+      * ------------------------------------------------------------------
+      * CTLST Implementation
+      * ------------------------------------------------------------------
+
+
+     PCTLST_Clear      B
+     D                 PI            10I 0
+     D@This                            *   Value
+
+     Dn                S             10I 0
+     DCount            S             10I 0
+     DHeader           DS                  LikeDs(CTLST_Head) Based(@This)
+
+      /Free
+
+            Count = Header.Count;
+
+            For n = 1 To Count By 1;
+               CTLST_Remove(@This: 1);
+            EndFor;
+
+            Return CS_SUCCESS;
+
+      /End-Free
+     P                 E
+
+      * ------------------------------------------------------------------
+
+     PCTLST_Constructor...
+     P                 B
+     D                 PI              *
+
+     DThis             S               *
+     DHeader           DS                  LikeDs(CTLST_Head) Based(This)
+
+      /Free
+
+          This = %Alloc(%Size(CTLST_Head));
+
+          Header.First    = *Null;
+          Header.Last     = *Null;
+          Header.Current  = *Null;
+          Header.Count    = 0;
+          Header.CurIndex = 0;
+
+          Return This;
+
+      /End-Free
+
+     P                 E
+
+      * ------------------------------------------------------------------
+
+     PCTLST_Count      B
+     D                 PI            10I 0
+     D@This                            *   Value
+
+     DHeader           DS                  LikeDs(CTLST_Head) Based(@This)
+
+      /Free
+         Return Header.Count;
+      /End-Free
+
+     P                 E
+
+      * ------------------------------------------------------------------
+
+     PCTLST_Destructor...
+     P                 B
+     D                 PI            10I 0
+     D@This                            *
+
+      /Free
+          CTLST_Clear(@This);
+          Dealloc @This;
+          @This = *Null;
+          Return CS_SUCCESS;
+      /End-Free
+     P                 E
+
+      * ------------------------------------------------------------------
+
+     PCTLST_Get        B
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Value                           *   Value
+     D@Bytes                         10I 0
+     D@Index                         10I 0 Value
+
+     DNodePtr          S               *
+     DRc               S             10I 0
+     DHeader           DS                  LikeDs(CTLST_Head) Based(@This)
+     DNode             DS                  LikeDs(CTLST_Node) Based(NodePtr)
+
+      /Free
+
+          If (Header.Count = 0);
+             @Bytes = -1;
+             Return CS_FAILURE;
+          EndIf;
+
+          Select;
+           When @Index = CTLST_TOP;
+            @Index = 1;
+           When @Index = CTLST_BOTTOM;
+            @Index = Header.Count;
+          EndSl;
+
+          If (@Index < 1 Or @Index > Header.Count);
+            @Bytes = -1;
+            return CS_FAILURE;
+          EndIf;
+
+          CTLST_PRIVATE_Goto(@This: @Index);
+
+          Rc = CS_FAILURE;
+          If ( Header.Current <> *Null );
+             NodePtr = Header.Current;
+             If (@Value <> *Null);
+               If @Bytes < Node.Bytes;
+                 CTLST_PRIVATE_MemCpy(@Value:
+                                      Node.Value: @Bytes);
+               Else;
+                 CTLST_PRIVATE_MemCpy(@Value:
+                                      Node.Value: Node.Bytes);
+               EndIf;
+               @Bytes = Node.Bytes;
+             Else;
+               @Bytes = 0;
+             EndIf;
+             Rc = CS_SUCCESS;
+          Else;
+            @Bytes = -1;
+          EndIf;
+
+          Return Rc;
+
+      /End-Free
+     P                 E
+
+      * ------------------------------------------------------------------
+
+     PCTLST_GetItemRef...
+     P                 B
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@ItemRef                         *
+     D@Bytes                         10I 0
+     D@Index                         10I 0 Value
+
+     DNodePtr          S               *
+     DRc               S             10I 0
+     DHeader           DS                  LikeDs(CTLST_Head) Based(@This)
+     DNode             DS                  LikeDs(CTLST_Node) Based(NodePtr)
+
+      /Free
+
+          @ItemRef = *Null;
+          If (Header.Count = 0);
+             @Bytes = -1;
+             Return CS_FAILURE;
+          EndIf;
+
+          Select;
+           When @Index = CTLST_TOP;
+            @Index = 1;
+           When @Index = CTLST_BOTTOM;
+            @Index = Header.Count;
+          EndSl;
+
+          If (@Index < 1 Or @Index > Header.Count);
+            @Bytes = -1;
+            return CS_FAILURE;
+          EndIf;
+
+          CTLST_PRIVATE_Goto(@This: @Index);
+
+          Rc = CS_FAILURE;
+          If ( Header.Current <> *Null );
+             NodePtr = Header.Current;
+             @ItemRef = Node.Value;
+             @Bytes = Node.Bytes;
+             Rc = CS_SUCCESS;
+          Else;
+            @Bytes = -1;
+          EndIf;
+
+          Return Rc;
+
+      /End-Free
+     P                 E
+
+      * ------------------------------------------------------------------
+
+     PCTLST_Insert...
+     P                 B
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Value                           *   Value
+     D@Bytes                         10I 0 Value
+     D@Index                         10I 0 Value
+
+     DNodePtr          S               *
+     DpLast            S               *
+     DpCurrent         S               *
+     DpPrevious        S               *
+     DHeader           DS                  LikeDs(CTLST_Head) Based(@This)
+     DNode             DS                  LikeDs(CTLST_Node) Based(NodePtr)
+     DLastNode         DS                  LikeDs(CTLST_Node) Based(pLast)
+     DCurNode          DS                  LikeDs(CTLST_Node) Based(pCurrent)
+     DPrevious         DS                  LikeDs(CTLST_Node) Based(pPrevious)
+     DRc               S             10I 0
+
+      /Free
+
+          NodePtr = %Alloc(%Size(CTLST_Node));
+
+          If (NodePtr = *Null);
+            Return CS_FAILURE;
+          EndIf;
+
+          Rc = CS_SUCCESS;
+          Node.Next    = *Null;
+          Node.Prev    = *Null;
+
+          If (@Value <> *Null And @Bytes > 0);
+            Node.Value = %Alloc(@Bytes);
+            CTLST_PRIVATE_MemCpy(Node.Value: @Value: @Bytes);
+            Node.Bytes = @Bytes;
+          Else;
+            Node.Value = *Null;
+            Node.Bytes = 0;
+          EndIf;
+
+          If ( Header.First  = *Null );
+             Header.First    = NodePtr;
+             Header.Last     = NodePtr;
+             Header.CurIndex = 1;
+          Else;
+             If (@Index = CTLST_TOP);
+               CTLST_PRIVATE_Goto(@This: 1);
+               pCurrent = Header.Current;
+               CurNode.Prev = NodePtr;
+               Node.Next    = pCurrent;
+               Header.First = NodePtr;
+               Header.CurIndex = 1;
+
+             Else;
+               If (@Index = CTLST_BOTTOM);
+
+                 pLast = Header.Last;
+                 LastNode.Next   = NodePtr;
+                 Node.Prev       = pLast;
+                 Header.Last     = NodePtr;
+                 Header.CurIndex = Header.Count + 1;
+
+               Else;
+
+                 If (@Index < 1  Or @Index > Header.Count);
+                   Rc = CS_FAILURE;
+                 Else;
+                   CTLST_PRIVATE_Goto(@This: @Index);
+                   pCurrent  = Header.Current;
+                   pPrevious = CurNode.Prev;
+
+                   Node.Next = pCurrent;
+                   Node.Prev = pPrevious;
+
+                   If (pCurrent <> *Null);
+                     CurNode.Prev =  NodePtr;
+                   Endif;
+
+                   If (pPrevious <> *Null);
+                     Previous.Next = NodePtr;
+                   Else;
+                     Header.First = NodePtr;
+                   Endif;
+                 EndIf;
+               EndIf;
+             EndIF;
+
+          EndIf;
+
+          If (Rc = CS_SUCCESS);
+            Header.Current  = NodePtr;
+            Header.Count    = Header.Count + 1;
+          EndIf;
+          Return Rc;
+      /End-Free
+     P                 E
+
+      * ------------------------------------------------------------------
+
+     PCTLST_ItemSize...
+     P                 B
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Index                         10I 0 Value
+
+     DNodePtr          S               *
+     DHeader           DS                  LikeDs(CTLST_Head) Based(@This)
+     DNode             DS                  LikeDs(CTLST_Node)
+     D                                     Based(Header.Current)
+
+      /Free
+
+          If (Header.Count = 0);
+             Return -1;
+          EndIf;
+
+          Select;
+           When @Index = CTLST_TOP;
+            @Index = 1;
+           When @Index = CTLST_BOTTOM;
+            @Index = Header.Count;
+          EndSl;
+
+          If (@Index < 1 Or @Index > Header.Count);
+            return -1;
+          EndIf;
+
+          CTLST_PRIVATE_Goto(@This: @Index);
+
+          If (Header.Current <> *Null);
+             Return Node.Bytes;
+          EndIf;
+
+          Return 0;
+
+      /End-Free
+     P                 E
+
+      * ------------------------------------------------------------------
+
+     PCTLST_IterNext...
+     P                 B
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Value                           *   Value
+     D@Bytes                         10I 0
+
+     DHeader           DS                  LikeDs(CTLST_Head) Based(@This)
+     DRc               S             10I 0
+
+      /Free
+          If Header.NextIndex <= Header.Count;
+            CTLST_Get(@This: @Value: @Bytes: Header.NextIndex);
+            Header.NextIndex += 1;
+            Rc = CS_SUCCESS;
+          Else;
+            Rc = CS_FAILURE;
+          EndIf;
+          Return Rc;
+      /End-Free
+     P                 E
+
+      * ------------------------------------------------------------------
+
+     PCTLST_IterNextSize...
+     P                 B
+     D                 PI            10I 0
+     D@This                            *   Value
+
+     DHeader           DS                  LikeDs(CTLST_Head) Based(@This)
+     DCurNode          DS                  LikeDs(CTLST_Node)
+     D                                     Based(Header.Current)
+     DRc               S             10I 0
+
+      /Free
+
+          If Header.NextIndex <= Header.Count;
+            CTLST_PRIVATE_Goto(@This: Header.NextIndex);
+            Return CurNode.Bytes;
+          Else;
+            Return -1;
+          EndIf;
+
+      /End-Free
+     P                 E
+
+      * ------------------------------------------------------------------
+
+     PCTLST_IterStart...
+     P                 B
+     D                 PI            10I 0
+     D@This                            *   Value
+
+     DHeader           DS                  LikeDs(CTLST_Head) Based(@This)
+     DRc               S             10I 0
+
+      /Free
+          If Header.Count > 0;
+            Header.NextIndex = 1;
+            Rc = CS_SUCCESS;
+          Else;
+            Rc = CS_FAILURE;
+          EndIf;
+
+          Return Rc;
+      /End-Free
+     P                 E
+
+      * ------------------------------------------------------------------
+
+     PCTLST_Remove...
+     P                 B
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Index                         10I 0 Value
+
+     DTempPtr          S               *
+     DTempPtr2         S               *
+     DCurPtr           S               *
+     DHeader           DS                  LikeDs(CTLST_Head) Based(@This)
+     DTempNode         DS                  LikeDs(CTLST_Node) Based(TempPtr)
+     DTempNode2        DS                  LikeDs(CTLST_Node) Based(TempPtr2)
+     DCurNode          DS                  LikeDs(CTLST_Node) Based(CurPtr)
+     DRc               S             10I 0
+
+      /Free
+
+          If (Header.Count = 0);
+             Return CS_FAILURE;
+          EndIf;
+
+          Rc = CS_SUCCESS;
+
+          If (@Index = CTLST_TOP);
+            Rc = CTLST_PRIVATE_Goto(@This: 1);
+          Else;
+            If (@Index = CTLST_BOTTOM);
+              Rc = CTLST_PRIVATE_Goto(@This: Header.Count);
+            Else;
+              If (@Index < 1 Or @Index > Header.Count);
+                Rc = CS_FAILURE;
+              Else;
+                Rc = CTLST_PRIVATE_Goto(@This: @Index);
+              EndIf;
+            EndIf;
+          EndIf;
+
+          If (Rc = CS_SUCCESS);
+
+            TempPtr = Header.Current;
+
+            If (Header.Count = 1);
+               Header.First    = *Null;
+               Header.Last     = *Null;
+               Header.Current  = *Null;
+               Header.CurIndex = 0;
+            Else;
+               If (TempPtr = Header.Last);
+                   Header.Last     = TempNode.Prev;
+                   CurPtr          = TempNode.Prev;
+                   CurNode.Next    = *Null;
+                   Header.Current  = CurPtr;
+                   Header.CurIndex = Header.CurIndex - 1;
+               Else;
+                  If (TempPtr = Header.First);
+                     Header.First   = TempNode.Next;
+                     CurPtr         = TempNode.Next;
+                     CurNode.Prev   = *Null;
+                     Header.Current = CurPtr;
+                  Else;
+                     CurPtr          = TempNode.Prev;
+                     CurNode.Next    = TempNode.Next;
+                     TempPtr2        = TempNode.Next;
+                     TempNode2.Prev  = CurPtr;
+                     Header.Current  = CurPtr;
+                     Header.CurIndex = Header.CurIndex - 1;
+                  EndIf;
+               EndIf;
+            EndIf;
+
+            If TempNode.Value <> *Null;
+              Dealloc TempNode.Value;
+            EndIf;
+
+            Dealloc TempPtr;
+            Header.Count = Header.Count - 1;
+          EndIf;
+
+          Return Rc;
+
+      /End-Free
+
+     P                 E
+
+      * ------------------------------------------------------------------
+
+     PCTLST_Set...
+     P                 B
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@Value                           *   Value
+     D@Bytes                         10I 0 Value
+     D@Index                         10I 0 Value
+
+     DNodePtr          S               *
+     DHeader           DS                  LikeDs(CTLST_Head) Based(@This)
+     DNode             DS                  LikeDs(CTLST_Node) Based(NodePtr)
+
+      /Free
+
+          If (Header.Count = 0);
+             Return CS_FAILURE;
+          EndIf;
+
+          Select;
+           When @Index = CTLST_TOP;
+            @Index = 1;
+           When @Index = CTLST_BOTTOM;
+            @Index = Header.Count;
+          EndSl;
+
+          If (@Index < 1 Or @Index > Header.Count);
+            return CS_FAILURE;
+          EndIf;
+
+          CTLST_PRIVATE_Goto(@This: @Index);
+
+          If ( Header.Current <> *Null );
+             NodePtr = Header.Current;
+             If (Node.Value <> *Null);
+               Dealloc Node.Value;
+             EndIf;
+             If (@Value <> *Null And @Bytes > 0);
+               Node.Value = %Alloc(@Bytes);
+               Node.Bytes = @Bytes;
+               CTLST_PRIVATE_MemCpy(Node.Value:
+                                    @Value: Node.Bytes);
+             Else;
+               Node.Value = *Null;
+               Node.Bytes = 0;
+             EndIf;
+
+             Return CS_SUCCESS;
+          EndIf;
+
+          Return CS_FAILURE;
+      /End-Free
+     P                 E
+
+      * ------------------------------------------------------------------
+      * Private methods
+      * ------------------------------------------------------------------
+
+     PCTLST_PRIVATE_CurIndex...
+     P                 B
+     D                 PI            10I 0
+     D@This                            *   Value
+
+     DHeader           DS                  LikeDs(CTLST_Head) Based(@This)
+
+      /Free
+           Return Header.CurIndex;
+      /End-Free
+     P                 E
+
+      * ------------------------------------------------------------------
+
+     PCTLST_PRIVATE_Goto...
+     P                 B
+     D                 PI            10I 0
+     D@This                            *   Value
+     D@n                             10I 0 Value
+
+     DPtr              S               *
+     Di                S             10I 0
+     DDelta            S             10I 0
+     DHeader           DS                  LikeDs(CTLST_Head) Based(@This)
+     DNode             DS                  LikeDs(CTLST_Node) Based(Ptr)
+
+      /free
+            If ( @n = 0 );
+                 Return CS_FAILURE;
+            EndIf;
+
+            If (@n > Header.Count);
+              Return CS_FAILURE;
+            EndIf;
+
+            If ( @n = Header.CurIndex );
+                 Return CS_SUCCESS;
+            EndIf;
+
+            If ( @n = 1 );
+                 Header.Current = Header.First;
+                 Header.CurIndex = 1;
+                 Return CS_SUCCESS;
+            EndIf;
+
+            If ( @n >= Header.Count );
+                 Header.Current = Header.Last;
+                 Header.CurIndex = Header.Count;
+                 Return CS_SUCCESS;
+            EndIf;
+
+            If ( @n <> Header.CurIndex );
+              If ( @n > Header.CurIndex );
+                Delta = @n - Header.CurIndex;
+                For i=1 By 1 To Delta;
+                    Ptr = Header.Current;
+                    Header.Current = Node.Next;
+                EndFor;
+              Else;
+                Delta = Header.CurIndex - @n;
+                For i=1 By 1 To Delta;
+                  Ptr = Header.Current;
+                  Header.Current = Node.Prev;
+                EndFor;
+              EndIf;
+            EndIf;
+
+            Header.CurIndex = @n;
+            Return CS_SUCCESS;
+
+      /end-free
+     P                 E
+
+      * ------------------------------------------------------------------
+
+     PCTLST_PRIVATE_Next...
+     P                 B
+     D                 PI            10I 0
+     D@This                            *   Value
+
+     DNodePtr          S               *
+     DHeader           DS                  LikeDs(CTLST_Head) Based(@This)
+     DNode             DS                  LikeDs(CTLST_Node) Based(NodePtr)
+      /Free
+           If (Header.Count > 0);
+             NodePtr = Header.Current;
+             If (Node.Next <> *null);
+                Header.Current = Node.Next;
+                Header.CurIndex = Header.CurIndex + 1;
+                Return CS_SUCCESS;
+             EndIf;
+           EndIf;
+           Return CS_FAILURE;
+      /End-Free
+     P                 E
+
+      * ------------------------------------------------------------------
+
+     PCTLST_PRIVATE_Previous...
+     P                 B
+     D                 PI            10I 0
+     D@This                            *   Value
+
+     DNodePtr          S               *
+     DHeader           DS                  LikeDs(CTLST_Head) Based(@This)
+     DNode             DS                  LikeDs(CTLST_Node) Based(NodePtr)
+      /Free
+           If (Header.Count > 0);
+             NodePtr = Header.Current;
+             If (Node.Prev <> *null);
+                Header.Current = Node.Prev;
+                Header.CurIndex = Header.CurIndex - 1;
+                Return CS_SUCCESS;
+             EndIf;
+           EndIf;
+           Return CS_FAILURE;
+      /End-Free
+     P                 E
+
+
+

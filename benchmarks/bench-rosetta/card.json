@@ -1,0 +1,30 @@
+{
+ "name": "bench-rosetta",
+ "version": "bench-rosetta/1",
+ "title": "Rosetta Code solutions, up to 2 per language, 848 languages",
+ "unit": "snippet",
+ "names": "label-derived",
+ "labels": "the contributor (the solution's language heading on rosettacode.org)",
+ "label_kind": "author-declared",
+ "sampling": "random per language (seed 20261003): up to 2 solutions of 2 tasks, among files of 3+ non-blank lines and at most 100 KB",
+ "source": "https://github.com/acmeism/RosettaCodeData@1d47586",
+ "files_stored": false,
+ "cases": 1589,
+ "languages": 835,
+ "home_turf": [
+  "philomath-1209",
+  "FrameByFrame"
+ ],
+ "strengths": [
+  "the widest coverage: 848 Rosetta Code languages, the tail included (the median language has 18 solutions in the dump)",
+  "labels declared by the authors, produced by no identifier",
+  "the same tasks across languages: the language differs, not the topic",
+  "two thirds of the cases in languages Linguist does not know: an honest measure of coverage"
+ ],
+ "weaknesses": [
+  "file names derived from the label through acmeism's extension table (often invented): with names, a tool reads the label back; the content-only runs are the fair reading",
+  "wiki code blocks, often short (202 cases of 3-4 non-blank lines), not files of projects",
+  "fine-grained categories: dialects and implementations (BBC BASIC, Free Pascal) are languages of their own, not mapped to Linguist's broader names",
+  "Rosetta Code is training data of some classifiers and, most likely, of every large language model"
+ ]
+}

@@ -1,0 +1,50 @@
+**FREE
+
+///
+// \brief Filter Test
+//
+// \author Mihael Schmidt
+// \date   30.08.2019
+///
+
+
+ctl-opt nomain;
+
+
+//
+// Includes
+//
+/include 'bluedroplet/mime_h.rpgle'
+/include 'ileunit/assert_h.rpgle'
+
+
+//
+// Prototypes
+//
+dcl-pr test_noFilter end-pr;
+dcl-pr test_blockingFilter end-pr;
+dcl-pr test_chainedFilter end-pr;
+dcl-pr test_basicauthFilter end-pr;
+
+
+//
+// Procedures
+//
+dcl-proc test_noFilter export;
+
+end-proc;
+
+
+dcl-proc test_blockingFilter export;
+
+end-proc;
+
+
+dcl-proc test_chainedFilter export;
+
+end-proc;
+
+
+dcl-proc test_basicauthFilter export;
+
+end-proc;

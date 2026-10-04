@@ -1,0 +1,27 @@
+{
+ "name": "bench-rouge",
+ "version": "bench-rouge/1",
+ "title": "Rouge's visual samples and demos, two per lexer, without names",
+ "unit": "snippet",
+ "names": "none",
+ "labels": "Rouge's maintainers (the file is named after its lexer's tag), crosswalked to Linguist's names",
+ "label_kind": "maintainers",
+ "sampling": "curated (every visual sample and distinct demo of a language)",
+ "source": "https://github.com/rouge-ruby/rouge@16e6ecdb3bc4248cead78375e1b24580ee2352a1",
+ "files_stored": false,
+ "cases": 455,
+ "languages": 229,
+ "home_turf": [
+  "Rouge"
+ ],
+ "strengths": [
+  "content only: no file name, so every identifier is tested on the bytes",
+  "two sizes per language: a long visual sample and a short demo",
+  "independent of Linguist: one file is a Linguist sample"
+ ],
+ "weaknesses": [
+  "Rouge's home turf: its lexers are tested on these very files, and its taxonomy is the label set",
+  "samples written to exercise a lexer (many are lists of edge cases); demos are a few lines",
+  "two files per language at most"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+  "version": "a55a3b5",
+  "name": "Hyperpolyglot a55a3b5",
+  "about": "Rust port of Linguist (2023); Synid's heuristics and classifier come from it",
+  "url": "https://github.com/monkslc/hyperpolyglot",
+  "family": "linguist-family"
+}

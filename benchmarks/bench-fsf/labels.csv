@@ -1,0 +1,8 @@
+source_label,linguist,how
+fsl-feat,Tcl,manual
+not-code:git-annex-pointer,Text,manual
+not-code:docs,Text,manual
+XML,XML,exact
+JSON,JSON,exact
+GLSL,GLSL,exact
+C++,C++,exact

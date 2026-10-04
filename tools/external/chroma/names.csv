@@ -1,0 +1,26 @@
+# Chroma lexer name → Linguist name(s) of the same language. Rule (all tools alike): synonyms only; a label covering
+# several Linguist languages maps to all of them (undecided); a dialect or a broader/narrower kind (Arduino vs C++,
+# MySQL vs SQL, PHTML vs PHP, react vs JavaScript, SYSTEMD vs INI) is NOT mapped.
+# Nu is Chroma's Nushell lexer, not Linguist's Nu (a homonym).
+label,linguist
+Cassandra CQL,CQL
+Desktop file,desktop
+Django/Jinja,Jinja
+dns,DNS Zone
+Docker,Dockerfile
+FortranFixed,Fortran
+GDScript3,GDScript
+Gettext,Gettext Catalog
+Kakoune,KakouneScript
+Nu,Nushell
+OnesEnterprise,1C Enterprise
+Org Mode,Org
+Pig,PigLatin
+properties,Java Properties
+Python 2,Python
+ReasonML,Reason
+reg,Windows Registry Entries
+Rego,Open Policy Agent
+Transact-SQL,TSQL
+WebAssembly Text Format,WebAssembly
+WebGPU Shading Language,WGSL

@@ -1,0 +1,1365 @@
+<Session>
+    <DataBasket>
+        <TotalVariableCount> 23 </TotalVariableCount>
+        <Version> 2 </Version>
+        <ConcatenatedVariable>
+            <Variable>
+                <VarId>95eb9d5a6eb09d86bc83df1664c60ec5</VarId>
+                <Idnum> -102 </Idnum>
+                <Type> 1 </Type>
+                <VarMnemonic> GEOG-102 </VarMnemonic>
+                <VarDescription> FIPS State Code </VarDescription>
+                <CVLabel> FIPS State Code </CVLabel>
+                <Componentid> 1 </Componentid>
+                <Periodid> 1 </Periodid>
+                <VarComparisonid> 1 </VarComparisonid>
+            </Variable>
+            <Definition>
+                <DefSize> 1 </DefSize>
+                <CVID> 11511 </CVID>
+                <CVAllValuesSelected>
+                <CVMnemonic> GESTFIPS </CVMnemonic>
+                <CVGeoReferenceDate> 1994-01-01 </CVGeoReferenceDate>
+                <CVValues>
+                    <CVNumValues> 52 </CVNumValues>
+                    <CVValue> 2 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 01 </CVCode>
+                    <CVValLabel> Alabama </CVValLabel>
+                    <CVValue> 3 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 02 </CVCode>
+                    <CVValLabel> Alaska </CVValLabel>
+                    <CVValue> 4 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 04 </CVCode>
+                    <CVValLabel> Arizona </CVValLabel>
+                    <CVValue> 5 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 05 </CVCode>
+                    <CVValLabel> Arkansas </CVValLabel>
+                    <CVValue> 6 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 06 </CVCode>
+                    <CVValLabel> California </CVValLabel>
+                    <CVValue> 7 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 08 </CVCode>
+                    <CVValLabel> Colorado </CVValLabel>
+                    <CVValue> 8 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 09 </CVCode>
+                    <CVValLabel> Connecticut </CVValLabel>
+                    <CVValue> 9 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 10 </CVCode>
+                    <CVValLabel> Delaware </CVValLabel>
+                    <CVValue> 10 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 11 </CVCode>
+                    <CVValLabel> District of Columbia </CVValLabel>
+                    <CVValue> 11 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 12 </CVCode>
+                    <CVValLabel> Florida </CVValLabel>
+                    <CVValue> 12 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 13 </CVCode>
+                    <CVValLabel> Georgia </CVValLabel>
+                    <CVValue> 13 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 15 </CVCode>
+                    <CVValLabel> Hawaii </CVValLabel>
+                    <CVValue> 14 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 16 </CVCode>
+                    <CVValLabel> Idaho </CVValLabel>
+                    <CVValue> 15 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 17 </CVCode>
+                    <CVValLabel> Illinois </CVValLabel>
+                    <CVValue> 16 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 18 </CVCode>
+                    <CVValLabel> Indiana </CVValLabel>
+                    <CVValue> 17 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 19 </CVCode>
+                    <CVValLabel> Iowa </CVValLabel>
+                    <CVValue> 18 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 20 </CVCode>
+                    <CVValLabel> Kansas </CVValLabel>
+                    <CVValue> 19 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 21 </CVCode>
+                    <CVValLabel> Kentucky </CVValLabel>
+                    <CVValue> 20 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 22 </CVCode>
+                    <CVValLabel> Louisiana </CVValLabel>
+                    <CVValue> 21 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 23 </CVCode>
+                    <CVValLabel> Maine </CVValLabel>
+                    <CVValue> 22 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 24 </CVCode>
+                    <CVValLabel> Maryland </CVValLabel>
+                    <CVValue> 23 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 25 </CVCode>
+                    <CVValLabel> Massachusetts </CVValLabel>
+                    <CVValue> 24 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 26 </CVCode>
+                    <CVValLabel> Michigan </CVValLabel>
+                    <CVValue> 25 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 27 </CVCode>
+                    <CVValLabel> Minnesota </CVValLabel>
+                    <CVValue> 26 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 28 </CVCode>
+                    <CVValLabel> Mississippi </CVValLabel>
+                    <CVValue> 27 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 29 </CVCode>
+                    <CVValLabel> Missouri </CVValLabel>
+                    <CVValue> 28 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 30 </CVCode>
+                    <CVValLabel> Montana </CVValLabel>
+                    <CVValue> 29 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 31 </CVCode>
+                    <CVValLabel> Nebraska </CVValLabel>
+                    <CVValue> 30 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 32 </CVCode>
+                    <CVValLabel> Nevada </CVValLabel>
+                    <CVValue> 31 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 33 </CVCode>
+                    <CVValLabel> New Hampshire </CVValLabel>
+                    <CVValue> 32 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 34 </CVCode>
+                    <CVValLabel> New Jersey </CVValLabel>
+                    <CVValue> 33 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 35 </CVCode>
+                    <CVValLabel> New Mexico </CVValLabel>
+                    <CVValue> 34 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 36 </CVCode>
+                    <CVValLabel> New York </CVValLabel>
+                    <CVValue> 35 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 37 </CVCode>
+                    <CVValLabel> North Carolina </CVValLabel>
+                    <CVValue> 36 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 38 </CVCode>
+                    <CVValLabel> North Dakota </CVValLabel>
+                    <CVValue> 37 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 39 </CVCode>
+                    <CVValLabel> Ohio </CVValLabel>
+                    <CVValue> 38 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 40 </CVCode>
+                    <CVValLabel> Oklahoma </CVValLabel>
+                    <CVValue> 39 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 41 </CVCode>
+                    <CVValLabel> Oregon </CVValLabel>
+                    <CVValue> 40 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 42 </CVCode>
+                    <CVValLabel> Pennsylvania </CVValLabel>
+                    <CVValue> 41 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 44 </CVCode>
+                    <CVValLabel> Rhode Island </CVValLabel>
+                    <CVValue> 42 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 45 </CVCode>
+                    <CVValLabel> South Carolina </CVValLabel>
+                    <CVValue> 43 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 46 </CVCode>
+                    <CVValLabel> South Dakota </CVValLabel>
+                    <CVValue> 44 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 47 </CVCode>
+                    <CVValLabel> Tennessee </CVValLabel>
+                    <CVValue> 45 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 48 </CVCode>
+                    <CVValLabel> Texas </CVValLabel>
+                    <CVValue> 46 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 49 </CVCode>
+                    <CVValLabel> Utah </CVValLabel>
+                    <CVValue> 47 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 50 </CVCode>
+                    <CVValLabel> Vermont </CVValLabel>
+                    <CVValue> 48 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 51 </CVCode>
+                    <CVValLabel> Virginia </CVValLabel>
+                    <CVValue> 49 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 53 </CVCode>
+                    <CVValLabel> Washington </CVValLabel>
+                    <CVValue> 50 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 54 </CVCode>
+                    <CVValLabel> West Virginia </CVValLabel>
+                    <CVValue> 51 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 55 </CVCode>
+                    <CVValLabel> Wisconsin </CVValLabel>
+                    <CVValue> 52 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 56 </CVCode>
+                    <CVValLabel> Wyoming </CVValLabel>
+                    <CVValue> 8299695 </CVValue>
+                    <CVNumCodes> 1 </CVNumCodes>
+                    <CVCode> 72 </CVCode>
+                    <CVValLabel> Puerto Rico </CVValLabel>
+                </CVValues>
+            </Definition>
+            <CVCodeset> 1 </CVCodeset>
+            <CVHierarchy> 87 </CVHierarchy>
+            <CVLevel> 1 </CVLevel>
+        </ConcatenatedVariable>
+        <Variable>
+            <VarId>9336864502a6a42fd6cb3f713b74444d</VarId>
+            <Idnum> 11206 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PEEDUCA </VarMnemonic>
+            <VarDescription> Demographics-highest level of school completed </VarDescription>
+            <Ranges>
+                <RangeCount> 17 </RangeCount>
+                <Range>
+                    <ValDescription> Not in Universe </ValDescription>
+                    <Value> -1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Less Than 1st Grade </ValDescription>
+                    <Value> 31 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 1st,2nd,3rd Or 4th Grade </ValDescription>
+                    <Value> 32 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 5th Or 6th Grade </ValDescription>
+                    <Value> 33 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 7th Or 8th Grade </ValDescription>
+                    <Value> 34 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 9th Grade </ValDescription>
+                    <Value> 35 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 10th Grade </ValDescription>
+                    <Value> 36 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 11th Grade </ValDescription>
+                    <Value> 37 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 12th Grade No Diploma </ValDescription>
+                    <Value> 38 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> High School Grad-Diploma Or Equiv (ged) </ValDescription>
+                    <Value> 39 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Some College But No Degree </ValDescription>
+                    <Value> 40 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Associate Degree-Occupational/Vocationl </ValDescription>
+                    <Value> 41 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Associate Deg.-Academic Program </ValDescription>
+                    <Value> 42 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Bachelor's Degree(ex:ba,ab,bs) </ValDescription>
+                    <Value> 43 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> MASTER'S DEGREE(EX:MA,MS,MEng,MEd,MSW) </ValDescription>
+                    <Value> 44 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Professional School Deg(ex:md,dds,dvm) </ValDescription>
+                    <Value> 45 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> DOCTORATE DEGREE(EX:PhD,EdD) </ValDescription>
+                    <Value> 46 </Value>
+                    <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>546fa2c6330899991aaa7a11a519ffca</VarId>
+            <Idnum> 139040 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PEHSPNON </VarMnemonic>
+            <VarDescription> Demographics- hispanic/non-hispanic origin </VarDescription>
+            <Ranges>
+                <RangeCount> 2 </RangeCount>
+                <Range>
+                    <ValDescription> Hispanic </ValDescription>
+                    <Value> 1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Non-Hispanic </ValDescription>
+                    <Value> 2 </Value>
+                    <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>4331f520ae91eab1037507d31edf20b1</VarId>
+            <Idnum> 11208 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PEMARITL </VarMnemonic>
+            <VarDescription> Demographics-marital status </VarDescription>
+            <Ranges>
+                <RangeCount> 7 </RangeCount>
+                <Range>
+                    <ValDescription> Not in Universe </ValDescription>
+                    <Value> -1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Married - Spouse Present </ValDescription>
+                    <Value> 1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Married-Spouse Absent </ValDescription>
+                    <Value> 2 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Widowed </ValDescription>
+                    <Value> 3 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Divorced </ValDescription>
+                    <Value> 4 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Separated </ValDescription>
+                    <Value> 5 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Never Married </ValDescription>
+                    <Value> 6 </Value>
+                    <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>292c6fe00f28398752f6cbe59acb225b</VarId>
+            <Idnum> 11213 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PERRP </VarMnemonic>
+            <VarDescription> Demographics-relationship to reference person </VarDescription>
+            <Ranges>
+                <RangeCount> 18 </RangeCount>
+                <Range>
+                    <ValDescription> Ref Pers with other relativew in HH </ValDescription>
+                    <Value> 1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> REF PERS WITH NO OTHER RELATIVES IN HH </ValDescription>
+                    <Value> 2 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> SPOUSE </ValDescription>
+                    <Value> 3 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> CHILD </ValDescription>
+                    <Value> 4 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> GRANDCHILD </ValDescription>
+                    <Value> 5 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> PARENT </ValDescription>
+                    <Value> 6 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> BROTHER/SISTER </ValDescription>
+                    <Value> 7 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> OTHER RELATIVE </ValDescription>
+                    <Value> 8 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> FOSTER CHILD </ValDescription>
+                    <Value> 9 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Non-rel of ref. per w/own rels in HH </ValDescription>
+                    <Value> 10 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Not used </ValDescription>
+                    <Value> 11 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> NON-REL OF REF PER W/NO OWN RELS IN HH </ValDescription>
+                    <Value> 12 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Unmarried partner w/ own rels in HH </ValDescription>
+                    <Value> 13 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Unmar. partner w/ no own rels in HH </ValDescription>
+                    <Value> 14 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Housemate/roommate w/ own rels in HH </ValDescription>
+                    <Value> 15 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Hsemate/roommate w/ no own rels in HH </ValDescription>
+                    <Value> 16 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Roomer/boarder w/ own rels in HH </ValDescription>
+                    <Value> 17 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Roomer/brder w/ no own rels in HH </ValDescription>
+                    <Value> 18 </Value>
+                    <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>a6d1b0cda651f0bbca291f8bff984e4e</VarId>
+            <Idnum> 11214 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PESEX </VarMnemonic>
+            <VarDescription> Demographics-sex </VarDescription>
+            <Ranges>
+            <RangeCount> 2 </RangeCount>
+                <Range>
+                    <ValDescription> Male </ValDescription>
+                    <Value> 1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Female </ValDescription>
+                    <Value> 2 </Value>
+                    <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>2c5eb7f901d1008a8b6e2c3ed0a59b40</VarId>
+            <Idnum> 42604 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PRCHLD </VarMnemonic>
+            <VarDescription> Demographics-presence of own children <18 years by age group </VarDescription>
+            <Ranges>
+                <RangeCount> 17 </RangeCount>
+                <Range>
+                    <ValDescription> NIU (Not a parent) </ValDescription>
+                    <Value> -1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> No own children under 18 years of age </ValDescription>
+                    <Value> 0 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> All own children 0- 2 years of age </ValDescription>
+                    <Value> 1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> All own chldrn 3- 5 years of age </ValDescription>
+                    <Value> 2 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> All own chldrn 6-13 years of age </ValDescription>
+                    <Value> 3 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> All own chldrn 14-17 years of age </ValDescription>
+                    <Value> 4 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Own chldrn 0-2,3-5 years of age (none  6-17) </ValDescription>
+                    <Value> 5 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Own chldrn 0-2,6-13 years of age (none  3- 5 or 14-17) </ValDescription>
+                    <Value> 6 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Own chldrn 0-2,14-17 years of age (none  3-13) </ValDescription>
+                    <Value> 7 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Own chldrn 3-5,6-13 years of age (none  0- 2 or 14-17) </ValDescription>
+                    <Value> 8 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Own chldrn 3-5,14-17 years of age (none  0- 2 or  6-13) </ValDescription>
+                    <Value> 9 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Own children 6-13 and 14-17 years of age (none  0- 5) </ValDescription>
+                    <Value> 10 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Own children 0-2, 3- 5, and  6-13 years of age (none 14-17) </ValDescription>
+                <Value> 11 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Own chldrn 0-2, 3- 5, and 14-17 years of age (none 6-13) </ValDescription>
+                <Value> 12 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Own childrn 0-2, 6-13, and 14-17 years of age (none 3- 5) </ValDescription>
+                <Value> 13 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Own children 3-5, 6-13, and 14-17 years of age (none  0- 2) </ValDescription>
+                <Value> 14 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Own children from all age groups </ValDescription>
+                <Value> 15 </Value>
+                <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>c329e3f4b33837b7fb11be9e6227cad9</VarId>
+            <Idnum> 11217 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PRCITSHP </VarMnemonic>
+            <VarDescription> Demographics-United States citizenship group </VarDescription>
+            <Ranges>
+                <RangeCount> 5 </RangeCount>
+                <Range>
+                <ValDescription> Native, Born In US </ValDescription>
+                <Value> 1 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Native, Born in PR or US Outlying Area </ValDescription>
+                <Value> 2 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Native, Born Abroad Of US Parent(s) </ValDescription>
+                <Value> 3 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Foreign Born, US Cit By Naturalization </ValDescription>
+                <Value> 4 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Foreign Born, Not a US Citizen </ValDescription>
+                <Value> 5 </Value>
+                <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>eb637411927b8c872fc5c16f1ecbf950</VarId>
+            <Idnum> 11220 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PRFAMTYP </VarMnemonic>
+            <VarDescription> Demographics-family type(recode) </VarDescription>
+            <Ranges>
+                <RangeCount> 5 </RangeCount>
+                <Range>
+                    <ValDescription> Primary family </ValDescription>
+                    <Value> 1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Primary Individual </ValDescription>
+                <Value> 2 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Related subfamily </ValDescription>
+                <Value> 3 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Unrelated subfamily </ValDescription>
+                <Value> 4 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Secondary individual </ValDescription>
+                <Value> 5 </Value>
+                <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>1297436a38e5b80f69b4f4a6676d2459</VarId>
+            <Idnum> 927901 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PRINUYER </VarMnemonic>
+            <VarDescription> Recoded Year of Entry for Foreign Born </VarDescription>
+            <Ranges>
+                <RangeCount> 25 </RangeCount>
+                <Range>
+                    <ValDescription> Not In Universe (Born In U.S.) </ValDescription>
+                    <Value> -1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Not Foreign Born,(Born in the U. S.) </ValDescription>
+                    <Value> 0 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Before 1950 </ValDescription>
+                    <Value> 1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 1950-1959 </ValDescription>
+                    <Value> 2 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 1960-1964 </ValDescription>
+                    <Value> 3 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 1965-1969 </ValDescription>
+                    <Value> 4 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 1970-1974 </ValDescription>
+                    <Value> 5 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 1975-1979 </ValDescription>
+                    <Value> 6 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 1980-1981 </ValDescription>
+                    <Value> 7 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 1982-1983 </ValDescription>
+                    <Value> 8 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 1984-1985 </ValDescription>
+                    <Value> 9 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 1986-1987 </ValDescription>
+                    <Value> 10 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 1988-1989 </ValDescription>
+                    <Value> 11 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 1990-1991 </ValDescription>
+                    <Value> 12 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 1992-1993 </ValDescription>
+                    <Value> 13 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 1994-1995 </ValDescription>
+                    <Value> 14 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> 1996-1997 </ValDescription>
+                    <Value> 15 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 1998-1999 </ValDescription>
+                <Value> 16 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 2000-2001 </ValDescription>
+                <Value> 17 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 2002-2003 </ValDescription>
+                <Value> 18 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 2004-2005 </ValDescription>
+                <Value> 19 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 2006-2007 </ValDescription>
+                <Value> 20 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 2008-2009 </ValDescription>
+                <Value> 21 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 2010-2011 </ValDescription>
+                <Value> 22 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 2012-2014 </ValDescription>
+                <Value> 23 </Value>
+                <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>8275dcc952f8f4fe3d5f4f47c5864b3e</VarId>
+            <Idnum> 42605 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PRNMCHLD </VarMnemonic>
+            <VarDescription> Demographics-number of own children <18 years of age </VarDescription>
+            <Ranges>
+                <RangeCount> 2 </RangeCount>
+                <Range>
+                <ValDescription> NIU (Not a parent) </ValDescription>
+                <Value> -1 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> # of own children under 18 years of age </ValDescription>
+                <OrigMinVal> 0 </OrigMinVal>
+                <OrigMaxVal> 99 </OrigMaxVal>
+                <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>6dae28279772891b5d98f3df28a88894</VarId>
+            <Idnum> 11227 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PRTAGE </VarMnemonic>
+            <VarDescription> Demographics - age topcoded at 85, 90 or 80 (see full description) </VarDescription>
+            <Ranges>
+                <RangeCount> 1 </RangeCount>
+                <Range>
+                <ValDescription> Range </ValDescription>
+                <OrigMinVal> 0 </OrigMinVal>
+                <OrigMaxVal> 90 </OrigMaxVal>
+                <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>fdfb2a21030aab27bbdcef7947b87a2a</VarId>
+            <Idnum> 694899 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PTDTRACE </VarMnemonic>
+            <VarDescription> Demographics- race of respondent </VarDescription>
+            <Ranges>
+                <RangeCount> 26 </RangeCount>
+                <Range>
+                <ValDescription> White only </ValDescription>
+                <Value> 01 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Black only </ValDescription>
+                <Value> 02 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> American Indian, Alaskan Native Only </ValDescription>
+                <Value> 03 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Asian only </ValDescription>
+                <Value> 04 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Hawaiian/Pacific Islander Only </ValDescription>
+                <Value> 05 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> White-Black </ValDescription>
+                <Value> 06 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> White-AI </ValDescription>
+                <Value> 07 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> White-Asian </ValDescription>
+                <Value> 08 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> White-HP </ValDescription>
+                <Value> 09 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Black-AI </ValDescription>
+                <Value> 10 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Black-Asian </ValDescription>
+                <Value> 11 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Black-HP </ValDescription>
+                <Value> 12 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> AI-Asian </ValDescription>
+                <Value> 13 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> AI-HP </ValDescription>
+                <Value> 14 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Asian-HP </ValDescription>
+                <Value> 15 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> W-B-AI </ValDescription>
+                <Value> 16 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> W-B-A </ValDescription>
+                <Value> 17 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> W-B-HP </ValDescription>
+                <Value> 18 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> W-AI-A </ValDescription>
+                <Value> 19 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> W-AI-HP </ValDescription>
+                <Value> 20 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> W-A-HP </ValDescription>
+                <Value> 21 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> B-AI-A </ValDescription>
+                <Value> 22 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> W-B-AI-A </ValDescription>
+                <Value> 23 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> W-AI-A-HP </ValDescription>
+                <Value> 24 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Other 3 Race Combinations </ValDescription>
+                <Value> 25 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Other 4 and 5 Race Combinations </ValDescription>
+                <Value> 26 </Value>
+                <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>941c465ab29f9d2a694befdc18711545</VarId>
+            <Idnum> 11509 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> GEREG </VarMnemonic>
+            <VarDescription> Geography-region </VarDescription>
+            <Ranges>
+                <RangeCount> 4 </RangeCount>
+                <Range>
+                <ValDescription> Northeast </ValDescription>
+                <Value> 1 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Midwest (formerly North Central) </ValDescription>
+                <Value> 2 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> South </ValDescription>
+                <Value> 3 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> West </ValDescription>
+                <Value> 4 </Value>
+                <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>96590721dbae9ebf188cbea5138c09c6</VarId>
+            <Idnum> 569019 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> HEFAMINC </VarMnemonic>
+            <VarDescription> Household-total family income in past 12 months </VarDescription>
+            <Ranges>
+                <RangeCount> 16 </RangeCount>
+                <Range>
+                <ValDescription> Less Than $5,000 </ValDescription>
+                <Value> 1 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 5,000 To 7,499 </ValDescription>
+                <Value> 2 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 7,500 To 9,999 </ValDescription>
+                <Value> 3 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 10,000 To 12,499 </ValDescription>
+                <Value> 4 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 12,500 To 14,999 </ValDescription>
+                <Value> 5 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 15,000 To 19,999 </ValDescription>
+                <Value> 6 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 20,000 To 24,999 </ValDescription>
+                <Value> 7 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 25,000 To 29,999 </ValDescription>
+                <Value> 8 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 30,000 To 34,999 </ValDescription>
+                <Value> 9 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 35,000 To 39,999 </ValDescription>
+                <Value> 10 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 40,000 To 49,999 </ValDescription>
+                <Value> 11 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 50,000 To 59,999 </ValDescription>
+                <Value> 12 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 60,000 To 74,999 </ValDescription>
+                <Value> 13 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 75,000 To 99,999 </ValDescription>
+                <Value> 14 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 100,000 To 149,999 </ValDescription>
+                <Value> 15 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> 150,000 or More </ValDescription>
+                <Value> 16 </Value>
+                <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>a8005f05974afd1f2e0058e101590c51</VarId>
+            <Idnum> 11173 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> HRHTYPE </VarMnemonic>
+            <VarDescription> Household-type of family/single individual </VarDescription>
+            <Ranges>
+                <RangeCount> 12 </RangeCount>
+                <Range>
+                <ValDescription> In Universe, Met No Conditions To Assign </ValDescription>
+                <Value> -1 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Non-Interview Household </ValDescription>
+                <Value> 0 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Husband/Wife Primary Family(neither AF) </ValDescription>
+                <Value> 1 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Husb/Wife Prim. Family(either/Both AF) </ValDescription>
+                <Value> 2 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Unmarried Civilian Male-Prim Fam Hhlder </ValDescription>
+                <Value> 3 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Unmarried Civ. Female-Prim Fam Hhlder </ValDescription>
+                <Value> 4 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Primary Family Hhlder-Rp In AF,unmar. </ValDescription>
+                <Value> 5 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Civilian Male Primary Individual </ValDescription>
+                <Value> 6 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Civilian Female Primary Individual </ValDescription>
+                <Value> 7 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Primary Individual Hhld-Rp In AF </ValDescription>
+                <Value> 8 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Group Quarters With Family </ValDescription>
+                <Value> 9 </Value>
+                <Selected> true </Selected>
+                </Range>
+                <Range>
+                <ValDescription> Grp Quarters Without Family </ValDescription>
+                <Value> 10 </Value>
+                <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>243caac9272705b2273bdb5388b794b5</VarId>
+            <Idnum> 11178 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> HRNUMHOU </VarMnemonic>
+            <VarDescription> Household-total # of members </VarDescription>
+            <Ranges>
+                <RangeCount> 1 </RangeCount>
+                <Range>
+                    <ValDescription> Range </ValDescription>
+                    <OrigMinVal> 0 </OrigMinVal>
+                    <OrigMaxVal> 16 </OrigMaxVal>
+                    <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>f223618369deec58b6fe0a0470e0faa1</VarId>
+            <Idnum> 11287 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PEMLR </VarMnemonic>
+            <VarDescription> Labor Force-employment status </VarDescription>
+            <Ranges>
+                <RangeCount> 8 </RangeCount>
+                <Range>
+                    <ValDescription> Not in Universe </ValDescription>
+                    <Value> -1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Employed-At Work </ValDescription>
+                    <Value> 1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Employed-Absent </ValDescription>
+                    <Value> 2 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Unemployed-On Layoff </ValDescription>
+                    <Value> 3 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Unemployed-Looking </ValDescription>
+                    <Value> 4 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Retired-Not In Labor Force </ValDescription>
+                    <Value> 5 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Disabled-Not In Labor Force </ValDescription>
+                    <Value> 6 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Other-Not In Labor Force </ValDescription>
+                    <Value> 7 </Value>
+                    <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>5f492fa6077b99b62a912b28473fd9e6</VarId>
+            <Idnum> 11288 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PENLFACT </VarMnemonic>
+            <VarDescription> Labor Force-(not in)reason </VarDescription>
+            <Ranges>
+                <RangeCount> 7 </RangeCount>
+                <Range>
+                    <ValDescription> Not in Universe </ValDescription>
+                    <Value> -1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Disabled </ValDescription>
+                    <Value> 1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Ill </ValDescription>
+                    <Value> 2 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> In School </ValDescription>
+                    <Value> 3 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Taking Care Of House Or Family </ValDescription>
+                    <Value> 4 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> In Retirement </ValDescription>
+                    <Value> 5 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Something Else/Other </ValDescription>
+                    <Value> 6 </Value>
+                    <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>30caecfef6adb0b2095b4ef232f8c6d7</VarId>
+            <Idnum> 11300 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PRFTLF </VarMnemonic>
+            <VarDescription> Labor Force-full-time/part-time </VarDescription>
+            <Ranges>
+                <RangeCount> 3 </RangeCount>
+                <Range>
+                    <ValDescription> In Universe, Met No Conditions To Assign </ValDescription>
+                    <Value> -1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Full time labor force </ValDescription>
+                    <Value> 1 </Value>
+                    <Selected> true </Selected>
+                </Range>
+                <Range>
+                    <ValDescription> Part Time Labor Force </ValDescription>
+                    <Value> 2 </Value>
+                    <Selected> true </Selected>
+                </Range>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>aa83999ffe9c138a0b9efa1637928431</VarId>
+            <Idnum> 11512 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> HWHHWGT </VarMnemonic>
+            <VarDescription> Weight-household </VarDescription>
+            <Ranges>
+                <RangeCount> 0 </RangeCount>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>4e70de94b9af65836f945889eb45166e</VarId>
+            <Idnum> 11513 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PWFMWGT </VarMnemonic>
+            <VarDescription> Weight-family </VarDescription>
+            <Ranges>
+                <RangeCount> 0 </RangeCount>
+            </Ranges>
+        </Variable>
+        <Variable>
+            <VarId>1f7d05e3b8fc49f3148b5926d0271fa4</VarId>
+            <Idnum> 11167 </Idnum>
+            <Type> 1 </Type>
+            <VarMnemonic> PWSSWGT </VarMnemonic>
+            <VarDescription> Weight-second stage weight (rake 6 final step weight) </VarDescription>
+            <Ranges>
+                <RangeCount> 0 </RangeCount>
+            </Ranges>
+        </Variable>
+    </DataBasket>
+    <TreeInfo>
+        <NumNodes> 1 </NumNodes>
+        <TreeNode>
+            <Survey> 1 </Survey>
+            <Subsrv> 0 </Subsrv>
+            <Component> 1 </Component>
+            <Instance> 201910 </Instance>
+            <Longitudinal> false </Longitudinal>
+            <VirtualIndicator> 0 </VirtualIndicator>
+            <NodeDescription> CPS//Basic/Oct 2019 </NodeDescription>
+        </TreeNode>
+    </TreeInfo>
+</Session>

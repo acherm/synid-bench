@@ -1,0 +1,127 @@
+**FREE
+
+/if not defined (BLUEDROPLET_SERVICE_H)
+/define BLUEDROPLET_SERVICE_H
+
+//-------------------------------------------------------------------------------------------------
+//
+// (C) Copyleft 2016 Mihael Schmidt
+//
+// This file is part of BlueDroplet.
+//
+// BlueDroplet is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published
+// the Free Software Foundation, either version 3 of the License, or
+// any later version.
+//
+// BlueDroplet is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with BlueDroplet.  If not, see <http://www.gnu.org/licenses/>.
+//
+//-------------------------------------------------------------------------------------------------
+
+
+//-------------------------------------------------------------------------------------------------
+// Data Structures
+//-------------------------------------------------------------------------------------------------
+/include 'config_t.rpgle'
+
+
+//-------------------------------------------------------------------------------------------------
+// Prototypes
+//-------------------------------------------------------------------------------------------------
+dcl-pr droplet_service_create pointer extproc('droplet_service_create') end-pr;
+   
+dcl-pr droplet_service_finalize extproc('droplet_service_finalize');
+  service pointer;
+end-pr;
+
+dcl-pr droplet_service_start extproc('droplet_service_start');
+  service pointer;
+end-pr;
+
+dcl-pr droplet_service_setHttpAddress extproc('droplet_service_setHttpAddress');
+  service pointer const;
+  address char(100) const;
+end-pr;
+
+dcl-pr droplet_service_setHttpPort extproc('droplet_service_setHttpPort');
+  service pointer const;
+  port int(10) const;
+end-pr;
+
+dcl-pr droplet_service_enableAdmin extproc('droplet_service_enableAdmin');
+  service pointer const;
+  enabled ind const;
+end-pr;
+
+dcl-pr droplet_service_setAdminAddress extproc('droplet_service_setAdminAddress');
+  service pointer const;
+  address char(100) const;
+end-pr;
+
+dcl-pr droplet_service_setAdminPort extproc('droplet_service_setAdminPort');
+  service pointer const;
+  port int(10) const;
+end-pr;
+
+dcl-pr droplet_service_enableLogging extproc('droplet_service_enableLogging');
+  service pointer const;
+  enabled ind const;
+end-pr;
+
+dcl-pr droplet_service_setTemplatePath extproc('droplet_service_setTemplatePath');
+  service pointer const;
+  path char(1024) const;
+end-pr;
+
+dcl-pr droplet_service_setConfiguration extproc('droplet_service_setConfiguration');
+  service pointer const;
+  configuration likeds(droplet_config_configuration) const;
+end-pr;
+
+dcl-pr droplet_service_addEndPoint extproc('droplet_service_addEndPoint');
+  service pointer const;
+  endPoint pointer(*proc) const;
+  path char(1024) const;
+  method char(10) const;
+end-pr;
+
+dcl-pr droplet_service_setPollInterval extproc('droplet_service_setPollInterval');
+  service pointer const;
+  interval int(10) const;
+end-pr;
+
+dcl-pr droplet_service_setLogger extproc('droplet_service_setLogger');
+  service pointer const;
+  logger pointer const;
+end-pr;
+
+dcl-pr droplet_service_getLogger pointer extproc('droplet_service_getLogger');
+  service pointer const;
+end-pr;
+
+dcl-pr droplet_service_setLogLevel extproc('droplet_service_setLogLevel');
+  service pointer const;
+  logLevel char(10) const;
+end-pr;
+
+dcl-pr droplet_service_setFlag extproc('droplet_service_setFlag');
+  connection pointer const;
+  flag uns(10) const;
+end-pr;
+
+dcl-pr droplet_service_getFlags uns(10) extproc('droplet_service_getFlags');
+  connection pointer const;
+end-pr;
+
+dcl-pr droplet_service_isFlagSet ind extproc('droplet_service_isFlagSet');
+  connection pointer const;
+  flag uns(10) const;
+end-pr;
+
+/endif

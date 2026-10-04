@@ -1,0 +1,23 @@
+# highlight.js language name → Linguist name(s) of the same language. Rule (all tools alike): synonyms only; a label
+# covering several Linguist languages maps to all of them (undecided); a dialect or a broader/narrower kind (Arduino
+# vs C++, ARM/AVR/MIPS Assembly, PostgreSQL vs SQL, FreeDesktop config = .desktop and systemd units, C/AL vs AL)
+# is NOT mapped. Intel x86 Assembly is Linguist's Assembly (aliases asm, nasm; ace mode assembly_x86).
+label,linguist
+"HTML, XML",HTML;XML
+"TOML, also INI",TOML;INI
+Augmented Backus-Naur Form,ABNF
+Extended Backus-Naur Form,EBNF
+Apache config,ApacheConf
+Batch file (DOS),Batchfile
+Caché Object Script,ObjectScript
+GML,Game Maker Language
+Intel x86 Assembly,Assembly
+LiveCode,LiveCode Script
+LLVM IR,LLVM
+LSL (Linden Scripting Language),LSL
+MikroTik RouterOS script,RouterOS Script
+Nginx config,Nginx
+PHP template,HTML+PHP
+python-repl,Python console
+ReasonML,Reason
+SML (Standard ML),Standard ML

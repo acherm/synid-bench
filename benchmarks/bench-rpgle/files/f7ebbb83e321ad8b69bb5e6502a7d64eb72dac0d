@@ -1,0 +1,25 @@
+     V*=====================================================================
+     V* MODIFICHE Ril.  T Au Descrizione
+     V* gg/mm/aa  nn.mm i xx Breve descrizione
+     V*=====================================================================
+     V* 20/10/23          DF Creazione
+     V*=====================================================================
+     D R               S              6  0
+     D*    MSG         S         50
+     C     1             DO        R
+     C                   Z-ADD     3,14          NNN073            7 3
+     C                   ADD       1,01          NNN073
+     C                   ADD(H)    1,1234        NNN073
+     C                   Z-SUB     3,14          NN1073            7 3
+     C                   ADD       NN1073        NNN073
+     C                   MULT      3             NNN073
+     C                   DIV       2             NNN073
+     C                   MULT(H)   3,1           NNN073
+     C                   ENDDO
+     C*                  EVAL      MSG='DONE ' + %CHAR(R)
+     C*    MSG           DSPLY
+     D A               S              6  2
+     C
+     C     *ENTRY        PLIST
+     C                   PARM                    R
+     C                   SETON                                        RT

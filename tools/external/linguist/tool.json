@@ -1,0 +1,7 @@
+{
+  "version": "9.7.0",
+  "name": "GitHub Linguist 9.7.0",
+  "about": "GitHub's language detector (Ruby gem): file name, extension, shebang, heuristics, then a classifier trained on its own samples (a centroid classifier since 8.0.0; naive Bayes before)",
+  "url": "https://github.com/github-linguist/linguist",
+  "family": "linguist-family"
+}

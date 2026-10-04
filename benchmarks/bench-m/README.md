@@ -122,14 +122,17 @@ In short:
 - Linguist's `.m` rules alone never name a wrong language but abstain on 16 files (38/54);
   Pygments always answers and is wrong on 35 (19/54).
 - The other identifiers, run from pinned Docker images (`tools/external.py`): GitHub Linguist
-  9.7.0 in full (rules + classifier) and go-enry 47/54, Hyperpolyglot 41/54 — as Synid without
-  its Pygments step —, cloc 41/54, Magika 38/54, Guesslang 36/54, Pygments 2.21.0 19/54;
+  9.7.0 in full (rules + classifier), go-enry and cloc 47/54, Hyperpolyglot 45/54, Magika 38/54,
+  Guesslang 36/54, Pygments 2.21.0 19/54;
   local models: Kev-4B (an open decision model, llama.cpp) 47/54, StarCoder2-3B 43/54. Without
   the file name, the rule-based tools fall to 0–4/54 (Synid 4/54).
 - Jev choosing among the languages PL-ultimate-llm associates with `.m` (claims plus the
   languages the `.m` study observed, Magma included) gets 54/54, with or without the file
   name (`tools/jev_cascade.py`). Octave is accepted for the MATLAB family since 2026-10-03
-  (no recorded entry changes).
+  (no recorded entry changes). Since the same day, an accepted name also accepts its Linguist
+  aliases, as on bench-linguist (`Mathematica` for Wolfram Language, `MUMPS` for M): cloc
+  41 → 47/54, Hyperpolyglot 41 → 45/54 (it answers Linguist's former name, `Mathematica`); Synid
+  is unchanged.
 
 ## Limits, and growing it
 

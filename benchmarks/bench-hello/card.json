@@ -1,0 +1,26 @@
+{
+ "name": "bench-hello",
+ "version": "bench-hello/1",
+ "title": "hello-world programs, one per language (leachim6/hello-world), 1,002 labels",
+ "unit": "tiny program",
+ "names": "real",
+ "labels": "the contributor (the language the file is named after)",
+ "label_kind": "author-declared",
+ "sampling": "all",
+ "source": "https://github.com/leachim6/hello-world@a152253",
+ "files_stored": false,
+ "cases": 1009,
+ "languages": 965,
+ "home_turf": [],
+ "strengths": [
+  "the longest tail: 1,002 labels, esoteric languages included",
+  "extensions chosen by contributors, sometimes another language's (Pebble.c): 186 cases test what a tool does when the extension lies",
+  "tiny: what a tool knows of a language's surface"
+ ],
+ "weaknesses": [
+  "a line or two (median 2 non-blank lines); 109 cases share their bytes with another language's program",
+  "labels are file names: frameworks, platforms and jokes count as languages (52 labels tagged not-a-language)",
+  "704 of 1,009 cases in languages Linguist does not know",
+  "13 files are not text (images, archives, an executable)"
+ ]
+}

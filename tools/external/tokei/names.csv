@@ -1,0 +1,38 @@
+# tokei label → Linguist name(s) of the same language. Rule (all tools alike): synonyms only; a label covering several
+# Linguist languages maps to all of them (the answer then counts as undecided); a dialect or a broader/narrower
+# kind (JSX vs JavaScript, Arduino C++ vs C++, MSBuild vs XML, Rakefile vs Ruby, Not Quite Perl vs Raku) is NOT
+# mapped — it stays a different answer. A header or module interface (C Header, C++ Module) is written in its
+# language and maps to it.
+label,linguist
+C Header,C
+C++ Header,C++
+C++ Module,C++
+VB6/VBA,Visual Basic 6.0;VBA
+Plain Text,Text
+Apache Velocity,Velocity Template Language
+Ark TypeScript,ArkTS
+CIL (SELinux),CIL
+ColdFusion CFScript,ColdFusion CFC
+Dream Maker,DM
+Ebuild,Gentoo Ebuild
+EdgeDB Schema Definition,EdgeQL
+FORTRAN Legacy,Fortran
+FORTRAN Modern,Fortran Free Form
+FlatBuffers Schema,FlatBuffers
+GDB Script,GDB
+GNU Style Assembly,Unix Assembly
+Gherkin (Cucumber),Gherkin
+Gml,Game Maker Language
+Godot TextScene,Godot Resource
+Jinja2,Jinja
+Jupyter Notebooks,Jupyter Notebook
+KV Language,kvlang
+LD Script,Linker Script
+Metal Shading Language,Metal
+PO File,Gettext Catalog
+RPM Specfile,RPM Spec
+Ruby HTML,HTML+ERB
+Rusty Object Notation,RON
+Standard ML (SML),Standard ML
+Visual Studio Solution,Microsoft Visual Studio Solution
+WebGPU Shader Language,WGSL

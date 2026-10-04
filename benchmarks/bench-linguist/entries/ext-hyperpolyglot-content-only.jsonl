@@ -1,4 +1,4 @@
-{"meta": {"label": "ext-hyperpolyglot-content-only", "kind": "other-identifier", "benchmark": "bench-linguist/1", "name": "Hyperpolyglot a55a3b5, content only", "version": "synid-bench/hyperpolyglot:a55a3b5 (tools/external/hyperpolyglot)", "about": "Rust port of Linguist (2023); Synid's heuristics and classifier come from it \u2014 run on the content only (file named `file`)", "url": "https://github.com/monkslc/hyperpolyglot", "date": "2026-10-02", "seconds": 2.4}}
+{"meta": {"label": "ext-hyperpolyglot-content-only", "kind": "other-identifier", "benchmark": "bench-linguist/1", "name": "Hyperpolyglot a55a3b5, content only", "version": "synid-bench/hyperpolyglot:a55a3b5 (tools/external/hyperpolyglot)", "about": "Rust port of Linguist (2023); Synid's heuristics and classifier come from it \u2014 run on the content only (file named `file`)", "url": "https://github.com/monkslc/hyperpolyglot", "date": "2026-10-04", "seconds": 23.2, "source": "e3e6e566c45d", "names_csv": ""}}
 {"case_id": "ling:a980425b282c", "answer": null}
 {"case_id": "ling:331cac4f575d", "answer": null}
 {"case_id": "ling:1a34ecb6263f", "answer": null}

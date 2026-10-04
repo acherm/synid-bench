@@ -116,7 +116,7 @@ for what each can name at all.
 | Magika 1.0.3 | 25.3 % | content types, not languages: names 96 of the 768; right on 78.7 % of those |
 | Guesslang 2.2.1 | 21.8 % | 54 languages; reads the text only (on TensorFlow 2.10: 2.5 has no ARM build) |
 | Jev 1.13, the `.m` study's 63 labels | 14.2 % | 54/54 on bench-m; here right on 94.9 % of the 509 files whose language has a label of its own — the label set, not the model, limits it |
-| Kev-4B (local, llama.cpp), Linguist's languages, content only | 62.5 % | an open decision model run locally (llama.cpp `/v1/systemone`, Q8_0, ~21 s per file on an M4 Max); same protocol as Jev (82.3 %); 54.6 % on `unseen`; 47/54 on bench-m |
+| Kev-4B (local, llama.cpp), Linguist's languages, content only | 62.5 % | an open decision model run locally (llama.cpp `/v1/systemone`, Q8_0, ~21 s per file on an M4 Max); same protocol as Jev (82.3 %); 54.6 % on `unseen`; 47/54 on bench-m. Why it trails Jev — a primacy bias over ~200 options, which the extension's candidates largely remove: [analysis](analysis/KEV-VS-JEV.md), [failures](FAILURES-kev-linguist.md) |
 
 Reading across: with the file name, the Linguist family wins on the files it was built from; without
 it, every other tool collapses (2.8 – 10.2 %) while a decision model keeps 82 %. On files a tool was not

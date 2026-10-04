@@ -1,0 +1,8 @@
+{
+  "name": "synid-bench-hljs-v11.9",
+  "private": true,
+  "description": "highlight.js auto-detection, release 11.9.0 (tools/external/hljs-v11.9)",
+  "dependencies": {
+    "highlight.js": "11.9.0"
+  }
+}

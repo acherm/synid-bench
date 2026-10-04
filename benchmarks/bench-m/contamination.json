@@ -1,0 +1,5 @@
+{
+  "_about": "Entries built or tuned with knowledge of this benchmark's files — their score is partly accuracy on their own development data. Keys are entry-name prefixes.",
+  "Hand-written .m rules": "written for the .m study these files were drawn from; v2 revised after reading disagreements on 300 of the study's files, 12 of them cases here",
+  "Jev 1.13, PL-ultimate-llm candidates": "the candidates for .m include the languages the .m study observed in the population these files were drawn from (Magma, MUMPS, C)"
+}

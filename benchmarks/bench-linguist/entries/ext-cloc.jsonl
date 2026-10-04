@@ -1,4 +1,4 @@
-{"meta": {"label": "ext-cloc", "kind": "other-identifier", "benchmark": "bench-linguist/1", "name": "cloc 2.10", "version": "synid-bench/cloc:2.10 (tools/external/cloc)", "about": "line counter; recognises languages by extension, file name and shebang", "url": "https://github.com/AlDanial/cloc", "date": "2026-10-02", "seconds": 6.0}}
+{"meta": {"label": "ext-cloc", "kind": "other-identifier", "benchmark": "bench-linguist/1", "name": "cloc 2.10", "version": "synid-bench/cloc:2.10 (tools/external/cloc)", "about": "line counter; recognises languages by extension, file name and shebang", "url": "https://github.com/AlDanial/cloc", "date": "2026-10-04", "seconds": 35.2, "source": "099233cbb066", "names_csv": "80f9e8781566"}}
 {"case_id": "ling:a980425b282c", "answer": null}
 {"case_id": "ling:331cac4f575d", "answer": null}
 {"case_id": "ling:1a34ecb6263f", "answer": null}

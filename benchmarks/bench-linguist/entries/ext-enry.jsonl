@@ -1,4 +1,4 @@
-{"meta": {"label": "ext-enry", "kind": "other-identifier", "benchmark": "bench-linguist/1", "name": "go-enry 2.9.6", "version": "synid-bench/enry:2.9.6 (tools/external/enry)", "about": "Go port of Linguist (used to label The Stack v2 / StarCoder2's data)", "url": "https://github.com/go-enry/go-enry", "date": "2026-10-02", "seconds": 3.8}}
+{"meta": {"label": "ext-enry", "kind": "other-identifier", "benchmark": "bench-linguist/1", "name": "go-enry 2.9.6", "version": "synid-bench/enry:2.9.6 (tools/external/enry)", "about": "Go port of Linguist (used to label The Stack v2 / StarCoder2's data)", "url": "https://github.com/go-enry/go-enry", "date": "2026-10-04", "seconds": 19.3, "source": "4938db808027", "names_csv": ""}}
 {"case_id": "ling:a980425b282c", "answer": ["1C Enterprise"]}
 {"case_id": "ling:331cac4f575d", "answer": ["1C Enterprise"]}
 {"case_id": "ling:1a34ecb6263f", "answer": ["1C Enterprise"]}

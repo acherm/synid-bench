@@ -1,0 +1,19 @@
+**FREE
+
+/if not defined (IPKGREPOFI)
+/define IPKGREPOFI
+
+dcl-pr ipkg_repo_file_create pointer extproc(*dclcase) end-pr;
+
+dcl-pr ipkg_repo_file_updateRepository extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  repoId int(10) const;
+  repoUrl varchar(1000) const;
+end-pr;
+
+dcl-pr ipkg_repo_file_retrievePackage varchar(1000) extproc(*dclcase);
+  ipkgLibrary char(10) const;
+  packageUrl varchar(1000) const;
+end-pr;
+
+/endif

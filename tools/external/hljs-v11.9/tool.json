@@ -1,0 +1,9 @@
+{
+  "version": "11.9.0",
+  "name": "highlight.js 11.9.0",
+  "about": "syntax highlighter (npm highlight.js), release 11.9.0 (Nov 2023) — the last one whose test suite required auto-detection to get its own test/detect files right (the test was disabled in 2024-03, commit 105a11a): `highlightAuto` on the content only; the language with the highest relevance, no answer when none beats plain text",
+  "url": "https://github.com/highlightjs/highlight.js/releases/tag/11.9.0",
+  "content_native": true,
+  "family": "syntax highlighter",
+  "older_release_of": "hljs"
+}

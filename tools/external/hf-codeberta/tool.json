@@ -1,0 +1,8 @@
+{
+  "version": "67e92a9",
+  "name": "huggingface/CodeBERTa-language-id 67e92a9",
+  "about": "Hugging Face model: CodeBERTa-small (RoBERTa, 6 layers) fine-tuned on CodeSearchNet functions for 6 languages (Go, Java, JavaScript, PHP, Python, Ruby); reads the text only, its first 512 tokens; answers its top label (no threshold); transformers 5.18.0, torch 2.14.1 CPU",
+  "url": "https://huggingface.co/huggingface/CodeBERTa-language-id/tree/67e92a99a7979ff21a168fb147fcc464bfd2f82c",
+  "content_native": true,
+  "family": "neural language classifier"
+}

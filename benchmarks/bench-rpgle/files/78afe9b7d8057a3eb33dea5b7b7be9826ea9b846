@@ -1,0 +1,1395 @@
+**FREE
+
+///
+// \brief BlueDroplet : Service
+//
+// This is the main module which contains procedures for starting, configuring,
+// composing (adding endpoints) and ending (finalize) the REST service as well
+// as sending the data from the endpoints to the caller.
+//
+// \author Mihael Schmidt
+// \date   08.11.2016
+//
+///
+
+//-------------------------------------------------------------------------------------------------
+//
+// (C) Copyleft 2016 Mihael Schmidt
+//
+// This file is part of BlueDroplet.
+//
+// BlueDroplet is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published
+// the Free Software Foundation, either version 3 of the License, or
+// any later version.
+//
+// BlueDroplet is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with BlueDroplet.  If not, see <http://www.gnu.org/licenses/>.
+//
+//-------------------------------------------------------------------------------------------------
+
+
+ctl-opt nomain;
+
+
+//-------------------------------------------------------------------------------------------------
+// Constants
+//-------------------------------------------------------------------------------------------------
+dcl-c ENV_VAR_LIB 'BLUEDROPLET_LIB';
+dcl-c CONTROL_DATA_AREA 'DROPLET';
+dcl-c CRLF x'0D25';
+dcl-c ASCII_CRLF x'0D0A';
+
+
+//-------------------------------------------------------------------------------------------------
+// Data Structures
+//-------------------------------------------------------------------------------------------------
+/include 'config_t.rpgle'
+/include 'service_t.rpgle'
+/include 'logger_t.rpgle'
+/include 'router_t.rpgle'
+
+
+//-------------------------------------------------------------------------------------------------
+// Global Variables
+//-------------------------------------------------------------------------------------------------
+dcl-s dropletDataAreaName char(21);
+dcl-ds dropletDataArea dtaara(dropletDataAreaName) len(1) qualified;
+  value char(1);
+end-ds;
+dcl-s httpCodes uns(10) dim(58) ctdata;
+dcl-s httpMessages char(50) dim(58) ctdata;
+
+
+//-------------------------------------------------------------------------------------------------
+// Prototypes
+//-------------------------------------------------------------------------------------------------
+/include 'service_h.rpgle'
+/include 'logger_h.rpgle'
+/include 'simple_logger_h.rpgle'
+/include 'router_h.rpgle'
+/include 'router_longest_path_h.rpgle'
+/include 'message_h.rpgle'
+/include 'llist_h.rpgle'
+/include 'mongoose_h.rpgle'
+/include 'iconv_h.rpgle'
+/include 'libc_h.rpgle'
+/include 'util_h.rpgle'
+/include 'mime_h.rpgle'
+
+dcl-pr setLogging;
+  service pointer const;
+end-pr;
+
+dcl-pr getDropletLibrary char(10);
+  service pointer const;
+end-pr;
+
+dcl-pr getDropletDataArea char(10);
+  service pointer const;
+  dropletLibrary char(10) const;
+end-pr;
+
+dcl-pr keepRunning ind;
+  library char(10) const;
+  name char(10) const;
+end-pr;
+
+dcl-pr modifyLibraryList;
+  service pointer const;
+end-pr;
+  
+dcl-pr buildMongooseBindOptions char(100);
+  configuration likeds(droplet_config_configuration) const;
+end-pr;
+
+dcl-pr getenv pointer extproc('getenv');
+  name pointer value options(*string);
+end-pr;
+
+dcl-pr getObjectDescription extpgm('QUSROBJD');
+  receiver char(100);
+  length int(10) const;
+  format char(10) const;
+  qualifiedObjectName char(20) const;
+  type char(10) const;
+end-pr;
+
+dcl-pr executeCommand extpgm('QCMDEXC');
+  command char(1000) const;
+  length packed(15 : 5) const;
+end-pr;
+
+dcl-pr intToAlpha pointer extproc('__itoa');
+   value int(10) value;
+   string pointer value;
+   radix int(10) value;
+end-pr;
+
+dcl-pr getHttpCodeMessage char(50);
+  httpCode uns(10) const;
+end-pr;
+
+dcl-pr getOutputCcsid int(10);
+  service pointer;
+  buffer likeds(mongoose_buffer) const;
+end-pr;
+
+dcl-pr getUriPathLength int(10);
+  p_path pointer const;
+  uriLength int(10) const;
+end-pr;
+
+
+//-------------------------------------------------------------------------------------------------
+// Procedures
+//-------------------------------------------------------------------------------------------------
+
+dcl-proc droplet_service_create export;
+  dcl-pi *N pointer end-pi;
+  
+  dcl-s service pointer;
+  dcl-ds serviceDs likeds(service_t) based(service);
+
+  service = %alloc(%size(service_t));
+  serviceDs.endPoints = list_create();
+  serviceDs.logLevel = DROPLET_LOG_LEVEL_INFO;
+  serviceDs.configuration = droplet_config_configuration;
+  serviceDs.iconvToAscii = droplet_util_createConversionDescriptor(0 : 819);
+  serviceDs.iconvFromAscii = droplet_util_createConversionDescriptor(819 : 0);
+  serviceDs.autoEncodeInput = *on;
+  serviceDs.autoEncodeOutput = *on;
+  serviceDs.router = droplet_router_longest_create();
+
+  return service;
+end-proc;
+
+
+dcl-proc droplet_service_finalize export;
+  dcl-pi *N;
+    service pointer;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  
+  if (service <> *null);
+    mongoose_manager_free(serviceDs.mongooseManager);
+    
+    monitor;
+      iconv_close(serviceDs.iconvToAscii);
+      iconv_close(serviceDs.iconvFromAscii);  
+    on-error *all;
+      // do nothing, program ends anyway
+    endmon;
+    
+    list_dispose(serviceDs.endPoints);
+    
+    droplet_logger_finalize(serviceDs.logger);
+    
+    droplet_router_finalize(serviceDs.router);
+    
+    dealloc(n) serviceDs.mongooseManager;
+    dealloc(n) service;
+  endif;
+end-proc;
+
+
+dcl-proc droplet_service_start export;
+  dcl-pi *N;
+    service pointer;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  dcl-s running ind inz(*on);
+  dcl-s bindOptions char(100);
+  dcl-s dropletLibrary char(10);
+  dcl-s dropletDataArea char(10);
+  dcl-ds connection likeds(mongoose_connection) based(serviceDs.mongooseConnection);
+  
+  setLogging(service);
+  
+  dropletLibrary = getDropletLibrary(service);
+  if (dropletLibrary <> *blank);
+    dropletDataArea = getDropletDataArea(service : dropletLibrary);
+    droplet_logger_debug(serviceDs.logger : 'Using control data area ' + dropletLibrary + '/' + 
+                         dropletDataArea + ' for this droplet instance.');
+    
+    // set global data area name which is used to control the lifecycle of the server
+    dropletDataAreaName = %trimr(dropletLibrary) + '/' + %trimr(dropletDataArea);
+  endif;
+
+  modifyLibraryList(service);
+  
+  // TODO register user cancel handler or use new on exit keyword
+  
+  serviceDs.mongooseManager = %alloc(80); // manager struct has 80 bytes
+           
+  mongoose_manager_init(serviceDs.mongooseManager : *null);
+           
+  bindOptions = buildMongooseBindOptions(serviceDs.configuration);
+  // logger_debug('Using mongoose bind options ' + bindOptions);
+  serviceDs.mongooseConnection = mongoose_bind(serviceDs.mongooseManager : bindOptions : %paddr('handleEvents'));
+  if (serviceDs.mongooseConnection = *null);
+    droplet_logger_error(serviceDs.logger : 'Failed to create main Mongoose event handler.');
+    msg_sendEscapeMessage('Failed to create main Mongoose event handler.');
+    return;
+  endif;
+  
+  droplet_logger_debug(serviceDs.logger : 'Started web server');
+  
+  // set the pointer of the service in the connection ds so that we have access from the event handler to the service ds
+  connection.userData = service;
+  
+  // Set up HTTP server parameters
+  mongoose_set_protocol_http_websocket(serviceDs.mongooseConnection);
+           
+  dow (running = *on);
+    monitor;
+      mongoose_manager_poll(serviceDs.mongooseManager : serviceDs.configuration.pollInterval);
+    on-error *all;
+      // TODO log error
+      
+      // end service
+      running = *off;
+    endmon;
+    
+    if (dropletDataAreaName <> *blank);
+      if (keepRunning(dropletLibrary : dropletDataArea) = *off);
+        running = *off;
+      endif;
+    endif;
+    
+  enddo;
+end-proc;
+
+dcl-proc setLogging;
+  dcl-pi *N;
+    service pointer const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  
+  // if logging is disabled the logging part can be skipped
+  if (serviceDs.configuration.logging = *on);
+    // set log level from configuration
+    serviceDs.logLevel = serviceDs.configuration.logLevel;
+  
+    // create logger if configured
+    if (serviceDs.configuration.loggerServiceProgram <> *blank and
+        serviceDs.configuration.loggerCreateProcedure <> *blank);
+      monitor;
+        serviceDs.logger = droplet_logger_create(
+            serviceDs.configuration.loggerServiceProgram : 
+            serviceDs.configuration.loggerCreateProcedure : 
+            %addr(serviceDs.configuration.loggerUserData));
+      on-error *all;
+        msg_sendEscapeMessage('Could not instantiate logger: ' + serviceDs.configuration.loggerServiceProgram);
+      endmon;
+    endif;
+    
+    // if logging is enabled but no logger is set => set simple logger as logger
+    if (serviceDs.configuration.logging = *on and serviceDs.logger = *null);
+      serviceDs.logger = droplet_logger_simple_create();
+    endif;
+  
+    // set log level on logger
+    if (serviceDs.logger <> *null);
+      droplet_logger_setLogLevel(serviceDs.logger : serviceDs.logLevel);
+    endif;
+    
+  endif;
+end-proc;
+
+dcl-proc droplet_service_addEndPoint export;
+  dcl-pi *N;
+    service pointer const;
+    endPoint pointer(*proc) const;
+    path char(1024) const;
+    method char(10) const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  dcl-ds endPointDs likeds(endPoint_t);
+  
+  endPointDs.endPoint = endPoint;
+  endPointDs.path = path;
+  endPointDs.method = method;
+  
+  // add end point
+  list_add(serviceDs.endPoints : %addr(endPointDs) : %size(endPointDs));
+end-proc;
+
+dcl-proc buildMongooseBindOptions;
+  dcl-pi *N char(100);
+    configuration likeds(droplet_config_configuration) const;
+  end-pi;
+  
+  dcl-s options char(100);
+  
+  if (configuration.httpAddress <> *blank);
+    options = configuration.httpAddress;
+  endif;
+  
+  if (configuration.httpPort <> 0);
+    if (options = *blank);
+      options = %char(configuration.httpPort);
+    else;
+      options = %trimr(options) + ':' + %char(configuration.httpPort);
+    endif;
+  endif;
+  
+  return options;
+end-proc;
+
+
+dcl-proc keepRunning;
+  dcl-pi *N ind;
+    library char(10) const;
+    name char(10) const;
+  end-pi;
+  
+  dcl-s receiver char(100);
+  dcl-s qualObjectName char(20);
+  
+  // check if data area is available in droplet library
+  monitor;
+    qualObjectName = name + library;
+    getObjectDescription(receiver : %size(receiver) : 'OBJD0100' : qualObjectName : '*DTAARA');
+    // data area available
+    
+    in dropletDataArea;
+    
+    return dropletDataArea.value = '1';
+    
+  on-error *all;
+    // not available => stop running
+    return *off;
+  endmon;
+end-proc;
+
+
+dcl-proc getDropletLibrary;
+  dcl-pi *N char(10);
+    service pointer const;
+  end-pi;
+
+  dcl-s dropletLibrary char(10);
+  dcl-ds serviceDs likeds(service_t) based(service);
+  dcl-s envVarPtr pointer;
+  dcl-s qualObjectName char(20);
+  dcl-s receiver char(100);
+    
+  if (serviceDs.configuration.controlLibrary <> *blank);
+     dropletLibrary = serviceDs.configuration.controlLibrary;
+  else;
+    envVarPtr = getenv(ENV_VAR_LIB);
+    if (envVarPtr = *null);
+      // service can only be ended abnormally now
+    else;
+      dropletLibrary = %str(envVarPtr);
+    endif;
+  endif;
+  
+  if (dropletLibrary <> *blank);
+    // check if configured library is available on the system
+    monitor;
+      qualObjectName = dropletLibrary + 'QSYS';
+      getObjectDescription(receiver : %size(receiver) : 'OBJD0100' : qualObjectName : '*LIB');
+      // library available
+    on-error *all;
+      // library not available
+      droplet_logger_warn(serviceDs.logger : 'Library ' + dropletLibrary + ' is not available.');
+      dropletLibrary = *blank;
+    endmon;
+  endif;
+    
+  return dropletLibrary;
+end-proc;
+
+
+dcl-proc getDropletDataArea;
+  dcl-pi *N char(10);
+    service pointer const;
+    dropletLibrary char(10) const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  dcl-s dropletDataArea char(10);
+  dcl-s qualObjectName char(20);
+  dcl-s receiver char(100);
+  dcl-s command char(100);
+  
+  if (serviceDs.configuration.controlDataArea <> *blank);
+    dropletDataArea = serviceDs.configuration.controlDataArea;
+  else;
+    // use default
+    dropletDataArea = CONTROL_DATA_AREA;
+  endif;
+      
+  // check if data area is available in droplet library
+  monitor;
+    qualObjectName = dropletDataArea + dropletLibrary;
+    getObjectDescription(receiver : %size(receiver) : 'OBJD0100' : qualObjectName : '*DTAARA');
+    // data area available
+        
+    // initialize data area
+    command = 'CHGDTAARA ' + %trim(dropletLibrary) + '/' + %trim(dropletDataArea) + ' VALUE(''1'')';
+    executeCommand(command : %size(command));
+  on-error *all;
+    // create data area;
+    command = 'CRTDTAARA ' + %trim(dropletLibrary) + '/' + %trim(dropletDataArea) + ' TYPE(*CHAR) LEN(1) VALUE(''1'')';
+    executeCommand(command : %size(command));
+  endmon;
+      
+  return dropletDataArea;
+end-proc;
+
+
+dcl-proc modifyLibraryList;
+  dcl-pi *N;
+    service pointer const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  dcl-ds configuration likeds(droplet_config_configuration) based(configPtr);
+  dcl-s i int(10);
+  dcl-s library char(10);
+  dcl-s libraries pointer;
+  dcl-s allLibraries char(200) based(allLibrariesPtr);
+  
+  configPtr = %addr(serviceDs.configuration);  
+  allLibrariesPtr = %addr(serviceDs.configuration.libraries);
+  
+  if (allLibraries <> *blank);
+
+    if (serviceDs.configuration.addToLibraryList = *on);
+      
+      for i = 1 to %elem(configuration.libraries);
+        if (serviceDs.configuration.libraries(i) = *blank);
+          leave;
+        endif;
+        
+        droplet_service_addLibrary(service : serviceDs.configuration.libraries(i));
+      endfor;
+      
+    else;
+      
+      libraries = list_create();
+      
+      for i = 1 to %elem(configuration.libraries);
+        library = serviceDs.configuration.libraries(i);
+        if (library = *blank);
+          leave;
+        endif;
+        
+        list_addString(libraries : library);
+      endfor;
+      
+      droplet_service_setLibraryList(service : libraries);
+      list_dispose(libraries);    
+      
+    endif;
+  
+  endif;
+end-proc;
+
+
+dcl-proc droplet_service_setHttpAddress export;
+  dcl-pi *N;
+    service pointer const;
+    address char(100) const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  serviceDs.configuration.httpAddress = address;
+end-proc;
+
+dcl-proc droplet_service_setHttpPort export;
+  dcl-pi *N;
+    service pointer const;
+    port int(10) const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  serviceDs.configuration.httpPort = port;
+end-proc;
+
+dcl-proc droplet_service_enableAdmin export;
+  dcl-pi *N;
+    service pointer const;
+    enabled ind const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  serviceDs.configuration.admin = enabled;
+end-proc;
+
+dcl-proc droplet_service_setAdminAddress export;
+  dcl-pi *N;
+    service pointer const;
+    address char(100) const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  serviceDs.configuration.adminAddress = address;
+end-proc;
+
+dcl-proc droplet_service_setAdminPort export;
+  dcl-pi *N;
+    service pointer const;
+    port int(10) const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  serviceDs.configuration.adminPort = port;
+end-proc;
+
+dcl-proc droplet_service_enableLogging export;
+  dcl-pi *N;
+    service pointer const;
+    enabled ind const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  serviceDs.configuration.logging = enabled;
+end-proc;
+
+dcl-proc droplet_service_setTemplatePath export;
+  dcl-pi *N;
+    service pointer const;
+    path char(1024) const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  serviceDs.configuration.templatePath = path;
+end-proc;
+
+dcl-proc droplet_service_setConfiguration export;
+  dcl-pi *N;
+    service pointer const;
+    configuration likeds(droplet_config_configuration) const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  serviceDs.configuration = configuration;
+end-proc;
+
+dcl-proc droplet_service_setPollInterval export;
+  dcl-pi *N;
+    service pointer const;
+    interval int(10) const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  serviceDs.configuration.pollInterval = interval;
+end-proc;
+
+dcl-proc droplet_service_setLogger export;
+  dcl-pi *N;
+    service pointer const;
+    logger pointer const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  serviceDs.logger = logger;
+end-proc;
+
+dcl-proc droplet_service_getLogger export;
+  dcl-pi *N pointer;
+    service pointer const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  return serviceDs.logger;
+end-proc;
+
+dcl-proc droplet_service_setLogLevel export;
+  dcl-pi *N;
+    service pointer const;
+    logLevel char(10) const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  serviceDs.logLevel = logLevel;
+  serviceDs.configuration.logLevel = logLevel;
+end-proc;
+
+dcl-proc droplet_service_setFlag export;
+  dcl-pi *N;
+    connectionPtr pointer const;
+    flag uns(10) const;
+  end-pi;
+  
+  dcl-ds connection likeds(mongoose_connection) based(connectionPtr);
+  connection.flags = %bitor(connection.flags : flag);
+end-proc;
+
+dcl-proc droplet_service_getFlags export;
+  dcl-pi *N uns(10);
+    connectionPtr pointer const;
+  end-pi;
+  
+  dcl-ds connection likeds(mongoose_connection) based(connectionPtr);
+  
+  return connection.flags;
+end-proc;
+
+dcl-proc droplet_service_isFlagSet;
+  dcl-pi *N ind;
+    connectionPtr pointer const;
+    flag uns(10) const;
+  end-pi;
+  
+  dcl-ds connection likeds(mongoose_connection) based(connectionPtr);
+  
+  return %bitand(connection.flags : flag) = flag;
+end-proc;
+
+dcl-proc droplet_service_send export;
+  dcl-pi *N;
+    connection pointer const;
+    httpCode uns(10) const;
+    p_data varchar(65536) const options(*nopass);
+    contentType char(100) const options(*nopass);
+    headers pointer options(*nopass);
+  end-pi;
+  
+  dcl-ds connectionDs likeds(mongoose_connection) based(connection);
+  dcl-ds serviceDs likeds(service_t) based(connectionDs.userData);
+  dcl-s data varchar(65536);
+  dcl-s encodedDataLength int(10);
+  dcl-s encodedDataBuffer pointer;
+  dcl-s httpMessageHeader varchar(10000);
+  dcl-s inBuffer pointer;
+  dcl-s outBuffer pointer;
+  dcl-s inLength uns(10);
+  dcl-s outLength uns(10);
+  dcl-s returnValue int(10);
+  dcl-s error int(10) based(errorPtr);
+  dcl-s httpMessage char(50);
+  dcl-c CRLF x'0D25';
+  dcl-s ptr pointer;
+  dcl-ds dataConvDesc likeds(iconv_t);
+  dcl-s outCcsid int(10);
+  
+  httpMessage = getHttpCodeMessage(httpCode); 
+  
+  if (%parms() >= 3 and %len(p_data) > 0);
+    data = p_data;
+    
+    // add body message if passed and convert data to client character set if auto encoding for output is on
+    if (serviceDs.autoEncodeOutput = *on);
+      encodedDataBuffer = %alloc(%len(data) * 4); // allocate space for at least UTF-32 (4-byte per char)
+    
+      outCcsid = getOutputCcsid(connectionDs.userData : connectionDs.receivingBuffer);
+  
+      inBuffer = %addr(data : *DATA);
+      inLength = %len(data);
+      outBuffer = encodedDataBuffer;
+      outLength = %len(data) * 4;
+   
+      dataConvDesc = droplet_util_createConversionDescriptor(0 : outCcsid);
+      returnValue = iconv(dataConvDesc : inBuffer : inLength : outBuffer : outLength);
+      if (returnValue = -1);
+        errorPtr = errno();
+        droplet_logger_error(serviceDs.logger : 'Could not convert send data to CCSID ' + %char(outCcsid) + '. ' + 
+                             %char(error) + ' - ' + %str(strerror(error)));
+        // make a good guess
+        encodedDataLength = %len(data);
+      else;
+        encodedDataLength = %len(data) * 4 - outLength;
+      endif;
+    endif;
+  endif;
+  
+  
+  // build http message header
+  httpMessageHeader = 'HTTP/1.1 ' + %char(httpCode) + ' ' + %trimr(httpMessage) + CRLF;
+  
+  // add content type HTTP header
+  if (%parms() >= 4 and contentType <> *blank); 
+    httpMessageHeader += 'Content-Type: ' + %trimr(contentType) + CRLF;
+  endif;
+  
+  // add additional HTTP Headers
+  if (%parms() = 5);
+    ptr = list_iterate(headers);
+    dow (ptr <> *null);
+      httpMessageHeader += %str(ptr) + CRLF;
+      ptr = list_iterate(headers);
+    enddo;
+  endif;
+  
+  // add content length http header
+  httpMessageHeader += 'Content-Length: ' + %char(encodedDataLength) + CRLF + CRLF;
+  
+  // convert header to ascii
+  inBuffer = %addr(httpMessageHeader : *DATA);
+  outBuffer = inBuffer;
+  // TODO consider case where 1 char = 2 bytes
+  inLength = %len(httpMessageHeader);
+  outLength = %len(httpMessageHeader : *MAX);
+  
+  returnValue = iconv(serviceDs.iconvToAscii : inBuffer : inLength : outBuffer : outLength);
+  if (returnValue = -1);
+    errorPtr = errno();
+    droplet_logger_error(serviceDs.logger : 'Could not convert send header to ASCII. ' + 
+                         %char(error) + ' - ' + %str(strerror(error)));
+  else;
+    // successful conversion
+  endif;
+  
+  mongoose_buffer_append(%addr(connectionDs.sendingBuffer) : 
+                         %addr(httpMessageHeader : *DATA) : 
+                         %len(httpMessageHeader));
+  
+  
+  // add encoded data if data has been passed
+  if (%parms() >= 3 and %len(data) > 0);
+    if (serviceDs.autoEncodeOutput = *on);
+      mongoose_buffer_append(%addr(connectionDs.sendingBuffer) : encodedDataBuffer : encodedDataLength);
+      dealloc encodedDataBuffer;
+    else;
+      mongoose_buffer_append(%addr(connectionDs.sendingBuffer) : %addr(data : *DATA) : %len(data));
+    endif;
+  endif;
+        
+
+  // clear receiving buffer  
+  mongoose_buffer_remove(%addr(connectionDs.receivingBuffer) : connectionDs.receivingBuffer.length);
+  
+  droplet_service_setFlag(connection : MONGOOSE_FLAG_SEND_AND_CLOSE);
+end-proc;
+
+dcl-proc droplet_service_ok export;
+  dcl-pi *N;
+    connection pointer const;
+    body varchar(65536) const options(*nopass);
+    contentType char(100) const options(*nopass);
+    headers pointer options(*nopass);
+  end-pi;
+  
+  if (%parms() = 1);
+    droplet_service_send(connection : DROPLET_OK);
+  elseif (%parms() = 2);
+    droplet_service_send(connection : DROPLET_OK : body);
+  elseif (%parms() = 3);
+    droplet_service_send(connection : DROPLET_OK : body : contentType);
+  elseif (%parms() = 4);
+    droplet_service_send(connection : DROPLET_OK : body : contentType : headers);
+  endif;
+end-proc;
+
+dcl-proc droplet_service_noContent export;
+  dcl-pi *N;
+    connection pointer const;
+    body varchar(65536) const options(*nopass);
+    contentType char(100) const options(*nopass);
+    headers pointer options(*nopass);
+  end-pi;
+  
+  if (%parms() = 1);
+    droplet_service_send(connection : DROPLET_NO_CONTENT);
+  elseif (%parms() = 2);
+    droplet_service_send(connection : DROPLET_NO_CONTENT : body);
+  elseif (%parms() = 3);
+    droplet_service_send(connection : DROPLET_NO_CONTENT : body : contentType);
+  elseif (%parms() = 4);
+    droplet_service_send(connection : DROPLET_NO_CONTENT : body : contentType : headers);
+  endif;
+end-proc;
+
+dcl-proc droplet_service_notFound export;
+  dcl-pi *N;
+    connection pointer const;
+    body varchar(65536) const options(*nopass);
+    contentType char(100) const options(*nopass);
+    headers pointer options(*nopass);
+  end-pi;
+  
+  if (%parms() = 1);
+    droplet_service_send(connection : DROPLET_NOT_FOUND);
+  elseif (%parms() = 2);
+    droplet_service_send(connection : DROPLET_NOT_FOUND : body);
+  elseif (%parms() = 3);
+    droplet_service_send(connection : DROPLET_NOT_FOUND : body : contentType);
+  elseif (%parms() = 4);
+    droplet_service_send(connection : DROPLET_NOT_FOUND : body : contentType : headers);
+  endif;
+end-proc;
+
+dcl-proc droplet_service_serverError export;
+  dcl-pi *N;
+    connection pointer const;
+    body varchar(65536) const options(*nopass);
+    contentType char(100) const options(*nopass);
+    headers pointer options(*nopass);
+  end-pi;
+
+  if (%parms() = 1);
+    droplet_service_send(connection : DROPLET_INTERNAL_SERVER_ERROR);
+  elseif (%parms() = 2);
+    droplet_service_send(connection : DROPLET_INTERNAL_SERVER_ERROR : body);
+  elseif (%parms() = 3);
+    droplet_service_send(connection : DROPLET_INTERNAL_SERVER_ERROR : body : contentType);
+  elseif (%parms() = 4);
+    droplet_service_send(connection : DROPLET_INTERNAL_SERVER_ERROR : body : contentType : headers);
+  endif; 
+end-proc;
+
+dcl-proc droplet_service_sendHead export;
+  dcl-pi *N;
+    connection pointer const;
+    httpCode uns(10) const;
+    contentType char(100) const options(*nopass);
+    headers pointer options(*nopass);
+  end-pi;
+  
+  dcl-ds connectionDs likeds(mongoose_connection) based(connection);
+  dcl-ds serviceDs likeds(service_t) based(connectionDs.userData);
+  dcl-s buffer varchar(10000);
+  dcl-s inBuffer pointer;
+  dcl-s outBuffer pointer;
+  dcl-s inLength uns(10);
+  dcl-s outLength uns(10);
+  dcl-s returnValue int(10);
+  dcl-s error int(10) based(errorPtr);
+  dcl-s httpMessage char(50);
+  dcl-c CRLF x'0d25';
+  dcl-s ptr pointer;
+  
+  httpMessage = getHttpCodeMessage(httpCode); 
+  
+  // build http message
+  buffer = 'HTTP/1.1 ' + %char(httpCode) + ' ' + %trimr(httpMessage) + CRLF;
+  
+  // add content type HTTP header
+  if (%parms() >= 3 and contentType <> *blank); 
+    buffer += 'Content-Type: ' + %trimr(contentType) + CRLF;
+  endif;
+  
+  // add additional HTTP Headers
+  if (%parms() = 4);
+    ptr = list_iterate(headers);
+    dow (ptr <> *null);
+      buffer += %str(ptr) + CRLF;
+      ptr = list_iterate(headers);
+    enddo;
+  endif;
+  
+  buffer += CRLF; // seperates header and message
+  
+  // convert to client character set
+  // note: atm it is always converted to ascii
+  inBuffer = %addr(buffer : *DATA);
+  inLength = %len(buffer);
+  outBuffer = inBuffer;
+  outLength = inLength;
+  
+  returnValue = iconv(serviceDs.iconvToAscii : inBuffer : inLength : outBuffer : outLength);
+  if (returnValue = -1);
+    errorPtr = errno();
+    droplet_logger_error(serviceDs.logger : 'Could not convert send data to ASCII. ' + 
+                         %char(error) + ' - ' + %str(strerror(error)));
+  endif;
+  
+  mongoose_send(connection : %addr(buffer : *DATA) : %len(buffer));
+end-proc;
+
+dcl-proc droplet_service_sendChunk export;
+  dcl-pi *N;
+    connection pointer const;
+    data pointer const;
+    dataLength int(10) const;
+  end-pi;
+  
+  dcl-ds connectionDs likeds(mongoose_connection) based(connection);
+  dcl-ds serviceDs likeds(service_t) based(connectionDs.userData);
+  dcl-s buffer pointer;
+  dcl-s bufferLength int(10);
+  dcl-s inBuffer pointer;
+  dcl-s outBuffer pointer;
+  dcl-s inLength uns(10);
+  dcl-s outLength uns(10);
+  dcl-s returnValue int(10);
+  dcl-s error int(10) based(errorPtr);
+  dcl-s crlfBuffer char(2) inz(ASCII_CRLF);
+  dcl-s chunkSize char(50);
+  dcl-s chunkLength int(10);
+  dcl-s outCcsid int(10);
+  dcl-ds dataConvDesc likeds(iconv_t);
+  
+  buffer = %alloc(dataLength * 4 + 1); // +1 for the null value to later be able to use strlen()
+  memset(buffer : 0 : dataLength * 4 + 1); 
+  memcpy(buffer : data : dataLength);
+  
+  if (serviceDs.autoEncodeOutput = *on);
+    outCcsid = getOutputCcsid(connectionDs.userData : connectionDs.receivingBuffer);
+    dataConvDesc = droplet_util_createConversionDescriptor(0 : outCcsid);
+  
+    // convert to client character set
+    // note: atm it is always converted to ascii
+    inBuffer = buffer;
+    inLength = dataLength;
+    outBuffer = inBuffer;
+    outLength = dataLength * 4;
+    
+    returnValue = iconv(dataConvDesc : inBuffer : inLength : outBuffer : outLength);
+    if (returnValue = -1);
+      errorPtr = errno();
+      droplet_logger_error(serviceDs.logger : 'Could not convert chunked data to CCSID ' + %char(outCcsid) + '. ' + 
+                           %char(error) + ' - ' + %str(strerror(error)));
+    endif;
+  endif;
+  
+  // add chunk size to the beginning of the chunk
+  bufferLength = strlen(buffer);
+  intToAlpha(bufferLength : %addr(chunkSize) : 16);
+  chunkSize = %trim(chunkSize) + CRLF;
+  chunkLength = %len(%trimr(chunkSize));
+  
+  // convert to client character set
+  // note: chunk size must always be converted to ascii.
+  //       see https://en.wikipedia.org/wiki/Chunked_transfer_encoding#Format
+  inBuffer = %addr(chunkSize);
+  outBuffer = inBuffer;
+  inLength = chunkLength;
+  outLength = chunkLength;
+  
+  returnValue = iconv(serviceDs.iconvToAscii : inBuffer : inLength : outBuffer : outLength);
+  if (returnValue = -1);
+    errorPtr = errno();
+    droplet_logger_error(serviceDs.logger : 'Could not convert chunk size to ASCII. ' + 
+                         %char(error) + ' - ' + %str(strerror(error)));
+  endif;
+  
+  mongoose_send(connection : %addr(chunkSize) : chunkLength);
+  
+  // add data
+  mongoose_send(connection : buffer : bufferLength);
+  mongoose_send(connection : %addr(crlfBuffer) : 2);
+  
+  dealloc buffer;
+end-proc;
+
+dcl-proc droplet_service_finishChunkedTransfer export;
+  dcl-pi *N;
+    connection pointer const;
+  end-pi;
+  
+  dcl-ds connectionDs likeds(mongoose_connection) based(connection);
+  dcl-ds serviceDs likeds(service_t) based(connectionDs.userData);
+  dcl-s data varchar(1);
+  
+  // signal the end of the data set by sending an empty chunk.
+  data = '';
+  droplet_service_sendChunk(connection : %addr(data : *DATA) : %len(data));
+
+  droplet_service_setFlag(connection : MONGOOSE_FLAG_SEND_AND_CLOSE);
+end-proc;
+
+dcl-proc droplet_service_setAutoEncodeInput export;
+  dcl-pi *N;
+    service pointer const;
+    value ind const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  serviceDs.autoEncodeInput = value;
+end-proc;
+
+dcl-proc droplet_service_setAutoEncodeOutput export;
+  dcl-pi *N;
+    service pointer const;
+    value ind const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  serviceDs.autoEncodeOutput = value;    
+end-proc;
+
+dcl-proc getHttpCodeMessage;
+  dcl-pi *N char(50);
+    httpCode uns(10) const;
+  end-pi;
+  
+  dcl-s x int(10);
+  
+  x = %lookup(httpCode : httpCodes);
+  
+  if (x > 0);
+    return httpMessages(x);
+  else;
+    return *blank;
+  endif;
+end-proc;
+
+dcl-proc getOutputCcsid;
+  dcl-pi *N int(10);
+    service pointer;
+    buffer likeds(mongoose_buffer) const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  dcl-s headerEntry char(100) based(ptr);
+  dcl-s headerLength int(10);
+  dcl-s ccsid int(10) inz(819);
+  dcl-s charset char(50);
+  dcl-s x int(10);
+  dcl-s acceptHeaderKey char(8);
+  dcl-s acceptCharsetHeaderKey char(16);
+  acceptHeaderKey = 'Accept:' + x'00';
+  acceptCharsetHeaderKey = 'Accept-Charset:' + x'00';
+  
+  // first try to get the Accept-Charset header
+  ptr = strstr(buffer.buffer : %addr(acceptCharsetHeaderKey));
+  if (ptr = *NULL);
+    droplet_logger_debug(serviceDs.logger : 'No Accept-Charset HTTP header present.');
+  else;
+    // HTTP header Accept-Charset is part of the message
+    headerLength = %scan(x'0D25' : headerEntry);
+    if (headerLength = 0);
+      droplet_logger_debug(serviceDs.logger : 'Accept-Charset HTTP header too long (more than 100 characters).');
+    else;
+    
+      // get header value from header entry (f. e. Accept: utf-8)
+      x = %scan(':' : headerEntry : 1 : headerLength);
+      if (x = 0);
+        droplet_logger_debug(serviceDs.logger : 'No header value found in Accept header (colon missing).');
+      else;
+        charset = %trim(%subst(headerEntry : x + 1 : headerLength - x -1));
+      endif;
+      
+    endif;
+  endif;
+
+  
+  // try the Accept header if no charset so far
+  if (charset = *blank);
+    ptr = strstr(buffer.buffer : %addr(acceptHeaderKey));
+    if (ptr = *NULL);
+      droplet_logger_debug(serviceDs.logger : 'No Accept HTTP header present.');
+    else;
+    
+      // HTTP header Accept is part of the message
+      headerLength = %scan(x'0D25' : headerEntry);
+      if (headerLength = 0);
+        droplet_logger_debug(serviceDs.logger : 'Accept HTTP header too long (more than 100 characters).');
+      else;
+        charset = droplet_util_getCharsetFromHttpHeader(%trim(%subst(headerEntry : 1 : headerLength - 1)));
+      endif;
+      
+    endif;
+  endif;
+  
+  
+  if (charset = *blank);
+    droplet_logger_debug(serviceDs.logger : 'No charset specified.');
+  else;
+    droplet_logger_debug(serviceDs.logger : 'Message body charset: ' + %trimr(charset));
+    ccsid = droplet_mime_getCcsid(charset);
+    droplet_logger_debug(serviceDs.logger : 'Message body ccsid: ' + %char(ccsid));
+  endif;
+  
+  return ccsid;
+end-proc;
+
+dcl-proc droplet_service_getLastPathSegment export;
+  dcl-pi *N char(1024);
+    p_path pointer const;
+    length int(10) const;
+  end-pi;
+  
+  dcl-s path char(1024);
+  dcl-s pathLength int(10);
+  dcl-s index uns(10);
+  dcl-s indexEncoded uns(10);
+  pathLength = getUriPathLength(p_path : length);
+  path = %str(p_path : pathLength);
+  
+  index = %scanr('/' : path : 1 : pathLength);
+  if (index = 0);
+    indexEncoded = %scanr('%2F' : path : 1 : pathLength);
+    if (indexEncoded = 0);
+      indexEncoded = %scanr('%2f' : path : 1 : pathLength);
+    endif;
+  endif;
+  
+  if (index > 0);
+    return %subst(path : index + 1);
+  elseif (indexEncoded > 0);
+    return %subst(path : indexEncoded + 3);
+  else;
+    return path;
+  endif;
+end-proc;
+
+dcl-proc droplet_service_getPathSegment export;
+  dcl-pi *N char(1024);
+    path pointer const;
+    length int(10) const;
+    index int(10) const;
+  end-pi;
+  
+  dcl-s segments pointer;
+  dcl-s segment char(1024);
+  dcl-s pathLength int(10);
+  pathLength = getUriPathLength(path : length);
+  
+  segments = droplet_service_splitPath(path : pathLength);
+  if (segments = *null or list_size(segments) <= index);
+    return *blank;
+  else;
+    segment = list_getString(segments : index);
+    return segment;
+  endif;
+end-proc;
+
+dcl-proc droplet_service_splitPath export;
+  dcl-pi *N pointer;
+    path pointer const;
+    length int(10) const;
+  end-pi;
+  
+  dcl-s ptr pointer;
+  dcl-s c1 char(1) based(ptr);
+  dcl-s c3 char(3) based(ptr);
+  dcl-s segment char(1024);
+  dcl-s segments pointer;
+  dcl-s value varchar(1024);
+  dcl-s i int(10);
+  
+  segments = list_create();
+  ptr = path;
+  
+  dou (i >= length);
+    if (c1 = '/');
+      if (%len(value) > 0);
+        list_addString(segments : value);
+        %len(value) = 0;
+      endif;
+      
+    elseif (c3 = '%2F' or c3 = '%2f');
+      if (%len(value) > 0);
+        list_addString(segments : value);
+        %len(value) = 0;
+      endif;
+      i += 2;
+      ptr = ptr + 2;
+      
+    else;
+      value += c1;
+    endif;
+    
+    i += 1;
+    ptr = ptr + 1;
+  enddo;
+  
+  if (%len(value) > 0);
+    list_addString(segments : value);
+  endif;
+      
+  return segments;
+end-proc;
+
+dcl-proc getUriPathLength;
+  dcl-pi *N int(10);
+    p_path pointer const;
+    uriLength int(10) const;
+  end-pi;
+ 
+  dcl-s path char(1024);
+  dcl-s pathLength int(10);
+  dcl-s index uns(10);
+  dcl-s indexEncoded uns(10);
+  
+  pathLength = uriLength;
+  path = %str(p_path : uriLength);
+  
+  index = %scan('?' : path : 1 : pathLength);
+  indexEncoded = %scan('%3F' : path : 1 : pathLength);
+  if (indexEncoded = 0);
+    indexEncoded = %scan('%3f' : path : 1 : pathLength);
+  endif;
+  
+  if (index = 0 and indexEncoded = 0);
+    // no query parameter in uri => check for fragment
+    index = %scan('#' : path : 1 : pathLength);
+    indexEncoded = %scan('%23' : path : 1 : pathLength);
+  endif;
+  
+  if (index = 0 and indexEncoded = 0);
+    // just the plain path
+  elseif (index > 0 and indexEncoded = 0);
+    pathLength = index-1;
+  elseif (index = 0 and indexEncoded > 0);
+    pathLength = indexEncoded-1;
+  elseif (index < indexEncoded);
+    pathLength = index-1;
+  else;
+    pathLength = indexEncoded-1;
+  endif;
+  
+  return pathLength;
+end-proc;
+
+
+dcl-proc droplet_service_addLibrary export;
+  dcl-pi *N;
+    service pointer const;
+    library char(10) const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  dcl-s command char(1000);
+  
+  droplet_logger_debug(serviceDs.logger : 'Adding library ' + %trimr(library)  + ' to library list');
+  
+  command = 'ADDLIBLE ' + library;
+  executeCommand(command : %len(command));
+end-proc;
+
+
+dcl-proc droplet_service_setLibraryList export;
+  dcl-pi *N;
+    service pointer const;
+    libraries pointer const;
+  end-pi;
+  
+  dcl-ds serviceDs likeds(service_t) based(service);
+  dcl-s command char(1000);
+
+  droplet_logger_debug(serviceDs.logger : 'Replacing the user part of the library list');
+  
+  command = 'CHGLIBL (' + %trimr(list_toString(libraries : ' ')) + ')';
+  executeCommand(command : %len(command));
+end-proc;
+
+
+//-------------------------------------------------------------------------------------------------
+// Compile Time Arrays
+//-------------------------------------------------------------------------------------------------
+
+**CTDATA httpCodes
+       200
+       201
+       202
+       203
+       204
+       205
+       206
+       207
+       208
+       226
+       300
+       301
+       302
+       303
+       304
+       305
+       306
+       307
+       308
+       400
+       401
+       402
+       403
+       404
+       405
+       406
+       407
+       408
+       409
+       410
+       411
+       412
+       413
+       414
+       415
+       416
+       417
+       418
+       421
+       422
+       423
+       424
+       426
+       428
+       429
+       431
+       451
+       500
+       501
+       502
+       503
+       504
+       505
+       506
+       507
+       508
+       510
+       511
+**CTDATA httpMessages
+OK
+Created
+Accepted
+Non-Authoritative Information
+No content
+Reset content
+Partial content
+Multi status
+Already reported
+IM used
+Multiple choices
+Moved permanently
+Found
+See other
+Not modified
+Use proxy
+Switch proxy
+Temporary redirect
+Permanent redirect
+Bad request
+Unauthorized
+Payment required
+Forbidden
+Not found
+Method not allowed
+Not acceptable
+Proxy authentication required
+Request timeout
+Conflict
+Gone
+Length required
+Precondition failed
+Payload too large
+URI too long
+Unsupported media type
+Range not satisfiable
+Expectation failed
+I am a teapot
+Misdirected request
+Unprocessable Entity
+Locked
+Failed dependency
+Upgrade required
+Precondition required
+Too many requests
+Request header fields too large
+Unavailable for legal reasons
+Internal server error
+Not implemented
+Bad Gateway
+Service unavailable
+Gateway timeout
+HTTP version not supported
+Variant also negotiates
+Insufficient storage
+Loop detected
+Not extended
+Network authentication required

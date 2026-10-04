@@ -1,0 +1,132 @@
+**FREE
+
+///
+// \brief BlueDroplet : Mongoose Main Event Handler
+//
+// This event handler receives every request and proxies them to the correct
+// user event handler (REST service end point).
+//
+// \author Mihael Schmidt
+// \date   15.11.2016
+//
+///
+
+//-------------------------------------------------------------------------------------------------
+//
+// (C) Copyleft 2016 Mihael Schmidt
+//
+// This file is part of BlueDroplet.
+//
+// BlueDroplet is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published
+// the Free Software Foundation, either version 3 of the License, or
+// any later version.
+//
+// BlueDroplet is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with BlueDroplet.  If not, see <http://www.gnu.org/licenses/>.
+//
+//-------------------------------------------------------------------------------------------------
+
+
+ctl-opt nomain;
+
+
+//-------------------------------------------------------------------------------------------------
+// Data Structures
+//-------------------------------------------------------------------------------------------------
+/include 'service_t.rpgle'
+
+
+//-------------------------------------------------------------------------------------------------
+// Prototypes
+//-------------------------------------------------------------------------------------------------
+/include 'mongoose_h.rpgle'
+/include 'router_h.rpgle'
+/include 'logger_h.rpgle'
+/include 'iconv_h.rpgle'
+/include 'libc_h.rpgle'
+
+dcl-pr handleEvents extproc('handleEvents');
+  connection pointer value;
+  event int(10) value;
+  userData pointer value;
+end-pr;
+
+
+//-------------------------------------------------------------------------------------------------
+// Procedures
+//-------------------------------------------------------------------------------------------------
+dcl-proc handleEvents export;
+  dcl-pi *n;
+    connection pointer value;
+    event int(10) value;
+    userData pointer value;
+  end-pi;
+  
+  dcl-ds connectionDs likeds(mongoose_connection) based(connection);
+  dcl-ds serviceDs likeds(service_t) based(connectionDs.userData);
+  dcl-s inBuffer pointer;
+  dcl-s outBuffer pointer;
+  dcl-s length uns(10);
+  dcl-s returnValue int(10);
+  dcl-s error int(10) based(errorPtr);
+  dcl-s endPoint pointer;
+  dcl-ds endPointDs likeds(endpoint_t) based(endPoint);
+  dcl-ds httpMessage likeds(mongoose_httpMessage) based(userData);
+  dcl-s httpMethod char(8);
+  dcl-s uri char(1024);
+  
+  dcl-pr user_handleRequest extproc(endPointDs.endPoint);
+    service pointer const;
+    connection pointer const;
+    httpMessage pointer const;
+  end-pr;
+  
+  if (event = MONGOOSE_EVENT_ACCEPT);
+    // initialize
+    droplet_logger_debug(serviceDs.logger : 'Connection created.');
+  elseif (event = MONGOOSE_EVENT_RECEIVED);
+    droplet_logger_debug(serviceDs.logger : %char(connectionDs.receivingBuffer.length) + 
+                         ' bytes received from client.');
+    
+    // need to convert to EBCDIC (also need to use different
+    // pointers as iconv will change the value of the pointer)
+    inBuffer = connectionDs.receivingBuffer.buffer;
+    outBuffer = connectionDs.receivingBuffer.buffer;
+    length = connectionDs.receivingBuffer.length;
+    
+    returnValue = iconv(serviceDs.iconvFromAscii : inBuffer : length : outBuffer : length);
+    if (returnValue = -1);
+      errorPtr = errno();
+      droplet_logger_error(serviceDs.logger : 'Could not convert received data to EBCDIC. ' + 
+                          %char(error) + ' - ' + %str(strerror(error)));
+    endif;
+    
+  elseif (event = MONGOOSE_EVENT_HTTP_REQUEST);
+    droplet_logger_debug(serviceDs.logger : 'HTTP request received.');
+    
+    httpMethod = %str(httpMessage.method.value : httpMessage.method.length);
+    uri = %str(httpMessage.uri.value : httpMessage.uri.length);
+    
+    endPoint = droplet_router_route(serviceDs.endPoints : httpMethod : uri);
+    
+    if (endPoint = *null);
+      // no matching end point => return HTTP 404 NOT FOUND
+      droplet_logger_debug(serviceDs.logger : 'No matching end point for HTTP request to URI ' + %trimr(uri));
+      // TODO return 404
+    else;
+      droplet_logger_debug(serviceDs.logger : 'Routing HTTP request to end point ' + %trimr(endPointDs.path));
+      user_handleRequest(connectionDs.userData : connection : userData);
+    endif;
+    
+  elseif (event = MONGOOSE_EVENT_CLOSE);
+    // cleanup
+    droplet_logger_debug(serviceDs.logger : 'Connection closed.');
+  endif;
+
+end-proc;

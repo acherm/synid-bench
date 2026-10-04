@@ -1,0 +1,192 @@
+**FREE
+
+/if not defined (MONGOOSE_H)
+/define MONGOOSE_H
+
+//-------------------------------------------------------------------------------------------------
+// Constants
+//-------------------------------------------------------------------------------------------------
+dcl-c MONGOOSE_MAX_HTTP_HEADERS 20;
+
+// standard events
+      
+// Sent to each connection on each mg_mgr_poll() call
+dcl-c MONGOOSE_EVENT_POLL 0;
+// New connection accepted. union socket_address
+dcl-c MONGOOSE_EVENT_ACCEPT 1;
+// connect() succeeded or failed. int * 
+dcl-c MONGOOSE_EVENT_CONNECT 2;
+// Data has benn received. int *num_bytes
+dcl-c MONGOOSE_EVENT_RECEIVED 3;
+// Data has been written to a socket. int *num_bytes
+dcl-c MONGOOSE_EVENT_SEND 4;
+// Connection is closed. NULL
+dcl-c MONGOOSE_EVENT_CLOSE 5;
+// now >= conn->ev_timer_time. double *
+dcl-c MONGOOSE_EVENT_TIMER 6;
+
+
+// HTTP events      
+dcl-c MONGOOSE_EVENT_HTTP_REQUEST 100;
+dcl-c MONGOOSE_EVENT_HTTP_REPLY 101;
+dcl-c MONGOOSE_EVENT_HTTP_CHUNK 102;
+dcl-c MONGOOSE_EVENT_SSI_CALL 105;
+
+
+// Flags
+dcl-c MONGOOSE_FLAG_SEND_AND_CLOSE 1024;
+dcl-c MONGOOSE_FLAG_CLOSE_IMMEDIATELY 2048;
+dcl-c MONGOOSE_FLAG_WEBSOCKET_NO_DEFRAG 4096;
+dcl-c MONGOOSE_FLAG_DELETE_CHUNK 8192;
+dcl-c MONGOOSE_FLAG_ENABLE_BROADCAST 16384;
+                                          
+
+//-------------------------------------------------------------------------------------------------
+// Templates
+//-------------------------------------------------------------------------------------------------
+
+// mongoose_buffer size = 32 byte (instead of 24 because of 16 byte alignment)
+dcl-ds mongoose_buffer template qualified;
+    buffer pointer;
+    length uns(10);
+    size uns(10);
+    dummy1 char(8); // to fill up the 16 byte to the next boundary
+end-ds;  
+
+dcl-ds mongoose_connection template qualified;
+  nextConnection pointer;
+  prevConnection pointer;
+  listener pointer;
+  manager pointer;
+  socket int(10);
+  error int(10);
+  socketAddress char(16); // don't know real type
+  recvBufferLimit uns(10);
+  receivingBuffer likeds(mongoose_buffer);
+  sendingBuffer likeds(mongoose_buffer);
+  lastSocketIo int(10); // time_t in c
+  eventTimer float(8); // double
+  protocolEventHandler pointer(*proc);
+  protocolData pointer;
+  protocolDataDestructor pointer;
+  eventHandler pointer(*proc);
+  userData pointer;
+  priv1 pointer(*proc);
+  priv2 pointer;
+  managerData pointer;
+  managerInterface pointer;
+  flags uns(10);
+  dummy1 char(12);
+end-ds;  
+
+// mongoose_buffer size = 32 byte (instead of 20 because of 16 byte alignment)
+dcl-ds mongoose_string qualified template;
+  value pointer;
+  length uns(10);
+  dummy1 char(12); // to fill up the 16 byte to the next boundary
+end-ds;
+
+dcl-ds mongoose_httpMessage qualified template;
+  message likeds(mongoose_string);
+  body likeds(mongoose_string);
+  method likeds(mongoose_string);
+  uri likeds(mongoose_string);
+  protocol likeds(mongoose_string);
+  responseCode int(10);
+  dummy1 char(12); // so that the next pointer is on the next 16 byte boundary
+  responseStatusMessage likeds(mongoose_string);
+  queryString likeds(mongoose_string);
+  headerNames likeds(mongoose_string) dim(MONGOOSE_MAX_HTTP_HEADERS);
+  headerValues likeds(mongoose_string) dim(MONGOOSE_MAX_HTTP_HEADERS);
+end-ds;
+
+
+//-------------------------------------------------------------------------------------------------
+// Prototypes
+//-------------------------------------------------------------------------------------------------
+dcl-pr mongoose_manager_init extproc('mg_mgr_init');
+  manager pointer value;
+  userData pointer value;
+end-pr;
+
+//
+// mg_mgr_poll returns time_t which is an integer but the size depends on
+// the platform.
+//
+// IBM i 7.1: time_t is 4 bytes long und signed => 10I 0
+//
+dcl-pr mongoose_manager_poll int(10) extproc('mg_mgr_poll');
+  manager pointer value;
+  milli int(10) value;
+end-pr;
+
+dcl-pr mongoose_manager_free extproc('mg_mgr_free');
+  manager pointer value;
+end-pr;
+      
+dcl-pr mongoose_bind pointer extproc('mg_bind');
+  manager pointer value;
+  options pointer value options(*string);
+  eventHandler pointer(*proc) value;
+end-pr;
+
+dcl-pr mongoose_set_protocol_http_websocket extproc('mg_set_protocol_http_websocket');
+  connection pointer value;
+end-pr;
+
+dcl-pr mongoose_send extproc('mg_send');
+  connection pointer value;
+  buffer pointer value;
+  length int(10) value;
+end-pr;
+
+dcl-pr mongoose_send_head extproc('mg_send_head');
+  connection pointer value;
+  httpCode int(10) value;
+  contentLength int(20) value;
+  extraHeaders pointer value;
+end-pr;
+
+dcl-pr mongoose_send_http_chunk extproc('mg_send_http_chunk');
+  connection pointer value;
+  buffer pointer value;
+  length int(10) value;
+end-pr;
+
+dcl-pr mongoose_buffer_free extproc('mbuf_free');
+  buffer pointer value;
+end-pr;
+
+dcl-pr mongoose_buffer_append int(10) extproc('mbuf_append');
+  buffer pointer value;
+  data pointer value;
+  size int(10) value;
+end-pr;
+
+dcl-pr mongoose_buffer_insert int(10) extproc('mbuf_insert');
+  buffer pointer value;
+  data pointer value;
+  size int(10) value;
+end-pr;
+
+dcl-pr mongoose_buffer_remove extproc('mbuf_remove');
+  buffer pointer value;
+  size int(10) value;
+end-pr;
+
+dcl-pr mongoose_buffer_resize extproc('mbuf_resize');
+  buffer pointer value;
+  newSize int(10) value;
+end-pr;
+
+dcl-pr mongoose_buffer_trim extproc('mbuf_trim');
+  buffer pointer value;
+end-pr;
+
+dcl-pr mongoose_buffer_init extproc('mbuf_init');
+  buffer pointer value;
+  initialCapacity int(10) value;
+end-pr;
+
+/endif
+      

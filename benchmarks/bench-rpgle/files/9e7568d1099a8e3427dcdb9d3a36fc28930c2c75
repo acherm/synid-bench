@@ -1,0 +1,52 @@
+**FREE
+
+/if not defined(BLUEDROPLET_LOGGER_T)
+/define BLUEDROPLET_LOGGER_T
+
+
+//-------------------------------------------------------------------------------------------------
+//
+// (C) Copyleft 2016 Mihael Schmidt
+//
+// This file is part of BlueDroplet.
+//
+// BlueDroplet is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published
+// the Free Software Foundation, either version 3 of the License, or
+// any later version.
+//
+// BlueDroplet is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with BlueDroplet.  If not, see <http://www.gnu.org/licenses/>.
+//
+//-------------------------------------------------------------------------------------------------
+
+
+//-------------------------------------------------------------------------------------------------
+// Constants
+//-------------------------------------------------------------------------------------------------
+dcl-c DROPLET_LOG_LEVEL_DEBUG 'DEBUG';
+dcl-c DROPLET_LOG_LEVEL_INFO 'INFO';
+dcl-c DROPLET_LOG_LEVEL_WARN 'WARN';
+dcl-c DROPLET_LOG_LEVEL_ERROR 'ERROR';
+
+
+//-------------------------------------------------------------------------------------------------
+// Templates
+//-------------------------------------------------------------------------------------------------
+dcl-ds logger_t qualified template;
+  id char(50);
+  userData pointer;
+  logLevel char(10);
+  proc_log_debug pointer(*proc);
+  proc_log_info pointer(*proc);
+  proc_log_warn pointer(*proc);
+  proc_log_error pointer(*proc);
+  proc_finalize pointer(*proc);
+end-ds;
+
+/endif

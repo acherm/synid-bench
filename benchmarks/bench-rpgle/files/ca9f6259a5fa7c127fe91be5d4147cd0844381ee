@@ -1,0 +1,42 @@
+      /if not defined (ILEUNIT_ASSERT)
+      /define ILEUNIT_ASSERT
+
+      /include 'ileunit_t.rpgle'
+
+      *-------------------------------------------------------------------------
+      *  Procedure Prototypes
+      *-------------------------------------------------------------------------
+     D assert_assertEquals...
+     D                 PR                  extproc('assert_assertEquals')
+     D  expected                  32565A   const
+     D  actual                    32565A   const
+
+     D assert_assertTrue...
+     D                 PR                  extproc('assert_assertTrue')
+     D  condition                      N   const
+     D  msgIfFalse                  256A   const
+     
+     D assert_fail...
+     D                 PR                  extproc('assert_fail')
+     D  msg                         256A   const
+     
+     D assert_equalsInteger...
+     D                 PR                  extproc('assert_equalsInteger')
+     D  expected                     10I 0 const
+     D  actual                       10I 0 const
+     
+     D assert_clearFailEvent...
+     D                 PR                  extproc('assert_clearFailEvent')
+
+     D assert_getCalled...
+     D                 PR            10I 0 extproc('assert_getCalled')
+
+     D assert_getFailEvent...
+     D                 PR                  extproc('assert_getFailEvent')
+     D                                     likeds(assert_failevent_t)
+
+     D assert_clearCounter...
+     D                 PR                  extproc('assert_clearCounter')
+
+      /endif
+      

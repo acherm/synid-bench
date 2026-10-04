@@ -1,0 +1,25 @@
+# Pygments lexer name → Linguist name(s) of the same language. Rule (all tools alike): synonyms only; a label covering
+# several Linguist languages maps to all of them (undecided); a dialect or a broader/narrower kind (Systemd vs INI,
+# Arduino vs C++, MySQL vs SQL, XML+PHP) is NOT mapped.
+label,linguist
+Text only,Text
+Transact-SQL,TSQL
+ReasonML,Reason
+FortranFixed,Fortran
+COBOLFree,COBOL
+MQL,MQL4;MQL5
+World of Warcraft TOC,World of Warcraft Addon Data
+Properties,Java Properties
+Rego,Open Policy Agent
+Csound Orchestra,Csound
+Ragel in Ruby Host,Ragel
+Nimrod,Nim
+Zone,DNS Zone
+Docker,Dockerfile
+Graphviz,Graphviz (DOT)
+Python 2.x,Python
+reg,Windows Registry Entries
+Desktop file,desktop
+HTML+Handlebars,Handlebars
+ASCII armored,Public Key
+BST,BibTeX Style

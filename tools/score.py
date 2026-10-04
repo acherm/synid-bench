@@ -6,8 +6,10 @@
         --baseline benchmarks/bench-m/baselines/48c3c45-default.jsonl --report benchmarks/bench-m/results/head.md
 
 A case is right when Synid gives exactly one syntax and it is in the case's
-`accept` list. `Text` is right only where accepted (files that are not code);
-several syntaxes = undecided; no answer = none.
+`accept` list — a name in it also accepts that language's other names in GitHub
+Linguist (its aliases: `Mathematica` for `Wolfram Language`, `MUMPS` for `M`;
+tools/data/linguist_aliases.json). `Text` is right only where accepted (files
+that are not code); several syntaxes = undecided; no answer = none.
 
 Exit status: 1 when the run regresses on a case the baseline got right
 (--fail-on gold: gold cases only; any: every case; none: never).
@@ -48,6 +50,16 @@ def name_key(name: str) -> str:
     return re.sub(r"[^a-z0-9+#*]", "", name.lower())
 
 
+def _linguist_names() -> dict[str, set[str]]:
+    """name key → the keys of every name of that Linguist language (its name and its aliases)."""
+    d = json.loads((Path(__file__).resolve().parent / "data" / "linguist_aliases.json").read_text(encoding="utf-8"))
+    groups = [{name_key(n), *map(name_key, al)} for n, al in d["aliases"].items()]
+    return {k: g for g in groups for k in g}
+
+
+LINGUIST_NAMES = _linguist_names()
+
+
 def outcome(case: dict, answer: list[str] | None) -> str:
     """right | wrong | text | undecided | none"""
     if not answer:
@@ -55,6 +67,7 @@ def outcome(case: dict, answer: list[str] | None) -> str:
     if len(answer) > 1:
         return "undecided"
     accept = {name_key(a) for a in case["accept"].split(";") if a}
+    accept |= {k for a in list(accept) for k in LINGUIST_NAMES.get(a, ())}
     if name_key(answer[0]) in accept:
         return "right"
     return "text" if answer[0] == "Text" else "wrong"

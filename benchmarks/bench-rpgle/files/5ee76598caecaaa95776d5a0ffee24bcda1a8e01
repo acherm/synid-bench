@@ -1,0 +1,39 @@
+      /if defined(VPHP_H)
+      /eof
+      /endif
+      /define VPHP_H
+
+       // *************************************************
+       // PHP default start location/script (chat.php)
+       // *************************************************
+       DCL-C PHP_ARG0_PGM CONST('/usr/local/zendsvr6/bin/+
+       php.bin');
+       DCL-C PHP_ARG1_CHAT CONST('/usr/local/zendsvr6/share/+
+       vlang/php/chat.php');
+       DCL-C PHP_ENV1_PATH CONST('PATH=/usr/local/zendsvr6/bin:+
+       /usr/bin');
+       DCL-C PHP_ENV2_LIBPATH CONST('LIBPATH=/usr/local/zendsvr6/lib:+
+       /usr/lib');
+       DCL-C PHP_ENV3_ATTACH CONST('PASE_THREAD_ATTACH=Y');
+
+       // *************************************************
+       // PHP API -- start 32bit php
+       // *************************************************
+       dcl-pr PHPStart32 IND;
+          ini CHAR(65500) VALUE options (*nopass);
+       end-pr;
+
+       // *************************************************
+       // PHP API -- call/pass php script
+       // *************************************************
+       dcl-pr PHPScript32 IND;
+         scriptChunk CHAR(65500) VALUE;
+       end-pr;
+
+       // *************************************************
+       // PHP API -- stop php script
+       // *************************************************
+       dcl-pr PHPStop;
+       end-pr;
+
+

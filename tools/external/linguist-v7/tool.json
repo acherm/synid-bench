@@ -1,0 +1,8 @@
+{
+  "version": "7.30.0",
+  "name": "GitHub Linguist 7.30.0",
+  "about": "GitHub's language detector (Ruby gem), the last 7.x release (June 2024): file name, extension, shebang, heuristics, then a naive Bayes classifier trained on its own samples",
+  "url": "https://github.com/github-linguist/linguist/releases/tag/v7.30.0",
+  "family": "linguist-family",
+  "older_release_of": "linguist"
+}

@@ -1,4 +1,4 @@
-{"meta": {"label": "ext-magika", "kind": "other-identifier", "benchmark": "bench-m/1", "name": "Magika 1.0.3", "version": "synid-bench/magika:1.0.3 (tools/external/magika)", "about": "Google's deep-learning content-type detector; reads the bytes only (~200 content types)", "url": "https://github.com/google/magika", "date": "2026-10-02", "seconds": 3.4}}
+{"meta": {"label": "ext-magika", "kind": "other-identifier", "benchmark": "bench-m/1", "name": "Magika 1.0.3", "version": "synid-bench/magika:1.0.3 (tools/external/magika)", "about": "Google's deep-learning content-type detector; reads the bytes only (~200 content types)", "url": "https://github.com/google/magika", "date": "2026-10-04", "seconds": 10.2, "source": "0e2274681378", "names_csv": "a693df774470"}}
 {"case_id": "m:146faacad4fb", "answer": ["matlab"]}
 {"case_id": "m:1f3bba4d2cd6", "answer": ["matlab"]}
 {"case_id": "m:1fa4cb2b6c7b", "answer": ["matlab"]}

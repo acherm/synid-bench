@@ -1,0 +1,263 @@
+
+     H nomain
+      /if defined(THREAD_SAFE)
+     H thread(*CONCURRENT)
+      /endif
+      
+      
+     D template_ast_token_check...
+     D                 PR
+     D   token                         *   const
+
+      /include 'libc_h.rpgle'
+      /include 'reflection/reflection_h.rpgle'
+      /include 'message/message_h.rpgle'
+      /include 'tmpltokn_h.rpgle'
+
+
+     P template_ast_token_create...
+     P                 B                   export
+     D                 PI              *
+     D   id                          20I 0 const
+     D   serviceProgram...
+     D                               10A   const
+     D   userData                      *   const options(*nopass)
+     D   procedureName...
+     D                              256A   const options(*nopass)
+      *
+     D createProcedureName...
+     D                 S            256A
+     D procedurePointer...
+     D                 S               *   procptr
+     D create          PR              *   extproc(procedurePointer)
+     D   id                          20I 0 const
+     D   userdata                      *   const options(*nopass)
+      *
+     D header          DS                  likeds(template_ast_token_t)
+     D                                     based(token)
+      /free
+       if (%parms() = 4);
+         createProcedureName = procedureName;
+       else;
+         createProcedureName = 'template_ast_token_create';
+       endif;
+
+       procedurePointer = reflection_getProcedurePointer(
+                                  serviceProgram :
+                                  %trimr(createProcedureName));
+
+       if (procedurePointer <> *null);
+
+           // input provider create/build
+           if (%parms() = 2);
+             token = create(id);
+           else;
+             token = create(id : userData);
+           endif;
+
+       endif;
+
+       return token;
+      /end-free
+     P                 E
+
+
+     P template_ast_token_finalize...
+     P                 B                   export
+     D                 PI
+     D   token                         *
+      *
+     D header          DS                  likeds(template_ast_token_t)
+     D                                     based(token)
+     D procedurePointer...
+     D                 S               *   procptr
+     D finalize        PR                  extproc(procedurePointer)
+     D   token                         *
+      /free
+       procedurePointer = header.proc_finalize;
+
+       finalize(token);
+
+       if (token <> *null);
+         dealloc(n) token;
+       endif;
+      /end-free
+     P                 E
+
+
+     P template_ast_token_getType...
+     P                 B                   export
+     D                 PI             3I 0
+     D   token                         *   const
+      *
+     D header          DS                  likeds(template_ast_token_t)
+     D                                     based(token)
+     D procedurePointer...
+     D                 S               *   procptr
+     D getType         PR             3I 0 extproc(procedurePointer)
+     D   token                         *   const
+      /free
+       procedurePointer = header.proc_getType;
+
+       return getType(token);
+      /end-free
+     P                 E
+
+
+     P template_ast_token_setType...
+     P                 B                   export
+     D                 PI
+     D   token                         *   const
+     D   type                         3I 0 const
+      *
+     D header          DS                  likeds(template_ast_token_t)
+     D                                     based(token)
+     D procedurePointer...
+     D                 S               *   procptr
+     D setType         PR                  extproc(procedurePointer)
+     D   token                         *   const
+     D   type                         3I 0 const
+      /free
+       procedurePointer = header.proc_setType;
+
+       setType(token : type);
+      /end-free
+     P                 E
+
+
+     P template_ast_token_getStart...
+     P                 B                   export
+     D                 PI            10I 0
+     D   token                         *   const
+      *
+     D header          DS                  likeds(template_ast_token_t)
+     D                                     based(token)
+     D procedurePointer...
+     D                 S               *   procptr
+     D getStart        PR            10I 0 extproc(procedurePointer)
+     D   token                         *   const
+      /free
+       procedurePointer = header.proc_getStart;
+
+       return getStart(token);
+      /end-free
+     P                 E
+
+
+     P template_ast_token_setStart...
+     P                 B                   export
+     D                 PI
+     D   token                         *   const
+     D   start                       10I 0 const
+      *
+     D header          DS                  likeds(template_ast_token_t)
+     D                                     based(token)
+     D procedurePointer...
+     D                 S               *   procptr
+     D setStart        PR                  extproc(procedurePointer)
+     D   token                         *   const
+     D   start                       10I 0 const
+      /free
+       procedurePointer = header.proc_setStart;
+
+       setStart(token : start);
+      /end-free
+     P                 E
+
+
+     P template_ast_token_getLength...
+     P                 B                   export
+     D                 PI            10I 0
+     D   token                         *   const
+      *
+     D header          DS                  likeds(template_ast_token_t)
+     D                                     based(token)
+     D procedurePointer...
+     D                 S               *   procptr
+     D getLength       PR            10I 0 extproc(procedurePointer)
+     D   token                         *   const
+      /free
+       procedurePointer = header.proc_getLength;
+
+       return getLength(token);
+      /end-free
+     P                 E
+
+
+     P template_ast_token_setLength...
+     P                 B                   export
+     D                 PI
+     D   token                         *   const
+     D   length                      10I 0 const
+      *
+     D header          DS                  likeds(template_ast_token_t)
+     D                                     based(token)
+     D procedurePointer...
+     D                 S               *   procptr
+     D setLength       PR                  extproc(procedurePointer)
+     D   token                         *   const
+     D   length                      10I 0 const
+      /free
+       procedurePointer = header.proc_getLength;
+
+       setLength(token : length);
+      /end-free
+     P                 E
+
+
+     P template_ast_token_getData...
+     P                 B                   export
+     D                 PI         65535A   varying
+     D   token                         *   const
+      *
+     D header          DS                  likeds(template_ast_token_t)
+     D                                     based(token)
+     D procedurePointer...
+     D                 S               *   procptr
+     D getData         PR         65535A   varying extproc(procedurePointer)
+     D   token                         *   const
+      /free
+       procedurePointer = header.proc_getData;
+
+       return getData(token);
+      /end-free
+     P                 E
+
+
+     P template_ast_token_setData...
+     P                 B                   export
+     D                 PI
+     D   token                         *   const
+     D   data                     65535A   const varying
+      *
+     D header          DS                  likeds(template_ast_token_t)
+     D                                     based(token)
+     D procedurePointer...
+     D                 S               *   procptr
+     D setData         PR                  extproc(procedurePointer)
+     D   token                         *   const
+     D   data                     65535A   const varying
+      /free
+       procedurePointer = header.proc_setData;
+
+       setData(token : data);
+      /end-free
+     P                 E
+
+
+     P template_ast_token_getId...
+     P                 B                   export
+     D                 PI            20I 0
+     D   token                         *   const
+     D header          DS                  likeds(template_ast_token_t)
+     D                                     based(token)
+     D procedurePointer...
+     D                 S               *   procptr
+     D getId           PR            20I 0 extproc(procedurePointer)
+     D   token                         *   const
+      /free
+       procedurePointer = header.proc_getId;
+
+       return getId(token);
+      /end-free
+     P                 E

@@ -1,0 +1,956 @@
+{
+"source": "github-linguist/linguist@76f88c6 (2026-09-25), lib/linguist/languages.yml (as imported by PL-ultimate-llm, data/raw/linguist_languages.yml)",
+"aliases": {
+"AGS Script": [
+"ags"
+],
+"ASP.NET": [
+"aspx",
+"aspx-vb"
+],
+"ATS": [
+"ats2"
+],
+"ActionScript": [
+"actionscript 3",
+"actionscript3",
+"as3"
+],
+"Ada": [
+"ada95",
+"ada2005"
+],
+"Adblock Filter List": [
+"ad block filters",
+"ad block",
+"adb",
+"adblock"
+],
+"Adobe Font Metrics": [
+"acfm",
+"adobe composite font metrics",
+"adobe multiple font metrics",
+"amfm"
+],
+"Alpine Abuild": [
+"abuild",
+"apkbuild"
+],
+"Altium Designer": [
+"altium"
+],
+"ApacheConf": [
+"aconf",
+"apache"
+],
+"AppleScript": [
+"apples",
+"osascript"
+],
+"Assembly": [
+"asm",
+"nasm"
+],
+"AutoHotkey": [
+"ahk"
+],
+"AutoIt": [
+"au3",
+"AutoIt3",
+"AutoItScript"
+],
+"B4X": [
+"basic for android"
+],
+"BIRD2": [
+"bird",
+"bird3"
+],
+"Batchfile": [
+"bat",
+"batch",
+"dosbatch",
+"winbatch"
+],
+"Bend": [
+"bend2"
+],
+"Berry": [
+"be"
+],
+"BlitzBasic": [
+"b3d",
+"blitz3d",
+"blitzplus",
+"bplus"
+],
+"BlitzMax": [
+"bmax"
+],
+"Blueprint": [
+"blp"
+],
+"Bluespec": [
+"bluespec bsv",
+"bsv"
+],
+"Bluespec BH": [
+"bh",
+"bluespec classic"
+],
+"C#": [
+"csharp",
+"cake",
+"cakescript"
+],
+"C++": [
+"cpp"
+],
+"C2hs Haskell": [
+"c2hs"
+],
+"CAP CDS": [
+"cds"
+],
+"Cabal Config": [
+"Cabal"
+],
+"Caddyfile": [
+"Caddy"
+],
+"CartoCSS": [
+"Carto"
+],
+"Chapel": [
+"chpl"
+],
+"Checksums": [
+"checksum",
+"hash",
+"hashes",
+"sum",
+"sums"
+],
+"Classic ASP": [
+"asp"
+],
+"Closure Templates": [
+"soy"
+],
+"CoNLL-U": [
+"CoNLL",
+"CoNLL-X"
+],
+"CodeQL": [
+"ql"
+],
+"CoffeeScript": [
+"coffee",
+"coffee-script"
+],
+"ColdFusion": [
+"cfm",
+"cfml",
+"coldfusion html"
+],
+"ColdFusion CFC": [
+"cfc"
+],
+"Common Lisp": [
+"lisp"
+],
+"Common Workflow Language": [
+"cwl"
+],
+"Cpp-ObjDump": [
+"c++-objdump"
+],
+"Csound": [
+"csound-orc"
+],
+"Csound Document": [
+"csound-csd"
+],
+"Csound Score": [
+"csound-sco"
+],
+"Cython": [
+"pyrex"
+],
+"D": [
+"Dlang"
+],
+"D2": [
+"d2lang"
+],
+"DIGITAL Command Language": [
+"dcl"
+],
+"DM": [
+"byond"
+],
+"DTrace": [
+"dtrace-script"
+],
+"Darcs Patch": [
+"dpatch"
+],
+"Diff": [
+"udiff"
+],
+"Dockerfile": [
+"Containerfile"
+],
+"E-mail": [
+"email",
+"eml",
+"mail",
+"mbox"
+],
+"Earthly": [
+"Earthfile"
+],
+"Ecmarkup": [
+"ecmarkdown"
+],
+"EdgeQL": [
+"esdl"
+],
+"EditorConfig": [
+"editor-config"
+],
+"Emacs Lisp": [
+"cask",
+"eask",
+"elisp",
+"emacs"
+],
+"F#": [
+"fsharp"
+],
+"F*": [
+"fstar"
+],
+"FIGlet Font": [
+"FIGfont"
+],
+"FreeBASIC": [
+"fb"
+],
+"FreeMarker": [
+"ftl"
+],
+"Gemini": [
+"gemtext"
+],
+"Genshi": [
+"xml+genshi",
+"xml+kid"
+],
+"Gerber Image": [
+"rs-274x"
+],
+"Gettext Catalog": [
+"pot"
+],
+"Gherkin": [
+"cucumber"
+],
+"Git Attributes": [
+"gitattributes"
+],
+"Git Commit": [
+"commit"
+],
+"Git Config": [
+"gitconfig",
+"gitmodules"
+],
+"Git Revision List": [
+"Git Blame Ignore Revs"
+],
+"Glimmer JS": [
+"gjs"
+],
+"Glimmer TS": [
+"gts"
+],
+"Gno": [
+"gnolang"
+],
+"Go": [
+"golang"
+],
+"Go Checksums": [
+"go.sum",
+"go sum",
+"go.work.sum",
+"go work sum"
+],
+"Go Module": [
+"go.mod",
+"go mod"
+],
+"Go Template": [
+"gotmpl"
+],
+"Go Workspace": [
+"go.work",
+"go work"
+],
+"Grammatical Framework": [
+"gf"
+],
+"Groovy Server Pages": [
+"gsp",
+"java server page"
+],
+"GtkRC": [
+"gtk",
+"gtk 1",
+"gtk 2"
+],
+"HCL": [
+"HashiCorp Configuration Language",
+"opentofu",
+"terraform"
+],
+"HTML": [
+"xhtml"
+],
+"HTML+ECR": [
+"ecr"
+],
+"HTML+EEX": [
+"eex",
+"heex",
+"leex"
+],
+"HTML+ERB": [
+"erb",
+"rhtml",
+"html+ruby"
+],
+"HTML+Razor": [
+"razor"
+],
+"Handlebars": [
+"hbs",
+"htmlbars"
+],
+"Hosts File": [
+"hosts"
+],
+"Hy": [
+"hylang"
+],
+"IGOR Pro": [
+"igor",
+"igorpro"
+],
+"IL Assembly": [
+"ilasm",
+"msil"
+],
+"INI": [
+"conf",
+"dosini"
+],
+"IRC log": [
+"irc",
+"irc logs"
+],
+"Ignore List": [
+"ignore",
+"gitignore",
+"git-ignore"
+],
+"ImHex Pattern Language": [
+"ImHex",
+"ImHexPatternLanguage",
+"imhexpl"
+],
+"ImageJ Macro": [
+"ijm"
+],
+"Inform 7": [
+"i7",
+"inform7"
+],
+"JASS": [
+"jass2"
+],
+"JSON": [
+"geojson",
+"jsonl",
+"sarif",
+"topojson"
+],
+"JSON with Comments": [
+"jsonc"
+],
+"Java Server Pages": [
+"jsp"
+],
+"Java Template Engine": [
+"jte"
+],
+"JavaScript": [
+"js",
+"node"
+],
+"JetBrains MPS": [
+"mps"
+],
+"Jinja": [
+"django",
+"html+django",
+"html+jinja",
+"htmldjango"
+],
+"Jupyter Notebook": [
+"IPython Notebook"
+],
+"Just": [
+"Justfile"
+],
+"Kaitai Struct": [
+"ksy"
+],
+"KakouneScript": [
+"kak",
+"kakscript"
+],
+"KiCad Layout": [
+"pcbnew"
+],
+"KiCad Schematic": [
+"eeschema schematic"
+],
+"LLVM TableGen": [
+"tablegen"
+],
+"Lasso": [
+"lassoscript"
+],
+"Lean 4": [
+"lean4"
+],
+"Less": [
+"less-css"
+],
+"Lex": [
+"flex"
+],
+"Literate CoffeeScript": [
+"litcoffee"
+],
+"Literate Haskell": [
+"lhaskell",
+"lhs"
+],
+"LiveScript": [
+"live-script",
+"ls"
+],
+"M": [
+"mumps"
+],
+"M3U": [
+"hls playlist",
+"m3u playlist"
+],
+"M4Sugar": [
+"autoconf"
+],
+"MATLAB": [
+"octave"
+],
+"Macaulay2": [
+"m2"
+],
+"Makefile": [
+"bsdmake",
+"make",
+"mf"
+],
+"Markdown": [
+"md",
+"pandoc"
+],
+"Marko": [
+"markojs"
+],
+"Max": [
+"max/msp",
+"maxmsp"
+],
+"Mermaid": [
+"mermaid example"
+],
+"Motorola 68K Assembly": [
+"m68k"
+],
+"Muse": [
+"amusewiki",
+"emacs muse"
+],
+"NEON": [
+"nette object notation",
+"ne-on"
+],
+"NPM Config": [
+"npmrc"
+],
+"Nginx": [
+"nginx configuration file"
+],
+"Nix": [
+"nixos"
+],
+"Noir": [
+"nargo"
+],
+"Nu": [
+"nush"
+],
+"Nunjucks": [
+"njk"
+],
+"Nushell": [
+"nu-script",
+"nushell-script"
+],
+"OMNeT++ MSG": [
+"omnetpp-msg"
+],
+"OMNeT++ NED": [
+"omnetpp-ned"
+],
+"Objective-C": [
+"obj-c",
+"objc",
+"objectivec"
+],
+"Objective-C++": [
+"obj-c++",
+"objc++",
+"objectivec++"
+],
+"Objective-J": [
+"obj-j",
+"objectivej",
+"objj"
+],
+"Odin": [
+"odinlang",
+"odin-lang"
+],
+"OpenAPI Specification v2": [
+"oasv2"
+],
+"OpenAPI Specification v3": [
+"oasv3"
+],
+"OpenEdge ABL": [
+"progress",
+"openedge",
+"abl"
+],
+"OpenRC runscript": [
+"openrc"
+],
+"OpenType Feature File": [
+"AFDKO"
+],
+"Option List": [
+"opts",
+"ackrc"
+],
+"OverPy": [
+"opy"
+],
+"PHP": [
+"inc"
+],
+"POV-Ray SDL": [
+"pov-ray",
+"povray"
+],
+"Parrot Assembly": [
+"pasm"
+],
+"Parrot Internal Representation": [
+"pir"
+],
+"Pascal": [
+"delphi",
+"objectpascal"
+],
+"Perl": [
+"cperl"
+],
+"Pic": [
+"pikchr"
+],
+"PostScript": [
+"postscr"
+],
+"Power Query": [
+"powerquery"
+],
+"PowerShell": [
+"posh",
+"pwsh"
+],
+"Protocol Buffer": [
+"proto",
+"protobuf",
+"Protocol Buffers"
+],
+"Protocol Buffer Text Format": [
+"text proto",
+"protobuf text format"
+],
+"Python": [
+"py",
+"py3",
+"python3",
+"rusthon"
+],
+"Python console": [
+"pycon"
+],
+"Q#": [
+"qsharp"
+],
+"QuickBASIC": [
+"qb",
+"qbasic",
+"qb64",
+"classic qbasic",
+"classic quickbasic"
+],
+"R": [
+"Rscript",
+"splus"
+],
+"REXX": [
+"arexx"
+],
+"ROS Interface": [
+"rosmsg"
+],
+"RPC": [
+"rpcgen",
+"oncrpc",
+"xdr"
+],
+"RPGLE": [
+"ile rpg",
+"sqlrpgle"
+],
+"RPM Spec": [
+"specfile"
+],
+"Ragel": [
+"ragel-rb",
+"ragel-ruby"
+],
+"Raku": [
+"perl6",
+"perl-6"
+],
+"Raw token data": [
+"raw"
+],
+"Readline Config": [
+"inputrc",
+"readline"
+],
+"Red": [
+"red/system"
+],
+"Redirect Rules": [
+"redirects"
+],
+"Regular Expression": [
+"regexp",
+"regex"
+],
+"Ren'Py": [
+"renpy"
+],
+"Robots Exclusion Rules": [
+"robots",
+"robots txt",
+"robotx.txt"
+],
+"Rocq Prover": [
+"coq",
+"rocq"
+],
+"Roff": [
+"groff",
+"man",
+"manpage",
+"man page",
+"man-page",
+"mdoc",
+"nroff",
+"troff"
+],
+"Ruby": [
+"jruby",
+"macruby",
+"rake",
+"rb",
+"rbx"
+],
+"Rust": [
+"rs"
+],
+"SELinux Policy": [
+"SELinux Kernel Policy Language",
+"sepolicy"
+],
+"SSH Config": [
+"sshconfig",
+"sshdconfig",
+"ssh_config",
+"sshd_config"
+],
+"STL": [
+"ascii stl",
+"stla"
+],
+"Salt": [
+"saltstack",
+"saltstate"
+],
+"Shell": [
+"sh",
+"shell-script",
+"bash",
+"zsh",
+"envrc"
+],
+"ShellCheck Config": [
+"shellcheckrc"
+],
+"ShellSession": [
+"bash session",
+"console"
+],
+"Simple File Verification": [
+"sfv"
+],
+"SmPL": [
+"coccinelle"
+],
+"Smalltalk": [
+"squeak"
+],
+"Snakemake": [
+"snakefile"
+],
+"SourcePawn": [
+"sourcemod"
+],
+"Standard ML": [
+"sml"
+],
+"Starlark": [
+"bazel",
+"bzl"
+],
+"SurrealQL": [
+"surql"
+],
+"TMDL": [
+"Tabular Model Definition Language"
+],
+"TSPLIB data": [
+"travelling salesman problem",
+"traveling salesman problem"
+],
+"TSV": [
+"tab-seperated values"
+],
+"TSX": [
+"typescriptreact"
+],
+"Tape": [
+"vhs"
+],
+"Tcl": [
+"sdc",
+"xdc"
+],
+"TeX": [
+"latex"
+],
+"Text": [
+"fundamental",
+"plain text"
+],
+"TextMate Properties": [
+"tm-properties"
+],
+"Tor Config": [
+"torrc"
+],
+"Tree-sitter Query": [
+"tsq"
+],
+"Type Language": [
+"tl"
+],
+"TypeScript": [
+"ts"
+],
+"TypeSpec": [
+"tsp"
+],
+"Typst": [
+"typ"
+],
+"Unix Assembly": [
+"gas",
+"gnu asm",
+"unix asm"
+],
+"UrWeb": [
+"Ur/Web",
+"Ur"
+],
+"V": [
+"vlang"
+],
+"VBA": [
+"visual basic for applications"
+],
+"Valve Data Format": [
+"keyvalues",
+"vdf"
+],
+"Velocity Template Language": [
+"vtl",
+"velocity"
+],
+"Vespa Schema Definition": [
+"vespa"
+],
+"Vim Help File": [
+"help",
+"vimhelp"
+],
+"Vim Snippet": [
+"SnipMate",
+"UltiSnip",
+"UltiSnips",
+"NeoSnippet"
+],
+"Vim script": [
+"vim",
+"viml",
+"nvim",
+"vimscript"
+],
+"Visual Basic .NET": [
+"visual basic",
+"vbnet",
+"vb .net",
+"vb.net"
+],
+"Visual Basic 6.0": [
+"vb6",
+"vb 6",
+"visual basic 6",
+"visual basic classic",
+"classic visual basic"
+],
+"WDL": [
+"Workflow Description Language"
+],
+"WebAssembly": [
+"wast",
+"wasm"
+],
+"WebAssembly Interface Type": [
+"wit"
+],
+"WebVTT": [
+"vtt"
+],
+"Wget Config": [
+"wgetrc"
+],
+"Wikitext": [
+"mediawiki",
+"wiki"
+],
+"Wolfram Language": [
+"mathematica",
+"mma",
+"wolfram",
+"wolfram lang",
+"wl"
+],
+"Wren": [
+"wrenlang"
+],
+"X BitMap": [
+"xbm"
+],
+"X PixMap": [
+"xpm"
+],
+"X10": [
+"xten"
+],
+"XML": [
+"rss",
+"xsd",
+"wsdl"
+],
+"XSLT": [
+"xsl"
+],
+"YAML": [
+"yml"
+],
+"YASnippet": [
+"snippet",
+"yas"
+],
+"Zeek": [
+"bro"
+],
+"cURL Config": [
+"curlrc"
+],
+"crontab": [
+"cron",
+"cron table"
+],
+"iCalendar": [
+"iCal"
+],
+"pkg-config": [
+"pkgconf"
+],
+"reStructuredText": [
+"rst"
+],
+"vCard": [
+"virtual contact file",
+"electronic business card"
+],
+"xBase": [
+"advpl",
+"clipper",
+"foxpro"
+]
+}
+}

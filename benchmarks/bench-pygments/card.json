@@ -1,0 +1,27 @@
+{
+ "name": "bench-pygments",
+ "version": "bench-pygments/1",
+ "title": "Pygments' example files (tests/examplefiles), labelled by the lexer of their directory",
+ "unit": "whole file",
+ "names": "real",
+ "labels": "Pygments' maintainers (the example's directory, a lexer alias), crosswalked to Linguist's names",
+ "label_kind": "maintainers",
+ "sampling": "curated (Pygments' example files, all of those in a language)",
+ "source": "https://github.com/pygments/pygments@156d85fdd18d34427fe893527e71da91dcfb0eb5",
+ "files_stored": false,
+ "cases": 637,
+ "languages": 428,
+ "home_turf": [
+  "Pygments"
+ ],
+ "strengths": [
+  "wide: 431 lexers, 176 files in languages Linguist does not have",
+  "real file names chosen by the maintainers, 114 with an extension several Linguist languages claim",
+  "independent of Linguist: only 15 files are Linguist samples"
+ ],
+ "weaknesses": [
+  "Pygments' home turf: its lexers are tested on these very files, and its taxonomy is the label set",
+  "test files, often written to exercise a lexer's corners rather than typical code",
+  "one to a few files per lexer (26 Scala files, 14 GraphQL), so per-language figures are anecdotal"
+ ]
+}

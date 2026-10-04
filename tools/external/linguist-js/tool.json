@@ -1,0 +1,7 @@
+{
+  "version": "3.0.4",
+  "name": "linguist-js 3.0.4",
+  "about": "JavaScript re-implementation of Linguist's rules (npm linguist-js): modeline, file name, shebang, extension, then Linguist's heuristics; no classifier (the first candidate wins); run offline on the Linguist data bundled in the package (languages.yml as of Linguist b45dbe9, 2026-08-20); child languages, not their group",
+  "url": "https://github.com/Nixinova/Linguist",
+  "family": "linguist-family"
+}

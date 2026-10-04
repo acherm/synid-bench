@@ -1,0 +1,8 @@
+{
+  "name": "synid-bench-hljs",
+  "private": true,
+  "description": "highlight.js auto-detection, pinned (tools/external/hljs)",
+  "dependencies": {
+    "highlight.js": "11.12.0"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "version": "1.3.0",
+  "name": "flourite 1.3.0",
+  "about": "regex-based snippet language detector (npm flourite, a fork of lang-detector): points per line from hand-written patterns for 25 languages, plus a shebang check; content only, on the first 10,000 characters (it is a snippet detector, and its patterns backtrack for hours on long lines); `Unknown` is no answer",
+  "url": "https://github.com/teknologi-umum/flourite",
+  "content_native": true,
+  "family": "snippet detector"
+}

@@ -1,0 +1,41 @@
+**FREE
+
+/if not defined(BLUEDROPLET_CONFIG_T)
+/define BLUEDROPLET_CONFIG_T
+
+
+//-------------------------------------------------------------------------------------------------
+//
+// (C) Copyleft 2016 Mihael Schmidt
+//
+// This file is part of BlueDroplet.
+//
+// BlueDroplet is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published
+// the Free Software Foundation, either version 3 of the License, or
+// any later version.
+//
+// BlueDroplet is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with BlueDroplet.  If not, see <http://www.gnu.org/licenses/>.
+//
+//-------------------------------------------------------------------------------------------------
+
+
+//-------------------------------------------------------------------------------------------------
+// Templates
+//-------------------------------------------------------------------------------------------------
+dcl-ds droplet_config_configuration qualified template;
+  httpAddress char(100) inz('0.0.0.0');
+  httpPort int(10) inz(8484);
+  adminAddress char(100) inz('0.0.0.0');
+  adminPort int(10) inz(9494);
+  logging ind inz(*on);
+  templatePath char(1024);
+end-ds;
+
+/endif

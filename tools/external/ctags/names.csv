@@ -1,0 +1,15 @@
+# Universal Ctags parser name → Linguist name(s) of the same language. Rule (all tools alike): synonyms only; a label
+# covering several Linguist languages maps to all of them (the answer then counts as undecided); a dialect or a
+# broader/narrower kind (SystemdUnit vs INI, GemSpec vs Ruby, Bats vs Shell) is NOT mapped — it stays a different answer.
+# CobolFree / CobolVariable are COBOL in its free and variable reference formats (a source format, not a dialect).
+label,linguist
+PuppetManifest,Puppet
+Robot,RobotFramework
+LdScript,Linker Script
+PlistXML,XML Property List
+Iniconf,INI
+CobolFree,COBOL
+CobolVariable,COBOL
+DTS,Devicetree
+Maven2,Maven POM
+Ant,Ant Build System

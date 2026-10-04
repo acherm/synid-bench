@@ -1,0 +1,8 @@
+{
+  "version": "4.1.0",
+  "name": "scc 4.1.0",
+  "about": "line counter; recognises languages by file name, extension, shebang (no extension), and keywords where an extension is shared",
+  "url": "https://github.com/boyter/scc",
+  "family": "line counter",
+  "needs_name": true
+}

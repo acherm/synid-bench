@@ -1,0 +1,137 @@
+**FREE
+
+///
+// \brief BlueDroplet : Router Exact Match
+//
+// This module contains procedures for routing HTTP request. It routes
+// the request to the endpoints where the path of the endpoint exactly
+// matches request path.
+//
+// \author Mihael Schmidt
+// \date   26.02.2017
+//
+///
+
+//-------------------------------------------------------------------------------------------------
+//
+// (C) Copyleft 2017 Mihael Schmidt
+//
+// This file is part of BlueDroplet.
+//
+// BlueDroplet is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published
+// the Free Software Foundation, either version 3 of the License, or
+// any later version.
+//
+// BlueDroplet is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with BlueDroplet.  If not, see <http://www.gnu.org/licenses/>.
+//
+//-------------------------------------------------------------------------------------------------
+
+
+ctl-opt nomain;
+
+
+//-------------------------------------------------------------------------------------------------
+// Data Structures
+//-------------------------------------------------------------------------------------------------
+/include 'service_t.rpgle'
+/include 'router_t.rpgle'
+
+
+//-------------------------------------------------------------------------------------------------
+// Prototypes
+//-------------------------------------------------------------------------------------------------
+/include 'router_exact_match_h.rpgle'
+/include 'llist_h.rpgle'
+/include 'libc_h.rpgle'
+
+
+//-------------------------------------------------------------------------------------------------
+// Prototypes
+//-------------------------------------------------------------------------------------------------
+
+///
+// Create exact match router
+//
+// \return router instance
+///
+dcl-proc droplet_router_exact_create export;
+  dcl-pi *N pointer;
+    userData pointer const options(*nopass);
+  end-pi;
+
+  dcl-s router pointer;
+  dcl-ds routerDs likeds(droplet_router_t) based(router);
+  
+  router = %alloc(%size(droplet_router_t));
+  routerDs.id = 'droplet_router_exact';
+  routerDs.proc_route = %paddr('droplet_router_exact_route');
+  routerDs.proc_finalize = %paddr('droplet_router_exact_finalize');
+  
+  return router;
+end-proc;
+
+
+///
+// \brief Route to end point if path matches exactly
+//
+// Matching end points have the requirements:
+// <ul>
+//   <li>HTTP method matches</li>
+//   <li>URL path matches</li>
+// </ul>
+//
+// \param list of end points (endPoint_t)
+// \param HTTP method
+// \param HTTP path
+//
+// \return matching end point or <code>*null</code> if no end point matches
+///
+dcl-proc droplet_router_exact_route export;
+  dcl-pi *N pointer;
+    router pointer const;
+    endPoints pointer const;
+    method char(8) const;
+    path char(1024) const;
+  end-pi;
+  
+  dcl-s matchingEndPoint pointer;
+  dcl-ds endpoint likeds(endpoint_t) based(ptr);
+  
+  ptr = list_iterate(endPoints);
+  dow (ptr <> *null);
+  
+    // test for matching HTTP method
+    if (endPoint.method = method);
+    
+      // test for matching path
+      if (endPoint.path = path);
+        matchingEndPoint = ptr;
+        list_abortIteration(endPoints); // reset list iterator
+        leave;
+      endif;
+    
+    endif;
+    
+    ptr = list_iterate(endPoints);
+  enddo;
+    
+  return matchingEndPoint;
+end-proc;
+
+dcl-proc droplet_router_exact_finalize export;
+  dcl-pi *N;
+    router pointer;
+  end-pi;
+  
+  if (router <> *null);
+    dealloc(n) router;
+  endif;
+  
+end-proc;

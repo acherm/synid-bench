@@ -1,0 +1,826 @@
+     /**
+      * \brief ILEDocs : Utility Procedures
+      *
+      * \rev 03.08.2009 Mihael Schmidt
+      *      Task: AES 00LG <br>
+      *      Refactoring: Gemeinsame Prozeduren aus RPG und CL wurden nach
+      *      ILEDUTL konsolidiert.
+      *
+      * \rev 24.08.2009 Mihael Schmidt
+      *      Task: AES 00NR
+      *      Added Tags see and throws
+      *
+      * \rev 29.11.2009 Thomas Raddatz
+      *      Task: AES 00V5 <br>
+      *      Added procedure to remove obsolete entries from ILEDBASE.<br>
+      *      Now removing all unprintable characters from source line.
+      *
+      * \rev 14.06.2011 Rob Newton
+      *      Task:
+      *      loadConfig - Added support for asp_name
+      *
+      * \rev 05.12.2011 Rob Newton - RN02
+      *      Task: bug fixes and feature adds
+      *      loadConfig - Added support for category
+      *      getRecordFormatLength - When a copy book is not found, the program
+      *            crashes. Fixed this by checking the library and member parms
+      *            passed to getRecordFormatLength to make sure they are not
+      *            not empty.
+      */
+
+     H nomain
+
+      *---------------------------------------------------------------
+      * Files
+      *---------------------------------------------------------------
+     FILEDCONF  IF   E             DISK    usropn
+     F                                     extmbr(confMember)
+
+
+      *---------------------------------------------------------------
+      * Global variables
+      *---------------------------------------------------------------
+     D g_now           S               Z   import('g_iledocs_now')
+     D confMember      S             10A   inz('DEFAULT')
+     D pOutput         S               *   procptr
+
+
+      *---------------------------------------------------------------
+      * Prototypes
+      *---------------------------------------------------------------
+     D output          PR                  extproc(pOutput)
+     D   library                     10A   const
+     D   srcfile                     10A   const
+     D   program                     10A   const
+     D   doctype                     20A   const
+     D   docname                     50A   const
+     D   attr                        20A   const
+     D   value                      200A   const
+     D   timestamp                     Z   const
+      *
+     D api_retrieveSystemValue...
+     D                 PR                  extpgm('QWCRSVAL')
+     D   receiver                 65535A   options(*varsize)
+     D   recLength                   10I 0 const
+     D   numberSysVal                10I 0 const
+     D   sysValNames                 10A   const options(*varsize)
+     D   errorcode                         likeds(QUSEC) options(*varsize)
+      *
+      /include 'iledcfg_h.rpgle'
+      /include 'iledutil_h.rpgle'
+      /include 'libc_h.rpgle'
+      /include 'llist_h.rpgle'
+      /include 'lutil_h.rpgle'
+      /include 'userspace_h.rpgle'
+      /include 'osapi_h.rpgle'
+
+      /if not defined(QUSEC)
+      /define QUSEC
+      /include QSYSINC/QRPGLESRC,QUSEC
+      /endif
+
+
+      *---------------------------------------------------------------
+      * Procedures
+      *---------------------------------------------------------------
+
+     /**
+      * \brief Load Configurations
+      *
+      * The configuration data will be loaded from the file ILEDCONF.
+      * This file has a member for every language. If a language does
+      * not have its own member the default member will be used which
+      * contains the english configuration. The language will be
+      * retrieved from the system value QCNTRYID.
+      *
+      * \param Pointer to config data structure
+      */
+     P loadConfig      B                   export
+     D                 PI
+     D   pConfig                       *   const
+      *
+     D cfg             DS                  likeds(config) based(pConfig)
+      *
+     D receiverDs      DS
+     D   receiver                   100A
+     D   numberSysVal                10I 0 overlay(receiver)
+     D   offset                      10I 0 overlay(receiver : *next)
+      *
+     D countryID       S              2A
+     D conf_key        S             50A   varying
+      /free
+       clear QUSEC;
+       QUSBPRV = 0;
+
+       api_retrieveSystemValue(receiver : 100 : 1 : 'QCNTRYID' : QUSEC);
+       countryID = %subst(receiver : offset + 17 : 2);
+       confMember = countryID;
+
+       open(e) ILEDCONF;
+       if (%error);
+         confMember = 'DEFAULT';
+         open(e) ILEDCONF;
+       endif;
+
+       if (%open(ILEDCONF));
+         read ILEDCONF;
+         dow (not %eof);
+           %len(conf_key) = 0;
+           conf_key = %trim(CONFKEY);
+
+           select;
+             when (conf_key = 'doc_start');
+               cfg.doc_start = CONFVALUE;
+
+             when (conf_key = 'doc_middle');
+               cfg.doc_middle = CONFVALUE;
+
+             when (conf_key = 'doc_end');
+               cfg.doc_end = CONFVALUE;
+
+             when (conf_key = 'tag_program');
+               cfg.tag_program = CONFVALUE;
+
+             when (conf_key = 'tag_brief');
+               cfg.tag_brief = CONFVALUE;
+
+             when (conf_key = 'tag_category');
+               cfg.tag_category = CONFVALUE;
+
+             when (conf_key = 'tag_author');
+               cfg.tag_author = CONFVALUE;
+
+             when (conf_key = 'tag_date');
+               cfg.tag_date = CONFVALUE;
+
+             when (conf_key = 'tag_parm');
+               cfg.tag_parm = CONFVALUE;
+
+             when (conf_key = 'tag_return');
+               cfg.tag_return = CONFVALUE;
+
+             when (conf_key = 'tag_todo');
+               cfg.tag_todo = CONFVALUE;
+
+             when (conf_key = 'tag_deprecated');
+               cfg.tag_deprecated = CONFVALUE;
+
+             when (conf_key = 'tag_revision');
+               cfg.tag_revision = CONFVALUE;
+
+             when (conf_key = 'tag_main');
+               cfg.tag_main = CONFVALUE;
+
+             when (conf_key = 'tag_link');
+               cfg.tag_link = CONFVALUE;
+
+             when (conf_key = 'tag_warning');
+               cfg.tag_warning = CONFVALUE;
+
+             when (conf_key = 'tag_info');
+               cfg.tag_info = CONFVALUE;
+
+             when (conf_key = 'tag_desc');
+               cfg.tag_desc = CONFVALUE;
+
+             when (conf_key = 'tag_serviceprogram');
+               cfg.tag_serviceprogram = CONFVALUE;
+
+             when (conf_key = 'tag_critical');
+               cfg.tag_critical = CONFVALUE;
+
+             when (conf_key = 'tag_config');
+               cfg.tag_config = CONFVALUE;
+
+             when (conf_key = 'tag_implements');
+               cfg.tag_implements = CONFVALUE;
+
+             when (conf_key = 'var_type_integer');
+               cfg.var_type_integer = CONFVALUE;
+
+             when (conf_key = 'var_type_packed');
+               cfg.var_type_packed = CONFVALUE;
+
+             when (conf_key = 'var_type_zoned');
+               cfg.var_type_zoned = CONFVALUE;
+
+             when (conf_key = 'var_type_smallinteger');
+               cfg.var_type_smallinteger = CONFVALUE;
+
+             when (conf_key = 'var_type_boolean');
+               cfg.var_type_boolean = CONFVALUE;
+
+             when (conf_key = 'var_type_char');
+               cfg.var_type_char = CONFVALUE;
+
+             when (conf_key = 'var_type_binary');
+               cfg.var_type_binary = CONFVALUE;
+
+             when (conf_key = 'var_type_date');
+               cfg.var_type_date = CONFVALUE;
+
+             when (conf_key = 'var_type_time');
+               cfg.var_type_time = CONFVALUE;
+
+             when (conf_key = 'var_type_timestamp');
+               cfg.var_type_timestamp = CONFVALUE;
+
+             when (conf_key = 'var_type_graphic');
+               cfg.var_type_graphic = CONFVALUE;
+
+             when (conf_key = 'var_type_object');
+               cfg.var_type_object = CONFVALUE;
+
+             when (conf_key = 'var_type_numeric');
+               cfg.var_type_numeric = CONFVALUE;
+
+             when (conf_key = 'var_type_unsigned');
+               cfg.var_type_unsigned = CONFVALUE;
+
+             when (conf_key = 'var_type_float');
+               cfg.var_type_float = CONFVALUE;
+
+             when (conf_key = 'var_type_pointer');
+               cfg.var_type_pointer = CONFVALUE;
+
+             when (conf_key = 'file_type_workstation');
+               cfg.file_type_workstation = CONFVALUE;
+
+             when (conf_key = 'file_type_disk');
+               cfg.file_type_disk = CONFVALUE;
+
+             when (conf_key = 'file_type_printer');
+               cfg.file_type_printer = CONFVALUE;
+
+             when (conf_key = 'msg_no_desc_found');
+               cfg.msg_no_desc_found = CONFVALUE;
+
+             when (conf_key = 'tag_task');
+               cfg.tag_task = CONFVALUE;
+
+             when (conf_key = 'tag_throws');
+               cfg.tag_throws = CONFVALUE;
+
+             when (conf_key = 'tag_see');
+               cfg.tag_see = CONFVALUE;
+
+             when (conf_key = 'asp_name');
+               cfg.asp_name = CONFVALUE;
+           endsl;
+
+           read ILEDCONF;
+         enddo;
+
+       endif;
+
+       close(e) ILEDCONF;
+      /end-free
+     P                 E
+
+     /**
+      * \brief Choose parser
+      *
+      * A pointer to the parser procedure will be returned. The
+      * parser procedure will be determined by the source type
+      * (attribute).
+      *
+      * <br><br>
+      *
+      * Sourcetypes for RPG parser:
+      * <ul>
+      *  <li>RPG</li>
+      *  <li>RPGLE</li>
+      *  <li>SQLRPGLE</li>
+      * </ul>
+      *
+      * <br>
+      *
+      * Sourcetypes for CL parser:
+      * <ul>
+      *  <li>CL</li>
+      *  <li>CLP</li>
+      *  <li>CLLE</li>
+      *  <li>CLP38</li>
+      * </ul>
+      *
+      * \param Pointer to parser procedure
+      * \param Source library
+      * \param Source file
+      * \param Source member
+      *
+      * \return 1 = successful <br>
+      *         0 = error
+      */
+     P getParseProc    B                   export
+     D                 PI            10I 0
+     D   procPointer                   *   procptr
+     D   library                     10A   const
+     D   filename                    10A   const
+     D   member                      10A   const
+      *
+     D retVal          S             10I 0
+     D clTypes         S             10A   DIM(4)
+     D rpgTypes        S             10A   DIM(3)
+     D sourceType      S             10A
+     D receiver        S           1024A
+      *
+      *
+      /free
+       clear QUSEC;
+       QUSBPRV = 0;
+
+       // assign types to the parsers
+       clTypes(1) = 'CLLE';
+       clTypes(2) = 'CLP';
+       clTypes(3) = 'CLP38';
+       clTypes(4) = 'CL';
+
+       rpgTypes(1) = 'RPGLE';
+       rpgTypes(2) = 'SQLRPGLE';
+       rpgTypes(3) = 'RPG';
+
+       // get program type (RPG, RPGLE, SQLRPGLE, ...)
+       api_retrieveMemberDescription(receiver :
+                                     %len(receiver) :
+                                     'MBRD0100' :
+                                     filename + library :
+                                     member :
+                                     '0' :
+                                     QUSEC);
+       sourceType = %subst(receiver : 49 : 10);
+
+       // determine the parse procedure
+       select;
+         when (%lookup(sourceType : clTypes) > 0);
+           procPointer = %paddr('PARSECL');
+           retVal = 1;
+
+         when (%lookup(sourceType : rpgTypes) > 0);
+           procPointer = %paddr('PARSERPG');
+           retVal = 1;
+
+         other;
+           retVal = 0;
+
+       endsl;
+
+       return retVal;
+      /end-free
+     P                 E
+
+
+     /**
+      * \brief Get output procedure
+      *
+      * Currently only the output to a database file is supported.
+      *
+      * \param Pointer to output procedure
+      * \param output type (*DB)
+      *
+      * \return 1 = successful <br>
+      *         0 = error
+      */
+     P getOutputProc   B                   export
+     D                 PI            10I 0
+     D   procPointer                   *   procptr
+     D   type                        10A   const
+      *
+
+      /free
+         if (type = '*DB');
+           procPointer = %paddr('OUTPUT');
+           return 1;
+         else;
+           return 0;
+         endif;
+      /end-free
+     P                 E
+
+
+     /**
+      * \brief Save source attribute to output
+      *
+      * Retrieves the source file member attribute from the member
+      * description and passes it to the output procedure.
+      *
+      * \param Library name
+      * \param File name
+      * \param Member name
+      * \param Output procedure pointer
+      *
+      * \author Mihael Schmidt
+      */
+     P saveSourceAttribute...
+     P                 B                   export
+     D                 PI
+     D   library                     10A   const
+     D   filename                    10A   const
+     D   member                      10A   const
+     D   outputPtr                     *   const procptr
+      *
+     D value           S            100A
+     D attr            S             20A   inz('sourceAttribute')
+     D receiver        S           1024A
+      /free
+       api_retrieveMemberDescription(receiver :
+                                     %len(receiver) :
+                                     'MBRD0100' :
+                                     filename + library :
+                                     member :
+                                     '0' :
+                                     QUSEC);
+       value = %subst(receiver : 49 : 10);
+
+       pOutput = outputPtr;
+       output(library : filename : member : 'program' : member : attr : value :
+              g_now);
+      /end-free
+     P                 E
+
+
+     /**
+      * \brief Get record format length
+      *
+      * Returns the record format length of the passed file from the
+      * first format (which should be enough as source files only
+      * have one format).
+      *
+      * \param Library name
+      * \param File name
+      *
+      * \return Record format length
+      *
+      * \author Mihael Schmidt
+      */
+     P getRecordFormatLength...
+     P                 B                   export
+     D                 PI            10I 0
+     D   library                     10A   const
+     D   file                        10A   const
+      *
+     D usLib           S             10A
+     D usName          S             10A
+     D usPtr           S               *
+     D usData          DS                  likeds(tmpl_userspace_header)
+     D                                     based(usPtr)
+     D lenOffset       S             10I 0 inz(24)
+     D usDataPtr       S               *
+     D recordLength    S             10I 0 based(usDataPtr)
+     D retVal          S             10I 0
+      /free
+       clear QUSEC;
+       QUSBPRV = 0;
+
+       //RN02 - Fail if library and member were not passed
+       if library = '' or file = '';
+         return 0;
+       endif;
+
+       // get userspace
+       usPtr = getNewUserspace(usLib : usName);
+
+       // get record formats
+       api_listRecordFormats(usName + usLib :
+                             'RCDL0200' :
+                             file + library :
+                             '0' :
+                             QUSEC);
+
+       usDataPtr = usPtr + usData.offsetList + lenOffset;
+       retVal = recordLength - 12;
+
+       return retVal;
+      /end-free
+     P                 E
+
+
+     /**
+      * \brief Get new userspace
+      *
+      * Creates a new userspace, initializes it and sets the auto
+      * extend capabilities on it.
+      *
+      * \return Pointer to the new userspace
+      */
+     P getNewUserspace...
+     P                 B                   export
+     D                 PI              *
+     D   pUsLib                      10A   options(*nopass)
+     D   pUsName                     10A   options(*nopass)
+      *
+     D usLib           S             10A
+     D usName          S             10A
+     D usPtr           S               *
+     D usAttr          DS                  likeds(tmpl_userspace_attributes)
+      /free
+       clear QUSEC;
+       QUSBPRV = 0;
+
+       usLib = 'QTEMP';
+       usName = %subst(%str(tmpnam(*omit)) : 7);
+
+       userspace_create(
+           usName + usLib : *blank : 4096 : X'00' : '*ALL' : 'ILEDocs' :
+           '*YES' : QUSEC );
+
+       // make userspace autoextend
+       usAttr.size = 1;  // 1 attribute will be changed
+       usAttr.key = 3;   // 3=extensibility attribute
+       usAttr.dataLength = 1;
+       usAttr.data = '1'; // user space is extensible
+       userspace_changeAttributes(usLib : usName + usLib : usAttr : QUSEC);
+
+       userspace_retrievePointer(usName + usLib : usPtr : QUSEC);
+
+       if (%parms() >= 1);
+         pUsLib = usLib;
+       endif;
+
+       if (%parms() = 2);
+         pUsName = usName;
+       endif;
+
+       return usPtr;
+      /end-free
+     P                 E
+
+
+     /**
+      * \brief Check String for beginning char sequence
+      *
+      * Checks if a string starts with a string pattern.
+      * Blanks on the search pattern are trimmed.
+      *
+      * \param Source string
+      * \param Source string size
+      * \param Search pattern
+      * \param Search pattern size
+      *
+      * \return *on = source string starts with pattern <br>
+      *         *off = source string doesn't start with pattern
+      *
+      * \author Mihael Schmidt
+      */
+     P startsWith      B                   export
+     D                 PI              N
+     D   source                     100A   const options(*varsize)
+     D   sourceSize                  10I 0 const
+     D   pattern                    100A   const options(*varsize)
+     D   patternSize                 10I 0 const
+      *
+      /free
+         if (sourceSize < patternSize);
+           return *off;
+         elseif (%len(%trim(source)) = 0);
+           return *off;
+         elseif (%subst(%trim(source) : 1 : patternSize) =
+                 %subst(pattern : 1 : patternSize));
+           return *on;
+         else;
+           return *off;
+         endif;
+      /end-free
+     P                 E
+
+     /**
+      * \brief Check string for ending char sequence
+      *
+      * Checks if the given string ends with the
+      * passed pattern.
+      *
+      * \param Source string
+      * \param Source string size
+      * \param Search pattern
+      * \param Search pattern size
+      *
+      * \return *on = source string ends with pattern <br>
+      *         *off = source string doesn't end with pattern
+      *
+      * \author Mihael Schmidt
+      */
+     P endsWith        B                   export
+     D                 PI              N
+     D   source                     100A   const options(*varsize)
+     D   sourceSize                  10I 0 const
+     D   pattern                    100A   const options(*varsize)
+     D   patternSize                 10I 0 const
+
+      /free
+         if (sourceSize < patternSize);
+           return *off;
+         elseif (%len(%trim(source)) = 0);
+           return *off;
+         elseif (%subst(%trim(source) : sourceSize - patternSize + 1 :
+                 patternSize) = %subst(pattern : 1 : patternSize));
+           return *on;
+         else;
+           return *off;
+         endif;
+      /end-free
+     P                 E
+
+
+     /**
+      * \brief Resolve QSYS path
+      *
+      * Resolves the given Parameter into a QSYS path. The resolved
+      * path has the syntax: Library/File,Member.
+      * <br><br>
+      * The parameter can be composed of the full path or only parts
+      * of the QSYS path.
+      *
+      * \author Mihael Schmidt
+      *
+      * \param Path
+      * \param Default file name (default: QRPGLESRC)
+      *
+      * \return Resolved path
+      */
+     P resolveQsysPath...
+     P                 B                   export
+     D                 PI            32A
+     D  pPath                        32A   const
+     D  defaultFile                  10A   const options(*nopass)
+      *
+     D tmp             S             32A
+     D library         S             10A   inz('*LIBL')
+     D file            S             10A   inz('QRPGLESRC')
+     D member          S             10A
+      *
+     D entries         S             10I 0
+      *
+     D libraries       S               *
+     D ptr             S               *
+     D lib             S             10A
+     D members         S               *
+      /free
+       if (%parms() = 2);
+         file = defaultFile;
+       endif;
+
+       clear QUSEC;
+       QUSBPRV = 0;
+
+       caseConvert(requestControlBlockUpper : pPath :
+                   tmp : %len(pPath) : QUSEC);
+
+       // possible valid entries:
+       // library/file,member
+       // file,member
+       // member
+
+       if (%scan('/' : tmp) > 0);
+         library = %subst(tmp : 1 : %scan('/' : tmp) - 1);
+         tmp = %subst(tmp : %scan('/' : tmp) + 1);
+       endif;
+
+       if (%scan(',' : tmp) > 0);
+         file = %subst(tmp : 1 : %scan(',' : tmp) - 1);
+         tmp = %subst(tmp : %scan(',' : tmp) + 1);
+       endif;
+
+       member = tmp;
+
+       // iterate through either the stated library or through the whole library list
+       if (library = '*LIBL');
+         libraries = lutil_listJobLibraryList();
+       else;
+         libraries = list_create();
+         list_add(libraries : %addr(library) : %size(library));
+       endif;
+
+       // search the copybook in the previously determined libraries
+       ptr = list_getNext(libraries);
+       dow (ptr <> *null);
+         lib = %str(ptr);
+
+         monitor;
+           members = lutil_listFileMembers(lib : file);
+           on-error *all;
+         endmon;
+
+         if (members = *null);
+           // file not in lib
+         elseif (list_contains(members : %addr(member) : %len(%trimr(member))));
+           library = lib;
+           leave;
+         endif;
+
+         if (members <> *null);
+           list_dispose(members);
+         endif;
+
+         ptr = list_getNext(libraries);
+       enddo;
+
+       if (libraries <> *null);
+         list_dispose(libraries);
+       endif;
+
+       return %trimr(library) + '/' + %trimr(file) + ',' + %trimr(member);
+      /end-free
+     P                 E
+
+
+     /**
+      * \brief Split QSYS path
+      *
+      * Splits a full QSYS path into its components.
+      * SCHMIDTM/QRPGLESRC,XMLRPC => [SCHMIDTM, QRPGLESRC, XMLRPC].
+      *
+      * \author Mihael Schmidt
+      * \date 24.08.2009
+      *
+      * \param full QSYS path
+      *
+      * \return QSYS path data structure
+      */
+     P splitQsysPath   B                   export
+     D                 PI                  likeds(tmpl_qsysPath)
+     D   pPath                       32A   const
+      *
+     D path            S             32A
+     D qsysPath        DS                  likeds(tmpl_qsysPath)
+      /free
+       path = pPath;
+
+       if (%scan('/' : path) > 0);
+         qsysPath.library = %subst(path : 1 : %scan('/' : path) - 1);
+         path = %subst(path : %scan('/' : path) + 1);
+       endif;
+
+       if (%scan(',' : path) > 0);
+         qsysPath.object = %subst(path : 1 : %scan(',' : path) - 1);
+         path = %subst(path : %scan(',' : path) + 1);
+       endif;
+
+       qsysPath.member = path;
+
+       return qsysPath;
+      /end-free
+     P                 E
+
+
+     /**
+      * \brief Get procedure for removing obsolete entries
+      *
+      * Return the procedure for removing obsolete entries from the ILEDBASE
+      * table after a given source member has been processed.
+      *
+      * \param Pointer to output procedure
+      * \param output type (*DB)
+      *
+      * \return 1 = successful <br>
+      *         0 = error
+      */
+     P getRemoveObsoleteEntriesProc...
+     P                 B                                 export
+     D                 PI            10I 0
+     D   procPointer                   *   procptr
+     D   type                        10A   const
+      *
+
+      /free
+         if (type = '*DB');
+           procPointer = %paddr('REMOVEOBSOLETEENTRIES');
+           return 1;
+         else;
+           return 0;
+         endif;
+      /end-free
+     P                 E
+
+
+     /**
+      * \brief Remove unprintable characters
+      *
+      * Replaces all unprintable characters with a blank.
+      *
+      * \param string
+      *
+      * \return purged string
+      */
+     P removeUnprintableCharacters...
+     P                 B                   export
+     D                 PI           100A
+     D   string                     100A   const
+      *
+     D purgedString    S            100A
+     D ptr             S               *   inz(%addr(purgedString))
+     D character       S              1A   based(ptr)
+     D i               S             10I 0
+      /free
+       purgedString = string;
+
+       for i = 1 to %size(string);
+         if (character < x'40' or
+             character = x'FF');
+           %subst(purgedString : i : 1) = ' ';
+         endif;
+
+         ptr += 1;
+       endfor;
+
+       return purgedString;
+      /end-free
+     P                 E

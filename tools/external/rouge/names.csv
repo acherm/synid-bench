@@ -1,0 +1,19 @@
+# Rouge lexer title → Linguist name(s) of the same language. Rule (all tools alike): synonyms only; a label covering
+# several Linguist languages maps to all of them (undecided); a dialect or a broader/narrower kind (Config File vs
+# INI, Systemd vs INI, JSX vs JavaScript, Irb vs Ruby, CFScript vs ColdFusion CFC) is NOT mapped.
+label,linguist
+.properties,Java Properties
+1C (BSL),1C Enterprise
+Docker,Dockerfile
+DOT,Graphviz (DOT)
+HQL,HiveQL
+Plist,OpenStep Property List
+ReasonML,Reason
+Rego,Open Policy Agent
+SSH Config File,SSH Config
+Template Tag (gjs),Glimmer JS
+Template Tag (gts),Glimmer TS
+Turtle/TriG,Turtle
+VCL: Varnish Configuration Language,VCL
+Verilog and System Verilog,Verilog;SystemVerilog
+VHDL 2008,VHDL

@@ -1,0 +1,4 @@
+# huggingface/CodeBERTa-language-id label (CodeSearchNet's lower-case name) → Linguist name(s) of the same language.
+# Rule (all tools alike): synonyms only. All six labels (go, java, javascript, php, python, ruby) equal a Linguist name
+# once case is ignored, so no row is needed.
+label,linguist

@@ -1,0 +1,7 @@
+{
+  "version": "2.9.6",
+  "name": "go-enry 2.9.6",
+  "about": "Go port of Linguist (used to label The Stack v2 / StarCoder2's data)",
+  "url": "https://github.com/go-enry/go-enry",
+  "family": "linguist-family"
+}

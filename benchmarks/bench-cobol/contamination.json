@@ -1,0 +1,5 @@
+{
+  "_about": "Entries built or tuned with knowledge of this benchmark's files — their score is partly accuracy on their own development data. Keys are entry-name prefixes.",
+  "Hand-written COBOL rules": "bootstrapped from the LLM judge's labels on the COBOL study's files and validated on 162 of them; they are also the only reference of the 73 rules-only cases (tag rules-only), right on those by construction",
+  "Jev 1.13, PL-ultimate-llm candidates": "its candidates for .cbl come from PL-ultimate-llm's extension evidence, which includes what the COBOL study observed in the population these files were drawn from (COBOL — also Linguist's claim, so the study adds no language to the list; .CBL is looked up as .cbl)"
+}

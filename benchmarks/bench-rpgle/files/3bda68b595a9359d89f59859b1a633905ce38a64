@@ -1,0 +1,57 @@
+      /if not defined (TEMPLATE)
+      /define TEMPLATE
+
+     D template_create...
+     D                 PR              *   extproc('template_create')
+     D   name                       100A   const
+      *
+     D template_finalize...
+     D                 PR                  extproc('template_finalize')
+     D   template                      *
+      *
+     D template_getAst...
+     D                 PR              *   extproc('template_getAst')
+     D  template                       *   const
+      *
+     D template_setAst...
+     D                 PR                  extproc('template_setAst')
+     D  template                       *   const
+     D  ast                            *   const
+      *
+     D template_getName...
+     D                 PR           100A   extproc('template_getName')
+     D  template                       *   const
+      *
+     D template_getRawData...
+     D                 PR              *   extproc('template_getRawData')
+     D  template                       *   const
+      *
+     D template_setRawData...
+     D                 PR                  extproc('template_setRawData')
+     D  template                       *   const
+     D  rawData                        *   const
+      *
+     D template_getLastChangedId...
+     D                 PR          1024A   varying extproc('template_getLast-
+     D                                     ChangedId')
+     D  template                       *   const
+      *
+     D template_setLastChangedId...
+     D                 PR                  extproc('template_setLastChangedId')
+     D  template                       *   const
+     D  lastChangedId              1024A   const varying
+      *
+     D template_getTemplateLoaderId...
+     D                 PR            50A   extproc('template_getTemplate-
+     D                                     LoaderId')
+     D   template                      *   const
+
+     D template_setTemplateLoaderId...
+     D                 PR                  extproc('template_setTemplate-
+     D                                     LoaderId')
+     D   template                      *   const
+     D   templateLoaderId...
+     D                               50A   const
+
+      /endif
+

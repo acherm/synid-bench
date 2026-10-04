@@ -1,0 +1,11 @@
+source_label,linguist,how
+cobol,COBOL,exact
+copybook-only,COBOL,manual
+cobol-copybook,COBOL,manual
+cobol-generated,COBOL,manual
+synthetic-placeholder,Text,manual
+not-cobol:synthetic,Text,manual
+data,Text,manual
+docs,Text,manual
+jcl,JCL,exact
+comic-book-list (ReadingList XML),XML,manual

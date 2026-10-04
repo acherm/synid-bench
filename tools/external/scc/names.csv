@@ -1,0 +1,41 @@
+# scc label → Linguist name(s) of the same language. Rule (all tools alike): synonyms only; a label covering several
+# Linguist languages maps to all of them (the answer then counts as undecided); a dialect or a broader/narrower
+# kind (JSX vs JavaScript, MSBuild vs XML, Gemfile vs Ruby, CloudFormation vs YAML) is NOT mapped — it stays a
+# different answer. A header (C Header, .d.ts typings, shader stages) is written in its language and maps to it.
+label,linguist
+C Header,C
+C++ Header,C++
+MQL Header,MQL4;MQL5
+TypeScript Typings,TypeScript
+Fragment Shader File,GLSL
+Vertex Shader File,GLSL
+Plain Text,Text
+Android Interface Definition Language,AIDL
+Closure Template,Closure Templates
+ColdFusion CFScript,ColdFusion CFC
+DOT,Graphviz (DOT)
+Docker ignore,Ignore List
+Elixir Template,HTML+EEX
+Extensible Stylesheet Language Transformations,XSLT
+FORTRAN Legacy,Fortran
+Fortran Modern,Fortran Free Form
+Freemarker Template,FreeMarker
+Gherkin Specification,Gherkin
+Godot Scene,Godot Resource
+Jade,Pug
+Jupyter,Jupyter Notebook
+LD Script,Linker Script
+LLVM IR,LLVM
+Opalang,Opa
+Patch,Diff
+Properties File,Java Properties
+ReasonML,Reason
+Ruby HTML,HTML+ERB
+Smarty Template,Smarty
+Standard ML (SML),Standard ML
+Twig Template,Twig
+Blade template,Blade
+Varnish Configuration,VCL
+Web Services Description Language,XML
+XML Schema,XML
+WebGPU Shading Language,WGSL

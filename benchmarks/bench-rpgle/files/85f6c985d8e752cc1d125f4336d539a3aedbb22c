@@ -1,0 +1,86 @@
+**FREE
+
+ctl-opt dftactgrp(*no) actgrp(*caller) bnddir('GLOBAL' : 'ZLIB/ZLIB_A');
+
+/include '/home/mihael/include/zlib/zlib_h.rpgle'
+/include '/home/mihael/include/stdio_h.rpgle'
+
+// buffer size
+dcl-c CHUNK 16384;
+
+
+
+main();
+*inlr = *on;
+
+
+dcl-proc main;
+  dcl-s abnormallyEnded ind inz(*off);
+  dcl-s file pointer;
+  dcl-s buffer char(CHUNK);
+  dcl-s bytesRead int(10);
+  dcl-s totallyRead int(10);
+  
+  dcl-ds zstream likeds(z_stream) inz;
+  dcl-s bufferOut char(100000);
+  dcl-s ret int(10);
+  
+  dcl-s dsp char(50);
+  
+  zstream.zalloc = *null;
+  zstream.zfree = *null;
+  zstream.opaque = *null;
+  zstream.avail_in = 0;
+  zstream.next_in = *null;
+  ret = inflateInit2(zstream : 15 + 32 : ZLIB_VERSION: %size(z_stream));
+  if (ret <> Z_OK);
+    dsply 'Error init inflate';
+    return;
+  endif;
+    
+  file = fopen('/home/mihael/llist-7.3.cpio.gz' : 'rb');
+  bytesRead = fread(%addr(buffer) : 1 : CHUNK : file);
+  
+  dow (bytesRead > 0);
+    totallyRead += bytesRead;
+    
+    zstream.avail_in = bytesRead;
+    zstream.next_in = %addr(buffer);
+    zstream.avail_out = %len(bufferOut);
+    zstream.next_out = %addr(bufferOut);
+    dsply %trimr('bytes read' + %char(bytesRead));
+    ret = inflate(zstream : Z_NO_FLUSH);
+    dsply %trimr('decompression status: ' + %char(ret));
+    
+    bytesRead = fread(%addr(buffer) : 1 : CHUNK : file);
+  enddo;
+  
+  dsply 'read bytes:';
+  dsply %char(totallyRead); 
+  
+  on-exit abnormallyEnded;
+    if (file <> *null);
+      fclose(file);
+    endif;
+    
+    dsp = %str(zstream.msg);
+    dsply dsp;
+    inflateEnd(zstream);
+end-proc;
+
+
+dcl-proc main2;
+  dcl-s abnormallyEnded ind inz(*off);
+  dcl-s file pointer;
+  dcl-s buffer char(CHUNK);
+  dcl-s uncompressedBytes int(10);
+  
+  file = gzopen('/home/mihael/llist-7.3.cpio.gz' : 'rb');
+  uncompressedBytes = gzread(file : buffer : %len(buffer));
+  dsply %char(uncompressedBytes);
+  
+  on-exit abnormallyEnded;
+    if (file <> *null);
+      gzclose_r(file);
+    endif;
+end-proc;
