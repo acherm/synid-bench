@@ -9,3 +9,4 @@ benchmarks/bench-pygments/files/
 benchmarks/bench-hljs/files/
 benchmarks/bench-rouge/files/
 benchmarks/bench-cobol/files/
+.DS_Store

@@ -1,4 +1,4 @@
-{"meta": {"label": "ext-guesslang", "kind": "other-identifier", "benchmark": "bench-rpgle/1", "name": "Guesslang 2.2.1", "version": "synid-bench/guesslang:2.2.1 (tools/external/guesslang)", "about": "deep-learning language guesser used by VS Code; reads the text only (54 languages); run on TensorFlow 2.10.1 (2.5, which it asks for, has no ARM build)", "url": "https://github.com/yoeo/guesslang", "date": "2026-10-03", "seconds": 32.4}}
+{"meta": {"label": "ext-guesslang", "kind": "other-identifier", "benchmark": "bench-rpgle/1", "name": "Guesslang 2.2.1", "version": "synid-bench/guesslang:2.2.1 (tools/external/guesslang)", "about": "deep-learning language guesser used by VS Code; reads the text only (54 languages); run on TensorFlow 2.10.1 (2.5, which it asks for, has no ARM build)", "url": "https://github.com/yoeo/guesslang", "date": "2026-10-04", "seconds": 6.0, "source": "cfb1de220b64", "names_csv": ""}}
 {"case_id": "rpgle:37606d40c737", "answer": ["COBOL"]}
 {"case_id": "rpgle:37b71fa17ce3", "answer": ["Assembly"]}
 {"case_id": "rpgle:37d4ae740207", "answer": ["C++"]}

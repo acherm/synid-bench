@@ -129,9 +129,11 @@ def main() -> int:
         state = body if a.content_only else f"Filename: {c['filename']}\n\n" + body
         cand = candidates(c)
         cost, stage, answer, probs = 0.0, "", None, {}
+        cand_probs, group_tops, final_probs = {}, [], {}
         if cand:
             opts = options(cand)
-            ch, probs, co = ask(state, opts, text_extra | none_extra)
+            ch, cand_probs, co = ask(state, opts, text_extra | none_extra)
+            probs = cand_probs
             cost += co
             if ch == TEXT:
                 stage, answer = "candidates", TEXT
@@ -139,22 +141,33 @@ def main() -> int:
                 stage, answer = "candidates", langs[opts[ch][0]]["name"]
         if answer is None:  # no candidate, or none of them
             winners = []
+            win_probs = []
             for g in groups:
                 opts = options(g)
-                ch, _, co = ask(state, opts, none_extra)
+                ch, gp, co = ask(state, opts, none_extra)
                 cost += co
+                group_tops.append(sorted(gp.items(), key=lambda kv: -kv[1])[:5])
                 if ch in opts:
                     winners.append(opts[ch][0])
+                    win_probs.append(gp)
             stage = "fallback"
             if len(winners) > 1:
                 opts = options(winners)
-                ch, probs, co = ask(state, opts, text_extra)
+                ch, final_probs, co = ask(state, opts, text_extra)
+                probs = final_probs
                 cost += co
                 answer = TEXT if ch == TEXT else langs[opts[ch][0]]["name"] if ch in opts else None
             elif winners:
                 answer = langs[winners[0]]["name"]
+                probs = win_probs[0]  # the deciding question was the winner's group
+            else:
+                probs = {}
+        t5 = lambda pr: sorted(pr.items(), key=lambda kv: -kv[1])[:5]  # noqa: E731
+        # top5: the question that decided the answer (runs before 2026-10-04: the candidates' question even when
+        # the fallback decided); then every question's own
         r = {"case_id": c["case_id"], "n_candidates": len(cand), "stage": stage, "answer": answer,
-             "top5": sorted(probs.items(), key=lambda kv: -kv[1])[:5], "cost": cost, "truncated": trunc}
+             "top5": t5(probs), "candidates_top5": t5(cand_probs), "groups_top5": group_tops,
+             "final_top5": t5(final_probs), "cost": cost, "truncated": trunc}
         if not a.limit:
             with lock, cache.open("a", encoding="utf-8") as f:
                 f.write(json.dumps(r, ensure_ascii=False) + "\n")
@@ -178,13 +191,15 @@ def main() -> int:
         return 0
     meta = {"label": label, "kind": "cascade", "benchmark": version,
             "name": f"{a.name}, PL-ultimate-llm candidates then fallback"
+                    + (f" over {len(fallback):,} languages" if data.get("fallback_name") else "")
                     + (", content only" if a.content_only else ", with file name"),
             "version": f"{a.model}, " + ("OpenRouter Decisions API" if remote else f"local ({a.endpoint})")
                        + f"; candidates: {data['source']}",
             "about": ("two stages: the languages PL-ultimate-llm associates with the file's extension (claims by "
                       "Linguist, Pygments, Wikidata, Wikipedia, plus the languages the extension studies observed), "
-                      "among which Jev chooses — or `Text`, or none; then, if none, a knockout over the 1,289 languages "
-                      "with a known extension (tools/jev_cascade.py)"
+                      "among which Jev chooses — or `Text`, or none; then, if none, a knockout over the "
+                      + (data.get("fallback_name") or f"{len(fallback):,} languages with a known extension")
+                      + " (tools/jev_cascade.py)"
                       + (". The file name is not shown to Jev" if a.content_only else "")
                       + f". {len(rows)} files: {stages['candidates']} decided among candidates, {stages['fallback']} "
                         f"by the fallback; ${cost:.4f}"),

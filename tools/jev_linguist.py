@@ -11,8 +11,10 @@ record the answers as a leaderboard entry.
 
 The question mirrors the `langid` probe of the PL-ultimate-llm extension studies
 (same wording, content truncated to 16,000 characters); only the options change:
-the 804 names of Linguist's languages.yml (`tools/data/linguist_languages.json`),
-each described mechanically by its Linguist type and aliases. The answer is the
+the names of Linguist's languages.yml — 804 in the snapshot of 2026-05-13
+(`tools/data/linguist_languages.json`, the default), 836 at 76f88c6 (`--languages
+tools/data/linguist_languages_76f88c6.json`) — each described mechanically by its
+Linguist type and aliases. The answer is the
 chosen language's name; with --non-code-as-text, answers of type data / markup /
 prose become `Text` (for a benchmark whose labels say "not code", like bench-m).
 
@@ -31,8 +33,9 @@ request are answered independently; the file is encoded once):
         --endpoint http://127.0.0.1:8080/v1/systemone --model kev-4b --name "Kev-4B (local)" --label kev-linguist
 
 OpenRouter needs OPENROUTER_API_KEY (environment, or ~/.openrouter_env). Writes
-<bench>/entries/<label>.jsonl and a log of the decisions (choice, top-5
-probabilities, cost) in <bench>/entries/raw/<label>.jsonl.
+<bench>/entries/<label>.jsonl and a log of the decisions in <bench>/entries/raw/<label>.jsonl:
+the choice, each group's top-5 probabilities ("none of these" included; runs before
+2026-10-04 kept only the final's), the final's top 5, the cost.
 """
 
 from __future__ import annotations
@@ -82,8 +85,16 @@ def decide(state: str, questions: dict, key: str | None, url: str = URL, model: 
     last = None
     for attempt in range(5):
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, data=body, headers=headers), timeout=600) as r:
-                return json.loads(r.read().decode("utf-8"))
+            # a remote decision takes seconds, but OpenRouter keeps a stalled request open with keep-alive bytes,
+            # so a socket timeout never fires: give each attempt a deadline (a local model may be slow)
+            deadline = time.monotonic() + (180 if url.startswith("https://") else 1800)
+            with urllib.request.urlopen(urllib.request.Request(url, data=body, headers=headers), timeout=120) as r:
+                chunks = []
+                while chunk := r.read1(65536):
+                    chunks.append(chunk)
+                    if time.monotonic() > deadline:
+                        raise TimeoutError("no complete answer within the deadline")
+                return json.loads(b"".join(chunks).decode("utf-8"))
         except urllib.error.HTTPError as e:
             last = f"HTTP {e.code}: {e.read().decode('utf-8', 'replace')[:300]}"
             if e.code not in (408, 429, 500, 502, 503, 520, 524, 529):
@@ -107,6 +118,8 @@ def main() -> int:
     ap.add_argument("--name", default="Jev 1.13", help="entry name prefix")
     ap.add_argument("--label", default="jev-linguist", help="entry label prefix")
     ap.add_argument("--shuffle", action="store_true", help="ask the cases in a fixed random order")
+    ap.add_argument("--languages", type=Path, default=LINGUIST,
+                    help="Linguist's languages (JSON: name, type, aliases); default: the 804 of 2026-05-13")
     ap.add_argument("--label-set", choices=["linguist", "study63"], default="linguist",
                     help="study63: the extension studies' 63 labels (tools/data/jev_study_labels.json), one question")
     a = ap.parse_args()
@@ -114,7 +127,8 @@ def main() -> int:
     with (bench / "cases.csv").open(encoding="utf-8") as f:
         cases = list(csv.DictReader(line for line in f if not line.startswith("#")))
     version = (bench / "cases.csv").read_text(encoding="utf-8").splitlines()[0].lstrip("# ").split(" —")[0]
-    ling = json.loads(LINGUIST.read_text(encoding="utf-8"))
+    ling = json.loads(a.languages.read_text(encoding="utf-8"))
+    n_lang = len(ling["languages"])
     kind_of = {l["name"]: l["type"] for l in ling["languages"]}
     criteria = {l["name"]: (f"{l['name']} — {l['type'] or 'language'}"
                             + (f"; also: {', '.join(l['aliases'][:4])}" if l["aliases"] else ""))
@@ -141,21 +155,27 @@ def main() -> int:
         return ans.get("choice"), ans.get("probabilities") or {}, float((out.get("usage") or {}).get("cost") or 0), \
             out.get("model") or a.model
 
-    def ask_groups(state: str) -> tuple[list[str], float, str]:
-        """The first round: one request per group (OpenRouter), or all groups in one request (local)."""
+    def top5(probs: dict) -> list:
+        return sorted(probs.items(), key=lambda kv: -kv[1])[:5]
+
+    def ask_groups(state: str) -> tuple[list[str], float, str, list]:
+        """The first round: one request per group (OpenRouter), or all groups in one request (local). Also returns
+        each group's top-5 probabilities ("none of these" included) — the model's uncertainty in that round."""
         if remote:
-            winners, cost, model = [], 0.0, a.model
+            winners, cost, model, tops = [], 0.0, a.model, []
             for g in groups:
-                ch, _, co, model = ask(state, g, with_none=True)
+                ch, pr, co, model = ask(state, g, with_none=True)
                 cost += co
+                tops.append(top5(pr))
                 if ch and ch != NONE:
                     winners.append(ch)
-            return winners, cost, model
+            return winners, cost, model, tops
         out = decide(state, {f"group{i}": question(g, True) for i, g in enumerate(groups)}, key, a.endpoint, a.model)
         answers = out.get("answers") or {}
         winners = [answers[f"group{i}"]["choice"] for i in range(len(groups))
                    if (answers.get(f"group{i}") or {}).get("choice") not in (None, NONE)]
-        return winners, 0.0, out.get("model") or a.model
+        tops = [top5((answers.get(f"group{i}") or {}).get("probabilities") or {}) for i in range(len(groups))]
+        return winners, 0.0, out.get("model") or a.model, tops
 
     label = a.label + ("-filename" if a.with_filename else "")
     if study and a.label == "jev-linguist":
@@ -189,7 +209,7 @@ def main() -> int:
                 with lock, cache.open("a", encoding="utf-8") as f:
                     f.write(json.dumps(r, ensure_ascii=False) + "\n")
             return r
-        winners, c_cost, model = ask_groups(state)
+        winners, c_cost, model, group_tops = ask_groups(state)
         probs = {}
         if len(winners) > 1:
             choice, probs, co, model = ask(state, winners, with_none=False)
@@ -197,7 +217,7 @@ def main() -> int:
         else:
             choice = winners[0] if winners else None
         r = {"case_id": c["case_id"], "choice": choice, "type": kind_of.get(choice, ""),
-             "group_winners": winners, "final_top5": sorted(probs.items(), key=lambda kv: -kv[1])[:5],
+             "group_winners": winners, "groups_top5": group_tops, "final_top5": top5(probs),
              "cost": c_cost, "model": model, "truncated": trunc}
         if not a.limit:
             with lock, cache.open("a", encoding="utf-8") as f:
@@ -243,11 +263,11 @@ def main() -> int:
         print(f"→ {bench / 'entries' / (label + '.jsonl')}")
         return 0
     meta = {"label": label, "kind": "llm-light", "benchmark": version,
-            "name": f"{a.name}, Linguist's 804 languages" + (", with file name" if a.with_filename else ", content only"),
+            "name": f"{a.name}, Linguist's {n_lang} languages" + (", with file name" if a.with_filename else ", content only"),
             "version": (f"{rows[0]['model'] if rows else a.model}, "
                         + ("OpenRouter Decisions API" if remote else f"local decision API ({a.endpoint})")),
             "about": (("TypeSafe's lightweight decision model" if remote else f"the decision model {a.model}, run "
-                       "locally,") + " asked which of GitHub Linguist's 804 languages the file "
+                       "locally,") + f" asked which of GitHub Linguist's {n_lang} languages ({ling['source']}) the file "
                       "is written in — a generic list, not one tailored to this benchmark (knockout: 4 groups of "
                       "~200 with \"none of these\", then a final, as the API allows 255 choices)"
                       + ("; data / markup / prose answers count as not code" if a.non_code_as_text else "")

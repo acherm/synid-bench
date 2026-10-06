@@ -1,4 +1,4 @@
-{"meta": {"label": "ext-guesslang", "kind": "other-identifier", "benchmark": "bench-linguist/1", "name": "Guesslang 2.2.1", "version": "synid-bench/guesslang:2.2.1 (tools/external/guesslang)", "about": "deep-learning language guesser used by VS Code; reads the text only (54 languages); run on TensorFlow 2.10.1 (2.5, which it asks for, has no ARM build)", "url": "https://github.com/yoeo/guesslang", "date": "2026-10-02", "seconds": 8.4}}
+{"meta": {"label": "ext-guesslang", "kind": "other-identifier", "benchmark": "bench-linguist/1", "name": "Guesslang 2.2.1", "version": "synid-bench/guesslang:2.2.1 (tools/external/guesslang)", "about": "deep-learning language guesser used by VS Code; reads the text only (54 languages); run on TensorFlow 2.10.1 (2.5, which it asks for, has no ARM build)", "url": "https://github.com/yoeo/guesslang", "date": "2026-10-04", "seconds": 18.4, "source": "cfb1de220b64", "names_csv": ""}}
 {"case_id": "ling:a980425b282c", "answer": ["Objective-C"]}
 {"case_id": "ling:331cac4f575d", "answer": ["Objective-C"]}
 {"case_id": "ling:1a34ecb6263f", "answer": ["C++"]}

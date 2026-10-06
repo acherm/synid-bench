@@ -1,4 +1,4 @@
-{"meta": {"label": "ext-guesslang", "kind": "other-identifier", "benchmark": "bench-rouge/1", "name": "Guesslang 2.2.1", "version": "synid-bench/guesslang:2.2.1 (tools/external/guesslang)", "about": "deep-learning language guesser used by VS Code; reads the text only (54 languages); run on TensorFlow 2.10.1 (2.5, which it asks for, has no ARM build)", "url": "https://github.com/yoeo/guesslang", "date": "2026-10-03", "seconds": 37.6}}
+{"meta": {"label": "ext-guesslang", "kind": "other-identifier", "benchmark": "bench-rouge/1", "name": "Guesslang 2.2.1", "version": "synid-bench/guesslang:2.2.1 (tools/external/guesslang)", "about": "deep-learning language guesser used by VS Code; reads the text only (54 languages); run on TensorFlow 2.10.1 (2.5, which it asks for, has no ARM build)", "url": "https://github.com/yoeo/guesslang", "date": "2026-10-04", "seconds": 4.9, "source": "cfb1de220b64", "names_csv": ""}}
 {"case_id": "rouge:7197b0c9b883", "answer": ["Fortran"]}
 {"case_id": "rouge:1144392a7714", "answer": ["Java"]}
 {"case_id": "rouge:4322592aa6ac", "answer": ["Pascal"]}

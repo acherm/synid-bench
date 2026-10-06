@@ -15,7 +15,14 @@ Records that are the same language under a generic qualifier — "APL (programmi
 next to Linguist's "APL" — are merged into one, as PL-ultimate-llm's identity layer does
 (rule "generic-qualifier"): the qualifier is dropped and the name compared, case- and
 punctuation-insensitively, with Linguist's names and aliases, then with the other records.
-The fallback list is every language with an extension claim or a Linguist name.
+The fallback list is every language with an extension claim or a Linguist name; with
+PL_FALLBACK_SOURCES (comma-separated sources of pl.csv's membership flags, e.g.
+linguist,pygments,rosettacode,wikipedia,wikidata,hyperpolyglot), also every language one of those
+sources lists — a wider fallback, merged with the same identity rule. The Esolang wiki and PLDB are
+best left out: thousands of toy or one-off languages, each one more rival in the knockout.
+
+    PL_FALLBACK_SOURCES=linguist,pygments,rosettacode,wikipedia,wikidata,hyperpolyglot \
+    PL_CANDIDATES_OUT=tools/data/pl_candidates_wide.json python3 tools/export_pl_candidates.py
 """
 
 from __future__ import annotations
@@ -84,6 +91,18 @@ def main() -> int:
     for pid, to in same.items():
         exts[to] |= exts.pop(pid, set())
     keep = set().union(*by_ext.values(), *by_filename.values(), by_lkey.values())
+    sources = [x for x in os.environ.get("PL_FALLBACK_SOURCES", "").split(",") if x]
+    wide = set()
+    for pid, r in sorted(pl.items()):
+        if pid in keep or not any(r.get(f"in_{x}") == "yes" for x in sources):
+            continue
+        k = key(strip(r.get("canonical_name") or pid))
+        if k in canon:  # the same language as one already in the list
+            same.setdefault(pid, canon[k])
+            continue
+        canon[k] = pid
+        wide.add(pid)
+    keep |= wide
     langs = {}
     for pid in sorted(keep):
         r = pl.get(pid, {})
@@ -100,6 +119,9 @@ def main() -> int:
            "by_filename": {f: sorted(v) for f, v in sorted(by_filename.items())},
            "fallback": sorted(keep),
            "merged": dict(sorted(same.items()))}
+    if sources:
+        out["fallback_name"] = (f"{len(keep):,} languages (with an extension or listed by "
+                                + ", ".join(sources) + ")")
     dest = Path(os.environ.get("PL_CANDIDATES_OUT", HERE / "data" / "pl_candidates.json"))
     dest.write_text(json.dumps(out, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
     print(f"{len(langs)} languages ({len(same)} qualifier duplicates merged), {len(by_ext)} extensions, "

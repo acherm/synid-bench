@@ -34,9 +34,9 @@ The card's fields, and the property of [bench-heldout](bench-heldout.md) each on
 |---|---|---|---|
 | unit | whole file / snippet / tiny program | content classifiers degrade on short inputs; rule-based tools need whole files (shebangs, headers) | whole files |
 | file names | real / label-derived / none | rule-based tools live on the name; a name derived from the label leaks it; no name tests content only | real, plus content-only runs |
-| labels | human / author-declared / maintainers / LLM judge / tool | a label produced by a tool under test is circular; an LLM judge favours LLM entries | P3: blind human, double-coded sample |
-| sampling | curated / all / random per language / population-sampled with weights | curated sets over-represent what their curators test; only a population sample gives an error rate for the archive | P2: stratified by kind of name, weighted |
-| home turf | entries built, trained or tuned on the files | the score is then partly recall of training data | P1: excluded by construction |
+| labels | human / author-declared / maintainers / LLM judge / tool | a label produced by a tool under test is circular; an LLM judge favours LLM entries | blind human, double-coded sample |
+| sampling | curated / all / random per language / population-sampled with weights | curated sets over-represent what their curators test; only a population sample gives an error rate for the archive | stratified by kind of name, weighted |
+| home turf | entries built, trained or tuned on the files | the score is then partly recall of training data | excluded by construction |
 | languages | count, and how many are outside Linguist | coverage vs label set; the long tail | oversample rare languages |
 
 ## Portfolio
@@ -80,13 +80,29 @@ Candidates not built yet, from the review (ids are the review's) and from local 
 
 ## Identifiers
 
-Run on every benchmark, each from a pinned Docker image (`tools/external/<tool>/`) or a pinned model: the
-Linguist family (GitHub Linguist, go-enry, Hyperpolyglot, and re-implementations without a classifier),
-highlighters (Pygments, Chroma, Rouge, highlight.js), line counters and taggers (cloc, tokei, scc, ohcount,
-Universal Ctags), an editor (Neovim's filetype detection), magic numbers (libmagic), neural classifiers
-(Magika, Guesslang, VS Code's language detection, Hugging Face models), lightweight LLMs (Jev, Kev-4B,
-StarCoder2-3B), the candidates + Jev cascade, and Synid. Older releases of Linguist, go-enry, Pygments and
-Magika are run too, to show regressions between a tool's versions.
+Twenty-four other identifiers, each from a pinned Docker image (`tools/external/<tool>/`: Dockerfile, `tool.json`,
+identify script, `names.csv` mapping its labels to Linguist's names, synonyms only), language models and Synid:
+
+| family | tools | reads |
+|---|---|---|
+| Linguist and its ports | GitHub Linguist 9.7.0, go-enry 2.9.6, Hyperpolyglot; linguist-js, gengo (Linguist's rules, no classifier) | name, then content |
+| highlighters | Pygments, Chroma, Rouge (name, then content); highlight.js (content) | |
+| line counters, taggers | cloc, tokei, scc (name only); ohcount, Universal Ctags (name, shebang, modelines) | name |
+| editor | Neovim's filetype detection | name, then content |
+| magic numbers | libmagic (`file`) | content |
+| neural classifiers | Magika, Guesslang, VS Code's language detection, three Hugging Face models (CodeBERTa-language-id, philomath-1209, FrameByFrame), PLangRec | content |
+| snippet detector | flourite | content |
+| language models | Jev 1.13 (OpenRouter), Kev-4B (llama.cpp), StarCoder2-3B (Ollama); the candidates + Jev cascade | content (± name) |
+| Synid | 48c3c45, 9bc1c32, and 48c3c45 with one strategy off or without the name | name, then content |
+
+Older releases are run for non-regression ([TOOL-HISTORY.md](../TOOL-HISTORY.md)): Linguist 7.30.0 (naive
+Bayes) and 8.0.0 (centroid), go-enry 2.8.9, Pygments 2.14.0 and 2.19.2, Magika 0.5.1, highlight.js 11.9.0.
+Jev runs on every benchmark in two forms: over Linguist's 836 languages at 76f88c6 (with and without the
+file name), and as the candidates + Jev cascade ($35 in all for the nine new benchmarks plus the 836-language
+rerun on bench-m and bench-linguist). Not run everywhere, for cost: Kev-4B (~21 s per file), StarCoder2-3B
+(~2.5 s per file; bench-hljs only among the new benchmarks), PLangRec on bench-smola (~600,000 distinct lines),
+and Jev with the 804-language snapshot or the extension studies' 63 labels (kept where they were run) — each
+benchmark's leaderboard says which entries are missing and why.
 
 ## Leaderboard rules
 
@@ -100,70 +116,23 @@ Magika are run too, to show regressions between a tool's versions.
 
 ## What the portfolio shows
 
-Figures from [LEADERBOARD.md](../LEADERBOARD.md), the benchmarks' leaderboards and READMEs, and
-[TOOL-HISTORY.md](../TOOL-HISTORY.md) (2026-10-04).
-
-**1. A benchmark crowns the tool that was tuned on it — for the task it was tuned for.** highlight.js 11.9.0
-gets 187/191 (97.9 %) on its own auto-detection tests, which its test suite required it to pass until March
-2024; the next tool, Magika, gets 33 %, and highlight.js' mean elsewhere is in single digits. Pygments is
-first on its example files (93.7 %; 26 % held out); Linguist on its samples (99.5 %; 48 % held out). Rouge is
-the exception that confirms the rule: 16th of 34 on its own samples, which its tests only *lex* — they
-never ask it to guess. Home turf is a matter of what was tuned, not of who wrote the files. Within
-bench-linguist, Synid is right on 76.6 % of all files but 56.1 % of those its classifier never saw.
-
-**2. The benchmarks do not agree on the order of the tools, and the file name decides.** Kendall's τ between
-benchmarks with file names (bench-m, linguist, smola, pygments, hello, rosetta, cobol) is 0.5–0.9; between
-the three without names (hljs, rouge, fsf) 0.5–0.7; across the two groups −0.2 to +0.2. With names, the
-Linguist family leads everywhere; without, a content classifier does (Magika: 92.5 % on fsf, 33 % on hljs,
-27.5 % on rouge), and the Linguist family, Synid and the line counters fall to 0–6 %. A leaderboard over one kind of benchmark says
-little about the other kind.
-
-**3. Labels taken from a tool are a gift to that tool.** On bench-smola, Linguist 9.7.0 agrees with the silver
-labels — Linguist's own 2022 answers — on 99.6 % of the files, and with the human on 87.4 % of the gold ones.
-On the 167 files where the human corrected Linguist, Linguist 7.30.0 gives its 2022 answer again on 161, and
-the content-only classifiers lead (Magika 44 %, Guesslang 33 %); Synid is right on 5 %.
-
-**4. A name that carries the label inflates every name-based tool.** On bench-rosetta, whose file names come
-from the language through acmeism's extension table, Linguist is right on 329 of the 353 files (of
-languages it knows) with a real extension and on 1 of the 161 with an invented one. On bench-hello's 186
-programs with a misleading extension (`Pebble.c`), no tool does better than 6.
-
-**5. Samples of a real population contain failure classes that curated sets lack.** bench-cobol: synthetic
-stubs and reading lists named `.cbl` — every name-based tool is wrong on all of them, which weighs
-heavily once the sample is weighted back to the archive (56.5 % weighted for the best rule-based tools).
-bench-fsf: a non-programming format — Synid answers ALGOL 68 on all 300 FEAT designs (3/467 right), Magika
-92.5 %. bench-rpgle: every tool that reads the name is right (99.3 %); from the content alone, only Jev (an LLM)
-recognises RPG.
-
-**6. Tools regress between releases too.** highlight.js 11.9.0 → 11.12.0 is net −52 on its own test files (two
-grammars, Dart and DNS Zone, now win on almost anything); Magika 0.5.1 → 1.0.3: +361 / −71 on
-bench-linguist; Pygments 2.14 → 2.19 without names: +8 / −13 (a new Carbon lexer takes C files); Linguist's
-switch to a centroid classifier (7.30.0 → 8.0.0) changed 37 answers on bench-linguist, +33 / −0.
-
-**7. Coverage bounds everything.** Two thirds of bench-rosetta's cases are in languages Linguist does not know;
-a tool's label set (6 to ~1,100 names) caps its score before its skill does — `COVERAGE.md` separates the two.
-
-**8. Specific benchmarks find specific bugs.** In Synid: `Text` as the default answer (most of its misses
-on every benchmark), the ALGOL 68 answer on `.fsf`, rule names that do not match candidate names
-(`PLpgSQL`; 12 regressions on bench-smola), and one nondeterministic answer (HTML or ERB on hljs'
-`xml/default.txt` across runs). In other tools: linguist-js' conversion of possessive regexes (its Adblock
-heuristic can never match), Chroma's GDScript analyser that scores 0.2 on almost any text, ohcount's crashes.
+The findings, numbered 0–8 as referred to below, are in [FINDINGS.md](../FINDINGS.md).
 
 ## What it implies for the benchmark we need
 
 The portfolio is a map of biases, each measured. A benchmark that is to rank identifiers on the files they
 will actually meet — Software Heritage's — must control each one, and [bench-heldout](bench-heldout.md)'s
-properties follow from the findings above:
+design follows from the findings above:
 
-| finding | what bench-heldout must do | spec |
-|---|---|---|
-| 1. home turf, 20–60 points | files no tool, mapping or rule set was built from, by construction and checked by blob id; rules and mappings frozen before labels are seen | P1 |
-| 2. the name decides the order | stratify by kind of name (ambiguous / single claimant / unclaimed / none); score every entry with the name, without it, and with a misleading one | P2, P6 |
-| 3. tool-derived labels inflate the tool | labels from a blind human review, never from a tool or an LLM; double coding of a sample, with agreement | P3 |
-| 4. label-derived names leak | real archived names only | P4 |
-| 5. failure classes only a population has | a probability sample of the archive, with weights; not-code and generated files kept | P2 |
-| 6. tools regress | frozen, versioned cases; every tool pinned and rerun on new releases (`tools/run_all.py`) | P5 |
-| 7. coverage bounds skill | taxonomy fixed up front (PL-ultimate-llm concepts with Linguist names and accept lists); report coverage apart | P3, P6 |
+| finding | what bench-heldout must do |
+|---|---|
+| 1. home turf: 20 points (Synid, seen vs unseen files) to 90 (highlight.js, its tests vs elsewhere) | files no tool, mapping or rule set was built from, by construction and checked by blob id; rules and mappings frozen before labels are seen |
+| 2. the name decides the order | stratify by kind of name (ambiguous / single claimant / unclaimed / none); score every entry with the name, without it, and with a misleading one |
+| 3. tool-derived labels inflate the tool | labels from a blind human review, never from a tool or an LLM; double coding of a sample, with agreement |
+| 4. label-derived names leak | real archived names only |
+| 5. failure classes only a population has | a probability sample of the archive, with weights; not-code and generated files kept |
+| 6. tools regress | frozen, versioned cases; every tool pinned and rerun on new releases (`tools/run_all.py`) |
+| 7. coverage bounds skill | taxonomy fixed up front (PL-ultimate-llm concepts with Linguist names and accept lists); report coverage apart |
 
 The existing benchmarks keep their use: as non-regression suites (each tool's release history), as
 diagnostics (each one isolates a regime — content only, misleading names, a hard extension, the long tail),
@@ -176,10 +145,12 @@ how often an identifier is right on a file drawn from the archive.
    (`../PL-swh-contents`), strata by kind of name, blind review on PL-ultimate-llm's review page (~6 h).
 2. **Human audit of the silver benchmarks** — a random 10 % of bench-rpgle, fsf and cobol through the same
    review page, to measure the LLM judge (the review recommends it before LLM labels are trusted).
-3. **Jev and the cascade on the new benchmarks** (paid, small: see the README) — the strongest entries on
-   bench-m and bench-linguist are not yet run on the nine others.
-4. **Misleading-name runs** (OctoLingua's design): every file under another file's extension.
-5. **An open-set outcome** in `tools/score.py` (abstaining is right on files in no known language), to score
+3. **Misleading-name runs** (OctoLingua's design): every file under another file's extension.
+4. **An open-set outcome** in `tools/score.py` (abstaining is right on files in no known language), to score
    smola's 171 `Unknown` files and rosetta's languages no tool knows.
-6. **Snippets from Stack Overflow** (SCC) and **Project CodeNet**, if a snippet-level or a
+5. **Snippets from Stack Overflow** (SCC) and **Project CodeNet**, if a snippet-level or a
    judge-verified benchmark is wanted; both are listed above with their limits.
+6. **For Synid**, from findings 0 and 8: without the Pygments step it is the best identifier that does not
+   call an LLM (50.8 % held out, against 45.8 %) — return the candidates rather than `Text` when no rule
+   decides; fix the `comment` strategy's ALGOL 68 answer on `.fsf`, the rule names that do not match
+   candidate names, and the nondeterministic answer on `xml/default.txt`.

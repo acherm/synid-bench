@@ -102,6 +102,8 @@ accuracy for gold only; the leaderboard weights every benchmark that has weights
 
 ## Results
 
+> Figures in this README come from the runs made when the benchmark was built (2026-10-03). Entries were rerun since (pinned images, updated name mappings) and Jev was added: [LEADERBOARD.md](LEADERBOARD.md), regenerated from the stored runs, is the reference.
+
 Every run of 2026-10-03 (Synid binaries `48c3c45` and `9bc1c32`; the other identifiers in their
 pinned images, `tools/external.py`; the study's rule and Jev's decisions exported from the study,
 no API call). Entries with the same score on the same cases are grouped.

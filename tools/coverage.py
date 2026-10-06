@@ -44,13 +44,15 @@ def label_set(meta: dict, synid: str | None) -> set[str] | str | None:
         out = subprocess.run([synid, "info", "syntaxes"], capture_output=True, text=True).stdout
         return {name_key(x) for x in out.splitlines() if x.strip()}
     if label.startswith(("jev-linguist", "kev-linguist")):
-        langs = json.loads((HERE / "data" / "linguist_languages.json").read_text(encoding="utf-8"))["languages"]
+        src = "linguist_languages_76f88c6.json" if label.startswith("jev-linguist836") else "linguist_languages.json"
+        langs = json.loads((HERE / "data" / src).read_text(encoding="utf-8"))["languages"]
         return {name_key(n) for lang in langs for n in [lang["name"], *lang["aliases"]]}
     if label.startswith("jev-study63"):  # the languages that have a label of their own
         st = json.loads((HERE / "data" / "jev_study_labels.json").read_text(encoding="utf-8"))
         return {name_key(v[0]) for v in st["to_linguist"].values() if len(v) == 1}
     if label.startswith("jev-cascade"):  # candidates, or the fallback list: every language of the snapshot
-        d = json.loads((HERE / "data" / "pl_candidates.json").read_text(encoding="utf-8"))
+        snap = "pl_candidates_wide.json" if label.startswith("jev-cascade-wide") else "pl_candidates.json"
+        d = json.loads((HERE / "data" / snap).read_text(encoding="utf-8"))
         return {name_key(lg["name"]) for lg in d["languages"].values()} | {name_key("Text")}
     if label.startswith("llm-"):
         return OPEN

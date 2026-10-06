@@ -103,6 +103,8 @@ About 20 files per language (15 to 24 for 172 of the 261), at most 32 (XML); 43 
 
 ## Findings — Synid 48c3c45
 
+> Figures in this README come from the runs made when the benchmark was built (2026-10-03). Entries were rerun since (pinned images, updated name mappings) and Jev was added: [LEADERBOARD.md](LEADERBOARD.md), regenerated from the stored runs, is the reference.
+
 - **61.3 % on the gold tier** (679 / 1,107), 90.9 % on the silver one (2,513 / 2,765); 82.4 % overall.
   When it names a language, it is right 86.2 % of the time on gold, 97.2 % on silver.
 - **Gold is harder for two reasons.** Where the human confirmed Linguist's answer (940 files), Synid is

@@ -1,0 +1,6 @@
+{
+ "Jev 1.13, Linguist's 804 languages, content only": "superseded by the run over Linguist's 836 languages (76f88c6); kept on bench-m and bench-linguist only",
+ "Jev 1.13, Linguist's 804 languages, with file name": "superseded by the run over Linguist's 836 languages (76f88c6); kept on bench-m and bench-linguist only",
+ "Kev-4B Q8_0 (local, llama.cpp), Linguist's 804 languages, content only": "superseded by the run over Linguist's 836 languages (76f88c6); kept on bench-m and bench-linguist only",
+ "StarCoder2-3B (local, completion prompt), content only": "local, ~2.5 s per file (Ollama): ~0.3 h here — not run yet"
+}

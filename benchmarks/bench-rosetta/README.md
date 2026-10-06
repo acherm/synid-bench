@@ -125,6 +125,8 @@ tail, not of the solutions one would meet at random.
 
 ## Findings
 
+> Figures in this README come from the runs made when the benchmark was built (2026-10-03). Entries were rerun since (pinned images, updated name mappings) and Jev was added: [LEADERBOARD.md](LEADERBOARD.md), regenerated from the stored runs, is the reference.
+
 Every figure below is from the runs in `baselines/` and `entries/` (2026-10-03). Each identifier is run with
 the file name and, where it reads names, without (`--content-only`: the file run as `file`); a tool that reads
 the bytes only has a content-only column alone. Accuracy over the 1,589 cases, then over the 514 `in-linguist`

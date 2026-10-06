@@ -1,0 +1,191 @@
+{"case_id": "hljs:1e8a0466b051", "n_candidates": 0, "stage": "fallback", "answer": "1C Enterprise", "top5": [], "cost": 0.0018766859999999998, "truncated": false}
+{"case_id": "hljs:e2cdf316568a", "n_candidates": 0, "stage": "fallback", "answer": "ABNF", "top5": [["ABNF", 0.98], ["EBNF", 0.01], ["peg", 0.01], ["Text", 0]], "cost": 0.0016892399999999998, "truncated": false}
+{"case_id": "hljs:271b0d54fefc", "n_candidates": 0, "stage": "fallback", "answer": "ActionScript", "top5": [["ActionScript", 0.94], ["Haxe", 0.06], ["AngelScript", 0], ["Text", 0]], "cost": 0.001675548, "truncated": false}
+{"case_id": "hljs:77631ba183af", "n_candidates": 0, "stage": "fallback", "answer": "Ada", "top5": [["Ada", 1], ["Text", 0], ["Pascal", 0]], "cost": 0.00166992, "truncated": false}
+{"case_id": "hljs:8afaad9fdbe2", "n_candidates": 0, "stage": "fallback", "answer": "AngelScript", "top5": [], "cost": 0.001706376, "truncated": false}
+{"case_id": "hljs:b2f332d6c7b6", "n_candidates": 0, "stage": "fallback", "answer": "ApacheConf", "top5": [["ApacheConf", 1], ["Redirect Rules", 0], ["Text", 0]], "cost": 0.0016902899999999999, "truncated": false}
+{"case_id": "hljs:6e55c2bfbd25", "n_candidates": 0, "stage": "fallback", "answer": "AppleScript", "top5": [["AppleScript", 0.96], ["ExtendScript", 0.02], ["LiveCode Script", 0.02], ["Text", 0]], "cost": 0.001665174, "truncated": false}
+{"case_id": "hljs:19af3e29d7da", "n_candidates": 0, "stage": "fallback", "answer": "JavaScript", "top5": [], "cost": 0.001658706, "truncated": false}
+{"case_id": "hljs:1e21e094d96b", "n_candidates": 0, "stage": "fallback", "answer": "arduino", "top5": [["arduino", 0.95], ["C++", 0.04], ["C", 0.01], ["Text", 0]], "cost": 0.00169197, "truncated": false}
+{"case_id": "hljs:2e970541c8e0", "n_candidates": 0, "stage": "fallback", "answer": "Assembly", "top5": [["Assembly", 0.54], ["Unix Assembly", 0.46], ["Text", 0], ["tasm", 0]], "cost": 0.001728888, "truncated": false}
+{"case_id": "hljs:bea0d3cac74b", "n_candidates": 0, "stage": "fallback", "answer": "AsciiDoc", "top5": [], "cost": 0.001700286, "truncated": false}
+{"case_id": "hljs:c677228de057", "n_candidates": 0, "stage": "fallback", "answer": "AspectJ", "top5": [["AspectJ", 1], ["Java", 0], ["Text", 0]], "cost": 0.0017095679999999999, "truncated": false}
+{"case_id": "hljs:414fbafc8d1a", "n_candidates": 0, "stage": "fallback", "answer": "AutoHotkey", "top5": [], "cost": 0.0016618560000000002, "truncated": false}
+{"case_id": "hljs:4a1a204f5942", "n_candidates": 0, "stage": "fallback", "answer": "AutoIt", "top5": [], "cost": 0.001656396, "truncated": false}
+{"case_id": "hljs:e7e06b10e302", "n_candidates": 0, "stage": "fallback", "answer": "Assembly", "top5": [["Assembly", 0.84], ["tasm", 0.16], ["Text", 0], ["Unix Assembly", 0]], "cost": 0.00168504, "truncated": false}
+{"case_id": "hljs:2d124a82f92e", "n_candidates": 0, "stage": "fallback", "answer": "Awk", "top5": [["Awk", 0.95], ["nawk", 0.03], ["mawk", 0.02], ["Text", 0]], "cost": 0.001682982, "truncated": false}
+{"case_id": "hljs:a4d8a656c5f1", "n_candidates": 0, "stage": "fallback", "answer": "X++", "top5": [["X++", 1], ["Text", 0], ["AL", 0]], "cost": 0.0016870139999999997, "truncated": false}
+{"case_id": "hljs:335e7ec16ef0", "n_candidates": 0, "stage": "fallback", "answer": "Shell", "top5": [["Shell", 1], ["Gentoo Eclass", 0], ["OpenRC runscript", 0], ["Text", 0]], "cost": 0.0016683240000000001, "truncated": false}
+{"case_id": "hljs:2b66c3d95770", "n_candidates": 0, "stage": "fallback", "answer": "BASIC", "top5": [["BASIC", 0.5700000000000001], ["QuickBASIC", 0.35], ["FreeBASIC", 0.07], ["liberty-basic", 0.01], ["Text", 0]], "cost": 0.0017025539999999998, "truncated": false}
+{"case_id": "hljs:f824cb1ceb3f", "n_candidates": 0, "stage": "fallback", "answer": "EBNF", "top5": [["EBNF", 0.6], ["bnf", 0.26], ["Lark", 0.1], ["peg", 0.03], ["Text", 0.01]], "cost": 0.001691256, "truncated": false}
+{"case_id": "hljs:bf2871d00f57", "n_candidates": 0, "stage": "fallback", "answer": "Brainfuck", "top5": [["Brainfuck", 0.97], ["Beef", 0.03], ["Text", 0], ["HyPhy", 0]], "cost": 0.0016947420000000002, "truncated": false}
+{"case_id": "hljs:3b30b8f0226e", "n_candidates": 0, "stage": "fallback", "answer": "AL", "top5": [["AL", 0.8099999999999999], ["X++", 0.14], ["Text", 0.05]], "cost": 0.0017177579999999998, "truncated": false}
+{"case_id": "hljs:e9abcd06da65", "n_candidates": 0, "stage": "fallback", "answer": "Cap'n Proto", "top5": [], "cost": 0.0017076359999999998, "truncated": false}
+{"case_id": "hljs:2e0098ff89c1", "n_candidates": 0, "stage": "fallback", "answer": "Ceylon", "top5": [["Ceylon", 0.77], ["Fantom", 0.17], ["Nit", 0.06], ["Text", 0]], "cost": 0.00165753, "truncated": false}
+{"case_id": "hljs:6121848bce61", "n_candidates": 0, "stage": "fallback", "answer": "Clean", "top5": [["Clean", 0.78], ["Haskell", 0.19], ["HS", 0.03], ["Text", 0]], "cost": 0.0017090639999999997, "truncated": false}
+{"case_id": "hljs:379adc990477", "n_candidates": 0, "stage": "fallback", "answer": "Clojure", "top5": [["Clojure", 1], ["Text", 0], ["Scala", 0]], "cost": 0.0016681559999999998, "truncated": false}
+{"case_id": "hljs:b5fe661d3e60", "n_candidates": 0, "stage": "fallback", "answer": "CMake", "top5": [], "cost": 0.001656396, "truncated": false}
+{"case_id": "hljs:29a5e73fdaac", "n_candidates": 0, "stage": "fallback", "answer": "CoffeeScript", "top5": [["CoffeeScript", 1], ["Text", 0], ["Source (programming language)", 0]], "cost": 0.001667946, "truncated": false}
+{"case_id": "hljs:8b1e38d7639d", "n_candidates": 0, "stage": "fallback", "answer": "Rocq Prover", "top5": [["Rocq Prover", 0.94], ["Literate Agda", 0.02], ["Idris", 0.02], ["Lean 4", 0.02], ["Text", 0]], "cost": 0.00172956, "truncated": false}
+{"case_id": "hljs:ecb32f2605dc", "n_candidates": 0, "stage": "fallback", "answer": "ObjectScript", "top5": [["ObjectScript", 0.85], ["M", 0.15], ["Text", 0]], "cost": 0.0016934820000000003, "truncated": false}
+{"case_id": "hljs:43b1e8d2689a", "n_candidates": 0, "stage": "fallback", "answer": "C++", "top5": [["C++", 1], ["C", 0], ["Text", 0]], "cost": 0.0016693739999999997, "truncated": false}
+{"case_id": "hljs:cff64dd4116a", "n_candidates": 0, "stage": "fallback", "answer": "crmsh", "top5": [], "cost": 0.0017307359999999999, "truncated": false}
+{"case_id": "hljs:3ab29e761c00", "n_candidates": 0, "stage": "fallback", "answer": "Crystal", "top5": [["Crystal", 1], ["Nim", 0], ["Text", 0]], "cost": 0.001681974, "truncated": false}
+{"case_id": "hljs:f22f150ec653", "n_candidates": 0, "stage": "fallback", "answer": "C#", "top5": [], "cost": 0.001649886, "truncated": false}
+{"case_id": "hljs:cdcc6d0f77b3", "n_candidates": 0, "stage": "fallback", "answer": "HTTP", "top5": [], "cost": 0.001655976, "truncated": false}
+{"case_id": "hljs:b1b41ef1d9d0", "n_candidates": 0, "stage": "fallback", "answer": "CSS", "top5": [["CSS", 0.95], ["Css script", 0.05], ["Text", 0]], "cost": 0.00167118, "truncated": false}
+{"case_id": "hljs:2e5e17fa3c2e", "n_candidates": 0, "stage": "fallback", "answer": "D", "top5": [], "cost": 0.001687476, "truncated": false}
+{"case_id": "hljs:6eeac86ef477", "n_candidates": 0, "stage": "fallback", "answer": "Dart", "top5": [], "cost": 0.001677606, "truncated": false}
+{"case_id": "hljs:00013be4dbe0", "n_candidates": 0, "stage": "fallback", "answer": "Pascal", "top5": [["Pascal", 0.91], ["Oxygene", 0.07], ["Turbo Pascal", 0.02], ["Text", 0]], "cost": 0.0017055360000000001, "truncated": false}
+{"case_id": "hljs:df34b4ed9ccc", "n_candidates": 0, "stage": "fallback", "answer": "Diff", "top5": [["Diff", 0.63], ["patch", 0.28], ["Source (programming language)", 0.09], ["Text", 0]], "cost": 0.001689912, "truncated": false}
+{"case_id": "hljs:45e50c0be33d", "n_candidates": 0, "stage": "fallback", "answer": "Jinja", "top5": [["Jinja", 0.96], ["HTML", 0.02], ["Twig", 0.01], ["Nunjucks", 0.01], ["Liquid", 0]], "cost": 0.0016708439999999999, "truncated": false}
+{"case_id": "hljs:4598aaac7a37", "n_candidates": 0, "stage": "fallback", "answer": "DNS Zone", "top5": [["DNS Zone", 0.97], ["zone", 0.03], ["Text", 0]], "cost": 0.001756566, "truncated": false}
+{"case_id": "hljs:ed0e6497cbaf", "n_candidates": 0, "stage": "fallback", "answer": "Dockerfile", "top5": [["Dockerfile", 0.98], ["docker", 0.02], ["Text", 0]], "cost": 0.001742202, "truncated": false}
+{"case_id": "hljs:df9e30b8792d", "n_candidates": 0, "stage": "fallback", "answer": "Batchfile", "top5": [["Batchfile", 1], ["Shell", 0], ["Text", 0]], "cost": 0.001684746, "truncated": false}
+{"case_id": "hljs:3cedb6f3b034", "n_candidates": 0, "stage": "fallback", "answer": "Shell", "top5": [["Shell", 0.96], ["Text", 0.04]], "cost": 0.001754802, "truncated": false}
+{"case_id": "hljs:427b5376bb16", "n_candidates": 0, "stage": "fallback", "answer": "dts", "top5": [["dts", 0.55], ["devicetree", 0.45], ["Text", 0]], "cost": 0.001827, "truncated": false}
+{"case_id": "hljs:53726967c3be", "n_candidates": 0, "stage": "fallback", "answer": "HTML+EEX", "top5": [["HTML+EEX", 0.61], ["HTML+ECR", 0.22], ["Antlers", 0.1], ["StringTemplate", 0.04], ["FreeMarker", 0.02]], "cost": 0.0016572779999999999, "truncated": false}
+{"case_id": "hljs:6ef88c44ec7b", "n_candidates": 0, "stage": "fallback", "answer": "EBNF", "top5": [["EBNF", 0.61], ["ANTLR", 0.2], ["Lark", 0.09], ["peg", 0.05], ["bnf", 0.04]], "cost": 0.0016996139999999997, "truncated": false}
+{"case_id": "hljs:930b979b9cd4", "n_candidates": 0, "stage": "fallback", "answer": "Elixir", "top5": [["Elixir", 1], ["Euphoria", 0], ["HTML+EEX", 0], ["Text", 0]], "cost": 0.0017266620000000003, "truncated": false}
+{"case_id": "hljs:291889cea0dd", "n_candidates": 0, "stage": "fallback", "answer": "Elm", "top5": [["Elm", 1], ["Haskell", 0], ["Text", 0]], "cost": 0.0016742039999999999, "truncated": false}
+{"case_id": "hljs:763fd94e5b26", "n_candidates": 0, "stage": "fallback", "answer": "HTML+ERB", "top5": [["HTML+ERB", 0.92], ["HTML+ECR", 0.06], ["Text", 0.01], ["Ruby", 0.01]], "cost": 0.001667988, "truncated": false}
+{"case_id": "hljs:ffdb101da5d7", "n_candidates": 0, "stage": "fallback", "answer": "Erlang", "top5": [], "cost": 0.0017017560000000002, "truncated": false}
+{"case_id": "hljs:ebf4473c1ef9", "n_candidates": 0, "stage": "fallback", "answer": null, "top5": [], "cost": 0.0016314059999999997, "truncated": false}
+{"case_id": "hljs:7d0e59b86b60", "n_candidates": 0, "stage": "fallback", "answer": null, "top5": [], "cost": 0.0017567759999999998, "truncated": false}
+{"case_id": "hljs:5cc05c2a6275", "n_candidates": 0, "stage": "fallback", "answer": "Flix", "top5": [], "cost": 0.001702596, "truncated": false}
+{"case_id": "hljs:2d2844cba03d", "n_candidates": 0, "stage": "fallback", "answer": "Fortran Free Form", "top5": [["Fortran Free Form", 0.85], ["Fortran", 0.15], ["Text", 0]], "cost": 0.001676682, "truncated": false}
+{"case_id": "hljs:f7069bab8123", "n_candidates": 0, "stage": "fallback", "answer": "F#", "top5": [], "cost": 0.0016908359999999998, "truncated": false}
+{"case_id": "hljs:a1d298411e13", "n_candidates": 0, "stage": "fallback", "answer": "GAMS", "top5": [["GAMS", 1], ["AMPL", 0], ["Mathematical Programming System", 0], ["Text", 0]], "cost": 0.001746024, "truncated": false}
+{"case_id": "hljs:a50a8e6df12c", "n_candidates": 0, "stage": "fallback", "answer": "p", "top5": [], "cost": 0.001662276, "truncated": false}
+{"case_id": "hljs:1c3646d89b0e", "n_candidates": 0, "stage": "fallback", "answer": "G-code", "top5": [], "cost": 0.0017097360000000001, "truncated": false}
+{"case_id": "hljs:b167b49ee23b", "n_candidates": 0, "stage": "fallback", "answer": "Gherkin", "top5": [], "cost": 0.001668996, "truncated": false}
+{"case_id": "hljs:ec3560c1e555", "n_candidates": 0, "stage": "fallback", "answer": "GLSL", "top5": [], "cost": 0.0016708860000000001, "truncated": false}
+{"case_id": "hljs:fd751e2e0a6b", "n_candidates": 0, "stage": "fallback", "answer": "Game Maker Language", "top5": [["Game Maker Language", 0.7], ["GML", 0.3], ["Logos", 0], ["Text", 0]], "cost": 0.00167874, "truncated": false}
+{"case_id": "hljs:ba62e83eca08", "n_candidates": 0, "stage": "fallback", "answer": "Go", "top5": [], "cost": 0.001640856, "truncated": false}
+{"case_id": "hljs:5af1d255a9db", "n_candidates": 0, "stage": "fallback", "answer": "Go", "top5": [], "cost": 0.001652616, "truncated": false}
+{"case_id": "hljs:58f58d77658d", "n_candidates": 0, "stage": "fallback", "answer": null, "top5": [], "cost": 0.0016400159999999998, "truncated": false}
+{"case_id": "hljs:3a5b76269804", "n_candidates": 0, "stage": "fallback", "answer": "Gradle", "top5": [["Gradle", 0.78], ["Groovy", 0.21], ["Apache Groovy", 0.01], ["Text", 0]], "cost": 0.0017649660000000002, "truncated": false}
+{"case_id": "hljs:219e4ff43d7e", "n_candidates": 0, "stage": "fallback", "answer": "GraphQL", "top5": [], "cost": 0.001660176, "truncated": false}
+{"case_id": "hljs:f0b58278deb0", "n_candidates": 0, "stage": "fallback", "answer": "Groovy", "top5": [["Groovy", 0.79], ["Apache Groovy", 0.21], ["Gradle", 0], ["Text", 0]], "cost": 0.001738002, "truncated": false}
+{"case_id": "hljs:92fbe653da97", "n_candidates": 0, "stage": "fallback", "answer": "Haml", "top5": [["Haml", 0.92], ["Slim", 0.05], ["Scaml", 0.03], ["Pug", 0], ["Text", 0]], "cost": 0.0016724819999999997, "truncated": false}
+{"case_id": "hljs:ece46e9c1755", "n_candidates": 0, "stage": "fallback", "answer": "Handlebars", "top5": [["Handlebars", 0.99], ["HTML", 0.01], ["Mustache", 0], ["Text", 0], ["Glimmer TS", 0]], "cost": 0.001657908, "truncated": false}
+{"case_id": "hljs:6adb46dcd1ee", "n_candidates": 0, "stage": "fallback", "answer": "Haskell", "top5": [["Haskell", 0.98], ["HS", 0.02], ["Text", 0]], "cost": 0.0017350199999999999, "truncated": false}
+{"case_id": "hljs:6d080472a591", "n_candidates": 0, "stage": "fallback", "answer": "Haxe", "top5": [], "cost": 0.001791636, "truncated": false}
+{"case_id": "hljs:bf3a9f239965", "n_candidates": 0, "stage": "fallback", "answer": null, "top5": [], "cost": 0.0016471559999999999, "truncated": false}
+{"case_id": "hljs:dec969dc4931", "n_candidates": 0, "stage": "fallback", "answer": "HTTP", "top5": [["HTTP", 0.88], ["Hurl", 0.11], ["Text", 0.01]], "cost": 0.00166509, "truncated": false}
+{"case_id": "hljs:8b88357a8a90", "n_candidates": 0, "stage": "fallback", "answer": "Hy", "top5": [], "cost": 0.001678866, "truncated": false}
+{"case_id": "hljs:daade01eebe7", "n_candidates": 0, "stage": "fallback", "answer": "Inform 7", "top5": [["Inform 7", 1], ["Text", 0], ["inform", 0]], "cost": 0.0016825200000000003, "truncated": false}
+{"case_id": "hljs:3b97e7ee5397", "n_candidates": 0, "stage": "fallback", "answer": "Cabal Config", "top5": [["Cabal Config", 0.8], ["TOML", 0.18], ["Rust", 0.02], ["Text", 0]], "cost": 0.0016587899999999998, "truncated": false}
+{"case_id": "hljs:f4966c83e641", "n_candidates": 0, "stage": "fallback", "answer": "Fortran", "top5": [["Fortran", 0.68], ["Fortran Free Form", 0.32], ["Text", 0]], "cost": 0.00172809, "truncated": false}
+{"case_id": "hljs:32ab05bb7ab0", "n_candidates": 0, "stage": "fallback", "answer": "1C Enterprise", "top5": [], "cost": 0.001702386, "truncated": false}
+{"case_id": "hljs:a5dd868ccdc8", "n_candidates": 0, "stage": "fallback", "answer": "Java", "top5": [], "cost": 0.0016482059999999997, "truncated": false}
+{"case_id": "hljs:da95f300dd3e", "n_candidates": 0, "stage": "fallback", "answer": "jsx", "top5": [["jsx", 0.58], ["JavaScript", 0.22], ["TSX", 0.19], ["TypeScript", 0.01], ["Text", 0]], "cost": 0.001681764, "truncated": false}
+{"case_id": "hljs:51838aeafa6b", "n_candidates": 0, "stage": "fallback", "answer": "JavaScript", "top5": [["JavaScript", 0.98], ["Source (programming language)", 0.01], ["jscript", 0.01], ["Text", 0]], "cost": 0.0016835700000000001, "truncated": false}
+{"case_id": "hljs:32315eb269a1", "n_candidates": 0, "stage": "fallback", "answer": "JavaScript", "top5": [["JavaScript", 0.97], ["Source (programming language)", 0.03], ["Text", 0], ["jscript", 0]], "cost": 0.0016591259999999997, "truncated": false}
+{"case_id": "hljs:48aa9a4e8a57", "n_candidates": 0, "stage": "fallback", "answer": null, "top5": [], "cost": 0.001665006, "truncated": false}
+{"case_id": "hljs:94eac2505e31", "n_candidates": 0, "stage": "fallback", "answer": "JSON", "top5": [], "cost": 0.0016448460000000002, "truncated": false}
+{"case_id": "hljs:6670fc6c2afe", "n_candidates": 0, "stage": "fallback", "answer": "JSON5", "top5": [["JSON5", 0.85], ["hjson", 0.14], ["JavaScript", 0.01], ["Text", 0], ["CSON", 0]], "cost": 0.001690962, "truncated": false}
+{"case_id": "hljs:31bea9599ad6", "n_candidates": 0, "stage": "fallback", "answer": "Julia REPL", "top5": [["Julia REPL", 0.95], ["Text", 0.03], ["Julia", 0.02]], "cost": 0.001693524, "truncated": false}
+{"case_id": "hljs:4d7d605bb1a4", "n_candidates": 0, "stage": "fallback", "answer": "Julia", "top5": [], "cost": 0.0017399759999999998, "truncated": false}
+{"case_id": "hljs:bfe45c640ca3", "n_candidates": 0, "stage": "fallback", "answer": "Kotlin", "top5": [], "cost": 0.0016593360000000002, "truncated": false}
+{"case_id": "hljs:df3e8b1c7cd2", "n_candidates": 0, "stage": "fallback", "answer": "Lasso", "top5": [], "cost": 0.001736616, "truncated": false}
+{"case_id": "hljs:e8de422f5988", "n_candidates": 0, "stage": "fallback", "answer": "TeX", "top5": [], "cost": 0.0016906259999999998, "truncated": false}
+{"case_id": "hljs:fdd9c5a7c648", "n_candidates": 0, "stage": "fallback", "answer": null, "top5": [], "cost": 0.001721076, "truncated": false}
+{"case_id": "hljs:4fab5ad030f7", "n_candidates": 0, "stage": "fallback", "answer": "cheetah", "top5": [["cheetah", 0.77], ["Velocity Template Language", 0.17], ["Text", 0.03], ["StringTemplate", 0.03]], "cost": 0.001667988, "truncated": false}
+{"case_id": "hljs:42e412bb7389", "n_candidates": 0, "stage": "fallback", "answer": "Less", "top5": [["Less", 1], ["Text", 0], ["CSS", 0], ["SCSS", 0]], "cost": 0.0017066700000000002, "truncated": false}
+{"case_id": "hljs:da2369cd8a48", "n_candidates": 0, "stage": "fallback", "answer": "Common Lisp", "top5": [["Common Lisp", 0.63], ["Emacs Lisp", 0.33], ["Text", 0.01], ["guile", 0.01], ["Scheme", 0.01]], "cost": 0.0017163299999999999, "truncated": false}
+{"case_id": "hljs:124ec867854b", "n_candidates": 0, "stage": "fallback", "answer": "LiveCode Script", "top5": [], "cost": 0.001661226, "truncated": false}
+{"case_id": "hljs:ac0d7837dec6", "n_candidates": 0, "stage": "fallback", "answer": null, "top5": [], "cost": 0.0017185560000000002, "truncated": false}
+{"case_id": "hljs:c4288fadcef5", "n_candidates": 0, "stage": "fallback", "answer": "LLVM", "top5": [], "cost": 0.001881936, "truncated": false}
+{"case_id": "hljs:d5a1fe01ec6d", "n_candidates": 0, "stage": "fallback", "answer": "LSL", "top5": [], "cost": 0.0016370760000000001, "truncated": false}
+{"case_id": "hljs:1ca9b680cd54", "n_candidates": 0, "stage": "fallback", "answer": "Lua", "top5": [["Lua", 0.8200000000000001], ["Luau", 0.18], ["Text", 0]], "cost": 0.0016837380000000002, "truncated": false}
+{"case_id": "hljs:ca5ed845e0bc", "n_candidates": 0, "stage": "fallback", "answer": "Makefile", "top5": [["Makefile", 1], ["Text", 0], ["Shell", 0]], "cost": 0.001660764, "truncated": false}
+{"case_id": "hljs:9ed420c76608", "n_candidates": 0, "stage": "fallback", "answer": "Markdown", "top5": [], "cost": 0.001649676, "truncated": false}
+{"case_id": "hljs:93faea209e52", "n_candidates": 0, "stage": "fallback", "answer": "Wolfram Language", "top5": [["Wolfram Language", 0.96], ["NB", 0.04], ["Text", 0]], "cost": 0.00190029, "truncated": false}
+{"case_id": "hljs:359e5277d220", "n_candidates": 0, "stage": "fallback", "answer": "MATLAB", "top5": [], "cost": 0.001729056, "truncated": false}
+{"case_id": "hljs:6036e225bdd6", "n_candidates": 0, "stage": "fallback", "answer": "maxima", "top5": [["maxima", 1], ["Text", 0], ["macsyma", 0]], "cost": 0.001748796, "truncated": false}
+{"case_id": "hljs:6b2167714cec", "n_candidates": 0, "stage": "fallback", "answer": "Tcl", "top5": [["Tcl", 0.58], ["IDL", 0.4], ["Text", 0.02]], "cost": 0.00168462, "truncated": false}
+{"case_id": "hljs:74481ffcd6e7", "n_candidates": 0, "stage": "fallback", "answer": "Mercury", "top5": [], "cost": 0.001664166, "truncated": false}
+{"case_id": "hljs:b18b1ca07cba", "n_candidates": 0, "stage": "fallback", "answer": "mips", "top5": [["mips", 0.7], ["Assembly", 0.3], ["tasm", 0], ["Text", 0]], "cost": 0.001684914, "truncated": false}
+{"case_id": "hljs:c90515cb1707", "n_candidates": 0, "stage": "fallback", "answer": "mizar", "top5": [["mizar", 0.99], ["Isabelle", 0.01], ["Text", 0]], "cost": 0.0018598019999999998, "truncated": false}
+{"case_id": "hljs:c188ba4ef46f", "n_candidates": 0, "stage": "fallback", "answer": "kid", "top5": [["kid", 0.62], ["HTML+ECR", 0.3], ["Ruby", 0.08], ["Text", 0]], "cost": 0.0017016299999999998, "truncated": false}
+{"case_id": "hljs:2b6f56912866", "n_candidates": 0, "stage": "fallback", "answer": "Monkey", "top5": [["Monkey", 0.96], ["BlitzBasic", 0.03], ["Monkey C", 0.01], ["Text", 0]], "cost": 0.001698942, "truncated": false}
+{"case_id": "hljs:748cdb448d85", "n_candidates": 0, "stage": "fallback", "answer": "CoffeeScript", "top5": [["CoffeeScript", 0.87], ["Lua", 0.13], ["Text", 0]], "cost": 0.0016981439999999997, "truncated": false}
+{"case_id": "hljs:835732d30b32", "n_candidates": 0, "stage": "fallback", "answer": "SurrealQL", "top5": [["SurrealQL", 0.89], ["SQL", 0.11], ["Text", 0]], "cost": 0.001678866, "truncated": false}
+{"case_id": "hljs:2305b5f0a23d", "n_candidates": 0, "stage": "fallback", "answer": "YAML", "top5": [["YAML", 0.98], ["MiniYAML", 0.02], ["Text", 0]], "cost": 0.001697514, "truncated": false}
+{"case_id": "hljs:45796eb1986d", "n_candidates": 0, "stage": "fallback", "answer": "Nginx", "top5": [["Nginx", 1], ["Text", 0], ["ApacheConf", 0]], "cost": 0.0017282999999999999, "truncated": false}
+{"case_id": "hljs:0a6085a0322b", "n_candidates": 0, "stage": "fallback", "answer": "Nim", "top5": [["Nim", 0.98], ["nimrod", 0.02], ["Pascal", 0], ["Text", 0]], "cost": 0.0016918439999999996, "truncated": false}
+{"case_id": "hljs:d16c438f0f23", "n_candidates": 0, "stage": "fallback", "answer": "Nix", "top5": [], "cost": 0.0016593360000000002, "truncated": false}
+{"case_id": "hljs:6a0dc7c120ca", "n_candidates": 0, "stage": "fallback", "answer": "NSIS", "top5": [], "cost": 0.0016708860000000001, "truncated": false}
+{"case_id": "hljs:57f9bf1557b6", "n_candidates": 0, "stage": "fallback", "answer": "Objective-C", "top5": [["Objective-C", 1], ["Text", 0], ["Objective-C++", 0], ["C", 0]], "cost": 0.0016621919999999998, "truncated": false}
+{"case_id": "hljs:164d018e4b31", "n_candidates": 0, "stage": "fallback", "answer": "OCaml", "top5": [["OCaml", 0.99], ["Standard ML", 0.01], ["Text", 0]], "cost": 0.001688904, "truncated": false}
+{"case_id": "hljs:76f6d1810148", "n_candidates": 0, "stage": "fallback", "answer": "Odin", "top5": [["Odin", 0.78], ["Zig", 0.1], ["Jai", 0.08], ["Hare", 0.03], ["Text", 0.01]], "cost": 0.001676472, "truncated": false}
+{"case_id": "hljs:0ba3ead7ea8e", "n_candidates": 0, "stage": "fallback", "answer": "OpenSCAD", "top5": [["OpenSCAD", 1], ["Text", 0], ["Geometric Description Language", 0]], "cost": 0.001664292, "truncated": false}
+{"case_id": "hljs:17e9aefc3fe2", "n_candidates": 0, "stage": "fallback", "answer": "Oxygene", "top5": [["Oxygene", 0.53], ["pascal-abc.net", 0.45], ["Nit", 0.02], ["Text", 0]], "cost": 0.0017213699999999998, "truncated": false}
+{"case_id": "hljs:1da01c583b77", "n_candidates": 0, "stage": "fallback", "answer": "p", "top5": [], "cost": 0.0016719359999999997, "truncated": false}
+{"case_id": "hljs:c3312e6561c3", "n_candidates": 0, "stage": "fallback", "answer": "Perl", "top5": [], "cost": 0.001695246, "truncated": false}
+{"case_id": "hljs:721d2b289a77", "n_candidates": 0, "stage": "fallback", "answer": null, "top5": [], "cost": 0.0016799159999999998, "truncated": false}
+{"case_id": "hljs:559e2fd96b6b", "n_candidates": 0, "stage": "fallback", "answer": "SQL", "top5": [["SQL", 0.68], ["PLpgSQL", 0.32], ["Text", 0]], "cost": 0.001668408, "truncated": false}
+{"case_id": "hljs:5fd80a358ede", "n_candidates": 0, "stage": "fallback", "answer": "HTML+PHP", "top5": [["HTML+PHP", 0.99], ["HTML", 0.01], ["Text", 0]], "cost": 0.0016504319999999999, "truncated": false}
+{"case_id": "hljs:8c6bf2978698", "n_candidates": 0, "stage": "fallback", "answer": "PHP", "top5": [["PHP", 0.98], ["Hack", 0.02], ["Text", 0]], "cost": 0.0017343900000000004, "truncated": false}
+{"case_id": "hljs:12894d940c4d", "n_candidates": 0, "stage": "fallback", "answer": "Pony", "top5": [], "cost": 0.001649466, "truncated": false}
+{"case_id": "hljs:4920154d9f32", "n_candidates": 0, "stage": "fallback", "answer": "PowerShell", "top5": [], "cost": 0.001654506, "truncated": false}
+{"case_id": "hljs:50110a1859f5", "n_candidates": 0, "stage": "fallback", "answer": "Processing", "top5": [], "cost": 0.0016511460000000003, "truncated": false}
+{"case_id": "hljs:f6416aa4ebc8", "n_candidates": 0, "stage": "fallback", "answer": "Prolog", "top5": [["Prolog", 1], ["Text", 0], ["ECLiPSe", 0]], "cost": 0.001671138, "truncated": false}
+{"case_id": "hljs:11b4d11f9c9b", "n_candidates": 0, "stage": "fallback", "answer": "Java Properties", "top5": [], "cost": 0.0016385459999999998, "truncated": false}
+{"case_id": "hljs:8e701b05d6b1", "n_candidates": 0, "stage": "fallback", "answer": "Protocol Buffer", "top5": [["Protocol Buffer", 0.89], ["Protocol Buffer Text Format", 0.11], ["Text", 0]], "cost": 0.0016863, "truncated": false}
+{"case_id": "hljs:ec06e3edcb35", "n_candidates": 0, "stage": "fallback", "answer": "Puppet", "top5": [], "cost": 0.0016824359999999998, "truncated": false}
+{"case_id": "hljs:ffc80ad04daf", "n_candidates": 0, "stage": "fallback", "answer": "PureBasic", "top5": [["PureBasic", 1], ["BASIC", 0], ["Text", 0]], "cost": 0.0017032680000000002, "truncated": false}
+{"case_id": "hljs:42d8e15b9369", "n_candidates": 0, "stage": "fallback", "answer": "Python console", "top5": [["Python console", 1], ["Python", 0], ["Text", 0]], "cost": 0.0016626540000000002, "truncated": false}
+{"case_id": "hljs:1fd09916636a", "n_candidates": 0, "stage": "fallback", "answer": "Python", "top5": [["Python", 0.5], ["Python console", 0.5], ["Text", 0]], "cost": 0.0016659300000000001, "truncated": false}
+{"case_id": "hljs:3ca55a7747a0", "n_candidates": 0, "stage": "fallback", "answer": "q", "top5": [["q", 0.99], ["k", 0.01], ["Text", 0], ["z", 0]], "cost": 0.0016899119999999998, "truncated": false}
+{"case_id": "hljs:aca8b237983a", "n_candidates": 0, "stage": "fallback", "answer": "QML", "top5": [], "cost": 0.001731786, "truncated": false}
+{"case_id": "hljs:ea55c23f8ef2", "n_candidates": 0, "stage": "fallback", "answer": "R", "top5": [["R", 0.99], ["s", 0.01], ["Text", 0]], "cost": 0.001827924, "truncated": false}
+{"case_id": "hljs:d2af007d7a80", "n_candidates": 0, "stage": "fallback", "answer": "Reason", "top5": [["ReScript", 0.5], ["Reason", 0.5], ["Text", 0]], "cost": 0.0017183459999999997, "truncated": false}
+{"case_id": "hljs:bac5a994a886", "n_candidates": 0, "stage": "fallback", "answer": null, "top5": [], "cost": 0.0016845360000000001, "truncated": false}
+{"case_id": "hljs:94f68ba967c9", "n_candidates": 0, "stage": "fallback", "answer": null, "top5": [], "cost": 0.001675716, "truncated": false}
+{"case_id": "hljs:614e3eb9424d", "n_candidates": 0, "stage": "fallback", "answer": "RouterOS Script", "top5": [], "cost": 0.0016845360000000001, "truncated": false}
+{"case_id": "hljs:9f40eadef412", "n_candidates": 0, "stage": "fallback", "answer": "rsl", "top5": [["rsl", 0.84], ["Pixilang", 0.16], ["Text", 0]], "cost": 0.001682982, "truncated": false}
+{"case_id": "hljs:2f87d5e3fbba", "n_candidates": 0, "stage": "fallback", "answer": "Ruby", "top5": [], "cost": 0.0016377059999999998, "truncated": false}
+{"case_id": "hljs:83ed6efc6c5a", "n_candidates": 0, "stage": "fallback", "answer": "Ruby", "top5": [], "cost": 0.0016297259999999997, "truncated": false}
+{"case_id": "hljs:c28cddcfc025", "n_candidates": 0, "stage": "fallback", "answer": null, "top5": [], "cost": 0.0017088960000000001, "truncated": false}
+{"case_id": "hljs:4a8601aecdd1", "n_candidates": 0, "stage": "fallback", "answer": "Rust", "top5": [], "cost": 0.001649466, "truncated": false}
+{"case_id": "hljs:44756030e32f", "n_candidates": 0, "stage": "fallback", "answer": "SAS", "top5": [], "cost": 0.001695246, "truncated": false}
+{"case_id": "hljs:56a754098fa0", "n_candidates": 0, "stage": "fallback", "answer": "Scala", "top5": [["Scala", 1], ["Text", 0], ["Haskell", 0]], "cost": 0.001761774, "truncated": false}
+{"case_id": "hljs:25490a20894b", "n_candidates": 0, "stage": "fallback", "answer": "Scheme", "top5": [["Scheme", 0.95], ["Racket", 0.03], ["Common Lisp", 0.02], ["scm", 0], ["Text", 0]], "cost": 0.0017017980000000002, "truncated": false}
+{"case_id": "hljs:1af2114e1068", "n_candidates": 0, "stage": "fallback", "answer": "Scilab", "top5": [["Scilab", 0.9], ["MATLAB", 0.1], ["Text", 0]], "cost": 0.00167055, "truncated": false}
+{"case_id": "hljs:1f07ee0e1c0a", "n_candidates": 0, "stage": "fallback", "answer": "SCSS", "top5": [["SCSS", 0.84], ["Sass", 0.16], ["Text", 0], ["CSS", 0]], "cost": 0.0017459819999999999, "truncated": false}
+{"case_id": "hljs:3d6f5b674514", "n_candidates": 0, "stage": "fallback", "answer": "ShellSession", "top5": [["ShellSession", 0.98], ["Shell", 0.02], ["Text", 0], ["txt", 0]], "cost": 0.001657782, "truncated": false}
+{"case_id": "hljs:5f9de2f055f4", "n_candidates": 0, "stage": "fallback", "answer": "Smali", "top5": [["Smali", 1], ["Text", 0], ["Jasmin", 0], ["IL Assembly", 0], ["dex", 0]], "cost": 0.001799196, "truncated": false}
+{"case_id": "hljs:8501804adca5", "n_candidates": 0, "stage": "fallback", "answer": "Smalltalk", "top5": [["Smalltalk", 1], ["StringTemplate", 0], ["Text", 0]], "cost": 0.001729182, "truncated": false}
+{"case_id": "hljs:8985c6ef975d", "n_candidates": 0, "stage": "fallback", "answer": "Standard ML", "top5": [["Standard ML", 0.98], ["OCaml", 0.02], ["Text", 0]], "cost": 0.0016800839999999999, "truncated": false}
+{"case_id": "hljs:08d207c93586", "n_candidates": 0, "stage": "fallback", "answer": "SQF", "top5": [], "cost": 0.001664166, "truncated": false}
+{"case_id": "hljs:79170a9a1ebe", "n_candidates": 0, "stage": "fallback", "answer": "SQL", "top5": [["SQL", 0.99], ["TSQL", 0.01], ["Text", 0]], "cost": 0.001666938, "truncated": false}
+{"case_id": "hljs:aa210f774962", "n_candidates": 0, "stage": "fallback", "answer": "Stan", "top5": [], "cost": 0.0017227559999999998, "truncated": false}
+{"case_id": "hljs:08dc37b251f1", "n_candidates": 0, "stage": "fallback", "answer": "Stata", "top5": [], "cost": 0.001686216, "truncated": false}
+{"case_id": "hljs:ca33ef64fcbc", "n_candidates": 0, "stage": "fallback", "answer": null, "top5": [], "cost": 0.001733676, "truncated": false}
+{"case_id": "hljs:7ab7d2dc5a72", "n_candidates": 0, "stage": "fallback", "answer": "Sass", "top5": [["Sass", 0.99], ["SCSS", 0.01], ["Text", 0], ["CSS", 0]], "cost": 0.001687014, "truncated": false}
+{"case_id": "hljs:ad9b507b7c8a", "n_candidates": 0, "stage": "fallback", "answer": "Swift", "top5": [], "cost": 0.001651776, "truncated": false}
+{"case_id": "hljs:1d25b3006ea4", "n_candidates": 0, "stage": "fallback", "answer": null, "top5": [], "cost": 0.0016845360000000001, "truncated": false}
+{"case_id": "hljs:b12aa9ed2b02", "n_candidates": 0, "stage": "fallback", "answer": "Tcl", "top5": [], "cost": 0.001673196, "truncated": false}
+{"case_id": "hljs:affadb2bd821", "n_candidates": 0, "stage": "fallback", "answer": "Thrift", "top5": [["Thrift", 1], ["Text", 0], ["IDL", 0]], "cost": 0.001693188, "truncated": false}
+{"case_id": "hljs:319162dc6138", "n_candidates": 0, "stage": "fallback", "answer": null, "top5": [], "cost": 0.002004366, "truncated": false}
+{"case_id": "hljs:7870294423f5", "n_candidates": 0, "stage": "fallback", "answer": "Jinja", "top5": [["Jinja", 0.73], ["Twig", 0.19], ["Nunjucks", 0.08], ["Text", 0], ["Liquid", 0]], "cost": 0.001677984, "truncated": false}
+{"case_id": "hljs:17e7d38bc479", "n_candidates": 0, "stage": "fallback", "answer": "TypeScript", "top5": [["TypeScript", 1], ["JavaScript", 0], ["Text", 0]], "cost": 0.001665636, "truncated": false}
+{"case_id": "hljs:866631473694", "n_candidates": 0, "stage": "fallback", "answer": "Vala", "top5": [["Vala", 0.95], ["Genie", 0.05], ["Text", 0]], "cost": 0.00172452, "truncated": false}
+{"case_id": "hljs:c6320b1122a7", "n_candidates": 0, "stage": "fallback", "answer": "Visual Basic .NET", "top5": [["Visual Basic .NET", 0.83], ["visual-basic", 0.17], ["Text", 0], ["FreeBASIC", 0], ["C#", 0]], "cost": 0.001733508, "truncated": false}
+{"case_id": "hljs:5cc4484d38f2", "n_candidates": 0, "stage": "fallback", "answer": "Classic ASP", "top5": [["Classic ASP", 0.93], ["VBScript", 0.07], ["ASP.NET", 0], ["Text", 0], ["ColdFusion", 0]], "cost": 0.0016548420000000001, "truncated": false}
+{"case_id": "hljs:7e41b2f45294", "n_candidates": 0, "stage": "fallback", "answer": "VBScript", "top5": [["VBScript", 0.87], ["VBA", 0.1], ["Visual Basic 6.0", 0.01], ["visual-basic", 0.01], ["AutoIt", 0.01]], "cost": 0.0017151539999999998, "truncated": false}
+{"case_id": "hljs:fcb5a2242cc6", "n_candidates": 0, "stage": "fallback", "answer": "SystemVerilog", "top5": [["SystemVerilog", 0.98], ["Verilog", 0.02], ["Text", 0]], "cost": 0.001728594, "truncated": false}
+{"case_id": "hljs:becac19e74e5", "n_candidates": 0, "stage": "fallback", "answer": "VHDL", "top5": [], "cost": 0.001682856, "truncated": false}
+{"case_id": "hljs:4fec2572b82f", "n_candidates": 0, "stage": "fallback", "answer": "Vim script", "top5": [], "cost": 0.0016484159999999998, "truncated": false}
+{"case_id": "hljs:b5d13ec70009", "n_candidates": 0, "stage": "fallback", "answer": "WebAssembly", "top5": [], "cost": 0.001651986, "truncated": false}
+{"case_id": "hljs:15528db5be85", "n_candidates": 0, "stage": "fallback", "answer": "Wren", "top5": [], "cost": 0.001694196, "truncated": false}
+{"case_id": "hljs:6a0c1627b7a7", "n_candidates": 0, "stage": "fallback", "answer": "Assembly", "top5": [], "cost": 0.001699866, "truncated": false}
+{"case_id": "hljs:06818b66acff", "n_candidates": 0, "stage": "fallback", "answer": "Scenic", "top5": [["Scenic", 0.53], ["stella", 0.43], ["Text", 0.04]], "cost": 0.001704318, "truncated": false}
+{"case_id": "hljs:bfb465587288", "n_candidates": 0, "stage": "fallback", "answer": "HTML", "top5": [["HTML", 1], ["XML", 0], ["Text", 0]], "cost": 0.001663578, "truncated": false}
+{"case_id": "hljs:b6ebcb0357d0", "n_candidates": 0, "stage": "fallback", "answer": "XML", "top5": [], "cost": 0.0016381259999999997, "truncated": false}
+{"case_id": "hljs:ce439eac17cd", "n_candidates": 0, "stage": "fallback", "answer": "HTML", "top5": [["HTML", 0.98], ["XML", 0.02], ["Text", 0]], "cost": 0.00164619, "truncated": false}
+{"case_id": "hljs:cf393aa9b5ca", "n_candidates": 0, "stage": "fallback", "answer": "XQuery", "top5": [["XQuery", 0.98], ["xql", 0.02], ["Text", 0]], "cost": 0.001719102, "truncated": false}
+{"case_id": "hljs:5e64ddc18a3f", "n_candidates": 0, "stage": "fallback", "answer": "YAML", "top5": [["YAML", 0.98], ["MiniYAML", 0.02], ["Text", 0]], "cost": 0.001688946, "truncated": false}
+{"case_id": "hljs:0c678d549108", "n_candidates": 0, "stage": "fallback", "answer": "Hack", "top5": [["Hack", 0.9], ["PHP", 0.1], ["Text", 0]], "cost": 0.001726074, "truncated": false}

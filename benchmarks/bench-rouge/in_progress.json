@@ -1,0 +1,8 @@
+{
+ "Jev 1.13, Linguist's 804 languages, content only": "superseded by the run over Linguist's 836 languages (76f88c6); kept on bench-m and bench-linguist only",
+ "Jev 1.13, Linguist's 804 languages, with file name": "superseded by the run over Linguist's 836 languages (76f88c6); kept on bench-m and bench-linguist only",
+ "Jev 1.13, study's 63 labels, content only": "the label set of PL-ultimate-llm's extension studies (.m, COBOL, RPG, FSL): run on those benchmarks and on bench-linguist only",
+ "Jev 1.13, study's 63 labels, with file name": "the label set of PL-ultimate-llm's extension studies (.m, COBOL, RPG, FSL): run on those benchmarks and on bench-linguist only",
+ "Kev-4B Q8_0 (local, llama.cpp), Linguist's 804 languages, content only": "superseded by the run over Linguist's 836 languages (76f88c6); kept on bench-m and bench-linguist only",
+ "StarCoder2-3B (local, completion prompt), content only": "local, ~2.5 s per file (Ollama): ~0.3 h here — not run yet"
+}

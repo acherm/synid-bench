@@ -114,6 +114,9 @@ def older_release_of(meta: dict) -> str | None:
 def not_applicable(meta: dict, card: dict) -> str | None:
     if card.get("names") == "none" and needs_name(meta):
         return "answers from the file name only; this benchmark has no file names"
+    if card.get("names") == "none" and meta.get("label", "").startswith("ext-") \
+            and meta["label"].endswith("-content-only"):
+        return "this benchmark has no file names: the tool's default run is already content only"
     return None
 
 
@@ -294,6 +297,66 @@ def benchmarks_table(benches: list[Path], cards: dict[str, dict], conts: dict[st
     return out
 
 
+GLANCE_ORDER = ["bench-m", "bench-smola", "bench-linguist", "bench-pygments", "bench-rpgle", "bench-cobol",
+                "bench-fsf", "bench-hello", "bench-rosetta", "bench-hljs", "bench-rouge"]
+SHORT = {"philomath-1209/programming-language-identification": "philomath-1209 (Hugging Face)",
+         "FrameByFrame/programming-language-identification-100plus": "FrameByFrame (Hugging Face)",
+         "huggingface/CodeBERTa-language-id": "CodeBERTa-language-id (Hugging Face)",
+         "Jev 1.13, Linguist's 836 languages, with file name": "Jev 1.13, Linguist's 836 languages",
+         "Jev 1.13, PL-ultimate-llm candidates then fallback, with file name": "Jev 1.13, PL-ultimate-llm candidates (cascade)",
+         "Jev 1.13, PL-ultimate-llm candidates then fallback over 2,140 languages, with file name":
+             "Jev 1.13, cascade, fallback over 2,140 languages",
+         ", pygmentsheuristics off": ", Pygments step off"}
+
+
+def glance(ranked: list[dict], bnames: list[str], latest_synid: str | None) -> list[str]:
+    """One view for the README: one row per identifier in its main configuration (with the file name; Synid as
+    shipped and without its Pygments step), its accuracy on each benchmark, best per column in bold."""
+    def main_config(r):
+        n = r["name"]
+        if "content only" in n:
+            return False
+        if r["kind"] == "synid":
+            return n in (f"Synid {latest_synid}", f"Synid {latest_synid}, pygmentsheuristics off")
+        return True
+    rows = [r for r in ranked if main_config(r)]
+    cols = [b for b in GLANCE_ORDER if b in bnames] + [b for b in bnames if b not in GLANCE_ORDER]
+
+    def held(r, b):
+        g = r["got"].get(b)
+        return None if not g or g["home"] == "full" else g["held_accuracy"]
+    best = {b: max((held(r, b) or 0) for r in rows) for b in cols}
+
+    def cell(r, b):
+        g = r["got"].get(b)
+        if not g:
+            return "n/a" if b in r["na"] else "—"
+        if g["home"] == "full":
+            return f"{100 * g['accuracy']:.0f} †"
+        v = f"{100 * g['held_accuracy']:.0f}" + (" ‡" if g["home"] == "partial" else "")
+        return f"**{v}**" if g["held_accuracy"] == best[b] and best[b] else v
+
+    def short(n):
+        for k, v in SHORT.items():
+            n = n.replace(k, v) if k.startswith(",") else (v if n.startswith(k) else n)
+        return n
+    out = ["| # | identifier | held-out mean | " + " | ".join(b.removeprefix("bench-") for b in cols) + " |",
+           "|---:|---|---:|" + "---:|" * len(cols)]
+    for i, r in enumerate(rows, 1):
+        out.append(f"| {i} | {short(r['name'])} | {100 * r['held']:.1f} | " + " | ".join(cell(r, b) for b in cols) + " |")
+    return out
+
+
+def write_glance(lines: list[str]) -> None:
+    readme = ROOT / "README.md"
+    begin, end = "<!-- leaderboard:begin -->", "<!-- leaderboard:end -->"
+    text = readme.read_text(encoding="utf-8")
+    if begin not in text or end not in text:
+        return
+    head, rest = text.split(begin, 1)
+    readme.write_text(head + begin + "\n" + "\n".join(lines) + "\n" + end + rest.split(end, 1)[1], encoding="utf-8")
+
+
 def main() -> int:
     benches = sorted(p for p in (ROOT / "benchmarks").iterdir() if (p / "cases.csv").exists())
     cards = {b.name: read_card(b) for b in benches}
@@ -423,6 +486,10 @@ def main() -> int:
         out += ["", "## References (not ranked)", "", head, sep] + [line("–", r) for r in refs]
     out += ["", "## Entries", ""] + info_table([all_infos[r["name"]] for r in ranked + partial + older + refs])
     (ROOT / "LEADERBOARD.md").write_text("\n".join(out) + "\n", encoding="utf-8")
+    synids = sorted((m.get("date", ""), m.get("commit")) for d in metas.values() for m in d.values()
+                    if m.get("kind", "synid") == "synid" and m.get("commit") and m.get("disabled") in (None, [], "[]")
+                    and not m.get("content_only"))
+    write_glance(glance(ranked, bnames, synids[-1][1] if synids else None))
     print(f"overall: {len(ranked)} ranked entries, {len(partial)} not ranked, {len(refs)} references → LEADERBOARD.md")
     return 0
 

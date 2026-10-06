@@ -94,6 +94,8 @@ both runs are kept (Pygments' default, `guess_lexer_for_filename`, gives no answ
 
 ## Findings (2026-10-03)
 
+> Figures in this README come from the runs made when the benchmark was built (2026-10-03). Entries were rerun since (pinned images, updated name mappings) and Jev was added: [LEADERBOARD.md](LEADERBOARD.md), regenerated from the stored runs, is the reference.
+
 **The strongest home-turf effect of the three, and it fades once the tests stop.**
 
 - **highlight.js 11.12.0 ranks first: 135 / 191 (70.7 %)**, more than twice the next (Magika 1.0.3,

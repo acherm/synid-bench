@@ -101,6 +101,8 @@ of files have the same content under different names (`syntax_error.py2tb` / `.p
 
 ## Findings (2026-10-03)
 
+> Figures in this README come from the runs made when the benchmark was built (2026-10-03). Entries were rerun since (pinned images, updated name mappings) and Jev was added: [LEADERBOARD.md](LEADERBOARD.md), regenerated from the stored runs, is the reference.
+
 **The home-turf effect is real, and it is in the names and the taxonomy, not in the content.**
 
 - **Pygments 2.21.0 ranks first: 595 / 637 (93.4 %)**, against 32.3 % on bench-linguist. Pygments

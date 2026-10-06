@@ -1,5 +1,6 @@
 {
-  "_about": "Entries whose identifier was trained on Rosetta Code — their score is partly accuracy on training data. Keys are entry-name prefixes. Both models say so on their Hugging Face model cards; their training set, cakiki/rosetta-code, is a 2022 copy of the site, and how many of this benchmark's 1,589 solutions it holds is not checked. Large language models (Jev, Kev, StarCoder2) have most likely seen Rosetta Code too; not expressible here.",
-  "philomath-1209": "philomath-1209/programming-language-identification: CodeBERTa-small fine-tuned on cakiki/rosetta-code (26 languages, ~26,000 solutions), per its model card",
-  "FrameByFrame": "FrameByFrame/programming-language-identification-100plus: ModernBERT trained on cakiki/rosetta-code and The Stack v1 (107 languages, 91,209 samples), per its model card"
+ "_about": "Entries whose identifier was trained on Rosetta Code — their score is partly accuracy on training data. Keys are entry-name prefixes. Both models say so on their Hugging Face model cards; their training set, cakiki/rosetta-code, is a 2022 copy of the site, and how many of this benchmark's 1,589 solutions it holds is not checked. Large language models (Jev, Kev, StarCoder2) have most likely seen Rosetta Code too; not expressible here.",
+ "philomath-1209": "philomath-1209/programming-language-identification: CodeBERTa-small fine-tuned on cakiki/rosetta-code (26 languages, ~26,000 solutions), per its model card",
+ "FrameByFrame": "FrameByFrame/programming-language-identification-100plus: ModernBERT trained on cakiki/rosetta-code and The Stack v1 (107 languages, 91,209 samples), per its model card",
+ "Jev 1.13, PL-ultimate-llm candidates then fallback over": "its fallback list (tools/data/pl_candidates_wide.json) includes every language Rosetta Code lists, by Rosetta Code's names: the benchmark's own label set is among the options — a label-set home turf"
 }
